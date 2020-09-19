@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
     [Route("[controller]")]
     public class SearchController : ControllerBase
     {
-        private readonly ISearchController SearchLogic;
+        private readonly ISearchLogic SearchLogic;
 
         private static readonly string[] Regions = new[]{
             "Metropolitana", "CentroSur", "Este", "Litoral Norte", "Corredor de Pajaros Pintados"
