@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{FA43DB82-A1CD-4F11-92A3-3A27751548BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{FA43DB82-A1CD-4F11-92A3-3A27751548BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{528F1BA2-A689-4B7E-80B5-02E09C3E3D82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{528F1BA2-A689-4B7E-80B5-02E09C3E3D82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{5FF8AAD2-AEAF-4D94-BBFB-20588AF6B2A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{5FF8AAD2-AEAF-4D94-BBFB-20588AF6B2A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{DF3A50B9-0FE6-4975-88A2-5158FD8F8398}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{DF3A50B9-0FE6-4975-88A2-5158FD8F8398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicInterface", "LogicInterface\LogicInterface.csproj", "{3286B67B-C47C-48B9-884F-E71465932838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicInterface", "LogicInterface\LogicInterface.csproj", "{3286B67B-C47C-48B9-884F-E71465932838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A42B14DE-2677-473A-9518-3A86B5A01E0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{A42B14DE-2677-473A-9518-3A86B5A01E0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceInterface", "PersistenceInterface\PersistenceInterface.csproj", "{E1955FA6-E19F-4B21-80A3-9AD851938147}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{A42B14DE-2677-473A-9518-3A86B5A01E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A42B14DE-2677-473A-9518-3A86B5A01E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A42B14DE-2677-473A-9518-3A86B5A01E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1955FA6-E19F-4B21-80A3-9AD851938147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1955FA6-E19F-4B21-80A3-9AD851938147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1955FA6-E19F-4B21-80A3-9AD851938147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1955FA6-E19F-4B21-80A3-9AD851938147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
