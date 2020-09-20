@@ -7,11 +7,16 @@ namespace LogicInterface
 {
     public interface ISearchLogic
     {
-        IEnumerable<string> GetAllRegions();
+        IEnumerable<Region> GetAllRegions();
 
-        IEnumerable<TouristicPoints> GetTPointsByRegion(int regionId);
+        IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId);
 
-        IEnumerable<TouristicPoints> GetTPointsByRegionCat(int regionId, int category);
+        IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, int category);
+
+        IEnumerable<Category> GetAllCategories();
+        IEnumerable<TouristicPoint> GetAllTPoints();
+
+
 
     }
 }

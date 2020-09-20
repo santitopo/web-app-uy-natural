@@ -8,23 +8,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication.Controllers
 {
-
+    [Route("/categories")]
     [ApiController]
-    [Route("/regions")]
-    public class RegionsController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         private readonly ISearchLogic searchLogic;
-        public RegionsController(ISearchLogic searchLogic)
+        public CategoriesController(ISearchLogic searchLogic)
         {
             this.searchLogic = searchLogic;
         }
 
 
-        // GET: /regions
+        // GET: /categories
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(searchLogic.GetAllRegions());
+            return Ok(searchLogic.GetAllCategories());
         }
     }
 }

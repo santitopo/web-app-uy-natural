@@ -8,22 +8,51 @@ namespace Logic
 {
     public class SearchLogic : ISearchLogic
     {
-        public IEnumerable<string> GetAllRegions()
+        public IEnumerable<Region> GetAllRegions()
         {
-            string[] a = {"metropolitana", "CentroSur"};
+            Region[] a = { new Region("metropolitana"), new Region("CentroSur") };
             return a;
         }
 
-        public IEnumerable<TouristicPoints> GetTPointsByRegion(int regionId)
+        public IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId)
         {
-            TouristicPoints[] a = { };
+            TouristicPoint a = new TouristicPoint()
+            {
+                Name = "name1",
+                Description = "descrp",
+                Region = new Region(String.Format("region{0}",regionId)),
+                Categories = null,
+                Image = "img1.jpg"
+            };
+
+            TouristicPoint[] b = { a};
+            return b;
+        }
+
+        public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, int category)
+        {
+            TouristicPoint[] a = { };
             return a;
         }
 
-        public IEnumerable<TouristicPoints> GetTPointsByRegionCat(int regionId, int category)
+        public IEnumerable<Category> GetAllCategories()
         {
-            TouristicPoints[] a = { };
+            Category[] a = { new Category("metropolitana"), new Category("CentroSur") };
             return a;
+        }
+
+        public IEnumerable<TouristicPoint> GetAllTPoints()
+        {
+            TouristicPoint a = new TouristicPoint()
+            {
+                Name = "name1",
+                Description = "descrp",
+                Region = new Region("region1"),
+                Categories = null,
+                Image = "img1.jpg"
+            };
+            TouristicPoint[] b = { a };
+            return b;
         }
     }
 }

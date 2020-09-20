@@ -10,20 +10,12 @@ using Microsoft.Extensions.Logging;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("/searchs")]
-    public class SearchsController : ControllerBase
+    [Route("/tpoints")]
+    public class TPointsController : ControllerBase
     {
         private ISearchLogic searchLogic;
 
-        private static readonly string[] Regions = new[]{
-            "Metropolitana", "CentroSur", "Este", "Litoral Norte", "Corredor de Pajaros Pintados"
-        };
-
-        private static readonly string[] Categories = new[]{
-            "Playas", "Ciudades", "Pueblos", "Areas Protegidas", "Otros"
-        };
-
-        public SearchsController(ISearchLogic searchLogic)
+        public TPointsController(ISearchLogic searchLogic)
         {
             this.searchLogic= searchLogic;
         }
@@ -31,13 +23,13 @@ namespace WebApplication.Controllers
         [HttpGet]
         public IActionResult GetAllTPoints()
         {
-            return Ok("hello");
+            return Ok(searchLogic.GetAllTPoints());
         }
 
         [HttpPost]
         public IActionResult GetTuristicPointsByRegion([FromBody] int regionId)
         {
-            IEnumerable<TouristicPoints> touristicPoints = searchLogic.GetTPointsByRegion(regionId);
+            IEnumerable<TouristicPoint> touristicPoints = searchLogic.GetTPointsByRegion(regionId);
 
             if (touristicPoints != null) return Ok(touristicPoints);
             else return NotFound("No se encontraron puntos turisticos para la region " + regionId);
