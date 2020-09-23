@@ -21,6 +21,7 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
+        
         public IActionResult GetAllTPoints()
         {
             return Ok(searchLogic.GetAllTPoints());

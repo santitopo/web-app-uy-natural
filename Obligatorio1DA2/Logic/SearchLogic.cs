@@ -3,6 +3,7 @@ using LogicInterface;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Models;
 
 namespace Logic
 {
@@ -53,6 +54,18 @@ namespace Logic
             };
             TouristicPoint[] b = { a };
             return b;
+        }
+
+        public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, IEnumerable<int> category)
+        {
+            throw new NotImplementedException();
+        }
+
+        //PRE:
+        //POS: Returns a list of Lodgings with total prices for the period
+        public IEnumerable<LodgingSearchResultModel> SearchLodgings(LodgingSearchModel Search)
+        {
+            throw new NotImplementedException();
         }
     }
 }

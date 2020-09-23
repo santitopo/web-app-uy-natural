@@ -29,6 +29,7 @@ namespace WebApplication
         {
 
             services.AddScoped<ISearchLogic, SearchLogic>();
+            services.AddScoped<ILodgingLogic, LodgingLogic>();
             services.AddControllers();
 
         }
