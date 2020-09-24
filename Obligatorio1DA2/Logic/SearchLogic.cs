@@ -4,15 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Models;
+using PersistenceInterface;
 
 namespace Logic
 {
     public class SearchLogic : ISearchLogic
     {
+        private IRepository<Region> repository;
+
+        public SearchLogic(IRepository<Region> repository)
+        {
+            this.repository = repository;
+        }
+
         public IEnumerable<Region> GetAllRegions()
         {
-            Region[] a = { new Region("metropolitana"), new Region("CentroSur") };
-            return a;
+            return repository.GetAll();
         }
 
         public IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId)

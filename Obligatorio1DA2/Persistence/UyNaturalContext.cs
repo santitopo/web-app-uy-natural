@@ -21,8 +21,7 @@ namespace Persistence
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseLazyLoadingProxies();
-            //optionsBuilder.EnableSensitiveDataLogging();
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,9 +30,15 @@ namespace Persistence
             //modelBuilder.Entity<Author>().Property(a => a.Username).HasMaxLength(10);
 
             //Inheritance
+            modelBuilder.Entity<Person>()
+                .HasDiscriminator<int>("PersonType")
+                .HasValue<Client>(1)
+                .HasValue<Administrator>(2);
+
             /*
             modelBuilder.Entity<Administrator>().ToTable("Admin");
             modelBuilder.Entity<Client>().ToTable("Client");
+            */
 
             //Many to many TouristicPoints-Category
             modelBuilder.Entity<TouristicPointsCategory>()
@@ -48,7 +53,6 @@ namespace Persistence
                 .HasOne(x => x.Category)
                 .WithMany(x => x.TouristicPointsCategory)
                 .HasForeignKey(x => x.CategoryId);
-            */
         }
     }
 }

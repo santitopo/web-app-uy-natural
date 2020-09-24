@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\LogicInterface\LogicInterface.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\PersistenceInterface\PersistenceInterface.csproj" />
   </ItemGroup>
 
 </Project>

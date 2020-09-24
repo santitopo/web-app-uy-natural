@@ -2314,7 +2314,8 @@
         "dependencies": {
           "Domain": "1.0.0",
           "LogicInterface": "1.0.0",
-          "Models": "1.0.0"
+          "Models": "1.0.0",
+          "PersistenceInterface": "1.0.0"
         },
         "runtime": {
           "Logic.dll": {}

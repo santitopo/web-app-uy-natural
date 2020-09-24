@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +30,11 @@ namespace WebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<DbContext, UyNaturalContext>(
+                o => o.UseSqlServer(Configuration.GetConnectionString("Obligatorio1DA2"))
+            );
+
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<ISearchLogic, SearchLogic>();
             services.AddScoped<ILodgingLogic, LodgingLogic>();
