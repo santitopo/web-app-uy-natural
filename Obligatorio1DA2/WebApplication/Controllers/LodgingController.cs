@@ -16,12 +16,12 @@ namespace WebApplication.Controllers
     {
         private readonly ISearchLogic searchLogic;
         private readonly ILodgingLogic lodgingLogic;
+
         public LodgingController(ISearchLogic searchLogic, ILodgingLogic lodgingLogic)
         {
             this.searchLogic = searchLogic;
             this.lodgingLogic = lodgingLogic;
         }
-
 
         // POST: /lodgings
         [HttpPost]
@@ -30,7 +30,6 @@ namespace WebApplication.Controllers
             IEnumerable<LodgingSearchResultModel> touristicPoints = lodgingLogic.SearchLodgings(search);
             return Ok(touristicPoints);
         }
-
 
     }
 }

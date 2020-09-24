@@ -7,6 +7,7 @@ namespace Domain
 {
     public class Reservation
     {
+        public int Id { get; set; }
         public int Code { get; set; }
         public Lodging Lodging { get; set; }
         public Client Client { get; set; }
