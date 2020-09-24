@@ -19,15 +19,19 @@ namespace Persistence
         {
 
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+            //optionsBuilder.EnableSensitiveDataLogging();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             //Properties
             //modelBuilder.Entity<Author>().Property(a => a.Username).HasMaxLength(10);
 
             //Inheritance
+            /*
             modelBuilder.Entity<Administrator>().ToTable("Admin");
             modelBuilder.Entity<Client>().ToTable("Client");
 
@@ -44,7 +48,7 @@ namespace Persistence
                 .HasOne(x => x.Category)
                 .WithMany(x => x.TouristicPointsCategory)
                 .HasForeignKey(x => x.CategoryId);
-
+            */
         }
     }
 }

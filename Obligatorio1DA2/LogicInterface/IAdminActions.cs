@@ -29,7 +29,7 @@ namespace LogicInterface
 
         //PRE: 
         //POS: Modify the state of an existing reservation
-        void ModifyReservationState(int reservationId, string aDescription);
+        void ModifyReservationState(int reservationId, int stateId, string aDescription);
 
         //PRE:
         //POS: Add a new admin to the system

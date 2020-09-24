@@ -38,6 +38,11 @@ namespace Logic
             throw new NotImplementedException();
         }
 
+        public void ModifyReservationState(int reservationId, int stateId, string aDescription)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveAdmin(int adminId)
         {
             throw new NotImplementedException();

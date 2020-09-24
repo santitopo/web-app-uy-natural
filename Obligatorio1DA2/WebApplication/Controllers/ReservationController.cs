@@ -22,9 +22,9 @@ namespace WebApplication.Controllers
 
         // POST: /reservation
         [HttpPost]
-        public IActionResult Post([FromBody] LodgingSearchModel search, Client client)
+        public IActionResult Post([FromBody] LodgingSearchModel search, int lodgingId)
         {
-            BillModel bill = reservationLogic.ReserveLodging(search, client);
+            BillModel bill = reservationLogic.ReserveLodging(search, lodgingId);
             return Ok(bill);
         }
 

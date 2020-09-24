@@ -9,7 +9,7 @@ namespace Logic
 {
     public class ReservationLogic : IReservationLogic
     {
-        public BillModel ReserveLodging(LodgingSearchModel search, Client client)
+        public BillModel ReserveLodging(LodgingSearchModel search, int lodgingId)
         {
             throw new NotImplementedException();
         }

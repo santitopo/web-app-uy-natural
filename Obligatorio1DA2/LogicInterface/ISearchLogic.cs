@@ -10,11 +10,14 @@ namespace LogicInterface
     {
         IEnumerable<Region> GetAllRegions();
 
+        void AddRegions(Region region);
+
         IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId);
 
         IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, IEnumerable<int> categories);
 
         IEnumerable<Category> GetAllCategories();
+
         IEnumerable<TouristicPoint> GetAllTPoints();
 
         

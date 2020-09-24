@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{A42B14DE-2677-473A-9518-3A86B5A01E0C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{445A20B8-69C3-466C-A3CC-44F3AE4BCC68}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "WebApplication\WebApplication.csproj", "{588AE9A2-7599-4509-960D-9780CBAE7E17}"
@@ -17,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicInterface", "LogicInte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{7B771B91-7242-4D64-847B-683BF38742F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{7FFE8D57-E370-4F43-88F3-358AED255DB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{7FFE8D57-E370-4F43-88F3-358AED255DB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A42B14DE-2677-473A-9518-3A86B5A01E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A42B14DE-2677-473A-9518-3A86B5A01E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A42B14DE-2677-473A-9518-3A86B5A01E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A42B14DE-2677-473A-9518-3A86B5A01E0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{445A20B8-69C3-466C-A3CC-44F3AE4BCC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{445A20B8-69C3-466C-A3CC-44F3AE4BCC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{445A20B8-69C3-466C-A3CC-44F3AE4BCC68}.Release|Any CPU.ActiveCfg = Release|Any CPU

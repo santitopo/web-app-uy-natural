@@ -9,7 +9,8 @@
       "Logic/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
-          "LogicInterface": "1.0.0"
+          "LogicInterface": "1.0.0",
+          "Models": "1.0.0"
         },
         "runtime": {
           "Logic.dll": {}
@@ -22,10 +23,19 @@
       },
       "LogicInterface/1.0.0": {
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Models": "1.0.0"
         },
         "runtime": {
           "LogicInterface.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Models.dll": {}
         }
       }
     }
@@ -42,6 +52,11 @@
       "sha512": ""
     },
     "LogicInterface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

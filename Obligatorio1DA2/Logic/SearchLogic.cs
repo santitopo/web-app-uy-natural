@@ -17,17 +17,7 @@ namespace Logic
 
         public IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId)
         {
-            TouristicPoint a = new TouristicPoint()
-            {
-                Name = "name1",
-                Description = "descrp",
-                Region = new Region(String.Format("region{0}",regionId)),
-                Categories = null,
-                Image = "img1.jpg"
-            };
-
-            TouristicPoint[] b = { a};
-            return b;
+            return null;
         }
 
         public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, int category)
@@ -49,7 +39,7 @@ namespace Logic
                 Name = "name1",
                 Description = "descrp",
                 Region = new Region("region1"),
-                Categories = null,
+                TouristicPointsCategory = null,
                 Image = "img1.jpg"
             };
             TouristicPoint[] b = { a };
@@ -64,6 +54,11 @@ namespace Logic
         //PRE:
         //POS: Returns a list of Lodgings with total prices for the period
         public IEnumerable<LodgingSearchResultModel> SearchLodgings(LodgingSearchModel search)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddRegions(Region region)
         {
             throw new NotImplementedException();
         }
