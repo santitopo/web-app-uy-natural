@@ -34,12 +34,16 @@ namespace WebApplication
             services.AddDbContext<DbContext, UyNaturalContext>(
                 o => o.UseSqlServer(Configuration.GetConnectionString("Obligatorio1DA2"))
             );
-
+            //Dependency injection Repositories
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(ITPointRepository), typeof(TPointRepository));
+
+            //Dependency injection Logic Interfaces
             services.AddScoped<ISearchLogic, SearchLogic>();
             services.AddScoped<ILodgingLogic, LodgingLogic>();
             services.AddScoped<IAdminActions, AdminActions>();
             services.AddScoped<IReservationLogic, ReservationLogic>();
+
             services.AddControllers();
         }
 

@@ -27,13 +27,18 @@ namespace WebApplication.Controllers
             return Ok(searchLogic.GetAllTPoints());
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetTPointsByRegion(int regionId)
+        ///tpoints/by-region?regionId=3
+        [HttpGet("by-region")]
+        public IActionResult GetTPointsByRegion([FromQuery] int regionId)
         {
             IEnumerable<TouristicPoint> touristicPoints = searchLogic.GetTPointsByRegion(regionId);
 
             if (touristicPoints != null) return Ok(touristicPoints);
             else return NotFound("No se encontraron puntos turisticos para la region " + regionId);
         }
+
+
+        
+
     }
 }

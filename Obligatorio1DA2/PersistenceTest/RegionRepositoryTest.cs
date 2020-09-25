@@ -32,7 +32,8 @@ namespace PersistenceTest
                 context.Set<Region>().Add(region2);
                 context.SaveChanges();
 
-                IEnumerable<Region> regions = repository.GetAll();
+                string[] strlst = {};
+                IEnumerable<Region> regions = repository.GetAll(strlst);
                 Assert.AreEqual(2, regions.Count());
             }
         }

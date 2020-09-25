@@ -9,8 +9,8 @@ namespace Persistence
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly DbSet<T> DbSet;
-        private readonly DbContext context;
+        protected DbSet<T> DbSet;
+        protected DbContext context;
         public Repository(DbContext context)
         {
             this.DbSet = context.Set<T>();
@@ -31,9 +31,23 @@ namespace Persistence
             return DbSet.Find(id);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string[] includes)
         {
-            return DbSet.ToList();
+            string concat = "";
+            if (includes.Length > 0)
+            {
+                concat = includes[0];
+                for (int i = 1; i < includes.Length; i++)
+                {
+                    concat += "." + includes[i];
+                }
+
+                return DbSet.Include(concat).ToList();
+            }
+            else
+            {
+                return DbSet.ToList();
+            }
         }
 
         public void Save()

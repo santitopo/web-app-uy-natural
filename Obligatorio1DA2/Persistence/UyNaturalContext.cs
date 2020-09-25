@@ -17,7 +17,7 @@ namespace Persistence
 
         public UyNaturalContext(DbContextOptions options) : base(options)
         {
-
+           
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -54,5 +54,7 @@ namespace Persistence
                 .WithMany(x => x.TouristicPointsCategory)
                 .HasForeignKey(x => x.CategoryId);
         }
+
+        
     }
 }

@@ -16,9 +16,10 @@ namespace LogicTest
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
-            var mock3 = new Mock<IRepository<TouristicPoint>>(MockBehavior.Strict);
+            var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
             SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
-            mock1.Setup(x => x.GetAll()).Returns(It.IsAny<IEnumerable<Region>>);
+            string[] strlst = {};
+            mock1.Setup(x => x.GetAll(strlst)).Returns(It.IsAny<IEnumerable<Region>>);
 
             IEnumerable<Region> ret = logic.GetAllRegions();
 
@@ -30,8 +31,9 @@ namespace LogicTest
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
-            var mock3 = new Mock<IRepository<TouristicPoint>>(MockBehavior.Strict);
+            var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
             SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
+
             Region region = new Region()
             {
                 Id = 1,
@@ -46,20 +48,47 @@ namespace LogicTest
                 Region = region,
                 TouristicPointsCategory = null,
             };
-            List<TouristicPoint> lst = new List<TouristicPoint>();
-            lst.Add(tp);
+            List<TouristicPoint> expectedLst = new List<TouristicPoint>();
+            expectedLst.Add(tp);
 
-            mock1.Setup(x => x.Get(1)).Returns(region);
-            mock3.Setup(x => x.GetAll()).Returns(lst);
+            mock3.Setup(x => x.FindByRegion(1)).Returns(expectedLst);
 
             IEnumerable<TouristicPoint> ret = logic.GetTPointsByRegion(1);
 
-            mock1.VerifyAll();
             mock3.VerifyAll();
+            CollectionAssert.AreEqual(ret.ToList(), expectedLst);
+        }
 
-            
-            CollectionAssert.AreEqual(ret.ToList(), lst);
-                }
+        [TestMethod]
+        public void GetAllTPointsOk()
+        {
+            var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
+            SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
+            string[] strlst = {"Region"};
+            mock3.Setup(x => x.GetAll(strlst)).Returns(It.IsAny<IEnumerable<TouristicPoint>>);
+
+            IEnumerable<TouristicPoint> ret = logic.GetAllTPoints();
+
+            mock3.VerifyAll();
+        }
+
+        [TestMethod]
+        public void GetAllCategoriesOk()
+        {
+            var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
+            SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
+            string[] strlst = { };
+            mock2.Setup(x => x.GetAll(strlst)).Returns(It.IsAny<IEnumerable<Category>>);
+
+            IEnumerable<Category> ret = logic.GetAllCategories();
+
+            mock2.VerifyAll();
+        }
+
 
     }
 

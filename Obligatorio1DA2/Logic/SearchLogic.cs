@@ -12,11 +12,11 @@ namespace Logic
     {
         private IRepository<Region> regionRepository;
         private IRepository<Category> categoryRepository;
-        private IRepository<TouristicPoint> tpointRepository;
+        private ITPointRepository tpointRepository;
 
         public SearchLogic(IRepository<Region> regionRepository, 
                            IRepository<Category> categoryRepository,
-                           IRepository<TouristicPoint> tpointRepository)
+                           ITPointRepository tpointRepository)
         {
             this.regionRepository = regionRepository;
             this.categoryRepository = categoryRepository;
@@ -25,23 +25,30 @@ namespace Logic
 
         public IEnumerable<Region> GetAllRegions()
         {
-            return regionRepository.GetAll();
+            string[] param = {};
+            return regionRepository.GetAll(param);
         }
 
         public IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId)
         {
-            Region region = regionRepository.Get(regionId);
-            IEnumerable <TouristicPoint> tpoints = tpointRepository.GetAll();
-            List<TouristicPoint> ret = new List<TouristicPoint>();
-            foreach (TouristicPoint tp in tpoints) {
-                if (tp.Region.Equals(region))
-                {
-                    ret.Add(tp);
-                }
-            }
-            
-            return ret;
+           IEnumerable <TouristicPoint> filteredTPoints = tpointRepository.FindByRegion(regionId);
+           return filteredTPoints;
         }
+        
+        public IEnumerable<TouristicPoint> GetAllTPoints()
+        {
+            string[] param = { "Region" };
+            return tpointRepository.GetAll(param);
+        }
+
+        public IEnumerable<Category> GetAllCategories()
+        {
+            string[] param = {};
+            return categoryRepository.GetAll(param);
+        }
+
+
+        //Not implemented
 
         public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, int category)
         {
@@ -49,24 +56,8 @@ namespace Logic
             return a;
         }
 
-        public IEnumerable<Category> GetAllCategories()
-        {
-            return categoryRepository.GetAll();
-        }
-
-        public IEnumerable<TouristicPoint> GetAllTPoints()
-        {
-            TouristicPoint a = new TouristicPoint()
-            {
-                Name = "name1",
-                Description = "descrp",
-                Region = new Region("region1"),
-                TouristicPointsCategory = null,
-                Image = "img1.jpg"
-            };
-            TouristicPoint[] b = { a };
-            return b;
-        }
+        
+        
 
         public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, IEnumerable<int> category)
         {
