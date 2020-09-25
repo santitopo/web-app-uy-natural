@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace WebApplicationTest
 {
     [TestClass]
-    public class UnitTest1
+    public class RegionsControllerTest
     {
         [TestMethod]
         public void TestMethod1()

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Tests/1.0.0": {
+      "WebApplicationTest/1.0.0": {
         "dependencies": {
           "MSTest.TestAdapter": "2.1.0",
           "MSTest.TestFramework": "2.1.0",
@@ -14,7 +14,7 @@
           "coverlet.collector": "1.2.0"
         },
         "runtime": {
-          "Tests.dll": {}
+          "WebApplicationTest.dll": {}
         }
       },
       "coverlet.collector/1.2.0": {},
@@ -1073,7 +1073,7 @@
     }
   },
   "libraries": {
-    "Tests/1.0.0": {
+    "WebApplicationTest/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
