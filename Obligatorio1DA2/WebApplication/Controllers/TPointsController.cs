@@ -27,8 +27,8 @@ namespace WebApplication.Controllers
             return Ok(searchLogic.GetAllTPoints());
         }
 
-        [HttpPost]
-        public IActionResult GetTuristicPointsByRegion([FromBody] int regionId)
+        [HttpGet("{id}")]
+        public IActionResult GetTPointsByRegion(int regionId)
         {
             IEnumerable<TouristicPoint> touristicPoints = searchLogic.GetTPointsByRegion(regionId);
 

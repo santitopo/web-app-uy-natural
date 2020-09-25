@@ -10,21 +10,37 @@ namespace Logic
 {
     public class SearchLogic : ISearchLogic
     {
-        private IRepository<Region> repository;
+        private IRepository<Region> regionRepository;
+        private IRepository<Category> categoryRepository;
+        private IRepository<TouristicPoint> tpointRepository;
 
-        public SearchLogic(IRepository<Region> repository)
+        public SearchLogic(IRepository<Region> regionRepository, 
+                           IRepository<Category> categoryRepository,
+                           IRepository<TouristicPoint> tpointRepository)
         {
-            this.repository = repository;
+            this.regionRepository = regionRepository;
+            this.categoryRepository = categoryRepository;
+            this.tpointRepository = tpointRepository;
         }
 
         public IEnumerable<Region> GetAllRegions()
         {
-            return repository.GetAll();
+            return regionRepository.GetAll();
         }
 
         public IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId)
         {
-            return null;
+            Region region = regionRepository.Get(regionId);
+            IEnumerable <TouristicPoint> tpoints = tpointRepository.GetAll();
+            List<TouristicPoint> ret = new List<TouristicPoint>();
+            foreach (TouristicPoint tp in tpoints) {
+                if (tp.Region.Equals(region))
+                {
+                    ret.Add(tp);
+                }
+            }
+            
+            return ret;
         }
 
         public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, int category)
@@ -35,8 +51,7 @@ namespace Logic
 
         public IEnumerable<Category> GetAllCategories()
         {
-            Category[] a = { new Category("metropolitana"), new Category("CentroSur") };
-            return a;
+            return categoryRepository.GetAll();
         }
 
         public IEnumerable<TouristicPoint> GetAllTPoints()

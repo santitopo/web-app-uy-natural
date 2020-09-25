@@ -28,12 +28,5 @@ namespace WebApplication.Controllers
         }
 
 
-        // POST: 
-        [HttpPost]
-        public IActionResult Post([FromBody] Region aRegion)
-        {
-            searchLogic.AddRegions(aRegion);
-            return Ok();
-        }
     }
 }

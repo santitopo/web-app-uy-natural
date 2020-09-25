@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{7FFE8D57-E370-4F43-88F3-358AED255DB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationTest", "WebApplicationTest\WebApplicationTest.csproj", "{0F8645A5-B0E4-4104-A3FC-C9AF4DFDA08F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationTest", "WebApplicationTest\WebApplicationTest.csproj", "{0F8645A5-B0E4-4104-A3FC-C9AF4DFDA08F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicTest", "LogicTest\LogicTest.csproj", "{CFAEBD36-4CDA-47C4-8B14-38960C3C4634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicTest", "LogicTest\LogicTest.csproj", "{CFAEBD36-4CDA-47C4-8B14-38960C3C4634}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceTest", "PersistenceTest\PersistenceTest.csproj", "{9D3E704B-2253-47CC-B8C2-E8C162FF355C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{CFAEBD36-4CDA-47C4-8B14-38960C3C4634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFAEBD36-4CDA-47C4-8B14-38960C3C4634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFAEBD36-4CDA-47C4-8B14-38960C3C4634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D3E704B-2253-47CC-B8C2-E8C162FF355C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D3E704B-2253-47CC-B8C2-E8C162FF355C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D3E704B-2253-47CC-B8C2-E8C162FF355C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D3E704B-2253-47CC-B8C2-E8C162FF355C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

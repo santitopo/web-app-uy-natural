@@ -18,5 +18,19 @@ namespace Domain
         {
             Name = name;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Region))
+            {
+                return false;
+            }
+            return Name == ((Region)obj).Name;
+        }
+
     }
 }
