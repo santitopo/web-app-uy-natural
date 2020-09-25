@@ -1,0 +1,17 @@
+  Dudas
+-----------------------------
+
+1- LogicInterface --> puedo pasarle el objeto o necesariamente tengo que pasar todos los atributos? 
+void AddTouristicPoint(TouristicPoint aTouristicPoint);
+
+2- En la parte WebAPI --> Como funciona explicitamente? Me traigo las cosas de la pagina? de la bdd? 
+        
+// POST: /reservation
+        [HttpPost]
+        public IActionResult Post([FromBody] LodgingSearchModel search, Client client)
+        {
+            BillModel bill = reservationLogic.ReserveLodging(search, client);
+            return Ok(bill);
+        }
+
+3- Mapeo de realciones. en especial N-N
