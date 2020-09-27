@@ -46,12 +46,12 @@ namespace Persistence
 
             modelBuilder.Entity<TouristicPointsCategory>()
                 .HasOne(x => x.TouristicPoint)
-                .WithMany(x => x.TouristicPointsCategory)
+                .WithMany(x => x.Categories)
                 .HasForeignKey(x => x.TouristicPointId);
 
             modelBuilder.Entity<TouristicPointsCategory>()
                 .HasOne(x => x.Category)
-                .WithMany(x => x.TouristicPointsCategory)
+                .WithMany(x => x.TouristicPoints)
                 .HasForeignKey(x => x.CategoryId);
         }
 

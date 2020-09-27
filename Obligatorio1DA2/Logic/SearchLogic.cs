@@ -50,18 +50,10 @@ namespace Logic
 
         //Not implemented
 
-        public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, int category)
+        public IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories)
         {
-            TouristicPoint[] a = { };
-            return a;
-        }
-
-        
-        
-
-        public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, IEnumerable<int> category)
-        {
-            throw new NotImplementedException();
+           
+            return tpointRepository.FindByRegionCat(regionId, categories);
         }
 
         //PRE:

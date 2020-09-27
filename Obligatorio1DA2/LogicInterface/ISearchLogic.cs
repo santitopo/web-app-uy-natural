@@ -18,11 +18,10 @@ namespace LogicInterface
         //Missing
         IEnumerable<TouristicPoint> GetAllTPoints();
 
-        IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, IEnumerable<int> categories);
-        
-     
+        IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories);
 
-        
+
+
 
     }
 }

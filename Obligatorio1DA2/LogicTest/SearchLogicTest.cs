@@ -46,7 +46,7 @@ namespace LogicTest
                 Image = "hotel.png",
                 Name = "Barradas",
                 Region = region,
-                TouristicPointsCategory = null,
+                Categories = null,
             };
             List<TouristicPoint> expectedLst = new List<TouristicPoint>();
             expectedLst.Add(tp);

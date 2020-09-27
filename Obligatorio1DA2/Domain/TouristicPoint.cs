@@ -10,7 +10,7 @@ namespace Domain
         public string Name { get; set; }
         public string Description { get; set; }
         public Region Region { get; set; }
-        public List<TouristicPointsCategory> TouristicPointsCategory { get; set; }
+        public List<TouristicPointsCategory> Categories { get; set; }
         public string Image { get; set; }
 
         public TouristicPoint()
