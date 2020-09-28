@@ -10,5 +10,6 @@ namespace PersistenceInterface
         IEnumerable<TouristicPoint> FindByRegion(int regionId);
 
         IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories);
+
     }
 }

@@ -7,6 +7,7 @@ using LogicInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+
 namespace WebApplication.Controllers
 {
     [ApiController]
@@ -17,39 +18,46 @@ namespace WebApplication.Controllers
 
         public TPointsController(ISearchLogic searchLogic)
         {
-            this.searchLogic= searchLogic;
+            this.searchLogic = searchLogic;
         }
 
         [HttpGet]
-        
+
         public IActionResult GetAllTPoints()
         {
-            ////delete this
-            //int[] a = { 1, 2 };
-            //IEnumerable<TouristicPoint> touristicPoints = searchLogic.FindByRegionCat(1, a);
-            //return Ok(touristicPoints);
-            ////      
             return Ok(searchLogic.GetAllTPoints());
         }
 
-        ///tpoints/by-region?regionId=3
-        [HttpGet("by-region")]
-        public IActionResult GetTPointsByRegion([FromQuery] int regionId)
+        ///tpoints/filter?regionId=3&categories=2&categories=3 --> filter by reg & cats
+        ///tpoints/filter?regionId=3 --> filter by reg
+        [HttpGet("filter")]
+        public IActionResult GetTPointsByRegionCat([FromQuery] int regionId, [FromQuery] int[] categories)
         {
-            IEnumerable<TouristicPoint> touristicPoints = searchLogic.GetTPointsByRegion(regionId);
+            try
+            {
+                IEnumerable<TouristicPoint> touristicPoints;
 
-            if (touristicPoints != null) return Ok(touristicPoints);
-            else return NotFound("No se encontraron puntos turisticos para la region " + regionId);
-        }
-
-        ///tpoints/by-region?regionId=3
-        [HttpGet("by-region-cat")]
-        public IActionResult FindTPointsByRegionCat([FromQuery] int regionId, [FromQuery] IEnumerable<int> categories)
-        {
-            IEnumerable<TouristicPoint> touristicPoints = searchLogic.FindByRegionCat(regionId, categories);
-
-            if (touristicPoints != null) return Ok(touristicPoints);
-            else return NotFound("No se encontraron puntos turisticos para la region " + regionId + " con las categorias seleccionadas");
+                if (categories != null && categories.Length > 0)
+                {
+                    touristicPoints = searchLogic.FindByRegionCat(regionId, categories);
+                }
+                else
+                {
+                    touristicPoints = searchLogic.GetTPointsByRegion(regionId);
+                }
+                if (touristicPoints != null)
+                {
+                    return Ok(touristicPoints);
+                }
+                else
+                {
+                    return NotFound("No se encontraron puntos turisticos para la region " + regionId + " con las categorias seleccionadas");
+                }
+            }
+            catch
+            {
+                return StatusCode(500);                   
+            }
         }
 
 

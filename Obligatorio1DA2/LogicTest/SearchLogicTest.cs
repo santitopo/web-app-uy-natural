@@ -12,7 +12,7 @@ namespace LogicTest
     public class SearchLogicTest
     {
         [TestMethod]
-        public void GetAllRegionsOk()
+        public void GetAllRegions()
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
@@ -27,7 +27,7 @@ namespace LogicTest
         }
 
         [TestMethod]
-        public void GetTPointsByRegionOk()
+        public void GetTPointsByRegion()
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
@@ -60,7 +60,7 @@ namespace LogicTest
         }
 
         [TestMethod]
-        public void GetAllTPointsOk()
+        public void GetAllTPoints()
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
@@ -75,7 +75,7 @@ namespace LogicTest
         }
 
         [TestMethod]
-        public void GetAllCategoriesOk()
+        public void GetAllCategories()
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
@@ -89,7 +89,20 @@ namespace LogicTest
             mock2.VerifyAll();
         }
 
+        [TestMethod]
+        public void FindByRegionCat()
+        {
+            var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
+            SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
+            int[] categories= { };
+            mock3.Setup(x => x.FindByRegionCat(1,categories)).Returns(It.IsAny<IEnumerable<TouristicPoint>>);
 
+            IEnumerable<TouristicPoint> ret = logic.FindByRegionCat(1,categories);
+
+            mock2.VerifyAll();
+        }
     }
 
 

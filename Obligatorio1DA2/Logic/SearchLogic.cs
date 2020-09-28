@@ -47,17 +47,17 @@ namespace Logic
             return categoryRepository.GetAll(param);
         }
 
-
-        //Not implemented
-
         public IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories)
         {
            
             return tpointRepository.FindByRegionCat(regionId, categories);
         }
 
+        //Not implemented
+
         //PRE:
         //POS: Returns a list of Lodgings with total prices for the period
+
         public IEnumerable<LodgingSearchResultModel> SearchLodgings(LodgingSearchModel search)
         {
             throw new NotImplementedException();
