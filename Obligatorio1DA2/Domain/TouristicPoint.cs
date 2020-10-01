@@ -17,5 +17,18 @@ namespace Domain
         {
 
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is TouristicPoint))
+            {
+                return false;
+            }
+            return Name == ((TouristicPoint)obj).Name;
+        }
     }
 }

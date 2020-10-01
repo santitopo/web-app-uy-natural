@@ -42,14 +42,15 @@ namespace WebApplication
             //Dependency injection Repositories
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(ITPointRepository), typeof(TPointRepository));
+            services.AddScoped(typeof(IUserRepository), typeof(UserSessionRepository));
 
             //Dependency injection Logic Interfaces
             services.AddScoped<ISearchLogic, SearchLogic>();
             services.AddScoped<ILodgingLogic, LodgingLogic>();
-            services.AddScoped<IAdminActions, AdminActions>();
+            services.AddScoped<IAdminLogic, AdminLogic>();
             services.AddScoped<IReservationLogic, ReservationLogic>();
+            services.AddScoped<ISessionLogic, SessionLogic>();
 
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

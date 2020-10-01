@@ -17,7 +17,7 @@ namespace WebApplicationTest
         public void GetCategoriesOk()
         {
             var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
-            RegionsController controller = new RegionsController(logicMock.Object);
+            RegionController controller = new RegionController(logicMock.Object);
 
             logicMock.Setup(x => x.GetAllCategories()).Returns(It.IsAny<IEnumerable<Category>>());
 

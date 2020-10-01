@@ -18,5 +18,18 @@ namespace Domain
         {
             Name = name;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Category))
+            {
+                return false;
+            }
+            return Name == ((Category)obj).Name;
+        }
     }
 }

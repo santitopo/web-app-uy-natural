@@ -9,8 +9,8 @@ namespace Persistence
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected DbSet<T> DbSet;
-        protected DbContext context;
+        private DbSet<T> DbSet;
+        private DbContext context;
         public Repository(DbContext context)
         {
             this.DbSet = context.Set<T>();

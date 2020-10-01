@@ -17,5 +17,6 @@ namespace Domain
         {
             Password = password;
         }
+
     }
 }

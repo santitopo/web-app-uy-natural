@@ -20,5 +20,17 @@ namespace Domain
         {
 
         }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Reservation))
+            {
+                return false;
+            }
+            return Code == ((Reservation)obj).Code;
+        }
     }
 }

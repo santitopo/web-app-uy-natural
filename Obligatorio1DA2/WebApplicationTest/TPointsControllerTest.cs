@@ -2,8 +2,10 @@
 using LogicInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Models;
 using Moq;
 using System.Collections.Generic;
+using System.Net.Http;
 using WebApplication.Controllers;
 
 
@@ -16,7 +18,8 @@ namespace WebApplicationTest
         public void GetAllTPoints()
         {
             var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
-            TPointsController controller = new TPointsController(logicMock.Object);
+            var otherMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            TPointController controller = new TPointController(logicMock.Object, otherMock.Object);
 
             List<TouristicPoint> ret = new List<TouristicPoint>();
             ret.Add(new TouristicPoint() { });
@@ -35,7 +38,8 @@ namespace WebApplicationTest
         public void GetTPointsByRegion()
         {
             var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
-            TPointsController controller = new TPointsController(logicMock.Object);
+            var otherMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            TPointController controller = new TPointController(logicMock.Object, otherMock.Object);
 
             List<TouristicPoint> ret = new List<TouristicPoint>();
             ret.Add(new TouristicPoint() { });
@@ -54,7 +58,8 @@ namespace WebApplicationTest
         public void GetTPointsByRegionCat()
         {
             var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
-            TPointsController controller = new TPointsController(logicMock.Object);
+            var otherMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            TPointController controller = new TPointController(logicMock.Object, otherMock.Object);
 
             List<TouristicPoint> ret = new List<TouristicPoint>();
             ret.Add(new TouristicPoint() { });
@@ -67,6 +72,59 @@ namespace WebApplicationTest
             var value = okResult.Value as IEnumerable<TouristicPoint>;
 
             logicMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void PostOk()
+        {
+            var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            TPointController controller = new TPointController(logicMock.Object, adminMock.Object);
+
+            int[] categories = { 1, 2, 3 };
+
+            TouristicPointModel tpModel = new TouristicPointModel() 
+            {
+                Categories = categories,
+                RegionId = 1,
+            };
+
+            TouristicPoint tp = new TouristicPoint();
+
+            adminMock.Setup(x => x.AddTouristicPoint(It.IsAny<TouristicPoint>(), It.IsAny<int>(), It.IsAny<int[]>()))
+                .Returns(tp);
+
+            var result = controller.Post(tpModel);
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as TouristicPoint;
+
+            adminMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void PostStatusCode409()
+        {
+            var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            TPointController controller = new TPointController(logicMock.Object, adminMock.Object);
+
+            int[] categories = { 1, 2, 3 };
+
+            TouristicPointModel tpModel = new TouristicPointModel()
+            {
+                Categories = categories,
+                RegionId = 1,
+            };
+
+            TouristicPoint tp = null;
+
+            adminMock.Setup(x => x.AddTouristicPoint(It.IsAny<TouristicPoint>(), It.IsAny<int>(), It.IsAny<int[]>()))
+                .Returns(tp);
+            var result = controller.Post(tpModel);
+            var response = result as ObjectResult;
+
+            Assert.AreEqual(409, response.StatusCode);
+            adminMock.VerifyAll();
         }
     }
 }

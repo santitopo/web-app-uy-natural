@@ -20,8 +20,5 @@ namespace LogicInterface
 
         IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories);
 
-
-
-
     }
 }

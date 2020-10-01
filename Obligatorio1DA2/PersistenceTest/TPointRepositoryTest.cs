@@ -164,6 +164,96 @@ namespace PersistenceTest
             }
         }
 
-       //Missing tests that focus in testing includes..
+        [TestMethod]
+        public void GetByName()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB3")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new TPointRepository(context);
+
+                TouristicPoint tpoint1 = new TouristicPoint()
+                {
+                    Description = "",
+                    Image = "",
+                    Name = "tpoint1",
+                    Categories = null,
+                    Region = null
+                };
+                TouristicPoint tpoint2 = new TouristicPoint()
+                {
+                    Description = "",
+                    Image = "",
+                    Name = "tpoint2",
+                    Categories = null,
+                    Region = null
+                };
+                context.Set<TouristicPoint>().Add(tpoint1);
+                context.Set<TouristicPoint>().Add(tpoint2);
+                context.SaveChanges();
+
+                TouristicPoint res = repository.GetByName(tpoint1.Name);
+                Assert.AreEqual(res, tpoint1);
+            }
+        }
+
+        [TestMethod]
+        public void GetByNameNull()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB2")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new TPointRepository(context);
+
+                TouristicPoint tpoint1 = new TouristicPoint()
+                {
+                    Description = "",
+                    Image = "",
+                    Name = "tpoint1",
+                    Categories = null,
+                    Region = null
+                };
+
+                context.Set<TouristicPoint>().Add(tpoint1);
+                context.SaveChanges();
+
+                TouristicPoint res = repository.GetByName("tpoint2");
+                Assert.IsNull(res);
+            }
+        }
+
+        [TestMethod]
+        public void Exists()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new TPointRepository(context);
+
+                TouristicPoint tpoint1 = new TouristicPoint()
+                {
+                    Description = "",
+                    Image = "",
+                    Name = "tpoint1",
+                    Categories = null,
+                    Region = null
+                };
+
+                context.Set<TouristicPoint>().Add(tpoint1);
+                context.SaveChanges();
+
+                bool res = repository.Exists(tpoint1.Name);
+                Assert.IsTrue(res);
+            }
+        }
     }
 }

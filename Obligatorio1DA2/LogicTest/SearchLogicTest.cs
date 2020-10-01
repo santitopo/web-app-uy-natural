@@ -52,6 +52,8 @@ namespace LogicTest
             expectedLst.Add(tp);
 
             mock3.Setup(x => x.FindByRegion(1)).Returns(expectedLst);
+            mock1.Setup(x => x.Get(It.IsAny<int>())).Returns(region);
+
 
             IEnumerable<TouristicPoint> ret = logic.GetTPointsByRegion(1);
 
