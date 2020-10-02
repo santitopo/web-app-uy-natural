@@ -10,62 +10,53 @@ namespace Logic
 {
     public class SearchLogic : ISearchLogic
     {
-        private IRepository<Region> repository;
+        private IRepository<Region> regionRepository;
+        private IRepository<Category> categoryRepository;
+        private ITPointRepository tpointRepository;
 
-        public SearchLogic(IRepository<Region> repository)
+        public SearchLogic(IRepository<Region> regionRepository, 
+                           IRepository<Category> categoryRepository,
+                           ITPointRepository tpointRepository)
         {
-            this.repository = repository;
+            this.regionRepository = regionRepository;
+            this.categoryRepository = categoryRepository;
+            this.tpointRepository = tpointRepository;
         }
 
         public IEnumerable<Region> GetAllRegions()
         {
-            return repository.GetAll();
+            string[] param = {};
+            return regionRepository.GetAll(param);
         }
 
         public IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId)
         {
-            return null;
+           IEnumerable <TouristicPoint> filteredTPoints = tpointRepository.FindByRegion(regionId);
+           return filteredTPoints;
         }
-
-        public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, int category)
+        
+        public IEnumerable<TouristicPoint> GetAllTPoints()
         {
-            TouristicPoint[] a = { };
-            return a;
+            string[] param = { "Region" };
+            return tpointRepository.GetAll(param);
         }
 
         public IEnumerable<Category> GetAllCategories()
         {
-            Category[] a = { new Category("metropolitana"), new Category("CentroSur") };
-            return a;
+            string[] param = {};
+            return categoryRepository.GetAll(param);
         }
 
-        public IEnumerable<TouristicPoint> GetAllTPoints()
+        public IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories)
         {
-            TouristicPoint a = new TouristicPoint()
-            {
-                Name = "name1",
-                Description = "descrp",
-                Region = new Region("region1"),
-                TouristicPointsCategory = null,
-                Image = "img1.jpg"
-            };
-            TouristicPoint[] b = { a };
-            return b;
+            return tpointRepository.FindByRegionCat(regionId, categories);
         }
 
-        public IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, IEnumerable<int> category)
-        {
-            throw new NotImplementedException();
-        }
+        //Not implemented
 
         //PRE:
         //POS: Returns a list of Lodgings with total prices for the period
         public IEnumerable<LodgingSearchResultModel> SearchLodgings(LodgingSearchModel search)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddRegions(Region region)
         {
             throw new NotImplementedException();
         }

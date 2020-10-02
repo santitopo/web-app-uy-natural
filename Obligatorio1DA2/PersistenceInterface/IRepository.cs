@@ -10,7 +10,7 @@ namespace PersistenceInterface
         void Delete(T entity);
         void Update(T entity);
         T Get(int id);
-        IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll(string[] includes);
         void Save();
     }
 }

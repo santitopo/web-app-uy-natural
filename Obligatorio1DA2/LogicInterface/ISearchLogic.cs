@@ -8,19 +8,17 @@ namespace LogicInterface
 {
     public interface ISearchLogic
     {
+        //Done
         IEnumerable<Region> GetAllRegions();
-
-        void AddRegions(Region region);
-
-        IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId);
-
-        IEnumerable<TouristicPoint> GetTPointsByRegionCat(int regionId, IEnumerable<int> categories);
 
         IEnumerable<Category> GetAllCategories();
 
+        IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId);
+
+        //Missing
         IEnumerable<TouristicPoint> GetAllTPoints();
 
-        
+        IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories);
 
     }
 }

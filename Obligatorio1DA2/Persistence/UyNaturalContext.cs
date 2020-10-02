@@ -14,10 +14,11 @@ namespace Persistence
         public DbSet<Region> Regions { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<TouristicPoint> TouristicPoints { get; set; }
+        public DbSet<UserSession> UserSessions { get; set; }
 
         public UyNaturalContext(DbContextOptions options) : base(options)
         {
-
+           
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -46,13 +47,15 @@ namespace Persistence
 
             modelBuilder.Entity<TouristicPointsCategory>()
                 .HasOne(x => x.TouristicPoint)
-                .WithMany(x => x.TouristicPointsCategory)
+                .WithMany(x => x.Categories)
                 .HasForeignKey(x => x.TouristicPointId);
 
             modelBuilder.Entity<TouristicPointsCategory>()
                 .HasOne(x => x.Category)
-                .WithMany(x => x.TouristicPointsCategory)
+                .WithMany(x => x.TouristicPoints)
                 .HasForeignKey(x => x.CategoryId);
         }
+
+        
     }
 }
