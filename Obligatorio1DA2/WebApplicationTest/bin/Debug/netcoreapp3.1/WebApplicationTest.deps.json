@@ -12,6 +12,7 @@
           "MSTest.TestAdapter": "2.1.0",
           "MSTest.TestFramework": "2.1.0",
           "Microsoft.NET.Test.Sdk": "16.5.0",
+          "Models": "1.0.0",
           "Moq": "4.14.5",
           "WebApplication": "1.0.0",
           "coverlet.collector": "1.2.0"

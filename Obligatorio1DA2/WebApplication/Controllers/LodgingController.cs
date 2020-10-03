@@ -14,13 +14,11 @@ namespace WebApplication.Controllers
     [ApiController]
     public class LodgingController : ControllerBase
     {
-        private readonly ISearchLogic searchLogic;
         private readonly ILodgingLogic lodgingLogic;
 
-        public LodgingController(ISearchLogic searchLogic, ILodgingLogic lodgingLogic)
+        public LodgingController(ILodgingLogic lodgingLogic)
         {
-            this.searchLogic = searchLogic;
-            this.lodgingLogic = lodgingLogic;
+           this.lodgingLogic = lodgingLogic;
         }
 
         // POST: /lodgings
