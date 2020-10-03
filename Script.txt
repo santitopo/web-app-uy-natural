@@ -11,3 +11,7 @@ insert into dbo.Categories (Name) values ('Playas');
 insert into dbo.Categories (Name) values ('Etc');
 
 insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('admin','','admin','21232f297a57a5a743894a0e4a801fc3',2);
+
+insert into TouristicPoints (Description,Image,Name,RegionId) values ('Balneario de playa','punta.jpg','Punta del Este', 3);
+
+insert into Lodgings (Available,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TPointId) values (1,'Rancho en la playa','calle de la cruz 123','img2.jpg',0,'CasaMara','098259045',250.5,2,1);

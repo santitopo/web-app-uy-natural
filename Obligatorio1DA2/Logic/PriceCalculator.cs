@@ -11,7 +11,9 @@ namespace Logic
         public double CalculatePrice(LodgingSearchModel search, double pricePerNight)
         {
             double price = 0;
-            int days = search.Checkout.Subtract(search.Checkin).Days;
+            DateTime checkin = DateTime.ParseExact(search.Checkin, "ddMMyyyy", null) ;
+            DateTime checkout = DateTime.ParseExact(search.Checkout, "ddMMyyyy", null);
+            int days = checkout.Subtract(checkin).Days;
             price += search.AdultsNum * days * pricePerNight;
             price += Convert.ToInt32(search.ChildsNum * 0.5 * days * pricePerNight);
             price += Convert.ToInt32(search.BabiesNum * 0.25 * days * pricePerNight);
