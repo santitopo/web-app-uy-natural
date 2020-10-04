@@ -10,7 +10,7 @@ using Models;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("/persons")]
+    [Route("/sessions")]
     public class SessionController : ControllerBase
     {
         private readonly ISessionLogic logic;

@@ -8,6 +8,7 @@ namespace Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public TouristicPoint TouristicPoint{get; set;}
         public string Description { get; set; }
         public string Direction { get; set; }
         public string Phone { get; set; }
@@ -15,6 +16,7 @@ namespace Domain
         public double Price { get; set; }
         public string Images { get; set; }
         public bool IsDeleted { get; set; }
+        public bool Capacity { get; set; }
 
         public Lodging()
         {

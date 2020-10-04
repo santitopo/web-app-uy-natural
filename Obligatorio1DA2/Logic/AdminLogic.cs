@@ -13,22 +13,56 @@ namespace Logic
         private readonly ITPointRepository tpRepository;
         private readonly IRepository<Region> regionRepository;
         private readonly IRepository<Category> categoryRepository;
+        private readonly ILodgingRepository lodgingRepository;
+        private readonly IRepository<Reservation> reservationRepository;
+        private readonly IRepository<State> stateRepository;
+        private readonly IUserRepository userRepository;
+        private readonly IRepository<Person> personRepository;
 
-        public AdminLogic(ITPointRepository repository, IRepository<Region> regionRepository, IRepository<Category> categoryRepository)
+        public AdminLogic(ITPointRepository repository, IRepository<Region> regionRepository, 
+            IRepository<Category> categoryRepository, ILodgingRepository lodgingRepository, 
+            IRepository<Person> personRepository, IUserRepository userRepository,
+            IRepository<Reservation> reservationRepository, IRepository<State> stateRepository)
         {
             this.tpRepository = repository;
             this.regionRepository = regionRepository;
             this.categoryRepository = categoryRepository;
+            this.lodgingRepository = lodgingRepository;
+            this.userRepository = userRepository;
+            this.personRepository = personRepository;
+            this.reservationRepository = reservationRepository;
+            this.stateRepository = stateRepository;
         }
 
         public Administrator AddAdmin(Administrator anAdmin)
         {
-            throw new NotImplementedException();
+            if (userRepository.GetAdminByMail(anAdmin.Mail) == null)
+            {
+                userRepository.Create(anAdmin);
+                userRepository.Save();
+                return anAdmin;
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public Lodging AddLodging(Lodging aLodging)
+        public Lodging AddLodging(Lodging aLodging, int touristicPointId)
         {
-            throw new NotImplementedException();
+            if (!lodgingRepository.Exists(aLodging.Name, aLodging.Direction))
+            {
+                TouristicPoint tp = tpRepository.Get(touristicPointId);
+                aLodging.TouristicPoint = tp;
+                lodgingRepository.Create(aLodging);
+                lodgingRepository.Save();
+
+                return aLodging;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public TouristicPoint AddTouristicPoint(TouristicPoint aTouristicPoint, int regionId, int[] categories)
@@ -66,27 +100,44 @@ namespace Logic
             {
                 return null;
             }
-
         }
 
         public void ModifyLodgingCapacity(int lodgingId, bool isFull)
         {
-            throw new NotImplementedException();
+            Lodging lodging = lodgingRepository.Get(lodgingId);
+            lodging.Capacity = isFull;
+            lodgingRepository.Update(lodging);
+            lodgingRepository.Save();
         }
 
-        public void ModifyReservationState(int reservationId, int stateId, string aDescription)
+        public void ModifyReservationState(int stateId, int reservationId, string aDescription)
         {
-            throw new NotImplementedException();
+            Reservation reservation = reservationRepository.Get(reservationId);
+            State state = stateRepository.Get(stateId);
+            reservation.State = state;
+            reservation.StateDescription = aDescription;
+            reservationRepository.Update(reservation);
+            reservationRepository.Save();
         }
 
         public void RemoveAdmin(int adminId)
         {
-            throw new NotImplementedException();
+            Person admin = personRepository.Get(adminId);
+            if (admin != null)
+            {
+                personRepository.Delete(admin);
+                personRepository.Save();
+            }
         }
 
         public void RemoveLodging(int lodgingId)
         {
-            throw new NotImplementedException();
+            Lodging lodging = lodgingRepository.Get(lodgingId);
+            if (lodging != null)
+            {
+                lodgingRepository.Delete(lodging);
+                lodgingRepository.Save();
+            }
         }
     }
 }

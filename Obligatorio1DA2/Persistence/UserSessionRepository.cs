@@ -34,5 +34,18 @@ namespace Persistence
             }
         }
 
+        public Administrator GetAdminByMail(string mail)
+        {
+            Person a = DbSet.Where(x => x is Administrator && x.Mail == mail).FirstOrDefault();
+            if (a != null)
+            {
+                return a as Administrator;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

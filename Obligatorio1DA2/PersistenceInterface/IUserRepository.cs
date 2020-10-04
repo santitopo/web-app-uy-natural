@@ -7,5 +7,6 @@ namespace PersistenceInterface
     public interface IUserRepository : IRepository<Administrator>
     {
         Administrator GetAdminByMailAndPassword(string mail, string password);
+        Administrator GetAdminByMail(string mail);
     }
 }
