@@ -36,6 +36,9 @@ namespace PersistenceTest
                 IEnumerable<Region> regions = repository.GetAll(strlst);
                 Assert.AreEqual(2, regions.Count());
 
+                context.Set<Region>().Remove(region1);
+                context.Set<Region>().Remove(region2);
+                context.SaveChanges();
             }
         }
     }

@@ -44,6 +44,10 @@ namespace PersistenceTest
                 string[] strlst = { };
                 Administrator ret = repository.GetAdminByMailAndPassword(admin1.Mail, admin1.Password);
                 Assert.AreEqual(admin1, ret);
+
+                context.Set<Person>().Remove(admin1);
+                context.Set<Person>().Remove(admin2);
+                context.SaveChanges();
             }
 
         }
@@ -72,6 +76,9 @@ namespace PersistenceTest
                 string[] strlst = { };
                 Administrator ret = repository.GetAdminByMailAndPassword("admin2", "admin1");
                 Assert.IsNull(ret);
+
+                context.Set<Person>().Remove(admin1);
+                context.SaveChanges();
             }
         }
     }

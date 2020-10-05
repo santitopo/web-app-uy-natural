@@ -10,7 +10,6 @@ namespace Persistence
 {
     public class LodgingRepository : Repository<Lodging>, ILodgingRepository
     {
-
         private readonly DbSet<Lodging> DbSet;
         private readonly DbContext context;
 
@@ -23,10 +22,17 @@ namespace Persistence
         public IEnumerable<Lodging> FindByTPoint(int tpointId)
         {
             IEnumerable<Lodging> filteredLodging = DbSet
-                .Include(x => x.TPoint)
-                .Where(x => x.TPoint.Id == tpointId);
+                .Include(x => x.TouristicPoint)
+                .Where(x => x.TouristicPoint.Id == tpointId);
 
             return filteredLodging;
         }
+
+        public bool Exists(string name, string direction)
+        {
+            Lodging lodging = DbSet.Where(x => x.Name == name && x.Direction == direction).FirstOrDefault();
+            return lodging != null;
+        }
     }
 }
+

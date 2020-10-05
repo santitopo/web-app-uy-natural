@@ -53,12 +53,12 @@ namespace PersistenceTest
                 Lodging lod1 = new Lodging()
                 {
                     Id = 1,
-                    TPoint = tpoint1,
+                    TouristicPoint = tpoint1,
                 };
                 Lodging lod2 = new Lodging()
                 {
                     Id = 2,
-                    TPoint = tpoint2,
+                    TouristicPoint = tpoint2,
                 };
 
                 context.Set<Region>().Add(region1);
@@ -78,6 +78,63 @@ namespace PersistenceTest
                 context.Set<TouristicPoint>().Remove(tpoint1);
                 context.Set<TouristicPoint>().Remove(tpoint2);
                 context.Set<Lodging>().Remove(lod1);
+                context.SaveChanges();
+            }
+        }
+
+        [TestMethod]
+        public void Exists()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging = new Lodging()
+                {
+                    Name = "lodging1",
+                    Direction = "aDirection"
+                };
+
+                context.Set<Lodging>().Add(lodging);
+                context.SaveChanges();
+
+                bool res = repository.Exists(lodging.Name, lodging.Direction);
+                Assert.IsTrue(res);
+
+                context.Set<Lodging>().Remove(lodging);
+                context.SaveChanges();
+            }
+
+        }
+
+        [TestMethod]
+        public void NotExists()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging = new Lodging()
+                {
+                    Name = "lodging1",
+                    Direction = "aDirection"
+                };
+
+                context.Set<Lodging>().Add(lodging);
+                context.SaveChanges();
+
+                bool res = repository.Exists(lodging.Name, "anotherDir");
+                Assert.IsFalse(res);
+
+                context.Set<Lodging>().Remove(lodging);
                 context.SaveChanges();
             }
         }

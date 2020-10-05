@@ -27,18 +27,18 @@ namespace LogicTest
             };
             Lodging lod1 = new Lodging()
             {
-                Available = true,
+                Capacity = true,
                 Id = 1,
                 IsDeleted = false,
-                TPoint = tpoint,
+                TouristicPoint = tpoint,
                 Price = 20.0,
             };
             Lodging lod2 = new Lodging()
             {
-                Available = false,
+                Capacity = false,
                 Id = 2,
                 IsDeleted = false,
-                TPoint = tpoint,
+                TouristicPoint = tpoint,
                 Price = 30.0,
             };
             lst.Add(lod1);

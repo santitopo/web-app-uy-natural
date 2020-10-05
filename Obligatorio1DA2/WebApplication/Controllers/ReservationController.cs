@@ -14,10 +14,12 @@ namespace WebApplication.Controllers
     public class ReservationController : ControllerBase
     {
         private readonly IReservationLogic reservationLogic;
+        private readonly IAdminLogic adminLogic;
 
-        public ReservationController(IReservationLogic reservationLogic)
+        public ReservationController(IReservationLogic reservationLogic, IAdminLogic adminLogic)
         {
             this.reservationLogic = reservationLogic;
+            this.adminLogic = adminLogic;
         }
 
         // POST: /reservation
@@ -26,6 +28,20 @@ namespace WebApplication.Controllers
         {
             BillModel bill = reservationLogic.ReserveLodging(search, lodgingId);
             return Ok(bill);
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody] ReservationModel reservationModel)
+        {
+            try
+            {
+                adminLogic.ModifyReservationState(reservationModel.StateId, reservationModel.Id, reservationModel.StateDescription);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
     }

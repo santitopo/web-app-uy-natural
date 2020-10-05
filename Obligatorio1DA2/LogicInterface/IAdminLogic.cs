@@ -13,7 +13,7 @@ namespace LogicInterface
 
         //PRE:
         //POS: Add a new lodging to the system
-        Lodging AddLodging(Lodging aLodging);
+        Lodging AddLodging(Lodging aLodging, int touristicPointId);
 
         //PRE:
         //POS: Remove an existing lodging of the system
@@ -25,7 +25,7 @@ namespace LogicInterface
 
         //PRE: 
         //POS: Modify the state of an existing reservation
-        void ModifyReservationState(int reservationId, int stateId, string aDescription);
+        void ModifyReservationState(int stateId, int reservationId, string aDescription);
 
         //PRE:
         //POS: Add a new admin to the system

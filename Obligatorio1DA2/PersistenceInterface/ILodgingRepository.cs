@@ -9,6 +9,6 @@ namespace PersistenceInterface
     public interface ILodgingRepository : IRepository<Lodging>
     {
         IEnumerable<Lodging> FindByTPoint(int id);
+        bool Exists(string name, string direction);
     }
 }
-

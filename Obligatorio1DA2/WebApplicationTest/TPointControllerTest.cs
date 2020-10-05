@@ -102,7 +102,7 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
-        public void PostStatusCode409()
+        public void InvalidPost()
         {
             var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
             var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);

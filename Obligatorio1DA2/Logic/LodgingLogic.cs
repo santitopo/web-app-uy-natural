@@ -23,7 +23,7 @@ namespace Logic
 
         public IEnumerable<LodgingSearchResultModel> SearchLodgings(LodgingSearchModel search)
         {
-            IEnumerable<Lodging> lst = lodgingRepository.FindByTPoint(search.TPointId).Where(x => x.Available);
+            IEnumerable<Lodging> lst = lodgingRepository.FindByTPoint(search.TPointId).Where(x => x.Capacity);
             List<LodgingSearchResultModel> lstResults = new List<LodgingSearchResultModel>();
             foreach (Lodging l in lst) {
                 LodgingSearchResultModel model = new LodgingSearchResultModel()

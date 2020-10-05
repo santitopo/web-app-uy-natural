@@ -57,6 +57,12 @@ namespace PersistenceTest
                 string[] strlst = { };
                 IEnumerable<TouristicPoint> tpoints = repository.FindByRegion(4);
                 Assert.AreEqual(1, tpoints.Count());
+
+                context.Set<Region>().Remove(region1);
+                context.Set<Region>().Remove(region2);
+                context.Set<TouristicPoint>().Remove(tpoint1);
+                context.Set<TouristicPoint>().Remove(tpoint2);
+                context.SaveChanges();
             }
         }
 
@@ -94,6 +100,10 @@ namespace PersistenceTest
                 string[] strlst = { };
                 IEnumerable<TouristicPoint> tpoints = repository.GetAll(strlst);
                 Assert.AreEqual(2, tpoints.Count());
+
+                context.Set<TouristicPoint>().Remove(tpoint1);
+                context.Set<TouristicPoint>().Remove(tpoint2);
+                context.SaveChanges();
             }
         }
 
@@ -161,6 +171,13 @@ namespace PersistenceTest
 
                 IEnumerable<TouristicPoint> tpoints = repository.FindByRegionCat(4,catlst);
                 Assert.AreEqual(1, tpoints.Count());
+
+                context.Set<Region>().Remove(region1);
+                context.Set<Region>().Remove(region2);
+                context.Set<Category>().Remove(cat1);
+                context.Set<TouristicPoint>().Remove(tpoint1);
+                context.Set<TouristicPoint>().Remove(tpoint2);
+                context.SaveChanges();
             }
         }
 
@@ -168,7 +185,7 @@ namespace PersistenceTest
         public void GetByName()
         {
             var options = new DbContextOptionsBuilder<UyNaturalContext>()
-            .UseInMemoryDatabase(databaseName: "TestDB3")
+            .UseInMemoryDatabase(databaseName: "TestDB")
             .Options;
 
             using (var context = new UyNaturalContext(options))
@@ -197,6 +214,10 @@ namespace PersistenceTest
 
                 TouristicPoint res = repository.GetByName(tpoint1.Name);
                 Assert.AreEqual(res, tpoint1);
+
+                context.Set<TouristicPoint>().Remove(tpoint1);
+                context.Set<TouristicPoint>().Remove(tpoint2);
+                context.SaveChanges();
             }
         }
 
@@ -204,7 +225,7 @@ namespace PersistenceTest
         public void GetByNameNull()
         {
             var options = new DbContextOptionsBuilder<UyNaturalContext>()
-            .UseInMemoryDatabase(databaseName: "TestDB2")
+            .UseInMemoryDatabase(databaseName: "TestDB")
             .Options;
 
             using (var context = new UyNaturalContext(options))
@@ -225,6 +246,9 @@ namespace PersistenceTest
 
                 TouristicPoint res = repository.GetByName("tpoint2");
                 Assert.IsNull(res);
+
+                context.Set<TouristicPoint>().Remove(tpoint1);
+                context.SaveChanges();
             }
         }
 
@@ -253,6 +277,9 @@ namespace PersistenceTest
 
                 bool res = repository.Exists(tpoint1.Name);
                 Assert.IsTrue(res);
+
+                context.Set<TouristicPoint>().Remove(tpoint1);
+                context.SaveChanges();
             }
         }
     }

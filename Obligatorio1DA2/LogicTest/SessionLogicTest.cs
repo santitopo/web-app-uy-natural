@@ -143,5 +143,40 @@ namespace LogicTest
             mock1.VerifyAll();
         }
 
+        [TestMethod]
+        public void IsLogued()
+        {
+            var mock1 = new Mock<IRepository<UserSession>>(MockBehavior.Strict);
+            var mock2 = new Mock<IUserRepository>(MockBehavior.Strict);
+            SessionLogic logic = new SessionLogic(mock2.Object, mock1.Object);
+
+            Administrator admin = new Administrator()
+            {
+                Id = 1,
+                Name = "admin",
+                Surname = "admin",
+                Mail = "admin",
+                Password = "admin"
+            };
+            UserSession userSession = new UserSession()
+            {
+                Id = 1,
+                ConnectedAt = DateTime.Now,
+                Token = "8b10f257-3b16-4461-984f-6c7407e4008f",
+                User = admin
+            };
+            string Token = "8b10f257-3b16-4461-984f-6c7407e4008f";
+            List<UserSession> userSessions = new List<UserSession>();
+            userSessions.Add(userSession);
+
+            string[] param = { };
+            mock1.Setup(x => x.GetAll(param)).Returns(userSessions);
+
+            var res = logic.IsLogued(Token);
+            Assert.IsTrue(res);
+
+            mock1.VerifyAll();
+        }
+
     }
 }
