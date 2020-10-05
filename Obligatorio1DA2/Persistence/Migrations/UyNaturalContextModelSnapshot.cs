@@ -41,6 +41,9 @@ namespace Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Available")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -65,7 +68,12 @@ namespace Persistence.Migrations
                     b.Property<int>("Stars")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TPointId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TPointId");
 
                     b.ToTable("Lodgings");
                 });
@@ -244,6 +252,13 @@ namespace Persistence.Migrations
                     b.HasBaseType("Domain.Person");
 
                     b.HasDiscriminator().HasValue(1);
+                });
+
+            modelBuilder.Entity("Domain.Lodging", b =>
+                {
+                    b.HasOne("Domain.TouristicPoint", "TPoint")
+                        .WithMany()
+                        .HasForeignKey("TPointId");
                 });
 
             modelBuilder.Entity("Domain.Reservation", b =>

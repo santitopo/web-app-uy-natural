@@ -35,6 +35,7 @@ namespace PersistenceTest
                 string[] strlst = {};
                 IEnumerable<Region> regions = repository.GetAll(strlst);
                 Assert.AreEqual(2, regions.Count());
+
             }
         }
     }

@@ -43,13 +43,14 @@ namespace WebApplication
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(ITPointRepository), typeof(TPointRepository));
             services.AddScoped(typeof(IUserRepository), typeof(UserSessionRepository));
-
+            services.AddScoped(typeof(ILodgingRepository), typeof(LodgingRepository));
             //Dependency injection Logic Interfaces
             services.AddScoped<ISearchLogic, SearchLogic>();
             services.AddScoped<ILodgingLogic, LodgingLogic>();
             services.AddScoped<IAdminLogic, AdminLogic>();
             services.AddScoped<IReservationLogic, ReservationLogic>();
             services.AddScoped<ISessionLogic, SessionLogic>();
+            services.AddScoped<IPriceCalculator, PriceCalculator>();
 
         }
 
