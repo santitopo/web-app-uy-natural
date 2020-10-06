@@ -8,8 +8,13 @@ namespace LogicInterface
 {
     public interface IReservationLogic
     {
+        IEnumerable<Reservation> GetAllReservations();
+        IEnumerable<State> GetAllStates();
+
         //PRE: There was a previous search
         //POS: Returns the bill with a unique code, contact number and info text
         BillModel ReserveLodging(LodgingSearchModel search, int lodgingId);
+
+
     }
 }

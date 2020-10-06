@@ -139,5 +139,133 @@ namespace PersistenceTest
             }
         }
 
+        [TestMethod]
+        public void LogicalDelete()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging = new Lodging()
+                {
+                    Name = "lodging1",
+                    Direction = "aDirection"
+                };
+
+                context.Set<Lodging>().Add(lodging);
+                context.SaveChanges();
+
+                repository.Delete(lodging);
+                Assert.IsTrue(lodging.IsDeleted);
+
+                context.Set<Lodging>().Remove(lodging);
+                context.SaveChanges();
+            }
+        }
+
+        [TestMethod]
+        public void GetAll()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB2")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging1 = new Lodging()
+                {
+                    Name = "lodging1",
+                    Direction = "aDirection1"
+                };
+                context.Set<Lodging>().Add(lodging1);
+                context.SaveChanges();
+
+                string[] param = { };
+                List<Lodging> lodgings = repository.GetAll(param).ToList();
+                Assert.AreEqual(1, lodgings.Count);
+
+                Lodging lodging2 = new Lodging()
+                {
+                    Name = "lodging2",
+                    Direction = "aDirection2",
+                    IsDeleted = true
+                };
+                context.Set<Lodging>().Add(lodging2);
+                context.SaveChanges();
+
+                List<Lodging> newlodgings = repository.GetAll(param).ToList();
+                Assert.AreEqual(1, newlodgings.Count);
+
+                context.Set<Lodging>().Remove(lodging1);
+                context.Set<Lodging>().Remove(lodging2);
+                context.SaveChanges();
+            }
+        }
+
+        [TestMethod]
+        public void GetDeletedLodging()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging1 = new Lodging()
+                {
+                    Id = 1,
+                    Name = "lodging1",
+                    Direction = "aDirection1",
+                    IsDeleted = true
+                };
+                context.Set<Lodging>().Add(lodging1);
+                context.SaveChanges();
+
+                string[] param = { };
+                Lodging lodging = repository.Get(1);
+                Assert.IsNull(lodging);
+
+                context.Set<Lodging>().Remove(lodging1);
+                context.SaveChanges();
+            }
+        }
+
+        [TestMethod]
+        public void GetNotDeletedLodging()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging1 = new Lodging()
+                {
+                    Id = 1,
+                    Name = "lodging1",
+                    Direction = "aDirection1"
+                };
+                context.Set<Lodging>().Add(lodging1);
+                context.SaveChanges();
+
+                string[] param = { };
+                Lodging lodging = repository.Get(1);
+                Assert.IsNotNull(lodging);
+
+                context.Set<Lodging>().Remove(lodging1);
+                context.SaveChanges();
+            }
+        }
+
     }
 }

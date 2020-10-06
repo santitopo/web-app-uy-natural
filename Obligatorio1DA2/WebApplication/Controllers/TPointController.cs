@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
+using Filters;
 using LogicInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using Models;
 namespace WebApplication.Controllers
 {
     [ApiController]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     [Route("/tpoints")]
     public class TPointController : ControllerBase
     {

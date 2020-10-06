@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Bierland.webapi.Filters
+namespace Filters
 {
     public class AuthorizationFilter : Attribute, IAuthorizationFilter
     {

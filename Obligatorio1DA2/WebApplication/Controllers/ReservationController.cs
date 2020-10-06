@@ -22,6 +22,20 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
+        // GET: /reservations
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(reservationLogic.GetAllReservations());
+        }
+
+        // GET: /reservations/states
+        [HttpGet("states")]
+        public IActionResult GetStates()
+        {
+            return Ok(reservationLogic.GetAllStates());
+        }
+
         // POST: /reservation
         [HttpPost]
         public IActionResult Post([FromBody] LodgingSearchModel search, int lodgingId)

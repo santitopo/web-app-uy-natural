@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using Moq;
+using PersistenceInterface;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,39 @@ namespace WebApplicationTest
     [TestClass]
     public class ReservationControllerTest
     {
+        [TestMethod]
+        public void GetReservationsOk()
+        {
+            var mock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            var reservationsMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+            ReservationController controller = new ReservationController(reservationsMock.Object, mock.Object);
+
+            reservationsMock.Setup(x => x.GetAllReservations()).Returns(It.IsAny<IEnumerable<Reservation>>());
+
+            var result = controller.Get();
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as IEnumerable<Reservation>;
+
+            reservationsMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void GetStatesOk()
+        {
+            var mock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            var reservationsMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+            ReservationController controller = new ReservationController(reservationsMock.Object, mock.Object);
+
+            reservationsMock.Setup(x => x.GetAllStates()).Returns(It.IsAny<IEnumerable<State>>());
+
+            var result = controller.GetStates();
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as IEnumerable<Reservation>;
+
+            reservationsMock.VerifyAll();
+        }
+
+
         [TestMethod]
         public void PutOk()
         {
@@ -30,8 +64,6 @@ namespace WebApplicationTest
 
             adminMock.Setup(x => x.ModifyReservationState
                 (It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()));
-
-
 
             var result = controller.Put(reservationModel);
             var okResult = result as OkObjectResult;
