@@ -10,7 +10,7 @@ namespace Filters
 {
     public class AuthorizationFilter : Attribute, IAuthorizationFilter
     {
-        private readonly ISessionLogic logic;
+        private ISessionLogic logic;
         public AuthorizationFilter(ISessionLogic logic)
         {
             this.logic = logic;
@@ -23,7 +23,7 @@ namespace Filters
                 context.Result = new ContentResult()
                 {
                     StatusCode = 401,
-                    Content ="You aren't logued."
+                    Content = "You aren't logued."
                 };
                 return;
             }

@@ -74,6 +74,27 @@ namespace WebApplicationTest
             
             adminMock.VerifyAll();
         }
+        [TestMethod]
+        public void PutOk()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            PersonController controller = new PersonController(adminMock.Object);
+
+            Administrator admin = new Administrator()
+            {
+                Mail = "admin",
+                Name = "admin",
+                Password = "admin",
+            };
+
+            adminMock.Setup(x => x.ModifyAdmin(admin));
+
+            var result = controller.Put(admin);
+            var okResult = result as OkObjectResult;
+
+            adminMock.VerifyAll();
+        }
+
 
     }
 }

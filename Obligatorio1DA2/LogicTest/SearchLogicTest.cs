@@ -98,7 +98,11 @@ namespace LogicTest
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
             var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
             SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
+
+            Region region = new Region() { };
             int[] categories= { };
+
+            mock1.Setup(x => x.Get(It.IsAny<int>())).Returns(region);
             mock3.Setup(x => x.FindByRegionCat(1,categories)).Returns(It.IsAny<IEnumerable<TouristicPoint>>);
 
             IEnumerable<TouristicPoint> ret = logic.FindByRegionCat(1,categories);

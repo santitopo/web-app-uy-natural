@@ -104,20 +104,36 @@ namespace Logic
 
         public void ModifyLodgingCapacity(int lodgingId, bool isFull)
         {
-            Lodging lodging = lodgingRepository.Get(lodgingId);
-            lodging.Capacity = isFull;
-            lodgingRepository.Update(lodging);
-            lodgingRepository.Save();
+            if (lodgingRepository.Get(lodgingId) != null)
+            {
+                Lodging lodging = lodgingRepository.Get(lodgingId);
+                lodging.Capacity = isFull;
+                lodgingRepository.Update(lodging);
+                lodgingRepository.Save();
+            }
         }
 
         public void ModifyReservationState(int stateId, int reservationId, string aDescription)
         {
-            Reservation reservation = reservationRepository.Get(reservationId);
-            State state = stateRepository.Get(stateId);
-            reservation.State = state;
-            reservation.StateDescription = aDescription;
-            reservationRepository.Update(reservation);
-            reservationRepository.Save();
+            if (reservationRepository.Get(reservationId) != null && stateRepository.Get(stateId) != null)
+            {
+                Reservation reservation = reservationRepository.Get(reservationId);
+                State state = stateRepository.Get(stateId);
+                reservation.State = state;
+                reservation.StateDescription = aDescription;
+                reservationRepository.Update(reservation);
+                reservationRepository.Save();
+            }
+
+        }
+
+        public void ModifyAdmin(Administrator admin)
+        {
+            if (userRepository.GetAdminByMail(admin.Mail) == null)
+            {
+                userRepository.Update(admin);
+                userRepository.Save();
+            }
         }
 
         public void RemoveAdmin(int adminId)

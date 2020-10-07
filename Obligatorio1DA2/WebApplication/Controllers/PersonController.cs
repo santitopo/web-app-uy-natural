@@ -42,6 +42,21 @@ namespace WebApplication.Controllers
             }
         }
 
+        // POST: /lodgings
+        [HttpPut]
+        public IActionResult Put([FromBody] Administrator admin)
+        {
+            try
+            {
+                adminLogic.ModifyAdmin(admin);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpDelete("{personId}")]
         public IActionResult Delete(int personId)
         {

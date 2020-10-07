@@ -226,6 +226,30 @@ namespace LogicTest
         }
 
         [TestMethod]
+        public void ModifyAdmin()
+        {
+            var userRepositoryMock = new Mock<IUserRepository>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(null, null, null, null, null, userRepositoryMock.Object, null, null);
+
+            Administrator newAdmin = new Administrator()
+            {
+                Name = "anAdmin",
+                Mail = "anAdmin",
+                Password = "anAdmin"
+            };
+
+            Administrator nullAdmin = null;
+
+            userRepositoryMock.Setup(x => x.GetAdminByMail(It.IsAny<string>())).Returns(nullAdmin);
+            userRepositoryMock.Setup(x => x.Update(It.IsAny<Administrator>()));
+            userRepositoryMock.Setup(x => x.Save());
+
+            logic.ModifyAdmin(newAdmin);
+            userRepositoryMock.VerifyAll();
+        }
+
+
+        [TestMethod]
         public void RemoveLodging()
         {
             var lodgingRepositoryMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
