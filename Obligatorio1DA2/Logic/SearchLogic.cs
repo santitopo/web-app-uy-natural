@@ -38,7 +38,7 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("La region no existe");
             }
         }
         
@@ -62,7 +62,7 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("La region no existe");
             }
         }
 

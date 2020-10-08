@@ -44,7 +44,7 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("Ya existe un administrador con ese mail");
             }
         }
 
@@ -61,7 +61,7 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("Ya existe un hospedaje con ese nombre y direccion");
             }
         }
 
@@ -98,7 +98,7 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("Ya existe un punto turistico con ese nombre");
             }
         }
 
@@ -110,6 +110,10 @@ namespace Logic
                 lodging.Capacity = isFull;
                 lodgingRepository.Update(lodging);
                 lodgingRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("El hospedaje no existe");
             }
         }
 
@@ -124,6 +128,10 @@ namespace Logic
                 reservationRepository.Update(reservation);
                 reservationRepository.Save();
             }
+            else 
+            {
+                throw new InvalidOperationException("La reserva o el estado no existe");
+            }
 
         }
 
@@ -133,6 +141,10 @@ namespace Logic
             {
                 userRepository.Update(admin);
                 userRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("El administrador no existe");
             }
         }
 
@@ -144,6 +156,10 @@ namespace Logic
                 personRepository.Delete(admin);
                 personRepository.Save();
             }
+            else
+            {
+                throw new InvalidOperationException("El administrador no existe");
+            }
         }
 
         public void RemoveLodging(int lodgingId)
@@ -153,6 +169,10 @@ namespace Logic
             {
                 lodgingRepository.Delete(lodging);
                 lodgingRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("El hospedaje no existe");
             }
         }
     }
