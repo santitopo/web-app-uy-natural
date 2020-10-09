@@ -97,7 +97,7 @@ namespace LogicTest
         [TestMethod]
         public void AddNewAdmin()
         {
-            var userRepositoryMock = new Mock<IUserRepository>(MockBehavior.Strict);
+            var userRepositoryMock = new Mock<IAdminRepository>(MockBehavior.Strict);
             AdminLogic logic = new AdminLogic(null, null, null , null, null, userRepositoryMock.Object, null, null);
 
             Administrator newAdmin = new Administrator()
@@ -124,7 +124,7 @@ namespace LogicTest
         [ExpectedException(typeof(InvalidOperationException), "Ya existe un administrador con ese mail")]
         public void AddExistingAdmin()
         {
-            var userRepositoryMock = new Mock<IUserRepository>(MockBehavior.Strict);
+            var userRepositoryMock = new Mock<IAdminRepository>(MockBehavior.Strict);
             AdminLogic logic = new AdminLogic(null, null, null, null, null, userRepositoryMock.Object, null, null);
 
             Administrator newAdmin = new Administrator()
@@ -229,7 +229,7 @@ namespace LogicTest
         [TestMethod]
         public void ModifyAdmin()
         {
-            var userRepositoryMock = new Mock<IUserRepository>(MockBehavior.Strict);
+            var userRepositoryMock = new Mock<IAdminRepository>(MockBehavior.Strict);
             AdminLogic logic = new AdminLogic(null, null, null, null, null, userRepositoryMock.Object, null, null);
 
             Administrator newAdmin = new Administrator()
@@ -283,7 +283,7 @@ namespace LogicTest
             {
                 Name = "newLodging",
                 Direction = "aDirection",
-                Capacity = false
+                Capacity = true
             };
 
             lodgingRepositoryMock.Setup(x => x.Get(It.IsAny<int>())).Returns(aLodging);
@@ -291,7 +291,7 @@ namespace LogicTest
             lodgingRepositoryMock.Setup(x => x.Save());
 
             logic.ModifyLodgingCapacity(1, true);
-            Assert.IsTrue(aLodging.Capacity);
+            Assert.IsFalse(aLodging.Capacity);
             lodgingRepositoryMock.VerifyAll();
         }
 

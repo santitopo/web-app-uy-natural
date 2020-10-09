@@ -12,13 +12,13 @@ using WebApplication.Controllers;
 namespace WebApplicationTest
 {
     [TestClass]
-    public class PersonControllerTest
+    public class AdminControllerTest
     {
         [TestMethod]
         public void PostOk()
         {
             var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
-            PersonController controller = new PersonController(adminMock.Object);
+            AdminController controller = new AdminController(adminMock.Object);
 
 
             Administrator admin = new Administrator()
@@ -42,7 +42,7 @@ namespace WebApplicationTest
         public void InvalidPost()
         {
             var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
-            PersonController controller = new PersonController(adminMock.Object);
+            AdminController controller = new AdminController(adminMock.Object);
 
             Administrator nullAdmin = null;
 
@@ -61,7 +61,7 @@ namespace WebApplicationTest
         public void DeleteOK()
         {
             var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
-            PersonController controller = new PersonController(adminMock.Object);
+            AdminController controller = new AdminController(adminMock.Object);
 
             Administrator admin = new Administrator()
             {
@@ -83,7 +83,7 @@ namespace WebApplicationTest
         public void PutOk()
         {
             var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
-            PersonController controller = new PersonController(adminMock.Object);
+            AdminController controller = new AdminController(adminMock.Object);
 
             Administrator admin = new Administrator()
             {

@@ -43,7 +43,7 @@ namespace WebApplication
             //Dependency injection Repositories
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(ITPointRepository), typeof(TPointRepository));
-            services.AddScoped(typeof(IUserRepository), typeof(UserSessionRepository));
+            services.AddScoped(typeof(IAdminRepository), typeof(AdminRepository));
             services.AddScoped(typeof(ILodgingRepository), typeof(LodgingRepository));
             services.AddScoped(typeof(IReservationRepository), typeof(ReservationRepository));
             //Dependency injection Logic Interfaces

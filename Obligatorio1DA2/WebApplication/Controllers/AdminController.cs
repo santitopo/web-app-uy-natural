@@ -11,17 +11,17 @@ using Models;
 
 namespace WebApplication.Controllers
 {
-    [Route("/persons")]
+    [Route("/admins")]
     [ApiController]
-    public class PersonController : Controller
+    public class AdminController : Controller
     {
         private readonly IAdminLogic adminLogic;
-        public PersonController(IAdminLogic adminLogic)
+        public AdminController(IAdminLogic adminLogic)
         {
             this.adminLogic = adminLogic;
         }
 
-        // POST: /persons
+        // POST: /admins
         [HttpPost]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Post([FromHeader] string token, [FromBody] Administrator admin)
@@ -37,7 +37,7 @@ namespace WebApplication.Controllers
             }
         }
 
-        //PUT: /persons
+        //PUT: /admins
         [HttpPut]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Put([FromHeader] string token, [FromBody] Administrator admin)
@@ -53,7 +53,7 @@ namespace WebApplication.Controllers
             }
         }
 
-        //DELETE: /persons/1
+        //DELETE: /admins/1
         [HttpDelete("{adminId}")]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Delete([FromHeader] string token, int adminId)

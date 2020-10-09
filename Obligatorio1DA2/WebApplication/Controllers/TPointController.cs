@@ -12,7 +12,6 @@ using Models;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [ServiceFilter(typeof(AuthorizationFilter))]
     [Route("/tpoints")]
     public class TPointController : ControllerBase
     {

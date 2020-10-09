@@ -11,11 +11,11 @@ using System.Text;
 
 namespace Persistence
 {
-    public class UserSessionRepository : Repository<Administrator>, IUserRepository
+    public class AdminRepository : Repository<Administrator>, IAdminRepository
     {
         private readonly DbSet<Person> DbSet;
         private readonly DbContext context;
-        public UserSessionRepository(DbContext context) : base(context)
+        public AdminRepository(DbContext context) : base(context)
         {
             this.DbSet = context.Set<Person>();
             this.context = context;

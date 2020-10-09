@@ -16,7 +16,7 @@ namespace LogicTest
         public void NewLogIn()
         {
             var mock1 = new Mock<IRepository<UserSession>>(MockBehavior.Strict);
-            var mock2 = new Mock<IUserRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IAdminRepository>(MockBehavior.Strict);
             SessionLogic logic = new SessionLogic(mock2.Object, mock1.Object);
 
             Administrator admin = new Administrator()
@@ -47,7 +47,7 @@ namespace LogicTest
         public void AlreadyLoggedIn()
         {
             var mock1 = new Mock<IRepository<UserSession>>(MockBehavior.Strict);
-            var mock2 = new Mock<IUserRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IAdminRepository>(MockBehavior.Strict);
             SessionLogic logic = new SessionLogic(mock2.Object, mock1.Object);
 
             Administrator admin = new Administrator()
@@ -88,7 +88,7 @@ namespace LogicTest
         public void AdminNotExists()
         {
             var mock1 = new Mock<IRepository<UserSession>>(MockBehavior.Strict);
-            var mock2 = new Mock<IUserRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IAdminRepository>(MockBehavior.Strict);
             SessionLogic logic = new SessionLogic(mock2.Object, mock1.Object);
 
             Administrator admin = null;
@@ -103,7 +103,7 @@ namespace LogicTest
         public void LogOutCorrect()
         {
             var mock1 = new Mock<IRepository<UserSession>>(MockBehavior.Strict);
-            var mock2 = new Mock<IUserRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IAdminRepository>(MockBehavior.Strict);
             SessionLogic logic = new SessionLogic(mock2.Object, mock1.Object);
 
             UserSession userSession = new UserSession()
@@ -131,7 +131,7 @@ namespace LogicTest
         public void LogoutTokenDoesNotExists()
         {
             var mock1 = new Mock<IRepository<UserSession>>(MockBehavior.Strict);
-            var mock2 = new Mock<IUserRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IAdminRepository>(MockBehavior.Strict);
             SessionLogic logic = new SessionLogic(mock2.Object, mock1.Object);
 
             List<UserSession> userSessions = new List<UserSession>();
@@ -147,7 +147,7 @@ namespace LogicTest
         public void IsLogued()
         {
             var mock1 = new Mock<IRepository<UserSession>>(MockBehavior.Strict);
-            var mock2 = new Mock<IUserRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IAdminRepository>(MockBehavior.Strict);
             SessionLogic logic = new SessionLogic(mock2.Object, mock1.Object);
 
             Administrator admin = new Administrator()

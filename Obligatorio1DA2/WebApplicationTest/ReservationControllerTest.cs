@@ -66,9 +66,9 @@ namespace WebApplicationTest
 
             adminMock.Setup(x => x.ModifyReservationState(update));
 
+            string token = "123";
 
-
-            var result = controller.Put(update);
+            var result = controller.Put(token, update);
             var okResult = result as OkObjectResult;
 
             adminMock.VerifyAll();

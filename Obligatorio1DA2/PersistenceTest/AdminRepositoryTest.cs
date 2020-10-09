@@ -9,7 +9,7 @@ using System.Text;
 namespace PersistenceTest
 {
     [TestClass]
-    public class UserSessionRepositoryTest
+    public class AdminRepositoryTest
     {
         [TestMethod]
         public void GetAdminByMailAndPassword()
@@ -20,7 +20,7 @@ namespace PersistenceTest
 
             using (var context = new UyNaturalContext(options))
             {
-                var repository = new UserSessionRepository(context);
+                var repository = new AdminRepository(context);
                 Administrator admin1 = new Administrator()
                 {
                     Name = "admin1",
@@ -61,7 +61,7 @@ namespace PersistenceTest
 
             using (var context = new UyNaturalContext(options))
             {
-                var repository = new UserSessionRepository(context);
+                var repository = new AdminRepository(context);
                 Administrator admin1 = new Administrator()
                 {
                     Name = "admin1",

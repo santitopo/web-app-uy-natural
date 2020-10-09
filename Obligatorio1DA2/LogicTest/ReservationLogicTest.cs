@@ -19,7 +19,7 @@ namespace LogicTest
         private Mock<ILodgingRepository> lodgingsMock;
         private Mock<IPriceCalculator> priceCalculatorMock;
         private Mock<IRepository<Client>> clientsMock;
-        private Mock<IUserRepository> adminsMock;
+        private Mock<IAdminRepository> adminsMock;
 
         [TestInitialize]
         public void Setup()
@@ -28,7 +28,7 @@ namespace LogicTest
             lodgingsMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
             priceCalculatorMock = new Mock<IPriceCalculator>(MockBehavior.Strict);
             clientsMock = new Mock<IRepository<Client>>(MockBehavior.Strict);
-            adminsMock = new Mock<IUserRepository>(MockBehavior.Strict);
+            adminsMock = new Mock<IAdminRepository>(MockBehavior.Strict);
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -119,7 +119,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -191,7 +191,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -219,7 +219,7 @@ namespace LogicTest
         public void BookFailLodgingNoCapacity()
         {
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -255,7 +255,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
             State defaultState = new State()
             {
                 Name = Constants.DEFAULT_RESERVATION_STATE
@@ -282,30 +282,14 @@ namespace LogicTest
 
         }
 
-    }
-}
-using Domain;
-using Logic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using PersistenceInterface;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LogicTest
-{
-    [TestClass]
-    public class ReservationLogicTest
-    {
         [TestMethod]
         public void GetAllReservations()
         {
-            var mock1 = new Mock<IRepository<Reservation>>(MockBehavior.Strict);
+            var mock1 = new Mock<IReservationRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<State>>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock1.Object, mock2.Object);
+            ReservationLogic logic = new ReservationLogic(mock1.Object,null,null,null,null, mock2.Object);
 
-            string[] param = { };
+            string[] param = {"State"};
             mock1.Setup(x => x.GetAll(param)).Returns(It.IsAny<IEnumerable<Reservation>>);
 
             IEnumerable<Reservation> ret = logic.GetAllReservations();
@@ -315,9 +299,9 @@ namespace LogicTest
         [TestMethod]
         public void GetAllStates()
         {
-            var mock1 = new Mock<IRepository<Reservation>>(MockBehavior.Strict);
+            var mock1 = new Mock<IReservationRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<State>>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock1.Object, mock2.Object);
+            ReservationLogic logic = new ReservationLogic(mock1.Object, null, null, null, null, mock2.Object);
 
             string[] param = { };
             mock2.Setup(x => x.GetAll(param)).Returns(It.IsAny<IEnumerable<State>>);

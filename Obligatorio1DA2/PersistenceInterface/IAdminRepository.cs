@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PersistenceInterface
 {
-    public interface IUserRepository : IRepository<Administrator>
+    public interface IAdminRepository : IRepository<Administrator>
     {
         Administrator GetAdminByMailAndPassword(string mail, string password);
         Administrator GetAdminByMail(string mail);

@@ -11,19 +11,22 @@ namespace Logic
     public class ReservationLogic : IReservationLogic
     {
         private IReservationRepository reservationRepository;
-        private IUserRepository adminRepository;
+        private IAdminRepository adminRepository;
         private ILodgingRepository lodgingRepository;
         private IPriceCalculator priceCalculator;
         private IRepository<Client> clientRepository;
+        private IRepository<State> stateRepository;
 
-        public ReservationLogic(IReservationRepository reservationRepository, IUserRepository adminRepository,
-            ILodgingRepository lodgingRepository, IPriceCalculator priceCalculator, IRepository<Client> clientRepository)
+        public ReservationLogic(IReservationRepository reservationRepository, IAdminRepository adminRepository,
+            ILodgingRepository lodgingRepository, IPriceCalculator priceCalculator, IRepository<Client> clientRepository,
+            IRepository<State> stateRepository)
         {
             this.reservationRepository = reservationRepository;
             this.adminRepository = adminRepository;
             this.lodgingRepository = lodgingRepository;
             this.priceCalculator = priceCalculator;
             this.clientRepository = clientRepository;
+            this.stateRepository = stateRepository;
         }
 
         public BillModel BookLodging(ReservationModel reservationData)
@@ -104,18 +107,12 @@ namespace Logic
             {
                 return code;
             }
-        private readonly IRepository<State> stateRepository;
-        private readonly IRepository<Reservation> reservationRepository;
 
-        public ReservationLogic(IRepository<Reservation> reservationRepository, IRepository<State> stateRepository)
-        {
-            this.reservationRepository = reservationRepository;
-            this.stateRepository = stateRepository;
         }
-
+        
         public IEnumerable<Reservation> GetAllReservations()
         {
-            string[] param = { };
+            string[] param = {"State"};
             return reservationRepository.GetAll(param);
         }
 
@@ -124,12 +121,5 @@ namespace Logic
             string[] param = { };
             return stateRepository.GetAll(param);
         }
-
-        public BillModel ReserveLodging(LodgingSearchModel search, int lodgingId)
-        {
-            throw new NotImplementedException();
-        }
-
-
     }
 }

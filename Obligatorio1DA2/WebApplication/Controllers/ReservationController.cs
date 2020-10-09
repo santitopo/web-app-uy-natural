@@ -82,20 +82,19 @@ namespace WebApplication.Controllers
             try
             {
                 Reservation reservation = reservationLogic.GetReservationByGuid(reservationCode);
-                StateModel statemodel = new StateModel()
-                {
-                    Description = reservation.StateDescription,
-                    Name = reservation.State.Name,
-                };
-
-
                 if (reservation != null)
                 {
+
+                    StateModel statemodel = new StateModel()
+                    {
+                        Description = reservation.StateDescription,
+                        Name = reservation.State.Name,
+                    };
                     return Ok(statemodel);
                 }
                 else
                 {
-                    return BadRequest("La reserva no existe");
+                    return BadRequest("No existe la reserva");
                 }
             }
             catch (Exception e)

@@ -17,12 +17,12 @@ namespace Logic
         private readonly ILodgingRepository lodgingRepository;
         private readonly IRepository<Reservation> reservationRepository;
         private readonly IRepository<State> stateRepository;
-        private readonly IUserRepository userRepository;
+        private readonly IAdminRepository userRepository;
         private readonly IRepository<Person> personRepository;
 
-        public AdminLogic(ITPointRepository repository, IRepository<Region> regionRepository, 
-            IRepository<Category> categoryRepository, ILodgingRepository lodgingRepository, 
-            IRepository<Person> personRepository, IUserRepository userRepository,
+        public AdminLogic(ITPointRepository repository, IRepository<Region> regionRepository,
+            IRepository<Category> categoryRepository, ILodgingRepository lodgingRepository,
+            IRepository<Person> personRepository, IAdminRepository userRepository,
             IRepository<Reservation> reservationRepository, IRepository<State> stateRepository)
         {
             this.tpRepository = repository;
@@ -108,7 +108,7 @@ namespace Logic
             if (lodgingRepository.Get(lodgingId) != null)
             {
                 Lodging lodging = lodgingRepository.Get(lodgingId);
-                lodging.Capacity = isFull;
+                lodging.Capacity = !isFull;
                 lodgingRepository.Update(lodging);
                 lodgingRepository.Save();
             }
@@ -122,10 +122,17 @@ namespace Logic
         {
             Reservation reservation = reservationRepository.Get(reservationUpdate.ReservationId);
             State state = stateRepository.Get(reservationUpdate.StateId);
-            reservation.State = state;
-            reservation.StateDescription = reservationUpdate.StateDescription;
-            reservationRepository.Update(reservation);
-            reservationRepository.Save();
+            if (reservation != null && state != null)
+            {
+                reservation.State = state;
+                reservation.StateDescription = reservationUpdate.StateDescription;
+                reservationRepository.Update(reservation);
+                reservationRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("La reserva o el estado no existen");
+            }
         }
 
         public void ModifyAdmin(Administrator admin)

@@ -9,9 +9,9 @@ namespace Logic
 {
     public class SessionLogic : ISessionLogic
     {
-        private readonly IUserRepository userRepository;
+        private readonly IAdminRepository userRepository;
         private readonly IRepository<UserSession> repository;
-        public SessionLogic(IUserRepository userRepository, IRepository<UserSession> repository)
+        public SessionLogic(IAdminRepository userRepository, IRepository<UserSession> repository)
         {
             this.userRepository = userRepository;
             this.repository = repository;
