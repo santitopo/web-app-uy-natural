@@ -22,25 +22,69 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        // POST: /reservation
+        // POST: /reservations
         [HttpPost]
-        public IActionResult Post([FromBody] LodgingSearchModel search, int lodgingId)
-        {
-            BillModel bill = reservationLogic.ReserveLodging(search, lodgingId);
-            return Ok(bill);
-        }
-
-        [HttpPut]
-        public IActionResult Put([FromBody] ReservationModel reservationModel)
+        public IActionResult Post([FromBody] ReservationModel reservationData)
         {
             try
             {
-                adminLogic.ModifyReservationState(reservationModel.StateId, reservationModel.Id, reservationModel.StateDescription);
+                BillModel bill = reservationLogic.BookLodging(reservationData);
+                return Ok(bill);
+            }
+
+            catch (InvalidOperationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (SystemException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Error inesperado procesando la reserva");
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody] ReservationUpdateModel reservationModel)
+        {
+            try
+            {
+                adminLogic.ModifyReservationState(reservationModel);
                 return Ok();
             }
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("{reservationCode}")]
+        public IActionResult Get(string reservationCode)
+        {
+            try
+            {
+                Reservation reservation = reservationLogic.GetReservationByGuid(reservationCode);
+                StateModel statemodel = new StateModel()
+                {
+                    Description = reservation.StateDescription,
+                    Name = reservation.State.Name,
+                };
+
+
+                if (reservation != null)
+                {
+                    return Ok(statemodel);
+                }
+                else
+                {
+                    return BadRequest("La reserva no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Error procesando la solicitud");
             }
         }
 

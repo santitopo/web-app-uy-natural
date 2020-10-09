@@ -8,8 +8,10 @@ namespace LogicInterface
 {
     public interface IReservationLogic
     {
-        //PRE: There was a previous search
+        //PRE: There was a previous search. The client sends the information again with the lodgingId in the model
         //POS: Returns the bill with a unique code, contact number and info text
-        BillModel ReserveLodging(LodgingSearchModel search, int lodgingId);
+        BillModel BookLodging(ReservationModel reservationData);
+
+        Reservation GetReservationByGuid(string code);
     }
 }

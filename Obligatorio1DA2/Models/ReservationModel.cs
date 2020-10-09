@@ -7,14 +7,15 @@ namespace Models
 {
     public class ReservationModel
     {
-        public int Id { get; set; }
-        public int Code { get; set; }
         public int LodgingId { get; set; }
-        public int ClientId { get; set; }
-        public DateTime CheckIn { get; set; }
-        public DateTime CheckOut { get; set; }
-        public int StateId { get; set; }
-        public string StateDescription { get; set; }
+        public string Checkin { get; set; }
+        public string Checkout { get; set; }
+        public int AdultsNum { get; set; }
+        public int ChildsNum { get; set; }
+        public int BabiesNum { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Mail { get; set; }
 
     }
 }

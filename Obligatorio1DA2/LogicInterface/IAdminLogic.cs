@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,7 +26,7 @@ namespace LogicInterface
 
         //PRE: 
         //POS: Modify the state of an existing reservation
-        void ModifyReservationState(int stateId, int reservationId, string aDescription);
+        void ModifyReservationState(ReservationUpdateModel reservationUpdate);
 
         //PRE:
         //POS: Add a new admin to the system

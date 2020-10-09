@@ -1,5 +1,6 @@
 ﻿using Domain;
 using LogicInterface;
+using Models;
 using PersistenceInterface;
 using System;
 using System.Collections.Generic;
@@ -110,12 +111,12 @@ namespace Logic
             lodgingRepository.Save();
         }
 
-        public void ModifyReservationState(int stateId, int reservationId, string aDescription)
+        public void ModifyReservationState(ReservationUpdateModel reservationUpdate)
         {
-            Reservation reservation = reservationRepository.Get(reservationId);
-            State state = stateRepository.Get(stateId);
+            Reservation reservation = reservationRepository.Get(reservationUpdate.ReservationId);
+            State state = stateRepository.Get(reservationUpdate.StateId);
             reservation.State = state;
-            reservation.StateDescription = aDescription;
+            reservation.StateDescription = reservationUpdate.StateDescription;
             reservationRepository.Update(reservation);
             reservationRepository.Save();
         }

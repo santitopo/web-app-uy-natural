@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Models;
 using Moq;
 using PersistenceInterface;
 using System;
@@ -281,7 +282,7 @@ namespace LogicTest
             Reservation aReservation = new Reservation()
             {
                 Id = 1,
-                Code = 1234,
+                Code = new Guid(),
                 State = new State(),
                 StateDescription = "aDescription"
             };
@@ -299,7 +300,15 @@ namespace LogicTest
             stateRepositoryMock.Setup(x => x.Get(It.IsAny<int>())).Returns(aState);
 
             string newDescription = "new description";
-            logic.ModifyReservationState(1, 1, newDescription);
+
+            ReservationUpdateModel reservationUpdate = new ReservationUpdateModel()
+            {
+                ReservationId = 1,
+                StateId = 1,
+                StateDescription = newDescription
+            };
+
+            logic.ModifyReservationState(reservationUpdate);
 
             Assert.AreEqual(aReservation.State, aState);
             Assert.AreEqual(aReservation.StateDescription, newDescription);

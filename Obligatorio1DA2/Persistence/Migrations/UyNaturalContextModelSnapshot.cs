@@ -135,11 +135,14 @@ namespace Persistence.Migrations
                     b.Property<int?>("ClientId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Code")
-                        .HasColumnType("int");
+                    b.Property<Guid>("Code")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("LodgingId")
                         .HasColumnType("int");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("StateDescription")
                         .HasColumnType("nvarchar(max)");

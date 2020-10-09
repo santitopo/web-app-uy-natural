@@ -21,22 +21,131 @@ namespace WebApplicationTest
 
             ReservationController controller = new ReservationController(null, adminMock.Object);
 
-            ReservationModel reservationModel = new ReservationModel()
+
+
+            ReservationUpdateModel update = new ReservationUpdateModel()
             {
-                Id = 1,
-                StateId = 1,
-                StateDescription = "This is a test"
+                ReservationId = 2,
+                StateDescription = "Pago aceptado",
+                StateId = 2,
             };
 
-            adminMock.Setup(x => x.ModifyReservationState
-                (It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()));
+            adminMock.Setup(x => x.ModifyReservationState(update));
 
 
 
-            var result = controller.Put(reservationModel);
+            var result = controller.Put(update);
             var okResult = result as OkObjectResult;
-            
+
             adminMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void PostOk()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+
+            var reservationMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+
+            ReservationController controller = new ReservationController(reservationMock.Object, adminMock.Object);
+
+            ReservationModel reservationModel = new ReservationModel()
+            {
+                AdultsNum = 1,
+                BabiesNum = 1,
+                ChildsNum = 0,
+                Checkin = "12102020",
+                Checkout = "13102020",
+                LodgingId = 4,
+                Mail = "user@test.com",
+                Name = "User",
+                Surname = "Surname"
+
+            };
+            BillModel billreturn = new BillModel()
+            {
+                Description = "test description",
+                Phone = "+59898455545",
+                PricePaid = 208,
+                ReservationCode = new Guid(),
+            };
+
+            reservationMock.Setup(x => x.BookLodging(reservationModel)).Returns(billreturn);
+            var result = controller.Post(reservationModel);
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as BillModel;
+
+            adminMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void BadPost()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+
+            var reservationMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+
+            ReservationController controller = new ReservationController(reservationMock.Object, adminMock.Object);
+
+            ReservationModel reservationModel = new ReservationModel()
+            {
+                AdultsNum = 1,
+                BabiesNum = 1,
+                ChildsNum = 0,
+                Checkin = "12102020",
+                Checkout = "13102020",
+                LodgingId = 4,
+                Mail = "user@test.com",
+                Name = "User",
+                Surname = "Surname"
+
+            };
+            BillModel billreturn = new BillModel()
+            {
+                Description = "test description",
+                Phone = "+59898455545",
+                PricePaid = 208,
+                ReservationCode = new Guid(),
+            };
+
+            reservationMock.Setup(x => x.BookLodging(reservationModel)).Throws(new InvalidOperationException("El hospedaje no existe"));
+            var result = controller.Post(reservationModel);
+
+
+            adminMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+
+        [TestMethod]
+        public void Get()
+        {
+            var reservationMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+            string guidcode = "guid";
+            State stateMock = new State()
+            {
+                Name = "TestState",
+            };
+            Reservation reservation = new Reservation()
+            {
+                State = stateMock,
+                StateDescription = "testStateDescription",
+            };
+            ReservationController controller = new ReservationController(reservationMock.Object, null);
+            reservationMock.Setup(x => x.GetReservationByGuid(guidcode)).Returns(reservation);
+
+            StateModel statemodel = new StateModel()
+            {
+                Description = reservation.StateDescription,
+                Name = reservation.State.Name,
+            };
+
+
+            var result = controller.Get("guid");
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as StateModel;
+
+            reservationMock.VerifyAll();
+
         }
     }
 }

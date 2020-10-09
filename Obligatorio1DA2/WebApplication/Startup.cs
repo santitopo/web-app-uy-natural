@@ -44,6 +44,7 @@ namespace WebApplication
             services.AddScoped(typeof(ITPointRepository), typeof(TPointRepository));
             services.AddScoped(typeof(IUserRepository), typeof(UserSessionRepository));
             services.AddScoped(typeof(ILodgingRepository), typeof(LodgingRepository));
+            services.AddScoped(typeof(IReservationRepository), typeof(ReservationRepository));
             //Dependency injection Logic Interfaces
             services.AddScoped<ISearchLogic, SearchLogic>();
             services.AddScoped<ILodgingLogic, LodgingLogic>();
