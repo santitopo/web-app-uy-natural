@@ -7,8 +7,9 @@ namespace Models
 {
     public class BillModel
     {
-        public int Code { get; set; }
-        public State State { get; set; }
-        public string StateDescription { get; set; }
+        public Guid ReservationCode { get; set; }
+        public string Phone { get; set; }
+        public string Description { get; set; }
+        public double PricePaid { get; set; }
     }
 }

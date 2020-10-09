@@ -8,5 +8,6 @@ namespace PersistenceInterface
     {
         Administrator GetAdminByMailAndPassword(string mail, string password);
         Administrator GetAdminByMail(string mail);
+        Client GetClientbyAttributes(string mail, string name, string surname);
     }
 }

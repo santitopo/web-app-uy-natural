@@ -11,8 +11,38 @@ namespace Logic
         public double CalculatePrice(LodgingSearchModel search, double pricePerNight)
         {
             double price = 0;
-            DateTime checkin = DateTime.ParseExact(search.Checkin, "ddMMyyyy", null) ;
-            DateTime checkout = DateTime.ParseExact(search.Checkout, "ddMMyyyy", null);
+            DateTime checkin;
+            DateTime checkout;
+            try
+            {
+                checkin = DateTime.ParseExact(search.Checkin, "ddMMyyyy", null);
+                checkout = DateTime.ParseExact(search.Checkout, "ddMMyyyy", null);
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Error en el formato de fechas. Formato esperado 'ddMMyyyy'");
+            }
+            int days = checkout.Subtract(checkin).Days;
+            price += search.AdultsNum * days * pricePerNight;
+            price += Convert.ToInt32(search.ChildsNum * 0.5 * days * pricePerNight);
+            price += Convert.ToInt32(search.BabiesNum * 0.25 * days * pricePerNight);
+            return price;
+        }
+
+        public double CalculatePrice(ReservationModel search, double pricePerNight)
+        {
+            double price = 0;
+            DateTime checkin;
+            DateTime checkout;
+            try
+            {
+                checkin = DateTime.ParseExact(search.Checkin, "ddMMyyyy", null);
+                checkout = DateTime.ParseExact(search.Checkout, "ddMMyyyy", null);
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Error en el formato de fechas. Formato esperado 'ddMMyyyy'");
+            }
             int days = checkout.Subtract(checkin).Days;
             price += search.AdultsNum * days * pricePerNight;
             price += Convert.ToInt32(search.ChildsNum * 0.5 * days * pricePerNight);

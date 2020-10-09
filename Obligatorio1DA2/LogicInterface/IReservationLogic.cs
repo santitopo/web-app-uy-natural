@@ -13,8 +13,8 @@ namespace LogicInterface
 
         //PRE: There was a previous search
         //POS: Returns the bill with a unique code, contact number and info text
-        BillModel ReserveLodging(LodgingSearchModel search, int lodgingId);
+        BillModel BookLodging(ReservationModel reservationData);
 
-
+        Reservation GetReservationByGuid(string code);
     }
 }

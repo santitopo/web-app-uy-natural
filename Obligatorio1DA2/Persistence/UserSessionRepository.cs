@@ -47,5 +47,20 @@ namespace Persistence
             }
         }
 
+        public Client GetClientbyAttributes(string mail, string name, string surname)
+        {
+            Person a = DbSet.Where(x => x is Client && x.Mail == mail && x.Name == name && x.Surname == surname).FirstOrDefault();
+            if (a != null)
+            {
+                return a as Client;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+
     }
 }

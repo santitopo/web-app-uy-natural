@@ -1,5 +1,6 @@
 ﻿using Domain;
 using LogicInterface;
+using Models;
 using PersistenceInterface;
 using System;
 using System.Collections.Generic;
@@ -117,22 +118,14 @@ namespace Logic
             }
         }
 
-        public void ModifyReservationState(int stateId, int reservationId, string aDescription)
+        public void ModifyReservationState(ReservationUpdateModel reservationUpdate)
         {
-            if (reservationRepository.Get(reservationId) != null && stateRepository.Get(stateId) != null)
-            {
-                Reservation reservation = reservationRepository.Get(reservationId);
-                State state = stateRepository.Get(stateId);
-                reservation.State = state;
-                reservation.StateDescription = aDescription;
-                reservationRepository.Update(reservation);
-                reservationRepository.Save();
-            }
-            else 
-            {
-                throw new InvalidOperationException("La reserva o el estado no existe");
-            }
-
+            Reservation reservation = reservationRepository.Get(reservationUpdate.ReservationId);
+            State state = stateRepository.Get(reservationUpdate.StateId);
+            reservation.State = state;
+            reservation.StateDescription = reservationUpdate.StateDescription;
+            reservationRepository.Update(reservation);
+            reservationRepository.Save();
         }
 
         public void ModifyAdmin(Administrator admin)

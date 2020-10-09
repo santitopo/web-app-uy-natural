@@ -8,7 +8,7 @@ namespace LogicInterface
     public interface IPriceCalculator
     {
 
-        double CalculatePrice(LodgingSearchModel search, double pricePerNight);  
-
+        double CalculatePrice(LodgingSearchModel search, double pricePerNight);
+        double CalculatePrice(ReservationModel search, double pricePerNight);
     }
 }

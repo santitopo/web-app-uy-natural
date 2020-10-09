@@ -8,13 +8,14 @@ namespace Domain
     public class Reservation
     {
         public int Id { get; set; }
-        public int Code { get; set; }
+        public Guid Code { get; set; }
         public Lodging Lodging { get; set; }
         public Client Client { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public State State {get; set;}
         public string StateDescription { get; set; }
+        public double Price { get; set; }
 
         public Reservation()
         {
