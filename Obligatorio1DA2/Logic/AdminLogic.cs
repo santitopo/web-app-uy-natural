@@ -44,7 +44,7 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("Ya existe un administrador con ese mail");
             }
         }
 
@@ -61,7 +61,7 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("Ya existe un hospedaje con ese nombre y direccion");
             }
         }
 
@@ -98,26 +98,54 @@ namespace Logic
             }
             else
             {
-                return null;
+                throw new InvalidOperationException("Ya existe un punto turistico con ese nombre");
             }
         }
 
         public void ModifyLodgingCapacity(int lodgingId, bool isFull)
         {
-            Lodging lodging = lodgingRepository.Get(lodgingId);
-            lodging.Capacity = isFull;
-            lodgingRepository.Update(lodging);
-            lodgingRepository.Save();
+            if (lodgingRepository.Get(lodgingId) != null)
+            {
+                Lodging lodging = lodgingRepository.Get(lodgingId);
+                lodging.Capacity = isFull;
+                lodgingRepository.Update(lodging);
+                lodgingRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("El hospedaje no existe");
+            }
         }
 
         public void ModifyReservationState(int stateId, int reservationId, string aDescription)
         {
-            Reservation reservation = reservationRepository.Get(reservationId);
-            State state = stateRepository.Get(stateId);
-            reservation.State = state;
-            reservation.StateDescription = aDescription;
-            reservationRepository.Update(reservation);
-            reservationRepository.Save();
+            if (reservationRepository.Get(reservationId) != null && stateRepository.Get(stateId) != null)
+            {
+                Reservation reservation = reservationRepository.Get(reservationId);
+                State state = stateRepository.Get(stateId);
+                reservation.State = state;
+                reservation.StateDescription = aDescription;
+                reservationRepository.Update(reservation);
+                reservationRepository.Save();
+            }
+            else 
+            {
+                throw new InvalidOperationException("La reserva o el estado no existe");
+            }
+
+        }
+
+        public void ModifyAdmin(Administrator admin)
+        {
+            if (userRepository.GetAdminByMail(admin.Mail) == null)
+            {
+                userRepository.Update(admin);
+                userRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("El administrador no existe");
+            }
         }
 
         public void RemoveAdmin(int adminId)
@@ -128,6 +156,10 @@ namespace Logic
                 personRepository.Delete(admin);
                 personRepository.Save();
             }
+            else
+            {
+                throw new InvalidOperationException("El administrador no existe");
+            }
         }
 
         public void RemoveLodging(int lodgingId)
@@ -137,6 +169,10 @@ namespace Logic
             {
                 lodgingRepository.Delete(lodging);
                 lodgingRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("El hospedaje no existe");
             }
         }
     }

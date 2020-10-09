@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
+using Filters;
 using LogicInterface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,19 +34,13 @@ namespace WebApplication.Controllers
 
         // POST: /lodgings
         [HttpPost]
-        public IActionResult Post([FromBody] LodgingModel lodgingModel)
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Post([FromHeader] string token, [FromBody] LodgingModel lodgingModel)
         {
             try
             {
                 Lodging newLodging = adminLogic.AddLodging(lodgingModel.ToEntity(), lodgingModel.TPointId);
-                if (newLodging != null)
-                {
-                    return Ok(newLodging);
-                }
-                else
-                {
-                    return StatusCode(409, "Ya existe un hospedaje con este nombre en el punto turistico");
-                }
+                return Ok(newLodging);
             }
             catch (Exception e)
             {
@@ -53,15 +48,27 @@ namespace WebApplication.Controllers
             }
         }
 
+        // POST: /lodgings/1
         [HttpDelete("{lodgingId}")]
-        public IActionResult Delete(int lodgingId)
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Delete([FromHeader] string token, int lodgingId)
         {
-            adminLogic.RemoveLodging(lodgingId);
-            return Ok();
+            try
+            {
+                adminLogic.RemoveLodging(lodgingId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
-        
+
+        // PUT: /lodgings
         [HttpPut]
-        public IActionResult Put([FromBody] LodgingModel lodgingModel)
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Put([FromHeader] string token, [FromBody] LodgingModel lodgingModel)
         {
             try
             {

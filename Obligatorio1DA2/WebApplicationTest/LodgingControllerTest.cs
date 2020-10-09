@@ -33,8 +33,9 @@ namespace WebApplicationTest
             };
 
             adminMock.Setup(x => x.AddLodging(It.IsAny<Lodging>(), It.IsAny<int>())).Returns(lodging);
+            string token = "123";
 
-            var result = controller.Post(lodgingModel);
+            var result = controller.Post(token, lodgingModel);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as Lodging;
 
@@ -54,11 +55,14 @@ namespace WebApplicationTest
                 Name = "lodging1",
             };
 
-            adminMock.Setup(x => x.AddLodging(It.IsAny<Lodging>(), It.IsAny<int>())).Returns(nullLodging);
+            adminMock.Setup(x => x.AddLodging(It.IsAny<Lodging>(), It.IsAny<int>())).
+                Throws(new InvalidOperationException("Ya existe un hospedaje con ese nombre y direccion"));
+            string token = "123";
 
-            var result = controller.Post(lodgingModel);
+            var result = controller.Post(token, lodgingModel);
             var response = result as ObjectResult;
-            Assert.AreEqual(409, response.StatusCode);
+            Assert.AreEqual(400, response.StatusCode);
+
             adminMock.VerifyAll();
         }
 
@@ -69,8 +73,9 @@ namespace WebApplicationTest
             LodgingController controller = new LodgingController(null, adminMock.Object);
 
             adminMock.Setup(x => x.RemoveLodging(It.IsAny<int>()));
+            string token = "123";
 
-            var result = controller.Delete(1);
+            var result = controller.Delete(token, 1);
             var okResult = result as OkObjectResult;
 
             adminMock.VerifyAll();
@@ -89,8 +94,9 @@ namespace WebApplicationTest
                 Id = 1,
                 IsFull = true
             };
+            string token = "123";
 
-            var result = controller.Put(lodgingModel);
+            var result = controller.Put(token, lodgingModel);
             var okResult = result as OkObjectResult;
 
             adminMock.VerifyAll();

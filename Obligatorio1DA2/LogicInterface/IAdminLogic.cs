@@ -35,5 +35,9 @@ namespace LogicInterface
         //POS: Remove an existing admin of the system
         void RemoveAdmin(int adminId);
 
+        //PRE: Exists admin
+        //POS: Remove an existing admin of the system
+        void ModifyAdmin(Administrator admin);
+
     }
 }

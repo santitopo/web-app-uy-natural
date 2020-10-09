@@ -20,6 +20,7 @@ namespace WebApplication.Controllers
             this.logic = logic;
         }
 
+        // POST: /sessions/login
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginModel loginModel)
         {
@@ -32,6 +33,8 @@ namespace WebApplication.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        // DELETE: /sessions/logout
         [HttpDelete("logout")]
         public IActionResult Logout([FromHeader] string token)
         {
@@ -42,7 +45,7 @@ namespace WebApplication.Controllers
             }
             catch (Exception e)
             {
-                return NotFound(e.Message);
+                return BadRequest(e.Message);
             }
         }
     }

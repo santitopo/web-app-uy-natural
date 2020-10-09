@@ -26,7 +26,5 @@ namespace WebApplication.Controllers
         {
             return Ok(searchLogic.GetAllRegions());
         }
-
-
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
+using Filters;
 using LogicInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using Models;
 namespace WebApplication.Controllers
 {
     [ApiController]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     [Route("/tpoints")]
     public class TPointController : ControllerBase
     {
@@ -22,9 +24,9 @@ namespace WebApplication.Controllers
             this.searchLogic = searchLogic;
             this.adminLogic = adminLogic;
         }
-
+        
+        // GET: /tpoints
         [HttpGet]
-
         public IActionResult GetAllTPoints()
         {
             return Ok(searchLogic.GetAllTPoints());
@@ -56,26 +58,21 @@ namespace WebApplication.Controllers
                     return NotFound("No se encontraron puntos turisticos para la region " + regionId + " con las categorias seleccionadas");
                 }
             }
-            catch
+            catch(Exception e)
             {
-                return StatusCode(500);                   
+                return BadRequest(e.Message);
             }
         }
 
+        // POST: /tpoints
         [HttpPost]
-        public IActionResult Post([FromBody] TouristicPointModel tpModel)
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Post([FromHeader] string token, [FromBody] TouristicPointModel tpModel)
         {
             try
             {
                 TouristicPoint newTP = adminLogic.AddTouristicPoint(tpModel.ToEntity(),tpModel.RegionId, tpModel.Categories);
-                if (newTP != null)
-                {
-                    return Ok(newTP);
-                }
-                else
-                {
-                    return StatusCode(409,"Ya existe un punto turistico con este nombre");
-                }
+                return Ok(newTP);
             }
             catch (Exception e)
             {

@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Bierland.webapi.Filters
+namespace Filters
 {
     public class AuthorizationFilter : Attribute, IAuthorizationFilter
     {
-        private readonly ISessionLogic logic;
+        private ISessionLogic logic;
         public AuthorizationFilter(ISessionLogic logic)
         {
             this.logic = logic;
@@ -23,7 +23,7 @@ namespace Bierland.webapi.Filters
                 context.Result = new ContentResult()
                 {
                     StatusCode = 401,
-                    Content ="You aren't logued."
+                    Content = "Error. No existe la sesión."
                 };
                 return;
             }
@@ -32,7 +32,7 @@ namespace Bierland.webapi.Filters
                 context.Result = new ContentResult()
                 {
                     StatusCode = 403,
-                    Content = "You aren't logued correctly."
+                    Content = "Error. No estas logueado."
                 };
                 return;
             }

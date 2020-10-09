@@ -1,9 +1,11 @@
 ﻿using Domain;
+using Filters;
 using LogicInterface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using Moq;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using WebApplication.Controllers;
@@ -33,7 +35,7 @@ namespace WebApplicationTest
             logicMock.VerifyAll();
         }
 
-        
+
         [TestMethod]
         public void GetTPointsByRegion()
         {
@@ -65,9 +67,9 @@ namespace WebApplicationTest
             ret.Add(new TouristicPoint() { });
 
             int[] numbers = { 1, 3 };
-            logicMock.Setup(x => x.FindByRegionCat(1,numbers)).Returns(ret);
+            logicMock.Setup(x => x.FindByRegionCat(1, numbers)).Returns(ret);
 
-            var result = controller.GetTPointsByRegionCat(1,numbers);
+            var result = controller.GetTPointsByRegionCat(1, numbers);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as IEnumerable<TouristicPoint>;
 
@@ -83,7 +85,7 @@ namespace WebApplicationTest
 
             int[] categories = { 1, 2, 3 };
 
-            TouristicPointModel tpModel = new TouristicPointModel() 
+            TouristicPointModel tpModel = new TouristicPointModel()
             {
                 Categories = categories,
                 RegionId = 1,
@@ -93,8 +95,9 @@ namespace WebApplicationTest
 
             adminMock.Setup(x => x.AddTouristicPoint(It.IsAny<TouristicPoint>(), It.IsAny<int>(), It.IsAny<int[]>()))
                 .Returns(tp);
+            string token = "123";
 
-            var result = controller.Post(tpModel);
+            var result = controller.Post(token, tpModel);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as TouristicPoint;
 
@@ -119,11 +122,13 @@ namespace WebApplicationTest
             TouristicPoint tp = null;
 
             adminMock.Setup(x => x.AddTouristicPoint(It.IsAny<TouristicPoint>(), It.IsAny<int>(), It.IsAny<int[]>()))
-                .Returns(tp);
-            var result = controller.Post(tpModel);
+                .Throws(new InvalidOperationException("Ya existe un punto turistico con ese nombre"));
+            string token = "123";
+
+            var result = controller.Post(token, tpModel);
             var response = result as ObjectResult;
 
-            Assert.AreEqual(409, response.StatusCode);
+            Assert.AreEqual(400, response.StatusCode);
             adminMock.VerifyAll();
         }
     }

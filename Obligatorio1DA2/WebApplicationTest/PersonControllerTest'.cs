@@ -29,8 +29,9 @@ namespace WebApplicationTest
             };
 
             adminMock.Setup(x => x.AddAdmin(It.IsAny<Administrator>())).Returns(admin);
+            string token = "123";
 
-            var result = controller.Post(admin);
+            var result = controller.Post(token, admin);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as Administrator;
 
@@ -45,11 +46,14 @@ namespace WebApplicationTest
 
             Administrator nullAdmin = null;
 
-            adminMock.Setup(x => x.AddAdmin(It.IsAny<Administrator>())).Returns(nullAdmin);
+            adminMock.Setup(x => x.AddAdmin(It.IsAny<Administrator>())).
+                Throws(new InvalidOperationException("Ya existe un administrador con ese mail"));
+            string token = "123";
 
-            var result = controller.Post(It.IsAny<Administrator>());
+            var result = controller.Post(token, It.IsAny<Administrator>());
             var response = result as ObjectResult;
-            Assert.AreEqual(409, response.StatusCode);
+            Assert.AreEqual(400, response.StatusCode);
+
             adminMock.VerifyAll();
         }
 
@@ -68,12 +72,35 @@ namespace WebApplicationTest
             };
 
             adminMock.Setup(x => x.RemoveAdmin(It.IsAny<int>()));
+            string token = "123";
 
-            var result = controller.Delete(1);
+            var result = controller.Delete(token, 1);
             var okResult = result as OkObjectResult;
             
             adminMock.VerifyAll();
         }
+        [TestMethod]
+        public void PutOk()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            PersonController controller = new PersonController(adminMock.Object);
+
+            Administrator admin = new Administrator()
+            {
+                Mail = "admin",
+                Name = "admin",
+                Password = "admin",
+            };
+
+            adminMock.Setup(x => x.ModifyAdmin(admin));
+            string token = "123";
+
+            var result = controller.Put(token, admin);
+            var okResult = result as OkObjectResult;
+
+            adminMock.VerifyAll();
+        }
+
 
     }
 }

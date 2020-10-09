@@ -1,5 +1,7 @@
-﻿using LogicInterface;
+﻿using Filters;
+using LogicInterface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using Moq;
@@ -56,5 +58,6 @@ namespace WebApplicationTest
 
             logicMock.VerifyAll();
         }
+
     }
 }

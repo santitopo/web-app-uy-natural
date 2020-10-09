@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Filters;
 using LogicInterface;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -22,7 +23,21 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        // POST: /reservation
+        // GET: /reservations
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(reservationLogic.GetAllReservations());
+        }
+
+        // GET: /reservations/states
+        [HttpGet("states")]
+        public IActionResult GetStates()
+        {
+            return Ok(reservationLogic.GetAllStates());
+        }
+
+        // POST: /reservations
         [HttpPost]
         public IActionResult Post([FromBody] LodgingSearchModel search, int lodgingId)
         {
@@ -30,8 +45,10 @@ namespace WebApplication.Controllers
             return Ok(bill);
         }
 
+        // PUT: /reservations
         [HttpPut]
-        public IActionResult Put([FromBody] ReservationModel reservationModel)
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Put([FromHeader] string token, [FromBody] ReservationModel reservationModel)
         {
             try
             {

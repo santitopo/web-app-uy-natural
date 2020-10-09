@@ -73,6 +73,7 @@ namespace LogicTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "Ya existe un punto turistico con ese nombre")]
         public void AddExistingTouristicPoint()
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
@@ -89,7 +90,6 @@ namespace LogicTest
 
             TouristicPoint ret = logic.AddTouristicPoint(tp, It.IsAny<int>(), It.IsAny<int[]>());
 
-            Assert.IsNull(ret);
             mock2.VerifyAll();
         }
 
@@ -120,6 +120,7 @@ namespace LogicTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "Ya existe un administrador con ese mail")]
         public void AddExistingAdmin()
         {
             var userRepositoryMock = new Mock<IUserRepository>(MockBehavior.Strict);
@@ -137,7 +138,6 @@ namespace LogicTest
 
             Administrator ret = logic.AddAdmin(newAdmin);
 
-            Assert.IsNull(ret);
             userRepositoryMock.VerifyAll();
         }
 
@@ -183,6 +183,7 @@ namespace LogicTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "Ya existe un hospedaje con ese nombre y direccion")]
         public void AddExistingLodging()
         {
             var lodgingRepositoryMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
@@ -200,7 +201,6 @@ namespace LogicTest
 
             Lodging ret = logic.AddLodging(newLodging, 1);
 
-            Assert.IsNull(ret);
             lodgingRepositoryMock.VerifyAll();
         }
 
@@ -224,6 +224,30 @@ namespace LogicTest
             logic.RemoveAdmin(It.IsAny<int>());
             personRepositoryMock.VerifyAll();
         }
+
+        [TestMethod]
+        public void ModifyAdmin()
+        {
+            var userRepositoryMock = new Mock<IUserRepository>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(null, null, null, null, null, userRepositoryMock.Object, null, null);
+
+            Administrator newAdmin = new Administrator()
+            {
+                Name = "anAdmin",
+                Mail = "anAdmin",
+                Password = "anAdmin"
+            };
+
+            Administrator nullAdmin = null;
+
+            userRepositoryMock.Setup(x => x.GetAdminByMail(It.IsAny<string>())).Returns(nullAdmin);
+            userRepositoryMock.Setup(x => x.Update(It.IsAny<Administrator>()));
+            userRepositoryMock.Setup(x => x.Save());
+
+            logic.ModifyAdmin(newAdmin);
+            userRepositoryMock.VerifyAll();
+        }
+
 
         [TestMethod]
         public void RemoveLodging()

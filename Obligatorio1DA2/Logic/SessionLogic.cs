@@ -27,7 +27,7 @@ namespace Logic
         public string LogIn(string mail, string password)
         {
             Administrator admin = userRepository.GetAdminByMailAndPassword(mail, password);
-            if (admin == null) throw new InvalidOperationException("User or password incorrect");
+            if (admin == null) throw new InvalidOperationException("Usuario o contraseña incorrectos");
             string[] param = {"User"};
             UserSession userSession = repository.GetAll(param).Where(x => x.User.Id == admin.Id).FirstOrDefault();
             if (userSession == null)
@@ -48,9 +48,14 @@ namespace Logic
         {
             string[] param = { };
             UserSession userSession = repository.GetAll(param).Where(x => x.Token == token).FirstOrDefault();
-            if (userSession == null) throw new InvalidOperationException("Token doesn't exist");
-            repository.Delete(userSession);
-            repository.Save();
+            if (userSession != null) {
+                repository.Delete(userSession);
+                repository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("El token no existe");
+            }
         }
     }
 }

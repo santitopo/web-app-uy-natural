@@ -31,8 +31,15 @@ namespace Logic
 
         public IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId)
         {
-           IEnumerable <TouristicPoint> filteredTPoints = tpointRepository.FindByRegion(regionId);
-           return filteredTPoints;
+            if (regionRepository.Get(regionId) != null)
+            {
+                IEnumerable<TouristicPoint> filteredTPoints = tpointRepository.FindByRegion(regionId);
+                return filteredTPoints;
+            }
+            else
+            {
+                throw new InvalidOperationException("La region no existe");
+            }
         }
         
         public IEnumerable<TouristicPoint> GetAllTPoints()
@@ -49,7 +56,14 @@ namespace Logic
 
         public IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories)
         {
-            return tpointRepository.FindByRegionCat(regionId, categories);
+            if (regionRepository.Get(regionId) != null)
+            {
+                return tpointRepository.FindByRegionCat(regionId, categories);
+            }
+            else
+            {
+                throw new InvalidOperationException("La region no existe");
+            }
         }
 
         //Not implemented

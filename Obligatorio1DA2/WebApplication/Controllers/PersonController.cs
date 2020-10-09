@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
+using Filters;
 using LogicInterface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,21 +21,15 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        // POST: /lodgings
+        // POST: /persons
         [HttpPost]
-        public IActionResult Post([FromBody] Administrator admin)
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Post([FromHeader] string token, [FromBody] Administrator admin)
         {
             try
             {
                 Administrator newAdministrator = adminLogic.AddAdmin(admin);
-                if (newAdministrator != null)
-                {
-                    return Ok(newAdministrator);
-                }
-                else
-                {
-                    return StatusCode(409, "Ya existe un administrador con el mismo mail");
-                }
+                return Ok(newAdministrator);
             }
             catch (Exception e)
             {
@@ -42,11 +37,36 @@ namespace WebApplication.Controllers
             }
         }
 
-        [HttpDelete("{personId}")]
-        public IActionResult Delete(int personId)
+        //PUT: /persons
+        [HttpPut]
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Put([FromHeader] string token, [FromBody] Administrator admin)
         {
-            adminLogic.RemoveAdmin(personId);
-            return Ok();
+            try
+            {
+                adminLogic.ModifyAdmin(admin);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        //DELETE: /persons/1
+        [HttpDelete("{adminId}")]
+        [ServiceFilter(typeof(AuthorizationFilter))]
+        public IActionResult Delete([FromHeader] string token, int adminId)
+        {
+            try
+            {
+                adminLogic.RemoveAdmin(adminId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
     }
