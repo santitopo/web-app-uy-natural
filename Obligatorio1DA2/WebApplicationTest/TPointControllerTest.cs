@@ -77,6 +77,35 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
+        public void GetTPointsByRegionCatException()
+        {
+            var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
+            TPointController controller = new TPointController(logicMock.Object, null);
+
+            logicMock.Setup(x => x.GetTPointsByRegion(1)).Throws(new InvalidOperationException("La region no existe"));
+
+            var result = controller.GetTPointsByRegionCat(1, null);
+
+            logicMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+
+        [TestMethod]
+        public void GetTPointsByRegionCatFail()
+        {
+            var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);
+            TPointController controller = new TPointController(logicMock.Object, null);
+
+            List<TouristicPoint> ret = null;
+            logicMock.Setup(x => x.GetTPointsByRegion(1)).Returns(ret);
+
+            var result = controller.GetTPointsByRegionCat(1, null);
+
+            logicMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+        }
+
+        [TestMethod]
         public void PostOk()
         {
             var logicMock = new Mock<ISearchLogic>(MockBehavior.Strict);

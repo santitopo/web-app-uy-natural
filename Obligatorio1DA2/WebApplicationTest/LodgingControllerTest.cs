@@ -82,6 +82,21 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
+        public void DeleteFailNotExists()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            LodgingController controller = new LodgingController(null, adminMock.Object);
+
+            adminMock.Setup(x => x.RemoveLodging(It.IsAny<int>())).Throws(new InvalidOperationException());
+            string token = "123";
+
+            var result = controller.Delete(token, 1);
+            adminMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+    
+
+        [TestMethod]
         public void PutOK()
         {
             var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
@@ -100,6 +115,27 @@ namespace WebApplicationTest
             var okResult = result as OkObjectResult;
 
             adminMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void PutException()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            LodgingController controller = new LodgingController(null, adminMock.Object);
+
+            adminMock.Setup(x => x.ModifyLodgingCapacity(It.IsAny<int>(), It.IsAny<bool>()))
+                .Throws(new InvalidOperationException());
+
+            LodgingModel lodgingModel = new LodgingModel()
+            {
+                Id = 1,
+                IsFull = true
+            };
+            string token = "123";
+
+            var result = controller.Put(token, lodgingModel);
+            adminMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
         }
 
         [TestMethod]
