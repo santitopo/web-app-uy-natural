@@ -36,13 +36,12 @@ namespace Persistence
             string concat = "";
             if (includes.Length > 0)
             {
-                concat = includes[0];
                 for (int i = 1; i < includes.Length; i++)
                 {
-                    concat += "." + includes[i];
+                    DbSet.Include(includes[i]);
                 }
 
-                return DbSet.Include(concat).ToList();
+                return DbSet.ToList();
             }
             else
             {

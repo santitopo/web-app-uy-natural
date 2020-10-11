@@ -52,5 +52,41 @@ namespace LogicTest
 
         }
 
+        [TestMethod]
+        public void CalculatePriceReservation()
+        {
+            PriceCalculator calculator = new PriceCalculator();
+            ReservationModel reservation = new ReservationModel()
+            {
+                AdultsNum = 2,
+                ChildsNum = 1,
+                BabiesNum = 1,
+                Checkin = "12102019",
+                Checkout = "13102019"
+            };
+            double price = calculator.CalculatePrice(reservation, 20);
+
+            Assert.AreEqual(55, price);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "Error en el formato de fechas.Formato esperado 'ddMMyyyy'")]
+        public void BadCalculatePriceReservation()
+        {
+            PriceCalculator calculator = new PriceCalculator();
+            ReservationModel reservation = new ReservationModel()
+            {
+                AdultsNum = 2,
+                ChildsNum = 1,
+                BabiesNum = 1,
+                Checkin = "12/10/2019",
+                Checkout = "13/10/2019"
+            };
+            double price = calculator.CalculatePrice(reservation, 20);
+
+
+        }
+
     }
 }

@@ -267,5 +267,65 @@ namespace PersistenceTest
             }
         }
 
+        [TestMethod]
+        public void CreateLogicalDeletedLodging()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging1 = new Lodging()
+                {
+                    Id = 1,
+                    Name = "lodging1",
+                    Direction = "aDirection1",
+                    IsDeleted = true
+                };
+                context.Set<Lodging>().Add(lodging1);
+                context.SaveChanges();
+
+                string[] param = { };
+                repository.Create(lodging1);
+                context.SaveChanges();
+
+                Assert.IsFalse(lodging1.IsDeleted);
+
+                context.Set<Lodging>().Remove(lodging1);
+                context.SaveChanges();
+            }
+        }
+
+        [TestMethod]
+        public void CreateNewLodging()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "TestDB")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new LodgingRepository(context);
+
+                Lodging lodging1 = new Lodging()
+                {
+                    Id = 1,
+                    Name = "lodging1",
+                    Direction = "aDirection1"
+                };
+                repository.Create(lodging1);
+                context.SaveChanges();
+
+                string [] param = { };
+                CollectionAssert.Contains(repository.GetAll(param).ToList(),lodging1);
+
+                context.Set<Lodging>().Remove(lodging1);
+                context.SaveChanges();
+            }
+        }
+
     }
 }

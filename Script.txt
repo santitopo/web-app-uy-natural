@@ -16,7 +16,8 @@ insert into dbo.State(Name) values ('Aceptada');
 insert into dbo.State(Name) values ('Rechazada');
 insert into dbo.State(Name) values ('Expirada');
 
-insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('admin','','admin','21232f297a57a5a743894a0e4a801fc3',2);
+insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('admin','','admin','admin',2);
+insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('admin2','','admin2','admin2',2);
 insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('client1','','client1', 1);
 
 insert into TouristicPoints (Description,Image,Name,RegionId) values ('Balneario de playa','punta.jpg','Punta del Este', 3);

@@ -3,6 +3,7 @@ using Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PersistenceInterface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -62,6 +63,24 @@ namespace LogicTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "La region no existe")]
+        public void GetTPointsByRegionInvalid()
+        {
+            var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
+            SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
+
+            Region nullRegion = null;
+
+            mock1.Setup(x => x.Get(It.IsAny<int>())).Returns(nullRegion);
+
+            IEnumerable<TouristicPoint> ret = logic.GetTPointsByRegion(1);
+
+            mock1.VerifyAll();
+        }
+
+        [TestMethod]
         public void GetAllTPoints()
         {
             var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
@@ -106,6 +125,25 @@ namespace LogicTest
             mock3.Setup(x => x.FindByRegionCat(1,categories)).Returns(It.IsAny<IEnumerable<TouristicPoint>>);
 
             IEnumerable<TouristicPoint> ret = logic.FindByRegionCat(1,categories);
+
+            mock2.VerifyAll();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "La region no existe")]
+        public void FindByRegionCatInvalid()
+        {
+            var mock1 = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
+            SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
+
+            Region nullRegion = null;
+            int[] categories = { };
+
+            mock1.Setup(x => x.Get(It.IsAny<int>())).Returns(nullRegion);
+
+            IEnumerable<TouristicPoint> ret = logic.FindByRegionCat(1, categories);
 
             mock2.VerifyAll();
         }

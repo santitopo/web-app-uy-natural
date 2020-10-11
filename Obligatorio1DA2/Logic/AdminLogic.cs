@@ -137,7 +137,7 @@ namespace Logic
 
         public void ModifyAdmin(Administrator admin)
         {
-            if (userRepository.GetAdminByMail(admin.Mail) == null)
+            if (userRepository.GetAdminByMail(admin.Mail) != null)
             {
                 userRepository.Update(admin);
                 userRepository.Save();

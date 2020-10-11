@@ -226,6 +226,22 @@ namespace LogicTest
             personRepositoryMock.VerifyAll();
         }
 
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "El administrador no existe")]
+        public void RemoveAdminInvalid()
+        {
+            var personRepositoryMock = new Mock<IRepository<Person>>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(null, null, null, null, personRepositoryMock.Object, null, null, null);
+
+            Administrator nullAdmin = null;
+
+            personRepositoryMock.Setup(x => x.Get(It.IsAny<int>())).Returns(nullAdmin);
+
+            logic.RemoveAdmin(It.IsAny<int>());
+            personRepositoryMock.VerifyAll();
+        }
+
         [TestMethod]
         public void ModifyAdmin()
         {
@@ -239,13 +255,33 @@ namespace LogicTest
                 Password = "anAdmin"
             };
 
-            Administrator nullAdmin = null;
-
-            userRepositoryMock.Setup(x => x.GetAdminByMail(It.IsAny<string>())).Returns(nullAdmin);
+            userRepositoryMock.Setup(x => x.GetAdminByMail(It.IsAny<string>())).Returns(newAdmin);
             userRepositoryMock.Setup(x => x.Update(It.IsAny<Administrator>()));
             userRepositoryMock.Setup(x => x.Save());
 
             logic.ModifyAdmin(newAdmin);
+            userRepositoryMock.VerifyAll();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "El administrador no existe")]
+        public void ModifyAdminInvalid()
+        {
+            var userRepositoryMock = new Mock<IAdminRepository>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(null, null, null, null, null, userRepositoryMock.Object, null, null);
+
+            Administrator admin = new Administrator()
+            {
+                Name = "anAdmin",
+                Mail = "anAdmin",
+                Password = "anAdmin"
+            };
+
+            Administrator nullAdmin = null;
+
+            userRepositoryMock.Setup(x => x.GetAdminByMail(It.IsAny<string>())).Returns(nullAdmin);
+
+            logic.ModifyAdmin(admin);
             userRepositoryMock.VerifyAll();
         }
 
@@ -267,6 +303,23 @@ namespace LogicTest
             lodgingRepositoryMock.Setup(x => x.Get(It.IsAny<int>())).Returns(newLodging);
             lodgingRepositoryMock.Setup(x => x.Delete(It.IsAny<Lodging>()));
             lodgingRepositoryMock.Setup(x => x.Save());
+
+            logic.RemoveLodging(1);
+            lodgingRepositoryMock.VerifyAll();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "El hospedaje no existe")]
+        public void RemoveLodgingInvalid()
+        {
+            var lodgingRepositoryMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            var tPointRepositoryMock = new Mock<ITPointRepository>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(tPointRepositoryMock.Object, null, null, lodgingRepositoryMock.Object,
+                                                null, null, null, null);
+
+            Lodging nullLodging = null;
+
+            lodgingRepositoryMock.Setup(x => x.Get(It.IsAny<int>())).Returns(nullLodging);
 
             logic.RemoveLodging(1);
             lodgingRepositoryMock.VerifyAll();
