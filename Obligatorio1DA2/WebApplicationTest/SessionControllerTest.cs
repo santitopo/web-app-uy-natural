@@ -39,6 +39,24 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
+        public void LoginOkException()
+        {
+            var logicMock = new Mock<ISessionLogic>(MockBehavior.Strict);
+            SessionController controller = new SessionController(logicMock.Object);
+            LoginModel loginModel = new LoginModel()
+            {
+                Mail = "user1@hotmail.com",
+                Password = "user",
+            };
+
+            logicMock.Setup(x => x.LogIn("user1@hotmail.com", "user")).Throws(new InvalidOperationException());
+
+            var result = controller.Login(loginModel);
+
+            logicMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+        [TestMethod]
         public void LogoutOk()
         {
             var logicMock = new Mock<ISessionLogic>(MockBehavior.Strict);
@@ -57,6 +75,20 @@ namespace WebApplicationTest
             var okResult = result as OkObjectResult;
 
             logicMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void LogoutException()
+        {
+            var logicMock = new Mock<ISessionLogic>(MockBehavior.Strict);
+            SessionController controller = new SessionController(logicMock.Object);
+            string token = "8b10f257-3b16-4461-984f-6c7407e4008f";
+
+            logicMock.Setup(x => x.LogOut(token)).Throws(new InvalidOperationException());
+
+            var result = controller.Logout(token);
+            logicMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
         }
 
     }

@@ -74,6 +74,31 @@ namespace WebApplicationTest
             adminMock.VerifyAll();
         }
 
+
+        [TestMethod]
+        public void PutException()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+
+            ReservationController controller = new ReservationController(null, adminMock.Object);
+
+
+
+            ReservationUpdateModel update = new ReservationUpdateModel()
+            {
+                ReservationId = 2,
+                StateDescription = "Pago aceptado",
+                StateId = 2,
+            };
+
+            adminMock.Setup(x => x.ModifyReservationState(update))
+                .Throws(new InvalidOperationException("La reserva o el estado no existen"));
+            string token = "123";
+            var result = controller.Put(token, update);
+            adminMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+
         [TestMethod]
         public void PostOk()
         {
@@ -151,6 +176,44 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
+        public void BadPostException()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+
+            var reservationMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+
+            ReservationController controller = new ReservationController(reservationMock.Object, adminMock.Object);
+
+            ReservationModel reservationModel = new ReservationModel()
+            {
+                AdultsNum = 1,
+                BabiesNum = 1,
+                ChildsNum = 0,
+                Checkin = "12102020",
+                Checkout = "13102020",
+                LodgingId = 4,
+                Mail = "user@test.com",
+                Name = "User",
+                Surname = "Surname"
+
+            };
+            BillModel billreturn = new BillModel()
+            {
+                Description = "test description",
+                Phone = "+59898455545",
+                PricePaid = 208,
+                ReservationCode = new Guid(),
+            };
+
+            reservationMock.Setup(x => x.BookLodging(reservationModel)).Throws(new SystemException("No se pudo asignar un código único a la reserva"));
+            var result = controller.Post(reservationModel);
+
+
+            adminMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+
+        [TestMethod]
         public void Get()
         {
             var reservationMock = new Mock<IReservationLogic>(MockBehavior.Strict);
@@ -181,5 +244,49 @@ namespace WebApplicationTest
             reservationMock.VerifyAll();
 
         }
+
+        [TestMethod]
+        public void GetFailNotExists()
+        {
+            var reservationMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+            string guidcode = "guid";
+            State stateMock = new State()
+            {
+                Name = "TestState",
+            };
+            //Reservation doesn't exist
+            Reservation reservation = null;
+            ReservationController controller = new ReservationController(reservationMock.Object, null);
+            reservationMock.Setup(x => x.GetReservationByGuid(guidcode)).Returns(reservation);
+
+
+
+            var result = controller.Get("guid");
+            reservationMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+
+
+        }
+
+        [TestMethod]
+        public void GetExceptionNotExists()
+        {
+            var reservationMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+            string guidcode = "guid";
+            State stateMock = new State()
+            {
+                Name = "TestState",
+            };
+            //Reservation doesn't exist
+            Reservation reservation = null;
+            ReservationController controller = new ReservationController(reservationMock.Object, null);
+            reservationMock.Setup(x => x.GetReservationByGuid(guidcode)).Throws(new InvalidOperationException());
+
+
+
+            var result = controller.Get("guid");
+            reservationMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+            }
     }
 }

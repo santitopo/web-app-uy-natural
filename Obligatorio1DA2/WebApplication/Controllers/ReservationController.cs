@@ -51,10 +51,6 @@ namespace WebApplication.Controllers
             {
                 return BadRequest(e.Message);
             }
-            catch (SystemException e)
-            {
-                return BadRequest(e.Message);
-            }
             catch (Exception e)
             {
                 return BadRequest("Error inesperado procesando la reserva");

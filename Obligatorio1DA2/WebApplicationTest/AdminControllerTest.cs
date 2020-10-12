@@ -79,6 +79,28 @@ namespace WebApplicationTest
             
             adminMock.VerifyAll();
         }
+
+        [TestMethod]
+        public void DeleteException()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            AdminController controller = new AdminController(adminMock.Object);
+
+            Administrator admin = new Administrator()
+            {
+                Id = 1,
+                Mail = "admin",
+                Name = "admin",
+                Password = "admin",
+            };
+
+            adminMock.Setup(x => x.RemoveAdmin(It.IsAny<int>())).Throws(new InvalidOperationException());
+            string token = "123";
+
+            var result = controller.Delete(token, 1);
+            adminMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
         [TestMethod]
         public void PutOk()
         {
@@ -101,6 +123,26 @@ namespace WebApplicationTest
             adminMock.VerifyAll();
         }
 
+        [TestMethod]
+        public void PutException()
+        {
+            var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            AdminController controller = new AdminController(adminMock.Object);
+
+            Administrator admin = new Administrator()
+            {
+                Mail = "admin",
+                Name = "admin",
+                Password = "admin",
+            };
+
+            adminMock.Setup(x => x.ModifyAdmin(admin)).Throws(new InvalidOperationException());
+            string token = "123";
+
+            var result = controller.Put(token, admin);
+            adminMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
 
     }
 }

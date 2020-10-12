@@ -23,7 +23,14 @@ namespace WebApplication.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(searchLogic.GetAllCategories());
+            try
+            {
+                return Ok(searchLogic.GetAllCategories());
+            }
+            catch (Exception)
+            {
+                return BadRequest("Error del sistema");
+            }
         }
     }
 }

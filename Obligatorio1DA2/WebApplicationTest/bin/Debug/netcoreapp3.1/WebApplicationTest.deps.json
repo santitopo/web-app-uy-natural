@@ -2274,7 +2274,7 @@
         "runtime": {
           "Microsoft.Data.Tools.Schema.Sql.dll": {
             "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.4518.2"
+            "fileVersion": "15.0.4841.1"
           }
         },
         "resources": {
@@ -2287,7 +2287,7 @@
         "runtime": {
           "Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {
             "assemblyVersion": "16.0.0.0",
-            "fileVersion": "16.0.61908.21210"
+            "fileVersion": "16.0.62008.3130"
           }
         },
         "resources": {
@@ -2300,7 +2300,7 @@
         "runtime": {
           "Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {
             "assemblyVersion": "16.0.0.0",
-            "fileVersion": "16.0.61908.21210"
+            "fileVersion": "16.0.62008.3130"
           }
         }
       },
@@ -2308,7 +2308,7 @@
         "runtime": {
           "Microsoft.Data.Tools.Utilities.dll": {
             "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.4518.2"
+            "fileVersion": "15.0.4841.1"
           }
         },
         "resources": {
@@ -2321,7 +2321,7 @@
         "runtime": {
           "Microsoft.SqlServer.TransactSql.ScriptDom.dll": {
             "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.4518.2"
+            "fileVersion": "15.0.4841.1"
           }
         },
         "resources": {
