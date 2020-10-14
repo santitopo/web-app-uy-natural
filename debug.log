@@ -1,5 +1,0 @@
-[1012/153011.174:ERROR:settings.cc(430)] Settings version is not 5
-[1012/154011.205:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\felip\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\f31f2fb0-911c-4b1e-9a1a-d4978ce447f0: El sistema no puede encontrar la ruta especificada. (0x3)
-[1012/154011.211:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
-[1012/205807.945:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
-[1013/144310.250:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
