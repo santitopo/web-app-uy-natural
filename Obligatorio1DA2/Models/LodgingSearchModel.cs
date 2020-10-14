@@ -12,7 +12,5 @@ namespace Models
         public int AdultsNum { get; set; }
         public int ChildsNum { get; set; }
         public int BabiesNum { get; set; }
-
-        
     }
 }

@@ -27,7 +27,7 @@ namespace Persistence
             return reservation != null;
         }
 
-        public Reservation FindbyCode(Guid code)
+        public Reservation FindByCode(Guid code)
         {
             Reservation reservation = reservationDbSet.Include(x => x.State).Where(x => x.Code.Equals(code)).FirstOrDefault();
             return reservation;

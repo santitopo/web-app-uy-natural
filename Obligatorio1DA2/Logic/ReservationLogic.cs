@@ -88,7 +88,7 @@ namespace Logic
         public Reservation GetReservationByGuid(string code)
         {
             Guid guidcode = new Guid(code);
-            Reservation reservation = reservationRepository.FindbyCode(guidcode);
+            Reservation reservation = reservationRepository.FindByCode(guidcode);
             return reservation;
             
         }

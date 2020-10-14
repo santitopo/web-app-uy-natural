@@ -99,7 +99,7 @@ namespace WebApplicationTest
 
             var result = controller.Delete(token, 1);
             adminMock.VerifyAll();
-            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
         }
         [TestMethod]
         public void PutOk()

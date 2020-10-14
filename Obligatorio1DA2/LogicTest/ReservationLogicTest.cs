@@ -274,7 +274,7 @@ namespace LogicTest
             };
             Guid guidtest = new Guid("08ACA1E4-436B-4647-A867-801EA91E6431");
 
-            reservationsMock.Setup(x => x.FindbyCode(guidtest)).Returns(mockReservation);
+            reservationsMock.Setup(x => x.FindByCode(guidtest)).Returns(mockReservation);
             Reservation ret = logic.GetReservationByGuid("08ACA1E4-436B-4647-A867-801EA91E6431");
 
             reservationsMock.VerifyAll();

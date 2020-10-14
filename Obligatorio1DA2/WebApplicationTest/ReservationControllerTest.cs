@@ -96,7 +96,7 @@ namespace WebApplicationTest
             string token = "123";
             var result = controller.Put(token, update);
             adminMock.VerifyAll();
-            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
         }
 
         [TestMethod]

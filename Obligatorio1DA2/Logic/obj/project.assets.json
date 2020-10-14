@@ -1,0 +1,159 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "LogicInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LogicInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LogicInterface.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
+      },
+      "PersistenceInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PersistenceInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PersistenceInterface.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "LogicInterface/1.0.0": {
+      "type": "project",
+      "path": "../LogicInterface/LogicInterface.csproj",
+      "msbuildProject": "../LogicInterface/LogicInterface.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
+    },
+    "PersistenceInterface/1.0.0": {
+      "type": "project",
+      "path": "../PersistenceInterface/PersistenceInterface.csproj",
+      "msbuildProject": "../PersistenceInterface/PersistenceInterface.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Domain >= 1.0.0",
+      "LogicInterface >= 1.0.0",
+      "Models >= 1.0.0",
+      "PersistenceInterface >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\felip\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\Logic\\Logic.csproj",
+      "projectName": "Logic",
+      "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\Logic\\Logic.csproj",
+      "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\Logic\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj": {
+              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj"
+            },
+            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\Models\\Models.csproj"
+            },
+            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
+              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -88,7 +88,7 @@ namespace WebApplicationTest
 
             var result = controller.Logout(token);
             logicMock.VerifyAll();
-            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
         }
 
     }

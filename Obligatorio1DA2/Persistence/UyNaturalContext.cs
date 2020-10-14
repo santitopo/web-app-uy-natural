@@ -27,19 +27,11 @@ namespace Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Properties
-            //modelBuilder.Entity<Author>().Property(a => a.Username).HasMaxLength(10);
-
             //Inheritance
             modelBuilder.Entity<Person>()
                 .HasDiscriminator<int>("PersonType")
                 .HasValue<Client>(1)
                 .HasValue<Administrator>(2);
-
-            /*
-            modelBuilder.Entity<Administrator>().ToTable("Admin");
-            modelBuilder.Entity<Client>().ToTable("Client");
-            */
 
             //Many to many TouristicPoints-Category
             modelBuilder.Entity<TouristicPointsCategory>()
@@ -56,6 +48,5 @@ namespace Persistence
                 .HasForeignKey(x => x.CategoryId);
         }
 
-        
     }
 }

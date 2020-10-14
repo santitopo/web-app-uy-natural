@@ -180,7 +180,7 @@ namespace PersistenceTest
                 context.Set<Reservation>().Add(mockReservation);
                 context.SaveChanges();
 
-                Reservation ret = repository.FindbyCode(code);
+                Reservation ret = repository.FindByCode(code);
 
                 Assert.AreEqual(ret.Price, mockReservation.Price);
                 Assert.AreEqual(ret.Id, mockReservation.Id);
