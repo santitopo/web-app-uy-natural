@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
 						"type": "text"
 					}
 				],
@@ -46,7 +46,7 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
 						"type": "text"
 					}
 				],
@@ -74,7 +74,7 @@
 			"response": []
 		},
 		{
-			"name": "AddAdminNotAuthorized",
+			"name": "AddAdmin - NotAuthorized",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -102,13 +102,13 @@
 			"response": []
 		},
 		{
-			"name": "AddAdminBadRequest",
+			"name": "AddAdmin - Invalid 1",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
 						"type": "text"
 					}
 				],
@@ -142,7 +142,7 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
 						"type": "text"
 					}
 				],
@@ -177,7 +177,7 @@
 					{
 						"key": "token",
 						"type": "text",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2"
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF"
 					}
 				],
 				"body": {
@@ -205,14 +205,14 @@
 			"response": []
 		},
 		{
-			"name": "DeleteAdminBadRequest",
+			"name": "DeleteAdmin - Invalid 1",
 			"request": {
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "token",
 						"type": "text",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2"
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF"
 					}
 				],
 				"body": {
@@ -259,166 +259,6 @@
 			"response": []
 		},
 		{
-			"name": "AddLodging",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "\r\n{\r\n    \"Name\" : \"Castillo Piria\",\r\n    \"Description\" : \"Excelente lugar para vacacionar\",\r\n    \"Direction\" : \"Piriapolis 1234\",\r\n    \"Phone\": \"091657062\",\r\n    \"Images\" : \"img1.png\",\r\n    \"Price\" : \"22.50\",\r\n    \"Stars\" : \"4\",\r\n    \"TPointId\" : \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/lodgings",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"lodgings"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AddLodgingNotAuthorized",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "\r\n{\r\n    \"Name\" : \"Castillo Piria\",\r\n    \"Description\" : \"Excelente lugar para vacacionar\",\r\n    \"Direction\" : \"Piriapolis 1234\",\r\n    \"Phone\": \"091657062\",\r\n    \"Images\" : \"img1.png\",\r\n    \"Price\" : \"22.50\",\r\n    \"Stars\" : \"4\",\r\n    \"TPointId\" : \"1\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/lodgings",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"lodgings"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DeleteLodging",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/lodgings/1",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"lodgings",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DeleteLodgingBadRequest",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/lodgings/1",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"lodgings",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ModifyLodgingCapacity",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"Id\" : \"2\",\r\n    \"IsFull\" : false\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/lodgings",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"lodgings"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "GetRegions",
 			"request": {
 				"method": "GET",
@@ -434,166 +274,6 @@
 						"regions"
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "ModifyReservationStateBadRequest",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"Id\" : \"2\",\r\n    \"StateId\" : \"6\",\r\n    \"StateDescription\" : \"Completado\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/reservations",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"reservations"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetLodgingsByTp",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44371/lodgings/filter?TPointId=1&Checkin=12102019&Checkout=14102019&AdultsNum=2&ChildsNum=2&BabiesNum=4",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"lodgings",
-						"filter"
-					],
-					"query": [
-						{
-							"key": "TPointId",
-							"value": "1"
-						},
-						{
-							"key": "Checkin",
-							"value": "12102019"
-						},
-						{
-							"key": "Checkout",
-							"value": "14102019"
-						},
-						{
-							"key": "AdultsNum",
-							"value": "2"
-						},
-						{
-							"key": "ChildsNum",
-							"value": "2"
-						},
-						{
-							"key": "BabiesNum",
-							"value": "4"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AddReservation",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"LodgingId\" :\"1\",\r\n    \"Checkin\" : \"12102020\",\r\n \"Checkout\" : \"13102020\",\r\n  \"AdultsNum\" : \"1\",\r\n   \"ChildsNum\" : \"1\",\r\n    \"BabiesNum\" : \"1\",\r\n     \"Name\" : \"Santiago\",\r\n      \"Surname\" : \"Topolansky\",\r\n      \"Mail\" : \"s@gmail.com\"\r\n}",
-					"options": {
-						"raw": {}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/reservations",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"reservations"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null,
-							"disabled": true
-						}
-					]
-				},
-				"description": "Creacion de reserva"
-			},
-			"response": []
-		},
-		{
-			"name": "AddReservationBadRequest",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"LodgingId\" :\"90\",\r\n    \"Checkin\" : \"12102020\",\r\n \"Checkout\" : \"13102020\",\r\n  \"AdultsNum\" : \"1\",\r\n   \"ChildsNum\" : \"1\",\r\n    \"BabiesNum\" : \"1\",\r\n     \"Name\" : \"Santiago\",\r\n      \"Surname\" : \"Topolansky\",\r\n      \"Mail\" : \"s@gmail.com\"\r\n}",
-					"options": {
-						"raw": {}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/reservations",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"reservations"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null,
-							"disabled": true
-						}
-					]
-				},
-				"description": "Creacion de reserva"
 			},
 			"response": []
 		},
@@ -652,40 +332,6 @@
 			"response": []
 		},
 		{
-			"name": "ModifyReservationState",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"Id\" : \"2\",\r\n    \"StateId\" : \"3\",\r\n    \"StateDescription\" : \"Completado\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44371/reservations",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44371",
-					"path": [
-						"reservations"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
@@ -721,7 +367,7 @@
 			"response": []
 		},
 		{
-			"name": "LoginBadRequest",
+			"name": "Login - Invalid 1",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -786,7 +432,7 @@
 					},
 					{
 						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
 						"type": "text"
 					}
 				],
@@ -900,7 +546,7 @@
 			"response": []
 		},
 		{
-			"name": "AddTouristicPointNotAuthorized",
+			"name": "AddTouristicPoint - NotAuthorized",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -934,7 +580,7 @@
 			"response": []
 		},
 		{
-			"name": "AddTouristicPointBadRequest",
+			"name": "AddTouristicPoint - Invalid 1",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -945,13 +591,13 @@
 					},
 					{
 						"key": "token",
-						"value": "363d0cac-d497-4cc2-a8e2-f88578d20ba2",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Name\" : \"Punta del Este\",\r\n    \"Description\" : \"Playa Maldonado\",\r\n    \"RegionId\" : \"3\",\r\n    \"Categories\": [\"1\",\"4\"],\r\n    \"Image\" : \"img.png\"\r\n}",
+					"raw": "{\r\n    \"Name\" : \"Punta del Este\",\r\n    \"Description\" : \"Balneario de Playa\",\r\n    \"RegionId\" : \"3\",\r\n    \"Categories\": [\"1\",\"4\"],\r\n    \"Image\" : \"img.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -967,6 +613,26 @@
 					"port": "44371",
 					"path": [
 						"tpoints"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/reservations/states",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations",
+						"states"
 					]
 				}
 			},
@@ -999,13 +665,690 @@
 			"response": []
 		},
 		{
-			"name": "ModifyLodgingCapacityBadRequest",
+			"name": "GetLodgingsByTp",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/lodgings/filter?TPointId=1&Checkin=15102019&Checkout=16102019&AdultsNum=2&ChildsNum=2&BabiesNum=4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "TPointId",
+							"value": "1"
+						},
+						{
+							"key": "Checkin",
+							"value": "15102019"
+						},
+						{
+							"key": "Checkout",
+							"value": "16102019"
+						},
+						{
+							"key": "AdultsNum",
+							"value": "2"
+						},
+						{
+							"key": "ChildsNum",
+							"value": "2"
+						},
+						{
+							"key": "BabiesNum",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLodgingsByTp - LimitValues 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/lodgings/filter?TPointId=8&Checkin=15102019&Checkout=16102019&AdultsNum=99&ChildsNum=99&BabiesNum=99",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "TPointId",
+							"value": "8"
+						},
+						{
+							"key": "Checkin",
+							"value": "15102019"
+						},
+						{
+							"key": "Checkout",
+							"value": "16102019"
+						},
+						{
+							"key": "AdultsNum",
+							"value": "99"
+						},
+						{
+							"key": "ChildsNum",
+							"value": "99"
+						},
+						{
+							"key": "BabiesNum",
+							"value": "99"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLodgingsByTp - MissingValues 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/lodgings/filter?TPointId=1&Checkin=12102019&Checkout=14102019",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "TPointId",
+							"value": "1"
+						},
+						{
+							"key": "Checkin",
+							"value": "12102019"
+						},
+						{
+							"key": "Checkout",
+							"value": "14102019"
+						},
+						{
+							"key": "AdultsNum",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "ChildsNum",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "BabiesNum",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLodgingsByTp - Invalid 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/lodgings/filter?TPointId=0&Checkin=15102019&Checkout=16102019&AdultsNum=2&ChildsNum=-1&BabiesNum=4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "TPointId",
+							"value": "0"
+						},
+						{
+							"key": "Checkin",
+							"value": "15102019"
+						},
+						{
+							"key": "Checkout",
+							"value": "16102019"
+						},
+						{
+							"key": "AdultsNum",
+							"value": "2"
+						},
+						{
+							"key": "ChildsNum",
+							"value": "-1"
+						},
+						{
+							"key": "BabiesNum",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLodgingsByTp - Invalid 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/lodgings/filter?TPointId=1&Checkin=11102019&Checkout=13102019&AdultsNum=2&ChildsNum=2&BabiesNum=4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "TPointId",
+							"value": "1"
+						},
+						{
+							"key": "Checkin",
+							"value": "11102019"
+						},
+						{
+							"key": "Checkout",
+							"value": "13102019"
+						},
+						{
+							"key": "AdultsNum",
+							"value": "2"
+						},
+						{
+							"key": "ChildsNum",
+							"value": "2"
+						},
+						{
+							"key": "BabiesNum",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLodgingsByTp - EmptyQuery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44371/lodgings/filter",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "TPointId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "Checkin",
+							"value": "12102019",
+							"disabled": true
+						},
+						{
+							"key": "Checkout",
+							"value": "14102019",
+							"disabled": true
+						},
+						{
+							"key": "AdultsNum",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "ChildsNum",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "BabiesNum",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddReservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Id\" : \"90\",\r\n    \"IsFull\" : false\r\n}",
+					"raw": "{ \"LodgingId\" :\"1\",\r\n    \"Checkin\" : \"16102020\",\r\n \"Checkout\" : \"18102020\",\r\n  \"AdultsNum\" : \"1\",\r\n   \"ChildsNum\" : \"1\",\r\n    \"BabiesNum\" : \"1\",\r\n     \"Name\" : \"Santiago\",\r\n      \"Surname\" : \"Topolansky\",\r\n      \"Mail\" : \"s@gmail.com\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creacion de reserva"
+			},
+			"response": []
+		},
+		{
+			"name": "AddReservation - Invalid 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"LodgingId\" :\"1\",\r\n    \"Checkin\" : \"10102020\",\r\n \"Checkout\" : \"12102020\",\r\n  \"AdultsNum\" : \"1\",\r\n   \"ChildsNum\" : \"2\",\r\n    \"BabiesNum\" : \"5\",\r\n     \"Name\" : \"Federico\",\r\n      \"Surname\" : \"Rodriguez\",\r\n      \"Mail\" : \"federo@gmail.com\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creacion de reserva"
+			},
+			"response": []
+		},
+		{
+			"name": "AddReservation - Empty Body",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creacion de reserva"
+			},
+			"response": []
+		},
+		{
+			"name": "AddReservation - MissingValues",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"LodgingId\" :\"1\",\r\n    \"Checkin\" : \"162102020\",\r\n \"Checkout\" : \"18102020\",\r\n  \"AdultsNum\" : \"1\",\r\n   \"ChildsNum\" : \"1\",\r\n    \"BabiesNum\" : \"1\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creacion de reserva"
+			},
+			"response": []
+		},
+		{
+			"name": "AddReservation - Invalid 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"LodgingId\" :\"1\",\r\n    \"Checkin\" : \"16102020\",\r\n \"Checkout\" : \"18102020\",\r\n  \"AdultsNum\" : \"-1\",\r\n   \"ChildsNum\" : \"-2\",\r\n    \"BabiesNum\" : \"1\",\r\n     \"Name\" : \"Santiago\",\r\n      \"Surname\" : \"Topolansky\",\r\n      \"Mail\" : \"s@gmail.com\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creacion de reserva"
+			},
+			"response": []
+		},
+		{
+			"name": "AddReservation - Invalid 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"LodgingId\" :\"0\",\r\n    \"Checkin\" : \"16102020\",\r\n \"Checkout\" : \"18102020\",\r\n  \"AdultsNum\" : \"1\",\r\n   \"ChildsNum\" : \"1\",\r\n    \"BabiesNum\" : \"1\",\r\n     \"Name\" : \"Santiago\",\r\n      \"Surname\" : \"Topolansky\",\r\n      \"Mail\" : \"s@gmail.com\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creacion de reserva"
+			},
+			"response": []
+		},
+		{
+			"name": "AddReservation - LimitValues 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"LodgingId\" :\"1\",\r\n    \"Checkin\" : \"16102020\",\r\n \"Checkout\" : \"18102020\",\r\n  \"AdultsNum\" : \"99\",\r\n   \"ChildsNum\" : \"99\",\r\n    \"BabiesNum\" : \"50\",\r\n     \"Name\" : \"Federico\",\r\n      \"Surname\" : \"Rodriguez\",\r\n      \"Mail\" : \"federo@gmail.com\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Creacion de reserva"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteLodging - NotAuthorized",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteLodging",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteLodging - Invalid 1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings/99",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddLodging",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"Name\" : \"Castillo Piria\",\r\n    \"Description\" : \"Excelente lugar para vacacionar\",\r\n    \"Direction\" : \"Piriapolis 1234\",\r\n    \"Phone\": \"091657062\",\r\n    \"Images\" : \"img1.png\",\r\n    \"Price\" : \"22.50\",\r\n    \"Stars\" : \"4\",\r\n    \"TPointId\" : \"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1021,6 +1364,546 @@
 					"port": "44371",
 					"path": [
 						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddLodging - MissingValues 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"Name\" : \"Ranchito 18\",\r\n    \"Description\" : \"Rancho\",\r\n    \"Direction\" : \"18 de Julio 1234\",\r\n    \"Phone\": \"091657062\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddLodging - Invalid 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\" : \"Castillo Hermano de Piria\",\r\n    \"Description\" : \"Excelente lugar para vacacionar\",\r\n    \"Direction\" : \"Piriapolis 1234\",\r\n    \"Phone\": \"091657062\",\r\n    \"Images\" : \"img1.png\",\r\n    \"Price\" : \"-10\",\r\n    \"Stars\" : \"25\",\r\n    \"TPointId\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddLodging - NotAuthorized",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"Name\" : \"Castillo Piria\",\r\n    \"Description\" : \"Excelente lugar para vacacionar\",\r\n    \"Direction\" : \"Piriapolis 1234\",\r\n    \"Phone\": \"091657062\",\r\n    \"Images\" : \"img1.png\",\r\n    \"Price\" : \"22.50\",\r\n    \"Stars\" : \"4\",\r\n    \"TPointId\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddLodging - EmptyBody",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyLodgingCapacity - MissingValues 1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyLodgingCapacity - Invalid 1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\" : \"0\",\r\n    \"IsFull\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyLodgingCapacity - NotAuthorized",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\" : \"2\",\r\n    \"IsFull\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyLodgingCapacity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\" : \"2\",\r\n    \"IsFull\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyLodgingCapacity - EmptyBody",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/lodgings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"lodgings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyReservationState - NotAuthorized",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ReservationId\" : \"1\",\r\n    \"StateId\" : \"3\",\r\n    \"StateDescription\" : \"Completado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyReservationState - Invalid 1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ReservationId\" : \"0\",\r\n    \"StateId\" : \"4\",\r\n    \"StateDescription\" : \"Rechazada, tarjeta invalida\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyReservationState - LimitValues 1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ReservationId\" : \"1\",\r\n    \"StateId\" : \"5\",\r\n    \"StateDescription\" : \"La reserva ha expirado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyReservationState - MissingValues 1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ReservationId\" : \"1\",\r\n    \"StateDescription\" :  \"La reserva ha expirado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyReservationState",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ReservationId\" : \"1\",\r\n    \"StateId\" : \"3\",\r\n    \"StateDescription\" : \"Completado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyReservationState - MissingValues 2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ReservationId\" : \"1\",\r\n    \"StateId\" : \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyReservationState - EmptyBody",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "6F9619FF-8B86-D011-B42D-00C04FC964FF"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44371/reservations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"reservations"
 					]
 				}
 			},

@@ -27,6 +27,26 @@ namespace Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Properties
+            modelBuilder.Entity<Reservation>().Property(a => a.Price).IsRequired();
+            modelBuilder.Entity<Reservation>().Property(a => a.Code).IsRequired();
+            modelBuilder.Entity<Reservation>().Property(a => a.CheckIn).IsRequired();
+            modelBuilder.Entity<Reservation>().Property(a => a.CheckOut).IsRequired();
+
+            modelBuilder.Entity<Lodging>().Property(a => a.Capacity).IsRequired();
+            modelBuilder.Entity<Lodging>().Property(a => a.Direction).IsRequired();
+            modelBuilder.Entity<Lodging>().Property(a => a.Name).IsRequired();
+            modelBuilder.Entity<Lodging>().Property(a => a.Stars).IsRequired();
+            modelBuilder.Entity<Lodging>().Property(a => a.Price).IsRequired();
+
+            modelBuilder.Entity<Person>().Property(a => a.Mail).IsRequired();
+            modelBuilder.Entity<Person>().Property(a => a.Name).IsRequired();
+            modelBuilder.Entity<Person>().Property(a => a.Surname).IsRequired();
+
+            modelBuilder.Entity<State>().Property(a => a.Name).IsRequired();
+
+            modelBuilder.Entity<TouristicPoint>().Property(a => a.Name).IsRequired();
+
             //Inheritance
             modelBuilder.Entity<Person>()
                 .HasDiscriminator<int>("PersonType")

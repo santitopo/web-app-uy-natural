@@ -32,6 +32,7 @@ namespace Logic
         public BillModel BookLodging(ReservationModel reservationData)
         {
             // Verify exists and available
+
             Lodging wantedLodging = lodgingRepository.Get(reservationData.LodgingId);
             if (wantedLodging == null) { throw new InvalidOperationException("El hospedaje no existe"); }
             if (!wantedLodging.Capacity) { throw new InvalidOperationException("El hospedaje no tiene capacidad disponible"); }
