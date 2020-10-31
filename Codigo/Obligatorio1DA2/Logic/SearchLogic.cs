@@ -42,10 +42,9 @@ namespace Logic
             }
         }
         
-        public IEnumerable<TouristicPoint> GetAllTPoints()
+        public IEnumerable<TouristicPointOutModel> GetAllTPoints()
         {
-            string[] param = { "Region" };
-            return tpointRepository.GetAll(param);
+            return tpointRepository.GetAllTpoints();
         }
 
         public IEnumerable<Category> GetAllCategories()

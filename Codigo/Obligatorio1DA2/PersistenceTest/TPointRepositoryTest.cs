@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Domain;
+using Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Persistence;
@@ -67,6 +68,8 @@ namespace PersistenceTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(NotImplementedException), "Implementacion no utilizada")]
+
         public void GetAll()
         {
             var options = new DbContextOptionsBuilder<UyNaturalContext>()
@@ -106,6 +109,47 @@ namespace PersistenceTest
                 context.SaveChanges();
             }
         }
+
+        [TestMethod]
+        public void GetAllTPoints()
+        {
+            var options = new DbContextOptionsBuilder<UyNaturalContext>()
+            .UseInMemoryDatabase(databaseName: "GetAllTPoints")
+            .Options;
+
+            using (var context = new UyNaturalContext(options))
+            {
+                var repository = new TPointRepository(context);
+
+                TouristicPoint tpoint1 = new TouristicPoint()
+                {
+                    Description = "",
+                    Image = "",
+                    Name = "",
+                    Categories = null,
+                    Region = null
+                };
+                TouristicPoint tpoint2 = new TouristicPoint()
+                {
+                    Description = "",
+                    Image = "",
+                    Name = "",
+                    Categories = null,
+                    Region = null
+                };
+                context.Set<TouristicPoint>().Add(tpoint1);
+                context.Set<TouristicPoint>().Add(tpoint2);
+                context.SaveChanges();
+
+                IEnumerable<TouristicPointOutModel> tpoints = repository.GetAllTpoints();
+                Assert.AreEqual(2, tpoints.Count());
+
+                context.Set<TouristicPoint>().Remove(tpoint1);
+                context.Set<TouristicPoint>().Remove(tpoint2);
+                context.SaveChanges();
+            }
+        }
+
 
         [TestMethod]
         public void FindByRegionCat()

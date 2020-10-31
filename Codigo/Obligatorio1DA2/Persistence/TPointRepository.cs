@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Domain;
+using Models;
 using Microsoft.EntityFrameworkCore;
 using PersistenceInterface;
 using System.Linq;
@@ -46,14 +47,38 @@ namespace Persistence
             return regionTPoints;
         }
 
-        public new IEnumerable<TouristicPoint> GetAll(string[] includes)
+        public new IEnumerable<TouristicPoint> GetAll(string[] s)
+        {
+            //DON'T USE GetAll with Tpoints. Use GetAllTpoints instead.
+            throw new NotImplementedException("Implementacion no utilizada");
+        }
+
+        public IEnumerable<TouristicPointOutModel> GetAllTpoints()
         {
             //Specifically for TPoints, the includes are not used because of the many to many relationship.
 
-            IEnumerable<TouristicPoint> tpoints = DbSet
-                .Include(x => x.Region)
-                .Include(x => x.Categories)
-                .ThenInclude(x => x.Category);
+            //IEnumerable<TouristicPoint> tpoints = DbSet
+            //    .Include(x => x.Region)
+            //    .Include(x => x.Categories)
+            //    .ThenInclude(x => x.Category);
+
+            //Turn inner classes into models
+
+             var tpoints = DbSet
+               .Include(x => x.Region)
+               .Include(x => x.Categories)
+               .ThenInclude(x => x.Category)
+               .Select (
+                g => new TouristicPointOutModel()
+                {
+                    Description = g.Description,
+                    Id = g.Id,
+                    Image = g.Image,
+                    Name = g.Name,
+                    Region = g.Region,
+                    Categories = g.Categories.Select(c => new CategoryModel() { CategoryId = c.CategoryId, Name = c.Category.Name }).ToList()
+                });
+
             return tpoints;
         }
 
@@ -68,5 +93,8 @@ namespace Persistence
             TouristicPoint tp = DbSet.Where(x => x.Name == name).FirstOrDefault();
             return tp != null;
         }
+
+
+       
     }
 }

@@ -1,4 +1,5 @@
 using Domain;
+using Models;
 using Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -19,7 +20,7 @@ namespace LogicTest
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
             var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
             SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
-            string[] strlst = {};
+            string[] strlst = { };
             mock1.Setup(x => x.GetAll(strlst)).Returns(It.IsAny<IEnumerable<Region>>);
 
             IEnumerable<Region> ret = logic.GetAllRegions();
@@ -87,10 +88,9 @@ namespace LogicTest
             var mock2 = new Mock<IRepository<Category>>(MockBehavior.Strict);
             var mock3 = new Mock<ITPointRepository>(MockBehavior.Strict);
             SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
-            string[] strlst = {"Region"};
-            mock3.Setup(x => x.GetAll(strlst)).Returns(It.IsAny<IEnumerable<TouristicPoint>>);
+            mock3.Setup(x => x.GetAllTpoints()).Returns(It.IsAny<IEnumerable<TouristicPointOutModel>>);
 
-            IEnumerable<TouristicPoint> ret = logic.GetAllTPoints();
+            IEnumerable<TouristicPointOutModel> ret = logic.GetAllTPoints();
 
             mock3.VerifyAll();
         }
@@ -119,12 +119,12 @@ namespace LogicTest
             SearchLogic logic = new SearchLogic(mock1.Object, mock2.Object, mock3.Object);
 
             Region region = new Region() { };
-            int[] categories= { };
+            int[] categories = { };
 
             mock1.Setup(x => x.Get(It.IsAny<int>())).Returns(region);
-            mock3.Setup(x => x.FindByRegionCat(1,categories)).Returns(It.IsAny<IEnumerable<TouristicPoint>>);
+            mock3.Setup(x => x.FindByRegionCat(1, categories)).Returns(It.IsAny<IEnumerable<TouristicPoint>>);
 
-            IEnumerable<TouristicPoint> ret = logic.FindByRegionCat(1,categories);
+            IEnumerable<TouristicPoint> ret = logic.FindByRegionCat(1, categories);
 
             mock2.VerifyAll();
         }

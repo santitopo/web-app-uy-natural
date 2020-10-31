@@ -23,8 +23,8 @@ namespace WebApplicationTest
             var otherMock = new Mock<IAdminLogic>(MockBehavior.Strict);
             TPointController controller = new TPointController(logicMock.Object, otherMock.Object);
 
-            List<TouristicPoint> ret = new List<TouristicPoint>();
-            ret.Add(new TouristicPoint() { });
+            List<TouristicPointOutModel> ret = new List<TouristicPointOutModel>();
+            ret.Add(new TouristicPointOutModel() { });
 
             logicMock.Setup(x => x.GetAllTPoints()).Returns(ret);
 
@@ -114,7 +114,7 @@ namespace WebApplicationTest
 
             int[] categories = { 1, 2, 3 };
 
-            TouristicPointModel tpModel = new TouristicPointModel()
+            TouristicPointInsertModel tpModel = new TouristicPointInsertModel()
             {
                 Categories = categories,
                 RegionId = 1,
@@ -142,7 +142,7 @@ namespace WebApplicationTest
 
             int[] categories = { 1, 2, 3 };
 
-            TouristicPointModel tpModel = new TouristicPointModel()
+            TouristicPointInsertModel tpModel = new TouristicPointInsertModel()
             {
                 Categories = categories,
                 RegionId = 1,

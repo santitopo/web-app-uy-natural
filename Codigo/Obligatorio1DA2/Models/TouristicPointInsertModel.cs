@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Models
 {
-    public class TouristicPointModel
+    public class TouristicPointInsertModel
     {
         public string Name { get; set; }
         public string Description { get; set; }
