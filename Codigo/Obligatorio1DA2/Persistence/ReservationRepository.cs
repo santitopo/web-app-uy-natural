@@ -64,7 +64,9 @@ namespace Persistence
                 IEnumerable<Reservation> reservationsOfLodging = reservationDbSet
                     .Include(x => x.Lodging)
                     .Include(x => x.State)
-                    .Where(x => x.Lodging.Id == l.Id && 
+                    .Where(x => x.Lodging.Id == l.Id &&
+                                !x.Lodging.IsDeleted &&
+                                x.State.Name != "Expirada" && x.State.Name != "Rechazada" &&
                             ( (x.CheckIn >= fromDate && x.CheckIn <= toDate) 
                             || (x.CheckOut >= fromDate && x.CheckOut <= toDate)
                             || (x.CheckIn <= fromDate && x.CheckOut >= toDate)));
