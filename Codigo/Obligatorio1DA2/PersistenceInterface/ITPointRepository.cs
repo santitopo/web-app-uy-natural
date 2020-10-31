@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Domain;
+using Models;
 
 namespace PersistenceInterface
 {
@@ -11,5 +12,6 @@ namespace PersistenceInterface
         IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories);
         TouristicPoint GetByName(string name);
         bool Exists(string name);
+        IEnumerable<TouristicPointOutModel> GetAllTpoints();
     }
 }

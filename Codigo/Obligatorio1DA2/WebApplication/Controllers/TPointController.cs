@@ -28,7 +28,18 @@ namespace WebApplication.Controllers
         [HttpGet]
         public IActionResult GetAllTPoints()
         {
-            return Ok(searchLogic.GetAllTPoints());
+            try
+            {
+                return Ok(searchLogic.GetAllTPoints());
+            }
+            catch (NotImplementedException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Error Desconocido");
+            }
         }
 
         ///tpoints/filter?regionId=3&categories=2&categories=3 --> filter by reg & cats
@@ -66,7 +77,7 @@ namespace WebApplication.Controllers
         // POST: /tpoints
         [HttpPost]
         [ServiceFilter(typeof(AuthorizationFilter))]
-        public IActionResult Post([FromHeader] string token, [FromBody] TouristicPointModel tpModel)
+        public IActionResult Post([FromHeader] string token, [FromBody] TouristicPointInsertModel tpModel)
         {
             try
             {

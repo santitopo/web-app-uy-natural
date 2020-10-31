@@ -14,7 +14,7 @@ namespace LogicInterface
 
         IEnumerable<TouristicPoint> GetTPointsByRegion(int regionId);
 
-        IEnumerable<TouristicPoint> GetAllTPoints();
+        IEnumerable<TouristicPointOutModel> GetAllTPoints();
 
         IEnumerable<TouristicPoint> FindByRegionCat(int regionId, IEnumerable<int> categories);
 

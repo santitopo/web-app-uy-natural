@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Domain;
+using Models;
 using Microsoft.EntityFrameworkCore;
 using PersistenceInterface;
 using System.Linq;
@@ -46,7 +47,13 @@ namespace Persistence
             return regionTPoints;
         }
 
-        public new IEnumerable<TouristicPoint> GetAll(string[] includes)
+        public new IEnumerable<TouristicPoint> GetAll(string[] s)
+        {
+            //DON'T USE GetAll with Tpoints. Use GetAllTpoints instead.
+            throw new NotImplementedException("Implementacion no utilizada");
+        }
+
+        public IEnumerable<TouristicPointOutModel> GetAllTpoints()
         {
             //Specifically for TPoints, the includes are not used because of the many to many relationship.
 
@@ -62,18 +69,17 @@ namespace Persistence
                .Include(x => x.Categories)
                .ThenInclude(x => x.Category)
                .Select (
-                g => new TPointProjection()
+                g => new TouristicPointOutModel()
                 {
                     Description = g.Description,
                     Id = g.Id,
                     Image = g.Image,
                     Name = g.Name,
                     Region = g.Region,
-                    Categories = g.Categories.Select(c => new CategoryProjection() { CategoryId = c.CategoryId, Name = c.Category.Name }).ToList()
+                    Categories = g.Categories.Select(c => new CategoryModel() { CategoryId = c.CategoryId, Name = c.Category.Name }).ToList()
                 });
 
-            IEnumerable<TouristicPoint> test = null;
-            return test;
+            return tpoints;
         }
 
         public TouristicPoint GetByName(string name)
@@ -89,23 +95,6 @@ namespace Persistence
         }
 
 
-        private class TPointProjection
-        {
-            public string Description { get; set; }
-            public int Id { get; set; }
-            public string Image { get; set; }
-            public string Name { get; set; }
-
-            public Region Region { get; set; }
-            public List<CategoryProjection> Categories { get; set; }
-
-        }
-
-        private class CategoryProjection
-        {
-            public int CategoryId { get; set; }
-            public string Name { get; set; }
-
-        }
+       
     }
 }
