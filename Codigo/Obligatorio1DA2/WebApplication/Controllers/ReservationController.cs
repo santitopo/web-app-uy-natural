@@ -24,6 +24,7 @@ namespace WebApplication.Controllers
         }
 
         // GET: /reservations
+        [ServiceFilter(typeof(AuthorizationFilter))]
         [HttpGet]
         public IActionResult Get()
         {
@@ -31,6 +32,7 @@ namespace WebApplication.Controllers
         }
 
         // GET: /reservations/states
+        [ServiceFilter(typeof(AuthorizationFilter))]
         [HttpGet("states")]
         public IActionResult GetStates()
         {

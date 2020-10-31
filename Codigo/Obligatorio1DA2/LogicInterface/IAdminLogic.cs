@@ -9,6 +9,10 @@ namespace LogicInterface
     public interface IAdminLogic
     {
         //PRE:
+        //POS: Returns all the admins in the system
+        IEnumerable<Administrator> GetAdmins();
+
+        //PRE:
         //POS: Add a new touristic point to the system
         TouristicPoint AddTouristicPoint(TouristicPoint aTouristicPoint, int regionId, int [] categories);
 
