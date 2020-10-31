@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Domain;
 using LogicInterface;
@@ -16,10 +17,11 @@ namespace Logic
         private IPriceCalculator priceCalculator;
         private IRepository<Client> clientRepository;
         private IRepository<State> stateRepository;
+        private ITPointRepository tpointRepository;
 
         public ReservationLogic(IReservationRepository reservationRepository, IAdminRepository adminRepository,
             ILodgingRepository lodgingRepository, IPriceCalculator priceCalculator, IRepository<Client> clientRepository,
-            IRepository<State> stateRepository)
+            IRepository<State> stateRepository, ITPointRepository tpointRepository)
         {
             this.reservationRepository = reservationRepository;
             this.adminRepository = adminRepository;
@@ -27,6 +29,7 @@ namespace Logic
             this.priceCalculator = priceCalculator;
             this.clientRepository = clientRepository;
             this.stateRepository = stateRepository;
+            this.tpointRepository = tpointRepository;
         }
 
         public BillModel BookLodging(ReservationModel reservationData)
@@ -83,7 +86,7 @@ namespace Logic
 
                 return bill;
             }
-            
+
         }
 
         public Reservation GetReservationByGuid(string code)
@@ -91,7 +94,7 @@ namespace Logic
             Guid guidcode = new Guid(code);
             Reservation reservation = reservationRepository.FindByCode(guidcode);
             return reservation;
-            
+
         }
 
         private Guid createUnusedGuid()
@@ -110,10 +113,10 @@ namespace Logic
             }
 
         }
-        
+
         public IEnumerable<Reservation> GetAllReservations()
         {
-            string[] param = {"State"};
+            string[] param = { "State" };
             return reservationRepository.GetAll(param);
         }
 
@@ -121,6 +124,29 @@ namespace Logic
         {
             string[] param = { };
             return stateRepository.GetAll(param);
+        }
+
+        public IEnumerable<ReservationReportResultModel> GetReportByTPoint(ReservationReportRequestModel request)
+        {
+            //Validations
+            if (tpointRepository.Get(request.TPointId) == null) { throw new InvalidOperationException("El punto turistico consultado no existe"); }
+            DateTime fromDate;
+            DateTime toDate;
+            try
+            {
+                fromDate = DateTime.ParseExact(request.FromDate, "ddMMyyyy", null);
+                toDate = DateTime.ParseExact(request.ToDate, "ddMMyyyy", null);
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Error en el formato de fechas. Formato esperado 'ddMMyyyy'");
+            }
+            if (fromDate > toDate) { throw new InvalidOperationException("Rango de fechas inválido"); }
+
+            //Build Report
+            List<ReservationReportResultModel> report = reservationRepository.GetReportByTPoint(request.TPointId, fromDate, toDate);
+            if (report == null || report.Count() == 0 ) { throw new InvalidOperationException("No hay ningun hospedaje con reservas en el periodo buscado"); }
+            return report;
         }
     }
 }

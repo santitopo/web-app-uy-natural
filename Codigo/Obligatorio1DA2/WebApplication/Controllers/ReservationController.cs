@@ -37,6 +37,26 @@ namespace WebApplication.Controllers
             return Ok(reservationLogic.GetAllStates());
         }
 
+        //localhost:44371/reservations/reports?TPointId=1&FromDate=12102019&ToDate=14102019
+        [HttpGet("reports")]
+        //[ServiceFilter(typeof(AuthorizationFilter))]    <---- MISSING
+        public IActionResult GetReservationsReportbyTP([FromQuery] ReservationReportRequestModel reportRequest)
+        {
+            try
+            {
+                IEnumerable<ReservationReportResultModel> report = reservationLogic.GetReportByTPoint(reportRequest);
+                return Ok(report);
+            }
+            catch (InvalidOperationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Error desconocido");
+            }
+        }
+
         // POST: /reservations
         [HttpPost]
         public IActionResult Post([FromBody] ReservationModel reservationData)
