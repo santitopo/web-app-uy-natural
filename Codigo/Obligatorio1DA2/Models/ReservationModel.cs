@@ -10,6 +10,7 @@ namespace Models
         public int LodgingId { get; set; }
         public string Checkin { get; set; }
         public string Checkout { get; set; }
+        public int RetiredNum { get; set; }
         public int AdultsNum { get; set; }
         public int ChildsNum { get; set; }
         public int BabiesNum { get; set; }
@@ -17,5 +18,9 @@ namespace Models
         public string Surname { get; set; }
         public string Mail { get; set; }
 
+        public ReservationModel()
+        {
+            RetiredNum = AdultsNum = ChildsNum = BabiesNum = 0;
+        }
     }
 }

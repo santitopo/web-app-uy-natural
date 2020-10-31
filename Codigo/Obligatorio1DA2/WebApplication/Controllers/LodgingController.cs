@@ -25,6 +25,7 @@ namespace WebApplication.Controllers
         }
 
         //localhost:44371/lodgings/filter?TPointId=1&Checkin=12102019&Checkout=14102019&AdultsNum=2&ChildsNum=2&BabiesNum=4
+        //localhost:44371/lodgings/filter?TPointId=1&Checkin=12102019&Checkout=14102019&RetiredNum=2&AdultsNum=2&ChildsNum=2&BabiesNum=4
         [HttpGet("filter")]
         public IActionResult GetLodgingsByTP([FromQuery] LodgingSearchModel search)
         {

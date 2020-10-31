@@ -52,7 +52,7 @@ namespace WebApplication
             services.AddScoped<IAdminLogic, AdminLogic>();
             services.AddScoped<IReservationLogic, ReservationLogic>();
             services.AddScoped<ISessionLogic, SessionLogic>();
-            services.AddScoped<IPriceCalculator, PriceCalculator>();
+            services.AddScoped<IPriceCalculator, PriceCalculatorRetired>();
 
             services.AddScoped<AuthorizationFilter>();
         }

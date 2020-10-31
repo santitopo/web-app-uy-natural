@@ -50,11 +50,30 @@ namespace Persistence
         {
             //Specifically for TPoints, the includes are not used because of the many to many relationship.
 
-            IEnumerable<TouristicPoint> tpoints = DbSet
-                .Include(x => x.Region)
-                .Include(x => x.Categories)
-                .ThenInclude(x => x.Category);
-            return tpoints;
+            //IEnumerable<TouristicPoint> tpoints = DbSet
+            //    .Include(x => x.Region)
+            //    .Include(x => x.Categories)
+            //    .ThenInclude(x => x.Category);
+
+            //Turn inner classes into models
+
+             var tpoints = DbSet
+               .Include(x => x.Region)
+               .Include(x => x.Categories)
+               .ThenInclude(x => x.Category)
+               .Select (
+                g => new TPointProjection()
+                {
+                    Description = g.Description,
+                    Id = g.Id,
+                    Image = g.Image,
+                    Name = g.Name,
+                    Region = g.Region,
+                    Categories = g.Categories.Select(c => new CategoryProjection() { CategoryId = c.CategoryId, Name = c.Category.Name }).ToList()
+                });
+
+            IEnumerable<TouristicPoint> test = null;
+            return test;
         }
 
         public TouristicPoint GetByName(string name)
@@ -67,6 +86,26 @@ namespace Persistence
         {
             TouristicPoint tp = DbSet.Where(x => x.Name == name).FirstOrDefault();
             return tp != null;
+        }
+
+
+        private class TPointProjection
+        {
+            public string Description { get; set; }
+            public int Id { get; set; }
+            public string Image { get; set; }
+            public string Name { get; set; }
+
+            public Region Region { get; set; }
+            public List<CategoryProjection> Categories { get; set; }
+
+        }
+
+        private class CategoryProjection
+        {
+            public int CategoryId { get; set; }
+            public string Name { get; set; }
+
         }
     }
 }

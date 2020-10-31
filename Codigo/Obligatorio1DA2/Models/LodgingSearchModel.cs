@@ -9,8 +9,16 @@ namespace Models
         public int TPointId { get; set; }
         public string Checkin { get; set; }
         public string Checkout { get; set; }
+        public int RetiredNum { get; set; }
         public int AdultsNum { get; set; }
         public int ChildsNum { get; set; }
         public int BabiesNum { get; set; }
+
+
+        public LodgingSearchModel()
+        {
+            RetiredNum = AdultsNum = ChildsNum = BabiesNum = 0;
+        }
     }
+
 }
