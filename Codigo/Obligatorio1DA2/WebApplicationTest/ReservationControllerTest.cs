@@ -55,8 +55,6 @@ namespace WebApplicationTest
 
             ReservationController controller = new ReservationController(null, adminMock.Object);
 
-
-
             ReservationUpdateModel update = new ReservationUpdateModel()
             {
                 ReservationId = 2,
@@ -74,6 +72,25 @@ namespace WebApplicationTest
             adminMock.VerifyAll();
         }
 
+        [TestMethod]
+        public void GetReservationsReportbyTP()
+        {
+            var reservationsMock = new Mock<IReservationLogic>(MockBehavior.Strict);
+            ReservationController controller = new ReservationController(reservationsMock.Object, null);
+            ReservationReportRequestModel request = new ReservationReportRequestModel()
+            {
+                FromDate = "10122020",
+                ToDate = "11122020",
+                TPointId = 2,
+            };
+            reservationsMock.Setup(x => x.GetReportByTPoint(request)).Returns(It.IsAny<IEnumerable<ReservationReportResultModel>>());
+
+            var result = controller.GetReservationsReportbyTP(request);
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as IEnumerable<ReservationReportResultModel>;
+
+            reservationsMock.VerifyAll();
+        }
 
         [TestMethod]
         public void PutException()
@@ -287,6 +304,6 @@ namespace WebApplicationTest
             var result = controller.Get("guid");
             reservationMock.VerifyAll();
             Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
-            }
+        }
     }
 }

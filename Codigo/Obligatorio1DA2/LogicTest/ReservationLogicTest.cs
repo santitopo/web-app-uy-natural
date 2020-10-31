@@ -36,7 +36,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -119,7 +119,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -191,7 +191,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -219,7 +219,7 @@ namespace LogicTest
         public void BookFailLodgingNoCapacity()
         {
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -255,7 +255,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
             State defaultState = new State()
             {
                 Name = Constants.DEFAULT_RESERVATION_STATE
@@ -287,7 +287,7 @@ namespace LogicTest
         {
             var mock1 = new Mock<IReservationRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<State>>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock1.Object,null,null,null,null, mock2.Object);
+            ReservationLogic logic = new ReservationLogic(mock1.Object,null,null,null,null, mock2.Object, null);
 
             string[] param = {"State"};
             mock1.Setup(x => x.GetAll(param)).Returns(It.IsAny<IEnumerable<Reservation>>);
@@ -301,13 +301,71 @@ namespace LogicTest
         {
             var mock1 = new Mock<IReservationRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<State>>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock1.Object, null, null, null, null, mock2.Object);
+            ReservationLogic logic = new ReservationLogic(mock1.Object, null, null, null, null, mock2.Object, null);
 
             string[] param = { };
             mock2.Setup(x => x.GetAll(param)).Returns(It.IsAny<IEnumerable<State>>);
 
             IEnumerable<State> ret = logic.GetAllStates();
             mock1.VerifyAll();
+        }
+
+        [TestMethod]
+        public void GetReportByTPointOk()
+        {
+            var mock1 = new Mock<ITPointRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IReservationRepository>(MockBehavior.Strict);
+            ReservationLogic logic = new ReservationLogic(mock2.Object, null, null, null, null, null, mock1.Object);
+
+            TouristicPoint tpoint = new TouristicPoint()
+            {
+                Id = 2,
+            };
+
+            List<ReservationReportResultModel> res = new List<ReservationReportResultModel>();
+            res.Add(new ReservationReportResultModel());
+
+            mock1.Setup(x => x.Get(2)).Returns(tpoint);
+            mock2.Setup(x => x.GetReportByTPoint(2, It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(res);
+
+            ReservationReportRequestModel request = new ReservationReportRequestModel()
+            {
+                TPointId = 2,
+                FromDate = "02112020",
+                ToDate = "03112020",
+            };
+            IEnumerable<ReservationReportResultModel> ret = logic.GetReportByTPoint(request);
+            mock1.VerifyAll();
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "No hay ningun hospedaje con reservas en el periodo buscado")]
+        public void GetReportByTPointEmptyLst()
+        {
+            var mock1 = new Mock<ITPointRepository>(MockBehavior.Strict);
+            var mock2 = new Mock<IReservationRepository>(MockBehavior.Strict);
+            ReservationLogic logic = new ReservationLogic(mock2.Object, null, null, null, null, null, mock1.Object);
+
+            TouristicPoint tpoint = new TouristicPoint()
+            {
+                Id = 2,
+            };
+
+            List<ReservationReportResultModel> res = new List<ReservationReportResultModel>();
+
+            mock1.Setup(x => x.Get(2)).Returns(tpoint);
+            mock2.Setup(x => x.GetReportByTPoint(2, It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(res);
+
+            ReservationReportRequestModel request = new ReservationReportRequestModel()
+            {
+                TPointId = 2,
+                FromDate = "02112020",
+                ToDate = "03112020",
+            };
+            IEnumerable<ReservationReportResultModel> ret = logic.GetReportByTPoint(request);
+            mock1.VerifyAll();
+
         }
     }
 }

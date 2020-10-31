@@ -78,6 +78,7 @@ namespace PersistenceTest
                 context.Set<TouristicPoint>().Remove(tpoint1);
                 context.Set<TouristicPoint>().Remove(tpoint2);
                 context.Set<Lodging>().Remove(lod1);
+                context.Set<Lodging>().Remove(lod2);
                 context.SaveChanges();
             }
         }
@@ -288,11 +289,7 @@ namespace PersistenceTest
                 context.Set<Lodging>().Add(lodging1);
                 context.SaveChanges();
 
-                string[] param = { };
-                repository.Create(lodging1);
-                context.SaveChanges();
-
-                Assert.IsFalse(lodging1.IsDeleted);
+                Assert.IsTrue(lodging1.IsDeleted);
 
                 context.Set<Lodging>().Remove(lodging1);
                 context.SaveChanges();

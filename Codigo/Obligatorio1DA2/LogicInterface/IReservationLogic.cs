@@ -16,5 +16,7 @@ namespace LogicInterface
         BillModel BookLodging(ReservationModel reservationData);
 
         Reservation GetReservationByGuid(string code);
+
+        IEnumerable<ReservationReportResultModel> GetReportByTPoint(ReservationReportRequestModel request);
     }
 }

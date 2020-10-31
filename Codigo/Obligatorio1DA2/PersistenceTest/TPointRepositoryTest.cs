@@ -16,7 +16,7 @@ namespace PersistenceTest
         public void FindByRegion()
         {
             var options = new DbContextOptionsBuilder<UyNaturalContext>()
-            .UseInMemoryDatabase(databaseName: "TestDB")
+            .UseInMemoryDatabase(databaseName: "FindByRegion")
             .Options;
 
             using (var context = new UyNaturalContext(options))

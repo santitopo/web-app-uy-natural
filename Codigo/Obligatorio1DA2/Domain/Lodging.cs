@@ -18,11 +18,12 @@ namespace Domain
         public bool IsDeleted { get; set; }
         //Capacity in true means that it accepts guests
         public bool Capacity { get; set; }
+        public DateTime CreatedDate { get; set; }
 
 
         public Lodging()
         {
-
+            CreatedDate = DateTime.Now;
         }
 
         public override bool Equals(object obj)
