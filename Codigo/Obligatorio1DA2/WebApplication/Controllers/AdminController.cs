@@ -21,7 +21,20 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        
+        // GET: /admins
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(adminLogic.GetAdmins());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         // POST: /admins
         [HttpPost]
         [ServiceFilter(typeof(AuthorizationFilter))]

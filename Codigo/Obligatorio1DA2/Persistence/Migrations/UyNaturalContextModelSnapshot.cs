@@ -70,6 +70,9 @@ namespace Persistence.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<double>("Score")
+                        .HasColumnType("float");
+
                     b.Property<int>("Stars")
                         .HasColumnType("int");
 
@@ -167,6 +170,34 @@ namespace Persistence.Migrations
                     b.HasIndex("StateId");
 
                     b.ToTable("Reservations");
+                });
+
+            modelBuilder.Entity("Domain.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LodgingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("LodgingId");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Domain.State", b =>
@@ -287,6 +318,17 @@ namespace Persistence.Migrations
                     b.HasOne("Domain.State", "State")
                         .WithMany()
                         .HasForeignKey("StateId");
+                });
+
+            modelBuilder.Entity("Domain.Review", b =>
+                {
+                    b.HasOne("Domain.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId");
+
+                    b.HasOne("Domain.Lodging", "Lodging")
+                        .WithMany()
+                        .HasForeignKey("LodgingId");
                 });
 
             modelBuilder.Entity("Domain.TouristicPoint", b =>

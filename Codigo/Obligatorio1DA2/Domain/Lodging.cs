@@ -19,6 +19,7 @@ namespace Domain
         //Capacity in true means that it accepts guests
         public bool Capacity { get; set; }
         public DateTime CreatedDate { get; set; }
+        public double Score { get; set; }
 
 
         public Lodging()

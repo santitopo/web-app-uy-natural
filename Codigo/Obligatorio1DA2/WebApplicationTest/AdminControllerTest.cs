@@ -15,6 +15,28 @@ namespace WebApplicationTest
     public class AdminControllerTest
     {
         [TestMethod]
+        public void GetAdminsOk()
+        {
+            var logicMock = new Mock<IAdminLogic>(MockBehavior.Strict);
+            AdminController controller = new AdminController(logicMock.Object);
+
+            Administrator admin = new Administrator()
+            {
+                Name = "admin1"
+            };
+            List<Administrator> admins = new List<Administrator>();
+            admins.Add(admin);
+
+            logicMock.Setup(x => x.GetAdmins()).Returns(admins);
+
+            var result = controller.Get();
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as IEnumerable<Category>;
+
+            logicMock.VerifyAll();
+        }
+
+        [TestMethod]
         public void PostOk()
         {
             var adminMock = new Mock<IAdminLogic>(MockBehavior.Strict);

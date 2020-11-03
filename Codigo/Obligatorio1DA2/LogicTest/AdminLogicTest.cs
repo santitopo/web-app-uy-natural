@@ -6,6 +6,7 @@ using Moq;
 using PersistenceInterface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -14,6 +15,29 @@ namespace LogicTest
     [TestClass]
     public class AdminLogicTest
     {
+        [TestMethod]
+        public void GetAdmins()
+        {
+            var mock1 = new Mock<IAdminRepository>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(null, null, null, null, null, mock1.Object, null, null);
+
+            Administrator admin = new Administrator()
+            {
+                Name = "admin1"
+            };
+            List<Administrator> admins = new List<Administrator>();
+            admins.Add(admin);
+
+            string[] param = { };
+            mock1.Setup(x => x.GetAll(param)).Returns(admins);
+
+            List<Administrator> ret = logic.GetAdmins().ToList();
+
+            CollectionAssert.Contains(ret, admin);
+            Assert.AreEqual(1, ret.Count);
+        
+        }
+
         [TestMethod]
         public void AddNewTouristicPoint()
         {

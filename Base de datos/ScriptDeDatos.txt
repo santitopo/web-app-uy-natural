@@ -1,0 +1,77 @@
+-- REGIONES --
+insert into dbo.Regions (Name) values ('Región metropolitana');
+insert into dbo.Regions (Name) values ('Región Centro Sur');
+insert into dbo.Regions (Name) values ('Región Este');
+insert into dbo.Regions (Name) values ('Región Litoral Norte');
+insert into dbo.Regions (Name) values ('Región “Corredor Pájaros Pintados”');
+
+-- CATEGORIAS --
+insert into dbo.Categories(Name) values ('Ciudades');
+insert into dbo.Categories (Name) values ('Pueblos');
+insert into dbo.Categories (Name) values ('Areas protegidas');
+insert into dbo.Categories (Name) values ('Playas');
+insert into dbo.Categories (Name) values ('Etc');
+
+-- ESTADOS --
+insert into dbo.State(Name) values ('Creada');
+insert into dbo.State(Name) values ('Pendiente Pago');
+insert into dbo.State(Name) values ('Aceptada');
+insert into dbo.State(Name) values ('Rechazada');
+insert into dbo.State(Name) values ('Expirada');
+
+-- ADMINISTRADORES --
+insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('admin','','admin','admin',2);
+
+-- USERSESSIONS --
+insert into dbo.UserSessions (ConnectedAt,Token, UserId) values ('2020-10-14','6F9619FF-8B86-D011-B42D-00C04FC964FF',1);
+
+-- CLIENTES --
+insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Jose','Hernandez','jh@hotmail.com', 1);
+insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Laura','Fernandez','lau.f@gmail.com', 1);
+insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Pepe','Gomez','pepe@hotmail.com', 1);
+
+-- PUNTOS TURISTICOS --
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Punta del Este','Balneario de playa', 3, '/punta.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('La Paloma','Balneario de playa', 3, '/pedrera20.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Colonia','Pueblo Colonial', 1, '/punta.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Termas del Daymán','Fuente termal', 5, '/dayman.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Villa Soriano','Pueblo Colonial', 5, '/vsoriano.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Artigas','Ciudad capital de artigas', 4, '/artigas.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Melo','Ciudad capital de Cerro Largo', 3, '/melo.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Quebrada de los Cuervos',' Paisaje Protegido de Uruguay', 2, '/quebrada.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Montevideo','Capital de Uruguay', 1, '/montevideo.jpg');
+
+-- RELACION CATEGORIAS / PUNTOS TURISTICOS--
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (4,1);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (1,1);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (4,2);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (1,2);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (1,3);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (3,3);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (3,4);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (5,4);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (2,5);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (3,5);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (1,6);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (1,7);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (3,8);
+insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (1,9);
+
+-- HOSPEDAJES --
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (1,'Rancho en la playa','Calle de la cruz 123','img2.jpg',0,'Casa Mara','098259045',40.5,2,1,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (1,'Casita en la playa El Barco','calle 1','img32.jpg',0,'El Sol','091657314',45,3,2,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (0,'Hotel 5 estrellas ubicado en las afueras de Colonia','Calle La Esperanza 343','img4.jpg',0,'Radisson Hotel','091677842',1000.0,5,3,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (0,'A 10 km de Salto, y ofrece jardín y conexión WiFi gratuita.','calle de la cruz 123','img2.jpg',0,'Apart Hotel Aguasol','098259045',250.5,2,4,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (0,'Hostel con buenas vibras','26 de marzo 220','/compay.jpg',0,'Hostel Compay','098252245',15,2,9,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (1,'Spa y Resort','camino de las chacras','img2.jpg',0,'Chacra La Esmaralda','098252245',100,2,5,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (0,'Hotel de Paso','Ruta 110 km 210','imagenHotel.jpg',0,'Hotel El Burgo','098252245',20,2,6,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (1,'La casa de Felipe','18 de julio 112','img222.jpg',0,'Hotel lo de Feli','098123345',34,2,7,0, GETDATE());
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (1,'Cabaña nativa','al costado de la quebrada','/quebradaimg.jpg',0,'Cabañas Quebradas','59898252245',10.5,2,8,0, '20201029');
+insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (1,'Rancho El Aguila','en el camino de la quebrada','imagenRancho.png',0,'Rancho El Aguila','09655440',30,2,8,0, GETDATE());
+
+-- RESERVAS --
+insert into dbo.Reservations(Code,LodgingId, ClientId, StateId, StateDescription, CheckIn, CheckOut, Price) values (newid(),'5','2', '2', 'En proceso', '2020-11-20', '2020-11-22', 30);
+insert into dbo.Reservations(Code,LodgingId, ClientId, StateId, StateDescription, CheckIn, CheckOut, Price) values (newid(),'2','3', '3', 'Aceptada', '2020-10-10', '2020-10-12', 90);
+insert into dbo.Reservations(Code,LodgingId, ClientId, StateId, StateDescription, CheckIn, CheckOut, Price) values (newid(),'8','4', '4', 'Rechazada por falta de fondos en tarjeta', '2020-12-20', '2020-12-31', 45);
+INSERT [dbo].[Reservations] ( [Code], [LodgingId], [ClientId], [CheckIn], [CheckOut], [StateId], [StateDescription], [Price]) VALUES ( N'ca69eda7-626d-4136-9359-e83be6a8c07d', 2, 2, CAST(N'2020-10-30T00:00:00.0000000' AS DateTime2), CAST(N'2020-11-02T00:00:00.0000000' AS DateTime2), 2, N'En proceso', 45)
+INSERT [dbo].[Reservations] ( [Code], [LodgingId], [ClientId], [CheckIn], [CheckOut], [StateId], [StateDescription], [Price]) VALUES ( N'ca69eda7-626d-4136-9359-e83be6a8c07d', 3, 3, CAST(N'2020-10-28T00:00:00.0000000' AS DateTime2), CAST(N'2020-11-02T00:00:00.0000000' AS DateTime2), 2, N'En proceso', 45)

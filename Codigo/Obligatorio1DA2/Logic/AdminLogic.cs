@@ -35,6 +35,12 @@ namespace Logic
             this.stateRepository = stateRepository;
         }
 
+        public IEnumerable<Administrator> GetAdmins()
+        {
+            string [] param = { };
+            return userRepository.GetAll(param);
+        }
+
         public Administrator AddAdmin(Administrator anAdmin)
         {
             if (userRepository.GetAdminByMail(anAdmin.Mail) == null)
