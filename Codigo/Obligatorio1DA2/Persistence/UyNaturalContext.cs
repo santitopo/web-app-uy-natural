@@ -15,6 +15,7 @@ namespace Persistence
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<TouristicPoint> TouristicPoints { get; set; }
         public DbSet<UserSession> UserSessions { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         public UyNaturalContext(DbContextOptions options) : base(options)
         {

@@ -121,7 +121,8 @@ namespace Persistence.Migrations
                     Price = table.Column<double>(nullable: false),
                     Images = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    Capacity = table.Column<bool>(nullable: false)
+                    Capacity = table.Column<bool>(nullable: false),
+                    Score = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -196,6 +197,34 @@ namespace Persistence.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Reviews",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LodgingId = table.Column<int>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Score = table.Column<int>(nullable: false),
+                    ClientId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reviews", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reviews_Persons_ClientId",
+                        column: x => x.ClientId,
+                        principalTable: "Persons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Reviews_Lodgings_LodgingId",
+                        column: x => x.LodgingId,
+                        principalTable: "Lodgings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Lodgings_TouristicPointId",
                 table: "Lodgings",
@@ -215,6 +244,16 @@ namespace Persistence.Migrations
                 name: "IX_Reservations_StateId",
                 table: "Reservations",
                 column: "StateId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_ClientId",
+                table: "Reviews",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_LodgingId",
+                table: "Reviews",
+                column: "LodgingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TouristicPoints_RegionId",
@@ -238,16 +277,19 @@ namespace Persistence.Migrations
                 name: "Reservations");
 
             migrationBuilder.DropTable(
+                name: "Reviews");
+
+            migrationBuilder.DropTable(
                 name: "TouristicPointsCategory");
 
             migrationBuilder.DropTable(
                 name: "UserSessions");
 
             migrationBuilder.DropTable(
-                name: "Lodgings");
+                name: "State");
 
             migrationBuilder.DropTable(
-                name: "State");
+                name: "Lodgings");
 
             migrationBuilder.DropTable(
                 name: "Categories");
