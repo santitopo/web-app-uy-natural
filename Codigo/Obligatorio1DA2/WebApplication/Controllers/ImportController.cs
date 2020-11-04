@@ -26,9 +26,10 @@ namespace WebApplication.Controllers
         {
             this.lodgingLogic = lodgingLogic;
             this.adminLogic = adminLogic;
-            importPath = "@..//..//..//..//DLLsDeImportacion";
+            importPath = "@..//..//..//ImporterDLLs";
         }
 
+        [HttpPost]
         public IActionResult GetAvailableImporters([FromBody] IEnumerable<ImportParameter> parameters)
         {
             List<string> availableImporters = new List<string>();
@@ -37,7 +38,7 @@ namespace WebApplication.Controllers
             {
                 var dllFile = new FileInfo(file);
                 //Convert file into assembly
-                Assembly assembly = Assembly.Load(dllFile.FullName);
+                Assembly assembly = Assembly.UnsafeLoadFrom(file);
 
                 //If conversion was successful, we obtain all the
                 //classes in the dll (Types). 
@@ -46,7 +47,8 @@ namespace WebApplication.Controllers
                 foreach (Type type in assembly.GetTypes())
                 {
                     //Check if it satisifies the interface
-                    if (SatisfiesInterface(type))
+                    //if (SatisfiesInterface(type))
+                    if (true)
                     {
                         //New importer instance
                         try
@@ -78,7 +80,7 @@ namespace WebApplication.Controllers
                                 }
                             }
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                             //Idea: create list with all the error cases to return at the end.
                         }

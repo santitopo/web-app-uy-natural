@@ -21,6 +21,7 @@ namespace LogicInterface
     public class ImportParameter
     {
         public string Name { get; set; }
+        public string Value { get; set; }
         public string Type { get; set; } // File, tect, int, date, etc...
     }
 }
