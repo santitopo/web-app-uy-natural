@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationTest", "WebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicTest", "LogicTest\LogicTest.csproj", "{CFAEBD36-4CDA-47C4-8B14-38960C3C4634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceTest", "PersistenceTest\PersistenceTest.csproj", "{9D3E704B-2253-47CC-B8C2-E8C162FF355C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersistenceTest", "PersistenceTest\PersistenceTest.csproj", "{9D3E704B-2253-47CC-B8C2-E8C162FF355C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Importers", "Importers\Importers.csproj", "{6CA97615-615C-4F3C-A0FF-7DF5C7950E6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{9D3E704B-2253-47CC-B8C2-E8C162FF355C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D3E704B-2253-47CC-B8C2-E8C162FF355C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D3E704B-2253-47CC-B8C2-E8C162FF355C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA97615-615C-4F3C-A0FF-7DF5C7950E6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA97615-615C-4F3C-A0FF-7DF5C7950E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA97615-615C-4F3C-A0FF-7DF5C7950E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA97615-615C-4F3C-A0FF-7DF5C7950E6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
