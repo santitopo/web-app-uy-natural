@@ -8,15 +8,10 @@ namespace LogicInterface
     public interface IImporter
     {
         string GetImportedName();
-        ImportResult Import(IEnumerable<ImportParameter> parameters);
+        IEnumerable<Lodging> Import(IEnumerable<ImportParameter> parameters);
         IEnumerable<ImportParameter> GetParameters();
     }
 
-    public class ImportResult
-    {
-        public IEnumerable<Lodging> Imported { get; set; }
-        public IEnumerable<Lodging> NotImported { get; set; }
-    }
 
     public class ImportParameter
     {

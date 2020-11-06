@@ -5,7 +5,7 @@ using LogicInterface;
 using System.Linq;
 using System.Text.Json;
 
-namespace Importers
+namespace JsonImporter
 {
     public class JsonImporter : IImporter
     {
@@ -26,16 +26,13 @@ namespace Importers
 
         }
 
-        public ImportResult Import(IEnumerable<ImportParameter> parameters)
+        public IEnumerable<Lodging> Import(IEnumerable<ImportParameter> parameters)
         {
-            ImportResult ret = new ImportResult();
             List<ImportParameter> p = parameters.ToList();
             string jsonContent =
                 System.IO.File.ReadAllText(p[0].Value);
             List<Lodging> imported = JsonSerializer.Deserialize<List<Lodging>>(jsonContent);
-
-            ret.Imported = imported;
-            return ret;
+            return imported;
         }
     }
 }

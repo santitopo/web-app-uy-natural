@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="JsonImporter\**" />
+    <EmbeddedResource Remove="JsonImporter\**" />
+    <None Remove="JsonImporter\**" />
+  </ItemGroup>
+
 </Project>

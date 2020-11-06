@@ -37,7 +37,7 @@ namespace Logic
 
         public IEnumerable<Administrator> GetAdmins()
         {
-            string [] param = { };
+            string[] param = { };
             return userRepository.GetAll(param);
         }
 
@@ -180,6 +180,67 @@ namespace Logic
             {
                 throw new InvalidOperationException("El hospedaje no existe");
             }
+        }
+
+        public Lodging AddReflectionLodging(Lodging lodging)
+        {
+            if (!lodgingRepository.Exists(lodging.Name, lodging.Direction))
+            {
+
+                TouristicPoint virtualTPoint = lodging.TouristicPoint;
+                Region virtualRegion = virtualTPoint.Region;
+                List<TouristicPointsCategory> virtualCategories = virtualTPoint.Categories;
+
+                TouristicPoint tpoint = tpRepository.GetByName(virtualTPoint.Name);
+                if (tpoint == null)
+                {
+                    //Validations to create a new TPoint
+                    string[] n = { };
+                    Region region = regionRepository.GetAll(n).FirstOrDefault(x => x.Name == virtualRegion.Name);
+                    if (region == null) { throw new InvalidOperationException("No existe la región" + virtualRegion.Name); };
+                    IEnumerable<Category> systemCategories = categoryRepository.GetAll(n);
+                    foreach (TouristicPointsCategory tpc in virtualCategories)
+                    {
+                        Category cat = systemCategories.FirstOrDefault(x => x.Name == tpc.Category.Name);
+                        if (cat == null) { throw new InvalidOperationException("No existe la categoria " + tpc.Category.Name); };
+                        tpc.Category = cat;
+                        tpc.CategoryId = cat.Id;
+                    }
+                    //end of validations
+
+                    //add new TouristicPoint
+                    tpoint = new TouristicPoint()
+                    {
+                        Description = virtualTPoint.Description,
+                        Name = virtualTPoint.Name,
+                        Image = virtualTPoint.Image,
+                        Region = region,
+                    };
+                    tpRepository.Create(tpoint);
+                    tpRepository.Save();
+                    int addedTpointId = tpRepository.GetByName(tpoint.Name).Id;
+                    //Update the new tpoint with its categories
+
+                    foreach (TouristicPointsCategory tpc in virtualCategories)
+                    {
+                        tpc.TouristicPointId = addedTpointId;
+                        tpc.TouristicPoint = tpoint;
+                    }
+                    tpoint.Categories = virtualCategories;
+                    tpRepository.Update(tpoint);
+                    tpRepository.Save();
+                }
+
+                lodging.TouristicPoint = tpoint;
+                lodgingRepository.Create(lodging);
+                lodgingRepository.Save();
+            }
+            else
+            {
+                throw new InvalidOperationException("Ya existe un hospedaje llamado: " + lodging.Name +
+                                                    " y con direccion: " + lodging.Direction);
+            }
+            return lodging;
         }
     }
 }

@@ -32,6 +32,8 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult GetAvailableImporters([FromBody] IEnumerable<ImportParameter> parameters)
         {
+            ImportResult results = new ImportResult();
+
             List<string> availableImporters = new List<string>();
             string[] filePaths = Directory.GetFiles(this.importPath);
             foreach (string file in filePaths)
@@ -40,43 +42,43 @@ namespace WebApplication.Controllers
                 //Convert file into assembly
                 Assembly assembly = Assembly.UnsafeLoadFrom(file);
 
-                //If conversion was successful, we obtain all the
-                //classes in the dll (Types). 
-                //Now we check if some implements the interface we want
-
+                //If conversion was successful, we obtain all the classes in the dll (Types). 
+                //Now we check if some class in the DLL implements the interface we want
                 foreach (Type type in assembly.GetTypes())
                 {
                     //Check if it satisifies the interface
-                    //if (SatisfiesInterface(type))
-                    if (true)
+                    if (typeof(IImporter).IsAssignableFrom(type))
                     {
                         //New importer instance
                         try
                         {
                             IImporter instance = (IImporter)Activator.CreateInstance(type);
-                            ImportResult lodgings = instance.Import(parameters);
-                            foreach (Lodging lodging in lodgings.Imported)
+                            IEnumerable<Lodging> importResult = instance.Import(parameters);
+                            foreach (Lodging lodging in importResult)
                             {
+                                //Try to add lodging to system.
                                 try
                                 {
-
-                                    if (!searchLogic.GetAllTPoints().Any(x => x.Name.Equals(lodging.TouristicPoint.Name)))
-                                    {
-                                        //If the tpoint doesnt exist, then we create it passing regionId and categoriesId...
-                                        TouristicPoint newTpoint = lodging.TouristicPoint;
-                                        List<int> categories = new List<int>();
-                                        newTpoint.Categories.ForEach(x => categories.Add(x.CategoryId));
-
-                                        //We assume that region and categories exist (and have the correct ids)
-
-                                        adminLogic.AddTouristicPoint(newTpoint, newTpoint.Region.Id, categories.ToArray());
-                                    }
-
-                                    adminLogic.AddLodging(lodging, lodging.TouristicPoint.Id);
+                                    adminLogic.AddReflectionLodging(lodging);
+                                    results.Imported.Add(lodging);
                                 }
-                                catch (Exception e)
+                                catch (InvalidOperationException e)
                                 {
-                                    //Idea: create list with all the error cases to return at the end.
+                                    Tuple err = new Tuple()
+                                    {
+                                        Lodging = lodging,
+                                        Reason = e.Message
+                                    };
+                                    results.NotImported.Add(err);
+                                }
+                                catch (Exception)
+                                {
+                                    Tuple err = new Tuple()
+                                    {
+                                        Lodging = lodging,
+                                        Reason = "Error no identificado",
+                                    };
+                                    results.NotImported.Add(err);
                                 }
                             }
                         }
@@ -89,14 +91,70 @@ namespace WebApplication.Controllers
 
             }
 
-            return Ok();
+            return Ok(results);
 
         }
 
-        private bool SatisfiesInterface(Type t)
+
+        public class ImportResult
         {
-            throw new NotImplementedException();
+            public List<Lodging> Imported { get; set; }
+            public List<Tuple> NotImported { get; set; }
+
+            public ImportResult()
+            {
+                Imported = new List<Lodging>();
+                NotImported = new List<Tuple>();
+            }
         }
+
+        public class Tuple
+        {
+            public Lodging Lodging { get; set; }
+            public string Reason { get; set; }
+
+
+        }
+
+        // DEPRECATED
+        //private bool SatisfiesInterface(Type t)
+        //{
+        //    //First, we look for all the interface methods that must be satisfied.
+        //    List<Triplete> expectedMethodInfo = new List<Triplete>();
+
+        //    MethodInfo[] expectedMethods = typeof(IImporter).GetMethods();
+        //    foreach(MethodInfo method in expectedMethods)
+        //    {
+        //        ParameterInfo[] args = method.GetParameters();
+        //        Triplete methodInfo = new Triplete()
+        //        {
+        //            methodName = method.Name,
+        //            returnType = method.ReturnType.Name,
+        //            parameters = method.GetParameters(),
+        //            verifies = false,
+        //        };
+
+        //        expectedMethodInfo.Add(methodInfo);
+        //    }
+
+        //    //Second, we iterate through the methods of the imported type.
+        //    foreach (MethodInfo met in t.GetMethods())
+        //    {
+        //        foreach (ParameterInfo param in met.GetParameters())
+        //        {
+        //            string.Format("{0} : {1} ", param.Name, param.ParameterType.Name);
+        //        }
+        //    }
+        //    return true;
+        //}
+        //struct Triplete
+        //{
+        //    public string methodName;
+        //    public string returnType;
+        //    public ParameterInfo[] parameters;
+        //    public bool verifies;
+        //}
+
 
     }
 }
