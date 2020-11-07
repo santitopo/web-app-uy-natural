@@ -37,4 +37,3 @@ C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2Topol
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceInterface\obj\Debug\netcoreapp3.1\PersistenceInterface.csproj.CopyComplete
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceInterface\obj\Debug\netcoreapp3.1\PersistenceInterface.dll
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceInterface\obj\Debug\netcoreapp3.1\PersistenceInterface.pdb
-C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceInterface\obj\Debug\netcoreapp3.1\PersistenceInterface.csproj.CoreCompileInputs.cache

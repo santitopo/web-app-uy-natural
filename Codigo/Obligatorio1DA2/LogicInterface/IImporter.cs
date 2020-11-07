@@ -7,7 +7,7 @@ namespace LogicInterface
 {
     public interface IImporter
     {
-        string GetImportedName();
+        string GetImporterName();
         IEnumerable<Lodging> Import(IEnumerable<ImportParameter> parameters);
         IEnumerable<ImportParameter> GetParameters();
     }

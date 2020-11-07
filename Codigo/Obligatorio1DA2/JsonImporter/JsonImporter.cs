@@ -9,7 +9,7 @@ namespace JsonImporter
 {
     public class JsonImporter : IImporter
     {
-        public string GetImportedName()
+        public string GetImporterName()
         {
             return "JsonImporter";
         }
@@ -22,6 +22,7 @@ namespace JsonImporter
                 Name = "JsonRoute",
                 Type = "File",
             };
+            parameters.Add(file);
             return parameters;
 
         }

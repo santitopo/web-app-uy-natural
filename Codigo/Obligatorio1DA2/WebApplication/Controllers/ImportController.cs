@@ -29,70 +29,109 @@ namespace WebApplication.Controllers
             importPath = "@..//..//..//ImporterDLLs";
         }
 
-        [HttpPost]
-        public IActionResult GetAvailableImporters([FromBody] IEnumerable<ImportParameter> parameters)
+        [HttpGet]
+        public IActionResult GetAvailableLodgingImporters()
         {
-            ImportResult results = new ImportResult();
-
-            List<string> availableImporters = new List<string>();
-            string[] filePaths = Directory.GetFiles(this.importPath);
-            foreach (string file in filePaths)
+            try
             {
-                var dllFile = new FileInfo(file);
+                List<LodgingImporterModel> availableImporters = new List<LodgingImporterModel>();
+                string[] filePaths = Directory.GetFiles(this.importPath);
+                foreach (string file in filePaths)
+                {
+                    try
+                    {
+                        //Convert file into assembly
+                        Assembly assembly = Assembly.UnsafeLoadFrom(file);
+                        bool satisfies = false;
+
+                        //If conversion was successful, we obtain all the classes in the dll (Types). 
+                        //Now we check if some class in the DLL implements the interface we want
+                        foreach (Type type in assembly.GetTypes())
+                        {
+                            //Check if it satisifies the interface
+                            if (typeof(IImporter).IsAssignableFrom(type))
+                            {
+                                IImporter instance = (IImporter)Activator.CreateInstance(type);
+                                LodgingImporterModel model = new LodgingImporterModel()
+                                {
+                                    Parameters = instance.GetParameters(),
+                                    ImporterName = instance.GetImporterName(),
+                                    DLLName = assembly.GetName().Name,
+                                };
+                                availableImporters.Add(model);
+                            }
+                        }
+                    }
+                    catch (Exception) { }
+                }
+                return Ok(availableImporters);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Error cargando los dll disponibles");
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult Import([FromBody] LodgingImporterModel importerModel)
+        {
+            try
+            {
+                ImportResult results = new ImportResult();
+
+                string file = this.importPath + "//" + importerModel.DLLName;
+
                 //Convert file into assembly
                 Assembly assembly = Assembly.UnsafeLoadFrom(file);
 
                 //If conversion was successful, we obtain all the classes in the dll (Types). 
                 //Now we check if some class in the DLL implements the interface we want
+
                 foreach (Type type in assembly.GetTypes())
                 {
                     //Check if it satisifies the interface
                     if (typeof(IImporter).IsAssignableFrom(type))
                     {
                         //New importer instance
-                        try
+                        IImporter instance = (IImporter)Activator.CreateInstance(type);
+                        IEnumerable<Lodging> importResult = instance.Import(importerModel.Parameters);
+                        foreach (Lodging lodging in importResult)
                         {
-                            IImporter instance = (IImporter)Activator.CreateInstance(type);
-                            IEnumerable<Lodging> importResult = instance.Import(parameters);
-                            foreach (Lodging lodging in importResult)
+                            //Try to add lodging to system.
+                            try
                             {
-                                //Try to add lodging to system.
-                                try
+                                adminLogic.AddReflectionLodging(lodging);
+                                results.Imported.Add(lodging);
+                            }
+                            catch (InvalidOperationException e)
+                            {
+                                Tuple err = new Tuple()
                                 {
-                                    adminLogic.AddReflectionLodging(lodging);
-                                    results.Imported.Add(lodging);
-                                }
-                                catch (InvalidOperationException e)
+                                    Lodging = lodging,
+                                    Reason = e.Message
+                                };
+                                results.NotImported.Add(err);
+                            }
+                            catch (Exception)
+                            {
+                                Tuple err = new Tuple()
                                 {
-                                    Tuple err = new Tuple()
-                                    {
-                                        Lodging = lodging,
-                                        Reason = e.Message
-                                    };
-                                    results.NotImported.Add(err);
-                                }
-                                catch (Exception)
-                                {
-                                    Tuple err = new Tuple()
-                                    {
-                                        Lodging = lodging,
-                                        Reason = "Error no identificado",
-                                    };
-                                    results.NotImported.Add(err);
-                                }
+                                    Lodging = lodging,
+                                    Reason = "Error no identificado",
+                                };
+                                results.NotImported.Add(err);
                             }
                         }
-                        catch (Exception ex)
-                        {
-                            //Idea: create list with all the error cases to return at the end.
-                        }
+
                     }
                 }
-
+                return Ok(results);
             }
-
-            return Ok(results);
-
+            catch (Exception e)
+            {
+                return BadRequest("Error en la importación");
+            }
         }
 
 
@@ -116,45 +155,12 @@ namespace WebApplication.Controllers
 
         }
 
-        // DEPRECATED
-        //private bool SatisfiesInterface(Type t)
-        //{
-        //    //First, we look for all the interface methods that must be satisfied.
-        //    List<Triplete> expectedMethodInfo = new List<Triplete>();
-
-        //    MethodInfo[] expectedMethods = typeof(IImporter).GetMethods();
-        //    foreach(MethodInfo method in expectedMethods)
-        //    {
-        //        ParameterInfo[] args = method.GetParameters();
-        //        Triplete methodInfo = new Triplete()
-        //        {
-        //            methodName = method.Name,
-        //            returnType = method.ReturnType.Name,
-        //            parameters = method.GetParameters(),
-        //            verifies = false,
-        //        };
-
-        //        expectedMethodInfo.Add(methodInfo);
-        //    }
-
-        //    //Second, we iterate through the methods of the imported type.
-        //    foreach (MethodInfo met in t.GetMethods())
-        //    {
-        //        foreach (ParameterInfo param in met.GetParameters())
-        //        {
-        //            string.Format("{0} : {1} ", param.Name, param.ParameterType.Name);
-        //        }
-        //    }
-        //    return true;
-        //}
-        //struct Triplete
-        //{
-        //    public string methodName;
-        //    public string returnType;
-        //    public ParameterInfo[] parameters;
-        //    public bool verifies;
-        //}
-
+        public class LodgingImporterModel
+        {
+            public IEnumerable<ImportParameter> Parameters { get; set; }
+            public string ImporterName { get; set; }
+            public string DLLName { get; set; }
+        }
 
     }
 }
