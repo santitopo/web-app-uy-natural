@@ -44,5 +44,9 @@ namespace LogicInterface
         //POS: Remove an existing admin of the system
         void ModifyAdmin(Administrator admin);
 
-    }
+        //PRE: regionName and categories name exist.
+        //POS: Add a new lodging to the system and possibly a tpoint
+        Lodging AddReflectionLodging(Lodging lodging);
+
+    };
 }

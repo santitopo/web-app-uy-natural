@@ -5,9 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="JsonImporter\**" />
-    <EmbeddedResource Remove="JsonImporter\**" />
-    <None Remove="JsonImporter\**" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\LogicInterface\LogicInterface.csproj" />
   </ItemGroup>
 
 </Project>
