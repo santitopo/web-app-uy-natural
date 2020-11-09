@@ -230,6 +230,230 @@ namespace LogicTest
         }
 
         [TestMethod]
+        public void AddReflectionLodgingOk()
+        {
+            var lodgingRepositoryMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            var tPointRepositoryMock = new Mock<ITPointRepository>(MockBehavior.Strict);
+            var regionRepositoryMock = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var categoryRepositoryMock = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(tPointRepositoryMock.Object,regionRepositoryMock.Object,
+                categoryRepositoryMock.Object, lodgingRepositoryMock.Object,null, null, null, null);
+
+            Category cat = new Category()
+            {
+                Name = "Playa"
+            };
+            List<TouristicPointsCategory> tpointcats = new List<TouristicPointsCategory>();
+            TouristicPointsCategory tpc = new TouristicPointsCategory()
+            {
+                Category = cat
+            };
+            tpointcats.Add(tpc);
+            Region reg = new Region()
+            {
+                Name = "Bella Vista",
+            };
+
+            TouristicPoint tpoint = new TouristicPoint()
+            {
+                Id = 2,
+                Region = reg,
+                Categories = tpointcats,
+            };
+            Lodging inputLodging = new Lodging()
+            {
+                TouristicPoint = tpoint
+            };
+            List<Region> regions = new List<Region>();
+            regions.Add(reg);
+
+            List<Category> categories = new List<Category>();
+            categories.Add(cat);
+
+            lodgingRepositoryMock.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+            lodgingRepositoryMock.Setup(x => x.Create(It.IsAny<Lodging>()));
+            lodgingRepositoryMock.Setup(x => x.Save());
+            tPointRepositoryMock.Setup(x => x.GetByName(It.IsAny<string>())).Returns(tpoint);
+            tPointRepositoryMock.Setup(x => x.Create(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Update(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Save());
+            regionRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(regions);
+            categoryRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(categories);
+
+            logic.AddReflectionLodging(inputLodging);
+            lodgingRepositoryMock.VerifyAll();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void AddReflectionLodgingUnexistantReg()
+        {
+            var lodgingRepositoryMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            var tPointRepositoryMock = new Mock<ITPointRepository>(MockBehavior.Strict);
+            var regionRepositoryMock = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var categoryRepositoryMock = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(tPointRepositoryMock.Object, regionRepositoryMock.Object,
+                categoryRepositoryMock.Object, lodgingRepositoryMock.Object, null, null, null, null);
+
+            Category cat = new Category()
+            {
+                Name = "Playa"
+            };
+            List<TouristicPointsCategory> tpointcats = new List<TouristicPointsCategory>();
+            TouristicPointsCategory tpc = new TouristicPointsCategory()
+            {
+                Category = cat
+            };
+            tpointcats.Add(tpc);
+            Region reg = new Region()
+            {
+                Name = "Bella Vista",
+            };
+
+            TouristicPoint tpoint = new TouristicPoint()
+            {
+                Id = 2,
+                Region = reg,
+                Categories = tpointcats,
+            };
+            Lodging inputLodging = new Lodging()
+            {
+                TouristicPoint = tpoint
+            };
+            //Returns empty regions list
+            List<Region> regions = new List<Region>();
+            
+            List<Category> categories = new List<Category>();
+            categories.Add(cat);
+
+            lodgingRepositoryMock.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+            lodgingRepositoryMock.Setup(x => x.Create(It.IsAny<Lodging>()));
+            lodgingRepositoryMock.Setup(x => x.Save());
+            tPointRepositoryMock.Setup(x => x.GetByName(It.IsAny<string>())).Returns(It.IsAny<TouristicPoint>());
+            tPointRepositoryMock.Setup(x => x.Create(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Update(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Save());
+            regionRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(regions);
+            categoryRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(categories);
+
+            logic.AddReflectionLodging(inputLodging);
+            lodgingRepositoryMock.VerifyAll();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void AddReflectionLodgingUnexistantCat()
+        {
+            var lodgingRepositoryMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            var tPointRepositoryMock = new Mock<ITPointRepository>(MockBehavior.Strict);
+            var regionRepositoryMock = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var categoryRepositoryMock = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(tPointRepositoryMock.Object, regionRepositoryMock.Object,
+                categoryRepositoryMock.Object, lodgingRepositoryMock.Object, null, null, null, null);
+
+            Category cat = new Category()
+            {
+                Name = "Playa"
+            };
+            List<TouristicPointsCategory> tpointcats = new List<TouristicPointsCategory>();
+            TouristicPointsCategory tpc = new TouristicPointsCategory()
+            {
+                Category = cat
+            };
+            tpointcats.Add(tpc);
+            Region reg = new Region()
+            {
+                Name = "Bella Vista",
+            };
+
+            TouristicPoint tpoint = new TouristicPoint()
+            {
+                Id = 2,
+                Region = reg,
+                Categories = tpointcats,
+            };
+            Lodging inputLodging = new Lodging()
+            {
+                TouristicPoint = tpoint
+            };
+            //Returns empty regions list
+            List<Region> regions = new List<Region>();
+            regions.Add(reg);
+
+            List<Category> categories = new List<Category>();
+            
+            lodgingRepositoryMock.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+            lodgingRepositoryMock.Setup(x => x.Create(It.IsAny<Lodging>()));
+            lodgingRepositoryMock.Setup(x => x.Save());
+            tPointRepositoryMock.Setup(x => x.GetByName(It.IsAny<string>())).Returns(It.IsAny<TouristicPoint>());
+            tPointRepositoryMock.Setup(x => x.Create(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Update(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Save());
+            regionRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(regions);
+            categoryRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(categories);
+
+            logic.AddReflectionLodging(inputLodging);
+            lodgingRepositoryMock.VerifyAll();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void AddReflectionRepeatedLodging()
+        {
+            var lodgingRepositoryMock = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            var tPointRepositoryMock = new Mock<ITPointRepository>(MockBehavior.Strict);
+            var regionRepositoryMock = new Mock<IRepository<Region>>(MockBehavior.Strict);
+            var categoryRepositoryMock = new Mock<IRepository<Category>>(MockBehavior.Strict);
+            AdminLogic logic = new AdminLogic(tPointRepositoryMock.Object, regionRepositoryMock.Object,
+                categoryRepositoryMock.Object, lodgingRepositoryMock.Object, null, null, null, null);
+
+            Category cat = new Category()
+            {
+                Name = "Playa"
+            };
+            List<TouristicPointsCategory> tpointcats = new List<TouristicPointsCategory>();
+            TouristicPointsCategory tpc = new TouristicPointsCategory()
+            {
+                Category = cat
+            };
+            tpointcats.Add(tpc);
+            Region reg = new Region()
+            {
+                Name = "Bella Vista",
+            };
+
+            TouristicPoint tpoint = new TouristicPoint()
+            {
+                Id = 2,
+                Region = reg,
+                Categories = tpointcats,
+            };
+            Lodging inputLodging = new Lodging()
+            {
+                TouristicPoint = tpoint
+            };
+            //Returns empty regions list
+            List<Region> regions = new List<Region>();
+            regions.Add(reg);
+
+            List<Category> categories = new List<Category>();
+
+            lodgingRepositoryMock.Setup(x => x.Exists(It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+            lodgingRepositoryMock.Setup(x => x.Create(It.IsAny<Lodging>()));
+            lodgingRepositoryMock.Setup(x => x.Save());
+            tPointRepositoryMock.Setup(x => x.GetByName(It.IsAny<string>())).Returns(It.IsAny<TouristicPoint>());
+            tPointRepositoryMock.Setup(x => x.Create(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Update(It.IsAny<TouristicPoint>()));
+            tPointRepositoryMock.Setup(x => x.Save());
+            regionRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(regions);
+            categoryRepositoryMock.Setup(x => x.GetAll(It.IsAny<string[]>())).Returns(categories);
+
+            logic.AddReflectionLodging(inputLodging);
+            lodgingRepositoryMock.VerifyAll();
+        }
+
+
+        [TestMethod]
         public void RemoveAdmin()
         {
             var personRepositoryMock = new Mock<IRepository<Person>>(MockBehavior.Strict);

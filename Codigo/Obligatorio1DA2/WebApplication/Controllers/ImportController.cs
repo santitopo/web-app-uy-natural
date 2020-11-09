@@ -18,13 +18,10 @@ namespace WebApplication.Controllers
     {
         private string importPath { get; set; }
 
-        private readonly ILodgingLogic lodgingLogic;
-        private readonly ISearchLogic searchLogic;
         private readonly IAdminLogic adminLogic;
 
-        public ImportController(ILodgingLogic lodgingLogic, IAdminLogic adminLogic)
+        public ImportController(IAdminLogic adminLogic)
         {
-            this.lodgingLogic = lodgingLogic;
             this.adminLogic = adminLogic;
             importPath = "@..//..//..//ImporterDLLs";
         }
@@ -66,7 +63,7 @@ namespace WebApplication.Controllers
                 }
                 return Ok(availableImporters);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return BadRequest("Error cargando los dll disponibles");
             }
