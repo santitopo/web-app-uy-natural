@@ -4,15 +4,17 @@ using Domain;
 using LogicInterface;
 using System.Linq;
 using System.Text.Json;
+using System.IO;
+using System.Xml.Serialization;
 
-namespace JsonImporter
+namespace XmlImporter
 {
-    public class JsonImporter : IImporter
+    public class XmlImporter : IImporter
     {
         public string GetImporterName()
         {
             //Has to match the class name
-            return "JsonImporter";
+            return "XmlImporter";
         }
 
         public IEnumerable<ImportParameter> GetParameters()
@@ -20,7 +22,7 @@ namespace JsonImporter
             List<ImportParameter> parameters = new List<ImportParameter>();
             ImportParameter file = new ImportParameter()
             {
-                Name = "JsonRoute",
+                Name = "XmlRoute",
                 Type = "File",
             };
             parameters.Add(file);
@@ -31,10 +33,12 @@ namespace JsonImporter
         public IEnumerable<Lodging> Import(IEnumerable<ImportParameter> parameters)
         {
             List<ImportParameter> p = parameters.ToList();
-            string jsonContent =
-                System.IO.File.ReadAllText(p[0].Value);
-            List<Lodging> imported = JsonSerializer.Deserialize<List<Lodging>>(jsonContent);
-            return imported;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Lodging>)); 
+ 
+            using (StreamReader writer = new StreamReader(p[0].Value))
+            {
+                return (List<Lodging>)xmlSerializer.Deserialize(writer);
+            }
         }
     }
 }
