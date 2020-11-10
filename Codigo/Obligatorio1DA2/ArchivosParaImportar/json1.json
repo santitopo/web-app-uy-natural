@@ -7,7 +7,6 @@
     "Images" : "img1.png",
     "Price" : 20.0,
    	"Stars" : 4,
-    "TPointId" : 1,
     "Score" : 3.0,
     "Capacity" : true,
     "TouristicPoint" : {"Name" : "Punta del Diablo",

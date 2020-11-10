@@ -88,7 +88,7 @@ namespace WebApplication.Controllers
                 foreach (Type type in assembly.GetTypes())
                 {
                     //Check if it satisifies the interface
-                    if (typeof(IImporter).IsAssignableFrom(type))
+                    if (typeof(IImporter).IsAssignableFrom(type) && type.Name==importerModel.ImporterName)
                     {
                         //New importer instance
                         IImporter instance = (IImporter)Activator.CreateInstance(type);
