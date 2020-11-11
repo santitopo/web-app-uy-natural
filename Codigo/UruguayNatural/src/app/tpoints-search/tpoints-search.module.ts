@@ -8,6 +8,7 @@ import { NavRegionsComponent } from './nav-regions/nav-regions.component';
   declarations: [NavRegionsComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [NavRegionsComponent]
 })
 export class TpointsSearchModule { }

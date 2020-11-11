@@ -6,19 +6,19 @@ import { AppComponent } from './app.component';
 import { ShareModule } from './share/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { NavRegionsComponent } from './tpoint-search/nav-regions/nav-regions.component';
+import {TpointsSearchModule} from './tpoints-search/tpoints-search.module'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavRegionsComponent
+    AppComponent
   ],
   imports: [
     MatSliderModule,
     BrowserModule,
     AppRoutingModule,
     ShareModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TpointsSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
