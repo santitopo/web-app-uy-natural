@@ -6,12 +6,10 @@ import { AppComponent } from './app.component';
 import { ShareModule } from './share/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { NavRegionsComponent } from './tpoint-search/nav-regions/nav-regions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavRegionsComponent
   ],
   imports: [
     MatSliderModule,

@@ -1,500 +1,58 @@
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-}
-h1{
-    padding: 0;
-    margin: 10px 0px 10px 0px;
-    text-align: center;
-}
-
-hr{
-    width: 70%;
-    margin: 20px auto;
-}
-
-#title{
-    text-align: center;
-    font-size: 3em;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-shadow: 0 1px 2px;
-    color: #1b1b1bc7;
-}
-
-div#header a {
-    text-decoration: none;
-    color: black;
-}
-
-div#optionbar ul{
-    list-style-type: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 10px;
-    padding: 0;
-    background-color: #333333;
+:host {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /*
+    Azul: #00528c 
+    Blanco: #f4f3f3  
+    Amarillo: #fdb935
+  */
+  
+  .inline {
     justify-content: center;
     display: flex;
-}
-
-
-div#optionbar ul li{
-    float: left;
-}
-
-div#optionbar ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-}
-
-div#optionbar ul li a:hover {
-    background-color: #111111;
-}
-
-div#identification{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-div#identification ul li{
-    float: left;
-}
-div#identification ul li a {
-    display: block;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-}
-
-div#identification ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-
-div #main {
-    margin: 0px 10px;
-}
-
-div#footer{
-    background-color: #f2f2f2;
-    text-align: center;
-    padding: 10px;
-    margin-top: 5px;
-}
-
-.footerfix{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-div#footer ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-}
-
-div#footer ul li{
-    float: left;
-    margin: 10px 10px 10px 10px;
-}
-
-div#footer ul li a{
-    color: inherit;
-}
-
-div#socialmedia {
-    justify-content: center;
-    display: flex;
-
-
-}
-div#footer p{
-    margin: 15px 0 5px;
-    font-size: small;
-}
-
-div#graphDiv {
-    padding: 15px;
-    margin: 15px auto;
-    height: min-content;
-    width: 90%;
-}
-
-.inline {
-    justify-content: center;
-    display: flex;
-    width: 100%;
+    width: 40%;
     margin: 0 auto;
 }
 
-.verticalCenter{
-    margin: auto 0;
-}
-.margin{
-    margin: 20px;
-}
-
-.margin-left{
-    margin-left: 40px;
-}
-
-.margin-top{
-    margin-top: 20px;
-}
-
-.margin-bottom{
-    margin-bottom: 10px;
-}
-
-.margin-leftright{
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#lessonsList{
-    width: 60%
-}
-
-.admininputs{
-    width: 100%;
-    padding: 4px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    opacity: 0.85;
-    font-size: 15px;
-    line-height: 20px;
-    text-decoration: none;
-}
-
-.adminselect{
-    width: 100%;
-    padding: 4px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    opacity: 0.85;
-    font-size: 15px;
-    line-height: 20px;
-    text-decoration: none;
-}
-
-/*ESTILOS DE LOGIN2*/
-
-.loginform {
-    position: relative;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    padding: 20px 0px 0px;
-    margin: 15px auto;
-    width: 80%;
-    border: solid;
-    border-width: 1px;
-    border-color: grey;
-} 
-
-
-.loginform input {
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    padding: 12px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 4px;
-    margin: 5px 0;
-    opacity: 0.85;
-    display: inline-block;
-    font-size: 17px;
-    line-height: 20px;
-    text-decoration: none; /* remove underline from anchors */
-}
-
-.loginform input:hover {
-    opacity: 1;
-}
-
-input#submitLogin:hover {
-    background-color: black;
-}
-
-/* style the submit button */
-input#submitLogin {
-    background-color: #333333;
-    color: white;
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #00528c ;
+    color: #f4f3f3;
+  }
+  
+  .toolbar img {
+    margin: 0 16px;
+  }
+  
+  .toolbar img:hover {
+    opacity: 0.6;
     cursor: pointer;
-}
+  }
+  
+  .toolbar-element {
+    margin: 16px 16px;
+    font-size: 16px;
+  }
+  
+  .toolbar-element:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  
+  .active {
+    color: #c7c7c7;
+  }
 
-/* Two-column layout */
-.col {
-    width: 60%;
-    margin: 0px auto;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-input#schedule{
-    margin-top: 38px;
-}
-
-#aboutusdescription{
-    padding: 25px;
-}
-
-.flat-card{
-    padding: 15px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: #bdc3c7;
-    margin: 15px auto;
-    height: min-content;
-    width: 90%;
-}
-
-.disabled-card{
-    background-color: #f2f2f2;
-    padding: 15px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: #bdc3c7;
-    margin: 15px auto;
-    height: min-content;
-    width: 90%;
-}
-#introduction{
-    width: 40%;
-    margin-top: 70px;
-    box-sizing: border-box;
-}
-#cars{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#cars li{
-    float: left;
-}
-
-
-/*Calendar*/
-
-div #calendar{
-    margin: 0px auto;
-}
-
-.month {
-    padding: 15px 15px;
-    width: 100%;
-    background: #333333;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.month ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color: #ddd;
-}
-
-.weekdays li {
-    display: inline-block;
-    width: 12.6%;
-    color: #666;
-    text-align: center;
-}
-
-.days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-}
-
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 12.6%;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size:12px;
-    color: #777;
-}
-
-.days li .active {
-    padding: 5px;
-    background: #333333;
-    color: white !important;
-    border-radius: 7px;
-}
-
-.days li .red {
-    padding: 5px;
-    background: red;
-    color: white !important
-}
-
-.days li .green {
-    padding: 5px;
-    background: green;
-    color: white !important
-}
-
-.days li .yellow {
-    padding: 5px;
-    background: #f9ca24;
-    color: black !important
-}
-
-/* Validations */
-.error{
-    border-color: #E74C3C;
-    color: #E74C3C;
-    border-width: 1px;
-}
-
-.success{
-    border-color: #2ECC71;
-    color: #2ECC71;
-    border-width: 1px;
-}
-
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-    .weekdays li, .days li {width: 13.1%;}
-    .inline {
-        justify-content: center;
-        display: inline-block;
-        width: 100%;
-        margin: 0 auto;
-    }
-    #introduction{
-        width: 100%;
-        margin-top: 1px;
-        box-sizing: border-box; }
-}
-
-@media screen and (max-width: 420px) {
-    .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
-    .inline {
-        justify-content: center;
-        display: inline-block;
-        width: 100%;
-        margin: 0 auto;
-    }
-    #introduction{
-        width: 100%;
-        margin-top: 1px;
-        box-sizing: border-box; }
-}
-
-@media screen and (max-width: 290px) {
-    .weekdays li, .days li {width: 12.2%;}
-    .inline {
-        justify-content: center;
-        display: inline-block;
-        width: 100%;
-        margin: 0 auto;
-
-    }
-    #introduction{
-        width: 100%;
-        margin-top: 1px;
-        box-sizing: border-box; }
-}
-
-/* RESERVATION PAGE */
-#searchLessons{
-    width: 60%;
-}
-
-#info{
-    width: 80%;
-}
-
-.width15{
-    width: 15%;
-}
-
-.mensaje{
-    padding: 15px;
-    border: solid;
-    border-radius: 5px;
-    margin: 15px auto;
-    height: min-content;
-    width: 90%;
-    text-align: center;
-    color: white;
-    font-size: 17px;
-    background-color: #e74c3c;
-}
-
-.mensaje-ok{
-    padding: 15px;
-    border: solid;
-    border-radius: 5px;
-    margin: 15px auto;
-    height: min-content;
-    width: 90%;
-    text-align: center;
-    color: white;
-    font-size: 17px;
-    background-color: #18bc9c;
-}
-
-.disabled{
-  background-color: #ecf0f178;  
-}
-#img-license-driving{
-    margin: auto 0;
-}
-
-.list{
-    padding: 15px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: #bdc3c7;
-    width: 60%;
-    margin: 20px auto;
-}
-
-.list ul{
-    list-style-type: square;
-    font-size: 17px;
-}
-
-.list li{
-    margin:10px;
-}
+  
