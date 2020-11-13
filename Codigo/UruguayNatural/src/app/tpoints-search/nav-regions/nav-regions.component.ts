@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-nav-regions',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-regions.component.css']
 })
 export class NavRegionsComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
