@@ -291,6 +291,34 @@ h2{
 	}
 }
 
-.categories{
-	justify-content: center;
+
+  /* Add a background color on hover */
+  .button4:hover {
+	background-color: #8bc4fc;
+  }
+  
+
+  .button4 {
+	border-radius: 15px;
+	padding: 12px;
+	background-color: #e7e7e7;
+	color: black;
+	border: none;
+	margin: 10px;
+	cursor: pointer; /* Pointer/hand icon */
 }
+
+.center{
+	text-align: center;
+}
+
+.flex-parent {
+	display: flex;
+  }
+  
+  .jc-center {
+	justify-content: center;
+  }
+  
+
+/*https://www.w3schools.com/howto/howto_css_button_group.asp*/

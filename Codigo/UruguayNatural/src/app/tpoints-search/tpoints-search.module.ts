@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavRegionsComponent } from './nav-regions/nav-regions.component';
-
-import {MatChipsModule} from '@angular/material/chips';
+import {ListTPointsComponent} from './list-t-points/list-t-points.component'
 
 
 @NgModule({
-  declarations: [NavRegionsComponent],
+  declarations: [NavRegionsComponent,ListTPointsComponent],
   imports: [
-    MatChipsModule,
-    CommonModule
+    CommonModule,
   ],
-  exports: [NavRegionsComponent]
+  exports: [NavRegionsComponent, ListTPointsComponent]
 })
 export class TpointsSearchModule {}

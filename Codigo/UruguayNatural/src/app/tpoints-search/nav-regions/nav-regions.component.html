@@ -21,14 +21,24 @@
     </div>
     <div>
     <h2>Categorías</h2>
-    <div class="mat-chip-list-wrapper categories">
-    <mat-chip-list multiple>
-        <mat-chip color="primary" [selectable]="false">Playa</mat-chip>
-        <mat-chip color="accent">Campo</mat-chip>
-        <mat-chip color="primary" disableRipple>Balneario</mat-chip>
-        <mat-chip color="primary" disabled removable >Aventura</mat-chip>
-        <mat-chip color="accent" >Colonial</mat-chip>
-      </mat-chip-list>
+    <div class="flex-parent jc-center">    
+        
+      <button class="button4" >Aventura</button>
+      <button class="button4" >Balneario</button>
+      <button class="button4" >Campo</button>
+      <button class="button4" >Playa</button>
+      <button class="button4" >Colonial</button>
+    
     </div>
-</div>
+    <div class="center">
+        <div>
+            <button class="button4">Buscar</button>
+        </div>
+    </div>
+    
+    </div>
+    <div>
+        <app-list-t-points></app-list-t-points>
+    </div>
+
 </div>
