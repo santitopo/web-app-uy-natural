@@ -7,10 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TpointsSearchModule} from './tpoints-search/tpoints-search.module';
 import { AdminActionsModule } from './admin-actions/admin-actions.module';
 import { LodgingsSearchModule } from './lodgings-search/lodgings-search.module';
+import { ImportTpointModule } from './import-tpoint/import-tpoint.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +20,8 @@ import { LodgingsSearchModule } from './lodgings-search/lodgings-search.module';
     BrowserAnimationsModule,
     TpointsSearchModule,
     AdminActionsModule,
-    LodgingsSearchModule
+    LodgingsSearchModule,
+    ImportTpointModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -293,12 +293,35 @@ h2{
 
 
   /* Add a background color on hover */
+.searchButton:hover{	
+	transform: scale(1.1);
+	background-color: #00528c;
+	color: white;
+	
+}
+.searchButton:focus{
+	outline:none;
+}
+
   .button4:hover {
 	background-color: #8bc4fc;
   }
+.button4:focus{
+	outline:none;
+}
   
 
   .button4 {
+	border-radius: 15px;
+	padding: 12px;
+	background-color: #e7e7e7;
+	color: black;
+	border: none;
+	margin: 10px;
+	cursor: pointer; /* Pointer/hand icon */
+}
+
+.searchButton {
 	border-radius: 15px;
 	padding: 12px;
 	background-color: #e7e7e7;
