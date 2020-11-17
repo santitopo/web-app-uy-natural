@@ -1,11 +1,20 @@
-<div id="header"> 
-    <a><h1 id="title"> Uruguay Natural </h1> </a> 
-    <div id="optionbar">
-        <ul> 
-            <li id="mainPage" > <a>Pagina Principal </a> </li>
-            <li id="reservations"> <a>Reservas </a>  </li>
-                <li id="admin" style="background-color:black"> <a>Administración </a> </li>
-            <li id="aboutus"> <a>Quienes Somos </a> </li>
-        </ul>
+<div class="toolbar" role="banner">
+    <img width="200" src="assets/images/logo.png" routerLink="" />
+    <div class="inline">
+        <span class="toolbar-element" routerLink="login">
+            <a> REGIONES </a>
+          </span>
+          <span class="toolbar-element" routerLink="../login">
+            <a>  | </a>
+          </span>
+          <span class="toolbar-element" routerLink="../login">
+            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> CONSULTAR RESERVA </a>
+          </span>
     </div>
-</div>
+    <span class="toolbar-element" routerLink="../login">
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Iniciar Sesión</a>
+    </span>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
