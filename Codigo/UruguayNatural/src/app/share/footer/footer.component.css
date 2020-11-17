@@ -24,8 +24,8 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
     height: 130px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     background-color: #f4f3f3 ;

@@ -18,7 +18,7 @@
     display: flex;
     width: 40%;
     margin: 0 auto;
-}
+  }
 
   .toolbar {
     position: absolute;
@@ -57,7 +57,7 @@
 
   
 .content {
-    margin-top: 100px;
+    margin-top: 120px;
   }
   
   

@@ -1,0 +1,44 @@
+.inline {
+    justify-content: center;
+    display: flex;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.list-item {
+    justify-content: center;
+    display: flex !important;
+    width: 100%;
+    height: 200px !important;
+    margin: 20px 10px;
+
+}
+.hotelInfo{
+    margin-right: 50px;
+}
+
+.hotelInfo p{
+    font-size: small;
+}
+
+.user-input{
+    margin-left: 20px;
+    width: 100px;
+}
+.margin-left{
+    margin-left: 40px;
+}
+
+.picture-box__square {
+	display: block;
+    width: 150px;
+    height: 150px;
+
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+.hotel-list{
+    width: 90%;
+    margin: 20px auto;
+  }

@@ -6,6 +6,7 @@ import { ShareModule } from './share/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { AdminActionsModule } from './admin-actions/admin-actions.module';
+import { LodgingsSearchModule } from './lodgings-search/lodgings-search.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AdminActionsModule } from './admin-actions/admin-actions.module';
     AppRoutingModule,
     ShareModule,
     BrowserAnimationsModule,
-    AdminActionsModule
+    AdminActionsModule,
+    LodgingsSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
