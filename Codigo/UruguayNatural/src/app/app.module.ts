@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShareModule } from './share/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {TpointsSearchModule} from './tpoints-search/tpoints-search.module';
+import { TpointsSearchModule} from './tpoints-search/tpoints-search.module';
 
 @NgModule({
   declarations: [
