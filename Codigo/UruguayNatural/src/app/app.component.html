@@ -1,2 +1,23 @@
-<app-navbar></app-navbar>
+<div class="toolbar" role="banner">
+    <img width="200" src="assets/images/logo.png" routerLink="menu"/>
+    <div class="inline">
+        <span class="toolbar-element" routerLink="login">
+            <a> REGIONES </a>
+          </span>
+          <span class="toolbar-element" routerLink="../login">
+            <a>  | </a>
+          </span>
+          <span class="toolbar-element" routerLink="../login">
+            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> CONSULTAR RESERVA </a>
+          </span>
+    </div>
+    <span class="toolbar-element" routerLink="../login">
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Iniciar Sesión</a>
+    </span>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
 <app-footer></app-footer>
