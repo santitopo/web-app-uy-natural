@@ -345,3 +345,37 @@ h2{
   
 
 /*https://www.w3schools.com/howto/howto_css_button_group.asp*/
+
+
+.card{
+    width: 24em;
+    height: 8em;
+    margin: 1em;
+    background-color: rgba(0,0,0, 0.8);
+    color: white;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  .star{
+    margin: 2px;
+  }
+  
+  .star:hover{
+    opacity: 0.4;
+  }
+  
+  .title {
+    font-family: bold;
+    margin: 0.3em;
+  }
+  
+  .card:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+    color: black;
+    cursor: pointer;
+  }
+  
+  .content {
+    margin-top: 200px;
+  }

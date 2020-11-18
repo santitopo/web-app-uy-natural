@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-regions.component.css']
 })
 export class NavRegionsComponent implements OnInit {
-  constructor() { }
+  
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

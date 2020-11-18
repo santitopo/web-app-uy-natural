@@ -13,7 +13,9 @@ export class TPointsService {
         1,
         'Punta del Este',
         'Balneario de playa.',
-        'assets/images/tpoint1.png'
+        'images/pde.jpg',
+        'Litoral Este',
+        ['Playa', 'Ciudad']
       )
     );
     this.tpoints.push(
@@ -21,7 +23,9 @@ export class TPointsService {
         2,
         'La Paloma',
         'Balneario de playa rochense, amado por la comunidad surfista.',
-        'assets/images/tpoint2.png'
+        'images/paloma.jpg',
+        'Litoral Este',
+        ['Playa', 'Balneario']
       )
     );
     this.tpoints.push(
@@ -29,7 +33,9 @@ export class TPointsService {
         3,
         'Colonia',
         'Primer ciudad de Uruguay. Historia y encanto para cualquiera.',
-        'assets/images/tpoint3.png'
+        'images/colonia.jpg',
+        'Litoral Oeste',
+        ['Colonial', 'Histórico', 'Patrimonio']
       )
     );
     
