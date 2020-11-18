@@ -1,4 +1,4 @@
-h2{
+h1{
     text-align: center;
 }
 
@@ -49,20 +49,15 @@ h2{
         margin-block-end: 0px;
     }
 
-    .button4:hover {
-        background-color: #8bc4fc;
-      }
-    .button4:focus{
-        outline:none;
+    .button-margin {
+        margin: 15px;
     }
-      
+
+    .font-small{
+        font-size: small;
+        margin: 0px;
+    }
     
-      .button4 {
-        border-radius: 15px;
-        padding: 12px;
-        background-color: #e7e7e7;
-        color: black;
-        border: none;
+    mat-card{
         margin: 10px;
-        cursor: pointer; /* Pointer/hand icon */
     }

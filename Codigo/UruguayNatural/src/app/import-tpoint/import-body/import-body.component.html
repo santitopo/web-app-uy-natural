@@ -1,5 +1,5 @@
-<h2>Importar Puntos Turísticos</h2>
-<div class="tpointContent">
+<h1>Importar Puntos Turísticos</h1>
+<mat-card class="tpointContent">
     <div class="left">
         <p><strong>Elegir Método de importación de Puntos Turísticos:</strong></p>
         <!-- Dropdown with importation methods available -->
@@ -19,36 +19,32 @@
                 <mat-icon matSuffix>folder</mat-icon>
               </mat-form-field>
           <div>
-                <button class="button4">Importar</button>
+                <button mat-raised-button color="primary" class="button-margin">Importar</button>
         </div>
-         
-        
-        
-        
     </div>
     <div class="right">
-        <p><strong>Importados</strong></p>
-            <div class="tpointList">
-                <ul>
-                    <li>Bella Vista</li>
-                    <li>Maldonado</li>
-                    <li>Tacuarembó</li>
-                </ul>
-            </div>
-        <p><strong>No importados (Error)</strong></p>
-            <div class="tpointList">  
-                <ul>     
-                <li>Puerto Vallarta - Error de procesamiento</li>
-                <li>Colonia - Region Central inexistente</li>
-                <li>Rivera - Categoria ciudad inexistente</li>
-                <li>Puerto Vallarta - Error de procesamiento</li>
-                <li>Colonia - Region Central inexistente</li>
-                <li>Rivera - Categoria ciudad inexistente</li>
-                <li>Puerto Vallarta - Error de procesamiento</li>
-                <li>Colonia - Region Central inexistente</li>
-                <li>Rivera - Categoria ciudad inexistente</li>
-            </ul>
-            </div>
+        <mat-card>
+            <mat-card-title> Importados</mat-card-title>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item class="font-small"> Bella Vista </mat-list-item>
+                    <mat-list-item class="font-small"> Maldonado </mat-list-item>
+                    <mat-list-item class="font-small"> Tacuarembó </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-title>No Importados</mat-card-title>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item class="font-small"> Puerto Vallarta - Error de procesamiento </mat-list-item>
+                    <mat-list-item class="font-small"> Colonia - Region Central inexistente </mat-list-item>
+                    <mat-list-item class="font-small"> Rivera - Categoria ciudad inexistente </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+
    </div>
     
-</div>
+</mat-card>

@@ -5,8 +5,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {MatIconModule} from '@angular/material/icon';
-
-
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [ImportBodyComponent],
@@ -15,7 +19,13 @@ import {MatIconModule} from '@angular/material/icon';
     MatSelectModule,
     MatFormFieldModule,
     MaterialFileInputModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatGridListModule,
+    MatInputModule,
+    MatListModule
   ],
   exports: [ImportBodyComponent]
 })
