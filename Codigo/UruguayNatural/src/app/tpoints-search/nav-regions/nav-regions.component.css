@@ -11,10 +11,11 @@
     object-fit: cover;
   }
 
+  .categories{
+	  margin-top: 10px;
+  }
 
 figure {
-	width: 100%;
-	height: 100%;
 	margin: 0;
 	padding: 0;
 	background: #fff;
@@ -293,12 +294,38 @@ h2{
 
 
   /* Add a background color on hover */
+.searchButton:hover{	
+	transform: scale(1.1);
+	background-color: #00528c;
+	color: white;
+	
+}
+.searchButton:focus{
+	outline:none;
+}
+
   .button4:hover {
 	background-color: #8bc4fc;
   }
+.button4:focus{
+	outline:none;
+	background-color: #8bc4fc;
+}
+
+.button4:visited { background-color:#8bc4fc; }
   
 
   .button4 {
+	border-radius: 15px;
+	padding: 12px;
+	background-color: #e7e7e7;
+	color: black;
+	border: none;
+	margin: 10px;
+	cursor: pointer; /* Pointer/hand icon */
+}
+
+.searchButton {
 	border-radius: 15px;
 	padding: 12px;
 	background-color: #e7e7e7;
@@ -322,3 +349,37 @@ h2{
   
 
 /*https://www.w3schools.com/howto/howto_css_button_group.asp*/
+
+
+.card{
+    width: 24em;
+    height: 8em;
+    margin: 1em;
+    background-color: rgba(0,0,0, 0.8);
+    color: white;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  .star{
+    margin: 2px;
+  }
+  
+  .star:hover{
+    opacity: 0.4;
+  }
+  
+  .title {
+    font-family: bold;
+    margin: 0.3em;
+  }
+  
+  .card:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+    color: black;
+    cursor: pointer;
+  }
+  
+  .content {
+    margin-top: 200px;
+  }

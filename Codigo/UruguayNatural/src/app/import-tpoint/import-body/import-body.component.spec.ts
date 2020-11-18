@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TpointCardComponent } from './tpoint-card.component';
+import { ImportBodyComponent } from './import-body.component';
 
-describe('TpointCardComponent', () => {
-  let component: TpointCardComponent;
-  let fixture: ComponentFixture<TpointCardComponent>;
+describe('ImportBodyComponent', () => {
+  let component: ImportBodyComponent;
+  let fixture: ComponentFixture<ImportBodyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TpointCardComponent ]
+      declarations: [ ImportBodyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TpointCardComponent);
+    fixture = TestBed.createComponent(ImportBodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

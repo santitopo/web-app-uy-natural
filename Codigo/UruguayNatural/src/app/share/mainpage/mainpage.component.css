@@ -21,14 +21,14 @@
   .main-photo{
 		z-index: 1000;
 		justify-content: center;
-		width: 80%;
+		width: 90%;
 		margin: 0 auto;
 		padding: 20px;
   }
 
   .panoramic-photo{
 	display: block;
-    width: 1000px;
+    width: 100%;
     height: 400px;
   }
   
