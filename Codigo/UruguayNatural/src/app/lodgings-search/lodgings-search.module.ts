@@ -45,6 +45,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
     MatTreeModule,
     OverlayModule,
     PortalModule,
-    ScrollingModule
+    ScrollingModule,
+    FormsModule
   ],
   exports: [SearchFormComponent],
 })

@@ -1,11 +1,12 @@
-
+<h2>Punta del Este</h2>
 <div class="inline">
-  <mat-card class="search-bar">
+  
+  <mat-card class="search-bar">  
     <mat-form-field appearance="standard">
-      <mat-label>Ingrese un rango de fechas</mat-label>
+      <mat-label>Enter a date range</mat-label>
       <mat-date-range-input [rangePicker]="picker">
-        <input matStartDate placeholder="Start date">
-        <input matEndDate placeholder="End date">
+        <input [(ngModel)]="from" matStartDate placeholder="Start date">
+        <input [(ngModel)]="to" matEndDate placeholder="End date">
       </mat-date-range-input>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-date-range-picker #picker></mat-date-range-picker>
@@ -13,23 +14,29 @@
   
     <mat-form-field class="user-input">
       <mat-label>Bebes</mat-label>
-      <input matInput type="number"
+      <input [(ngModel)]="babyNum" matInput type="number"
              aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
     </mat-form-field>
   
     <mat-form-field class="user-input">
       <mat-label>Niños</mat-label>
-      <input matInput type="number" 
+      <input [(ngModel)]="childNum" matInput type="number" 
              aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
     </mat-form-field>
   
     <mat-form-field class="user-input">
       <mat-label>Adultos</mat-label>
-      <input matInput type="number"
+      <input [(ngModel)]="adultNum" matInput type="number"
+             aria-label="">
+    </mat-form-field>
+
+    <mat-form-field class="user-input">
+      <mat-label>Jubilados</mat-label>
+      <input [(ngModel)]="retiredNum" matInput type="number"
              aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
     </mat-form-field>
 
-    <button mat-mini-fab color="primary" class="margin-left">
+    <button mat-mini-fab color="primary" class="margin-left" (click)='searchLodgings()'>
       <mat-icon>search</mat-icon>
     </button>
   </mat-card>
@@ -37,23 +44,24 @@
 
 <mat-divider></mat-divider>
 
+<div *ngIf="showingLodgings">
+    <mat-list class="hotel-list" *ngFor="let lodgingResult of lodgingSearchResults">
+      <mat-card>    
+      <mat-list-item class="list-item">
+        <div class="hotelInfo">
+        <h3>{{lodgingResult.price}}</h3>
+        <p>{{lodgingResult.lodging.Description}}</p>
+        <p>{{lodgingResult.lodging.Phone}}</p>
+      </div>
+      <div class="hotelImg">
+          <figure><a href=""><img class="picture-box__square" src="assets/images/discover (3).jpg" alt="Mate"></a></figure>
+      </div> 
+    </mat-list-item>
 
-<mat-list class="hotel-list">
-  <mat-card>    
-  <mat-list-item class="list-item">
-    <div class="hotelInfo">
-    <h3>Nombre Hotel</h3>
-    <p>Direccion</p>
-    <p>Descripcion</p>
+
+    </mat-card>
+
+      <mat-list-item> Salt </mat-list-item>
+      <mat-list-item> Paprika </mat-list-item>
+    </mat-list>
   </div>
-  <div class="hotelImg">
-      <figure><a href=""><img class="picture-box__square" src="assets/images/discover (3).jpg" alt="Mate"></a></figure>
-  </div> 
-</mat-list-item>
-
-
-</mat-card>
-
-  <mat-list-item> Salt </mat-list-item>
-  <mat-list-item> Paprika </mat-list-item>
- </mat-list>

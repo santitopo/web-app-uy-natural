@@ -8,7 +8,6 @@ import { TpointsSearchModule} from './tpoints-search/tpoints-search.module';
 import { AdminActionsModule } from './admin-actions/admin-actions.module';
 import { LodgingsSearchModule } from './lodgings-search/lodgings-search.module';
 import { ReservationModule } from './reservation/reservation.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatTab, MatTabsModule} from '@angular/material/tabs';
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -53,6 +52,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { ImportTpointModule } from './import-tpoint/import-tpoint.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -67,7 +67,6 @@ import { ImportTpointModule } from './import-tpoint/import-tpoint.module';
     AdminActionsModule,
     LodgingsSearchModule,
     ReservationModule,
-    NgbModule,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,
@@ -113,6 +112,7 @@ import { ImportTpointModule } from './import-tpoint/import-tpoint.module';
     PortalModule,
     ScrollingModule,
     ImportTpointModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
