@@ -1,0 +1,54 @@
+<h2>Importar Puntos Turísticos</h2>
+<div class="tpointContent">
+    <div class="left">
+        <p><strong>Elegir Método de importación de Puntos Turísticos:</strong></p>
+        <!-- Dropdown with importation methods available -->
+        <mat-form-field appearance="fill" >
+            <mat-label>Importador</mat-label>
+            <mat-select>
+              <mat-option value="JSON">JSON</mat-option>
+              <mat-option value="XML">XML</mat-option>
+              <mat-option value="Base de Datos">Data Base</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <p><strong>Importar</strong></p>
+        <!-- Campos Variables  -->
+         <mat-form-field appearance="fill">
+                <mat-label>Archivo XML</mat-label>
+                <ngx-mat-file-input formControlName="fill" placeholder="Seleccione el archivo XML" [accept]="'.xml'"></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+              </mat-form-field>
+          <div>
+                <button class="button4">Importar</button>
+        </div>
+         
+        
+        
+        
+    </div>
+    <div class="right">
+        <p><strong>Importados</strong></p>
+            <div class="tpointList">
+                <ul>
+                    <li>Bella Vista</li>
+                    <li>Maldonado</li>
+                    <li>Tacuarembó</li>
+                </ul>
+            </div>
+        <p><strong>No importados (Error)</strong></p>
+            <div class="tpointList">  
+                <ul>     
+                <li>Puerto Vallarta - Error de procesamiento</li>
+                <li>Colonia - Region Central inexistente</li>
+                <li>Rivera - Categoria ciudad inexistente</li>
+                <li>Puerto Vallarta - Error de procesamiento</li>
+                <li>Colonia - Region Central inexistente</li>
+                <li>Rivera - Categoria ciudad inexistente</li>
+                <li>Puerto Vallarta - Error de procesamiento</li>
+                <li>Colonia - Region Central inexistente</li>
+                <li>Rivera - Categoria ciudad inexistente</li>
+            </ul>
+            </div>
+   </div>
+    
+</div>
