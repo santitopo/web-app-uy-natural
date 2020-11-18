@@ -3,7 +3,7 @@ import { TPoint } from 'src/Models/TPoint';
 import { TPointsService } from '../services/tpoints.service';
 
 @Component({
-  selector: 'tpoint-card',
+  selector: 'tpoint-cards',
   templateUrl: './tpoint-cards.component.html',
   styleUrls: ['./tpoint-cards.component.css']
 })

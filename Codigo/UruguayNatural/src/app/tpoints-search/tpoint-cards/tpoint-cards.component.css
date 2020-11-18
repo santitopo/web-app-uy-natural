@@ -1,6 +1,6 @@
 .tpointContent{
     border-radius: 16px;
-    padding: 0.01em 16px;
+    padding: 0 16px 0 0;
     border: 1px solid #ccc;
     width: 90%;
     display: flex;
@@ -14,11 +14,13 @@
 .picture-box__img {
 	display: block;
     width: 100%;
+border-radius: 5%;
   }
 
 .tpointImage{
 float:left;
 width:18%;
+padding: 5px;
 }
 
 .tpointText{

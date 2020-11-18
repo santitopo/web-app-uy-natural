@@ -8,6 +8,7 @@ import { NavRegionsComponent } from './tpoints-search/nav-regions/nav-regions.co
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: '', component: MainpageComponent },
   { path: 'menu', component: MainpageComponent },
   { path: 'lodgingsearch', component: SearchFormComponent},
   { path: 'tpointimportation', component: ImportBodyComponent},
