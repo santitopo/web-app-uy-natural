@@ -27,17 +27,18 @@
             <div>
                 <mat-selection-list #shoes>
                     <h3>Categorias</h3>
-                    <mat-list-option *ngFor="let shoe of typesOfShoes">
+                    <mat-list-option class="font-small" *ngFor="let shoe of typesOfShoes">
                         {{shoe}}
                     </mat-list-option>
                     </mat-selection-list>
                     <p>
                     Options selected: {{shoes.selectedOptions.selected.length}}
                     </p>
-                    <br>
-                    <p>Imagenes...</p>
-    
-                    <button mat-raised-button color="primary">Agregar Punto Turistico</button>
+            </div>
+            <div>
+                <p>Imagenes...</p>
+                <br>
+                <button mat-raised-button color="primary">Agregar Punto Turistico</button>
             </div>
         </form>
     </mat-card-content>
