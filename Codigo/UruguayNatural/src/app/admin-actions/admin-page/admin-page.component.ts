@@ -9,6 +9,7 @@ import {FormControl, Validators} from '@angular/forms';
 export class AdminPageComponent implements OnInit {
   starRating = 3;
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor() { }
