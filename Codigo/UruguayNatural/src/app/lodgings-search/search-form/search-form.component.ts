@@ -14,22 +14,19 @@ export class SearchFormComponent implements OnInit {
   childNum: number;
   adultNum: number;
   retiredNum: number;
-  showingLodgings:boolean;
-  
+  showingLodgings: boolean;
 
   lodgingSearchResults: LodgingSearchResult[];
   Arr = Array;
   constructor(private lodgingsService: LodgingsService) {
     this.lodgingSearchResults = new Array();
-    this.showingLodgings=false;
+    this.showingLodgings = false;
    }
 
    ngOnInit(): void {
-    
-  }   
-  searchLodgings():void{
-    alert(this.from);
-    this.showingLodgings=true;
+  }
+  searchLodgings(): void{
+    this.showingLodgings = true;
     this.lodgingSearchResults = this.lodgingsService.getResults();
   }
 

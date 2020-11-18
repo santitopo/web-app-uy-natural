@@ -5,7 +5,7 @@ export class TPoint {
     image: string;
     region: string;
     categories: string[];
-  
+
     constructor(id: number, name: string, description: string, image: string, region: string,
                 categories: string[]) {
       this.id = id;
@@ -16,5 +16,3 @@ export class TPoint {
       this.categories = categories;
     }
   }
-
- 
