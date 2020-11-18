@@ -1,0 +1,14 @@
+.div{
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    align-content: center;
+}
+
+.picture-box {
+	display: block;
+    width: 40%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    margin: 0 auto;
+  }

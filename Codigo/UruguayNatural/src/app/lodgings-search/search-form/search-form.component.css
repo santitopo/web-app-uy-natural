@@ -5,6 +5,13 @@
     margin: 20px auto;
 }
 
+.search-bar{
+    border-radius: 50px;
+    height: 60px;
+    width: 1000px;
+    text-align: center;
+}
+
 .list-item {
     justify-content: center;
     display: flex !important;
@@ -26,7 +33,7 @@
     width: 100px;
 }
 .margin-left{
-    margin-left: 40px;
+    margin-left: 50px;
 }
 
 .picture-box__square {

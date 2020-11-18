@@ -1,19 +1,12 @@
 <div class="toolbar" role="banner">
     <img width="200" src="assets/images/logo.png" routerLink="menu"/>
-    <div class="inline">
-        <span class="toolbar-element" routerLink="tpointsearch">
-            <a> REGIONES </a>
-          </span>
-          <span class="toolbar-element" routerLink="../login">
-            <a>  | </a>
-          </span>
-          <span class="toolbar-element" routerLink="../login">
-            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> CONSULTAR RESERVA </a>
-          </span>
-    </div>
-    <span class="toolbar-element" routerLink="../login">
-      <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Iniciar Sesión</a>
-    </span>
+
+      <nav mat-tab-nav-bar class="inline white-color">
+        <a mat-tab-link class="black-color" routerLink="tpointsearch" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Regiones </a>
+        <a mat-tab-link class="black-color" routerLink="../reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Consultar Reserva </a>
+        <a mat-tab-link class="black-color" routerLink="../reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Escribir Reseña </a>
+      </nav>
+      <a mat-raised-button id="login" routerLink="../login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Iniciar Sesion</a>
   </div>
 
   <div class="content">

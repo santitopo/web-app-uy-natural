@@ -1,5 +1,5 @@
 :host {
-    font-family: 'Raleway', sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 12px;
     color: #333;
     box-sizing: border-box;
@@ -17,7 +17,18 @@
     justify-content: center;
     display: flex;
     width: 40%;
-    margin: 0 auto;
+    margin: auto auto;
+  }
+
+  a{
+    color: white;
+    text-decoration: none;
+  }
+
+  #login{
+    margin-right: 20px;
+    color: black;
+    text-decoration: none;
   }
 
   .toolbar {
@@ -25,7 +36,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 100px;
+    height: 110px;
     display: flex;
     align-items: center;
     background-color: #00528c ;
@@ -47,7 +58,6 @@
   }
   
   .toolbar-element:hover {
-    opacity: 0.6;
     cursor: pointer;
   }
   
@@ -57,7 +67,19 @@
 
   
 .content {
-    margin-top: 120px;
+    margin-top: 160px;
   }
+
+.white-color{
+  border-radius: 5px;
+  height: 45px;
+}
+
+.black-color{
+  color: rgb(255, 255, 255);
+  opacity: 1 !important;
+}
+
+
   
   

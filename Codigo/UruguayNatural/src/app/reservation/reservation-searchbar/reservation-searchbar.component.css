@@ -1,0 +1,18 @@
+mat-toolbar{
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 50px;
+}
+
+
+.example-form {
+    width: 900px;
+  }
+  
+.example-full-width {
+    width: 650px;
+}
+
+.margin-left{
+    margin-left: 60px;
+}
