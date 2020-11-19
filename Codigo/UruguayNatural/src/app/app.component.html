@@ -6,8 +6,14 @@
         <a mat-tab-link class="black-color" routerLink="../reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Consultar Reserva </a>
         <a mat-tab-link class="black-color" routerLink="../reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Escribir Reseña </a>
       </nav>
-      <a mat-raised-button id="login" routerLink="../login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Iniciar Sesion</a>
-  </div>
+      <div *ngIf="logged; then thenBlock; else elseBlock"></div>
+      <ng-template #thenBlock>
+        <a mat-raised-button id="login" routerLink="../admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Administracion</a>
+      </ng-template>
+      <ng-template #elseBlock>
+        <a mat-raised-button id="login" routerLink="../login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Iniciar Sesion</a>
+      </ng-template>
+      </div>
 
   <div class="content">
     <router-outlet></router-outlet>

@@ -1,18 +1,18 @@
-  <form>
+ <div class="form">
     <mat-form-field appearance="standard">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="pat@ejemplo.com" [formControl]="email" required>
+      <input [(ngModel)]="nickname" matInput placeholder="pat@ejemplo.com" [formControl]="email" required>
       <mat-icon matSuffix>sentiment_very_satified</mat-icon>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="standard">
       <mat-label>Contraseña</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
+      <input [(ngModel)]="password" matInput [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary">Iniciar Sesion</button>
-  </form>
+    <button mat-raised-button color="primary" (click)="login()">Iniciar Sesion</button>
+  </div>

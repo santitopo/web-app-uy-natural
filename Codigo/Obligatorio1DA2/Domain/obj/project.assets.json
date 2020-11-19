@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\felip\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\stopo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

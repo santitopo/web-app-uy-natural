@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj": {}
+    "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+    "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,20 +56,17 @@
         }
       }
     },
-    "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj": {
+    "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj",
+        "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj",
         "projectName": "LogicInterface",
-        "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\obj\\",
+        "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj",
+        "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,11 +79,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
               }
             }
           }
@@ -121,20 +115,17 @@
         }
       }
     },
-    "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj": {
+    "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj",
+        "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj",
         "projectName": "LogicTest",
-        "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\obj\\",
+        "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\LogicTest.csproj",
+        "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicTest\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -147,14 +138,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj"
               },
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj"
               }
             }
           }
@@ -208,20 +199,17 @@
         }
       }
     },
-    "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj": {
+    "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj",
+        "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj",
         "projectName": "Logic",
-        "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\obj\\",
+        "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj",
+        "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -234,17 +222,17 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj"
               },
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
               },
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj"
               }
             }
           }
@@ -276,20 +264,17 @@
         }
       }
     },
-    "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
+    "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\obj\\",
+        "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -302,8 +287,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
               }
             }
           }
@@ -335,20 +320,17 @@
         }
       }
     },
-    "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
+    "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj",
+        "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj",
         "projectName": "PersistenceInterface",
-        "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\obj\\",
+        "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj",
+        "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -361,11 +343,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
+              "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
               }
             }
           }
