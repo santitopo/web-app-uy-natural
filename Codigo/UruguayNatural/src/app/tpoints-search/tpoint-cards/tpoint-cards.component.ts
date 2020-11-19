@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TPointsService } from 'src/app/services/tpoints.service';
 import { TPoint } from 'src/Models/TPoint';
-import { TPointsService } from '../services/tpoints.service';
 
 @Component({
   selector: 'tpoint-cards',

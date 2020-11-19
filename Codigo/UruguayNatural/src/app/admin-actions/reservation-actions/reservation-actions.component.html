@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-title>Cambiar Estado de Reserva</mat-card-title>
+    <mat-card-content>
+        <form class="inline">
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Reservas</mat-label>
+                        <mat-select>
+                            <mat-option value="option">Option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Estado Actual</mat-label>
+                        <input matInput placeholder="Placeholder" readonly>
+                    </mat-form-field>
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Estados</mat-label>
+                        <mat-select>
+                            <mat-option value="option">Option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </p>
+
+                <button mat-raised-button color="primary">Confirmar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

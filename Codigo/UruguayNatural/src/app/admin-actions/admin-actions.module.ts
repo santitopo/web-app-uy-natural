@@ -49,12 +49,18 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TpActionsComponent } from './tp-actions/tp-actions.component';
+import { LodgingActionsComponent } from './lodging-actions/lodging-actions.component';
+import { AdminstratorActionsComponent } from './adminstrator-actions/adminstrator-actions.component';
+import { ReservationActionsComponent } from './reservation-actions/reservation-actions.component';
+import { ReportsComponent } from './reports/reports.component';
 
 
 
 
 @NgModule({
-  declarations: [LoginComponent, LoginFormComponent, AdminPageComponent],
+  declarations: [LoginComponent, LoginFormComponent, AdminPageComponent, TpActionsComponent, 
+    LodgingActionsComponent, AdminstratorActionsComponent, ReservationActionsComponent, ReportsComponent],
   imports: [
     CommonModule, AppRoutingModule,
     FormsModule,

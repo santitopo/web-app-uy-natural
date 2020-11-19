@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LodgingsService } from 'src/app/services/lodgings.service';
 import { LodgingSearchResult } from 'src/Models/LodgingSearchResult';
-import { LodgingsService } from '../services/lodgings.service';
 
 @Component({
   selector: 'app-search-form',

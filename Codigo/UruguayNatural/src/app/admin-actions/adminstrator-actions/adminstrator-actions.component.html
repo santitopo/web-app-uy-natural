@@ -1,0 +1,107 @@
+<mat-card>
+    <mat-card-title> Agregar Administrador</mat-card-title>
+    <mat-card-content>
+        <form action="" class="inline">
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-icon matSuffix>sentiment_very_satified</mat-icon>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+
+                <button mat-raised-button color="primary">Agregar Administrador</button>
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>
+
+
+<mat-card>
+    <mat-card-title> Eliminar/Modificar Administrador</mat-card-title>
+    <mat-card-content>
+        <form action="" class="inline">
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Administradores</mat-label>
+                        <mat-select>
+                            <mat-option value="option">Option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput placeholder="Placeholder">
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-icon matSuffix>sentiment_very_satified</mat-icon>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+            </div>
+
+            <div id="delete-modify-admin">
+                <button mat-raised-button color="primary">Modificar Administrador</button>
+                <br>
+                <button mat-raised-button color="primary">Eliminar Administrador</button>
+            </div>
+
+
+        </form>
+    </mat-card-content>
+</mat-card>

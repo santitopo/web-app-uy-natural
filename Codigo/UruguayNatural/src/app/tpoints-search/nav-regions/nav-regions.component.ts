@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from 'src/app/services/categories.service';
+import { RegionsService } from 'src/app/services/regions.service';
 import { Category } from 'src/Models/Category';
 import { Region } from 'src/Models/Region';
-import { CategoriesService } from '../services/categories.service';
-import { RegionsService } from '../services/regions.service';
 
 @Component({
   selector: 'app-nav-regions',
