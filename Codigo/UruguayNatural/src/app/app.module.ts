@@ -53,6 +53,8 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { ImportTpointModule } from './import-tpoint/import-tpoint.module';
 import { FormsModule } from '@angular/forms';
+import { isLoggedGuard } from './guards/isLogged.guard';
+import { isNotLoggedGuard } from './guards/isNotLogged.guard';
 
 @NgModule({
   declarations: [
@@ -114,7 +116,7 @@ import { FormsModule } from '@angular/forms';
     ImportTpointModule,
     FormsModule
   ],
-  providers: [],
+  providers: [isLoggedGuard, isNotLoggedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

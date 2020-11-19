@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { MainpageComponent } from './mainpage/mainpage.component';
@@ -52,7 +51,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, MainpageComponent],
+  declarations: [FooterComponent, MainpageComponent],
   imports: [
     CommonModule, AppRoutingModule, A11yModule,
     ClipboardModule,
@@ -99,6 +98,6 @@ import {OverlayModule} from '@angular/cdk/overlay';
     PortalModule,
     ScrollingModule
   ],
-  exports: [NavbarComponent, FooterComponent, MainpageComponent ],
+  exports: [FooterComponent, MainpageComponent ],
 })
 export class ShareModule { }
