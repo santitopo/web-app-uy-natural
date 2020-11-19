@@ -1,7 +1,7 @@
 import { Category } from './Category';
 import { Region } from './Region';
 
-export class TouristicPointInsert {
+export class TouristicPointOut {
     Name: string;
     Description: string;
     Image: string;

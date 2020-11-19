@@ -21,19 +21,19 @@ export class RegionsService {
     );
     this.regions.push(
       new Region(
-        2,
+        3,
         'Pajaros Pintados',
       )
     );
     this.regions.push(
       new Region(
-        2,
+        4,
         'Litoral Norte',
       )
     );
     this.regions.push(
       new Region(
-        2,
+        5,
         'Este',
       )
     );

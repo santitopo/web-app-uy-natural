@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { TouristicPointInsert } from 'src/Models/TouristicPointInsert';
 import { TPoint } from 'src/Models/TPoint';
+import { TpointsSearchModule } from '../tpoints-search/tpoints-search.module';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +49,10 @@ export class TPointsService {
 
   getTPointById(id: number): TPoint {
     return this.tpoints.filter(x => x.id === id)[0];
+  }
+
+  addTPoint(tpoint: TouristicPointInsert) : void{
+
   }
 }
 

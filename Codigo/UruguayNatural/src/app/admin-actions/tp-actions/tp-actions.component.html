@@ -8,11 +8,12 @@
                         <input matInput [(ngModel)]="tpName" required="true" />
                     </mat-form-field>
                 </p>
+                
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Region</mat-label>
-                        <mat-select required="true">
-                            <mat-option *ngFor="let region of regions" value="option">{{region}}</mat-option>
+                        <mat-select [(ngModel)]="selectedRegionId" required="true">
+                            <mat-option *ngFor="let region of regions" [value]="region.id">{{region.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </p>
@@ -25,9 +26,9 @@
             </div>
 
             <div>
-                  <mat-selection-list #cats [(ngModel)]="selectedCats">
-                    <mat-list-option *ngFor="let category of categories" class="font-small" [value]= "category">
-                        {{category}}
+                  <mat-selection-list #cats [(ngModel)]="selectedCatsId">
+                    <mat-list-option *ngFor="let category of categories" class="font-small" [value]= "category.id">
+                        {{category.name}}
                     </mat-list-option>
                   </mat-selection-list>
                   <p>

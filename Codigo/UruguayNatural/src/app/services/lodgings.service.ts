@@ -8,6 +8,7 @@ import { LodgingSearchResult } from 'src/Models/LodgingSearchResult';
 export class LodgingsService {
   lodgingSearchResults: LodgingSearchResult[] = new Array();
   constructor() { 
+    
     this.lodgingSearchResults.push(
       new LodgingSearchResult(
         200,
