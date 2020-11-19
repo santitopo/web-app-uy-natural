@@ -9,12 +9,12 @@ export class Lodging {
     Phone: string;
     Stars: number;
     Price: number;
-    Images: string;
+    Images: string[];
     Score: number;
     Capacity: boolean;
 
     constructor(Id: number, Name: string, TouristicPoint: TPoint, Description: string, Direction: string,
-                Phone: string, Stars: number, Price: number, Images: string, Score: number, Capacity: boolean) {
+                Phone: string, Stars: number, Price: number, Images: string[], Score: number, Capacity: boolean) {
       this.Id = Id;
       this.Name = Name;
       this.Description = Description;

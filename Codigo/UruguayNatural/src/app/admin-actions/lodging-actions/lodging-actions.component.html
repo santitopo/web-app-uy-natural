@@ -5,27 +5,27 @@
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Nombre</mat-label>
-                        <input matInput placeholder="Placeholder">
+                        <input matInput [(ngModel)]="name" placeholder="Placeholder" required="true">
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Dirección</mat-label>
-                        <input matInput placeholder="Placeholder">
+                        <input matInput [(ngModel)]="direction" placeholder="Placeholder" required="true">
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="standard">
-                        <mat-label>Número</mat-label>
-                        <input matInput placeholder="Placeholder">
+                        <mat-label>Telefono</mat-label>
+                        <input matInput [(ngModel)]="phone" placeholder="Placeholder" required="true">
                     </mat-form-field>
                 </p>
 
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Punto Turistico</mat-label>
-                        <mat-select>
-                            <mat-option value="option">Option</mat-option>
+                        <mat-select [(ngModel)]="selectedTPointId" required="true">
+                            <mat-option *ngFor="let tpoint of tpoints" [value]="tpoint.id">{{tpoint.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </p>
@@ -35,7 +35,7 @@
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Precio</mat-label>
-                        <input matInput type="number" class="example-right-align">
+                        <input matInput [(ngModel)]="price" type="number" class="example-right-align" required="true"> 
                         <span matPrefix>$&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>
@@ -48,12 +48,12 @@
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Descripcion</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea [(ngModel)]="description" matInput></textarea>
                     </mat-form-field>
                 </p>
                 <p>Imagenes...</p>
 
-                <button mat-raised-button color="primary">Agregar Hospedaje</button>
+                <button mat-raised-button color="primary" (click)="addLodging()">Agregar Hospedaje</button>
             </div>
     </mat-card-content>
 </mat-card>
@@ -65,8 +65,8 @@
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Hospedajes</mat-label>
-                        <mat-select>
-                            <mat-option value="option">Option</mat-option>
+                        <mat-select [(ngModel)]="selectedLodging" (selectionChange)="select(selectedLodging)">
+                            <mat-option *ngFor="let lodging of lodgings" [value]="lodging">{{lodging.Name}} [{{lodging.TouristicPoint.name}}]</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </p>
@@ -74,7 +74,7 @@
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Capacidad Actual</mat-label>
-                        <input matInput placeholder="Placeholder" readonly>
+                        <input matInput [(ngModel)]="actualCapacity" placeholder="Placeholder" readonly>
                     </mat-form-field>
                 </p>
             </div>
@@ -82,12 +82,15 @@
             <div>
                 <p>
                     <mat-form-field appearance="standard">
-                        <mat-label>Nueva Capacidad</mat-label>
-                        <input matInput placeholder="Placeholder" readonly>
+                        <mat-label>Capacidad</mat-label>
+                        <mat-select [(ngModel)]="selectedCapacity">
+                            <mat-option value="notFull">Disponible</mat-option>
+                            <mat-option value="isFull">Lleno</mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </p>
 
-                <button mat-raised-button color="primary">Confirmar</button>
+                <button mat-raised-button color="primary" (click)="modifyCapacity()">Confirmar</button>
             </div>
     </mat-card-content>
 </mat-card>
