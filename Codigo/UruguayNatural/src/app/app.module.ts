@@ -55,6 +55,7 @@ import { ImportTpointModule } from './import-tpoint/import-tpoint.module';
 import { FormsModule } from '@angular/forms';
 import { isLoggedGuard } from './guards/isLogged.guard';
 import { isNotLoggedGuard } from './guards/isNotLogged.guard';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { isNotLoggedGuard } from './guards/isNotLogged.guard';
     PortalModule,
     ScrollingModule,
     ImportTpointModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [isLoggedGuard, isNotLoggedGuard],
   bootstrap: [AppComponent]

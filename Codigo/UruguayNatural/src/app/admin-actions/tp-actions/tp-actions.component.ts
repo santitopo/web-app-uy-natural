@@ -13,7 +13,7 @@ import { TouristicPointInsert } from 'src/Models/TouristicPointInsert';
   styleUrls: ['./tp-actions.component.css']
 })
 export class TpActionsComponent implements OnInit {
-  regions: Region[];
+  regions;
   categories: Category[];
 
   tpName: string;
@@ -23,11 +23,20 @@ export class TpActionsComponent implements OnInit {
   selectedCatsId: number[];
 
   constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, private tpointService: TPointsService) { 
-    this.regions = this.regionsService.getRegions();
     this.categories = this.categoriesService.getCategories();
   }
 
   ngOnInit(): void {
+
+    this.regionsService.getRegions().subscribe(
+      res => {
+        this.regions = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
+
   }
 
   addTPoint(): void{

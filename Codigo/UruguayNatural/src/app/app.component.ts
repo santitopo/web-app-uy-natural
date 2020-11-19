@@ -17,4 +17,8 @@ ngOnInit(): void {
 isLogued(): void {
   this.logged = this.sessionServices.isLogued();
   }
+
+  onActivate(): void{
+    this.isLogued();
+  }
 }

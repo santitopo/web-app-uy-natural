@@ -10,15 +10,24 @@ import { Region } from 'src/Models/Region';
   styleUrls: ['./nav-regions.component.css']
 })
 export class NavRegionsComponent implements OnInit {
-  regions: Region[];
+  regions;
   categories: Category[];
   Arr = Array;
   constructor(private regionsService: RegionsService, private categoriesService:CategoriesService)
-    { this.regions = new Array();
-      this.categories = new Array();}
+    {    
+      this.categories = new Array();
+    }
 
    ngOnInit(): void {
-    this.regions = this.regionsService.getRegions();
+    this.regionsService.getRegions().subscribe(
+      res => {
+        this.regions = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
+
     this.categories = this.categoriesService.getCategories();
   }
 }
