@@ -11,14 +11,12 @@ import { Region } from 'src/Models/Region';
 })
 export class NavRegionsComponent implements OnInit {
   regions;
-  categories: Category[];
+  categories;
   Arr = Array;
-  constructor(private regionsService: RegionsService, private categoriesService:CategoriesService)
-    {    
-      this.categories = new Array();
-    }
+  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService) {
+  }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.regionsService.getRegions().subscribe(
       res => {
         this.regions = res;
@@ -28,7 +26,14 @@ export class NavRegionsComponent implements OnInit {
         console.log(err);
       });
 
-    this.categories = this.categoriesService.getCategories();
+    this.categoriesService.getCategories().subscribe(
+      res => {
+        this.categories = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
   }
 }
 

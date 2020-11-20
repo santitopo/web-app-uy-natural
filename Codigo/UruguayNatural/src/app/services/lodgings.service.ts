@@ -1,19 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Lodging } from 'src/Models/Lodging';
 import { LodgingInsert } from 'src/Models/LodgingInsert';
 import { LodgingSearchResult } from 'src/Models/LodgingSearchResult';
-import { TouristicPointInsert } from 'src/Models/TouristicPointInsert';
-import { TPoint } from 'src/Models/TPoint';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LodgingsService {
   lodgingSearchResults: LodgingSearchResult[] = new Array();
-  lodgings: Lodging[] = new Array();
 
-  constructor() {
-
+  uri = `${environment.baseUrl}/lodgings`;
+  constructor(private http: HttpClient) {
     this.lodgingSearchResults.push(
       new LodgingSearchResult(
         200,
@@ -31,28 +31,15 @@ export class LodgingsService {
           true)
       )
     );
-    this.lodgings.push(
-      new Lodging(
-        1,
-        'Casa del Sol',
-        new TPoint(null,"Pajaros Pintados", null,null,null, null),
-        'Bonita cabaña para descansar.',
-        'Bahia 3, esquina Flores',
-        '098 259945',
-        3,
-        100,
-        ['images/casadelsol.jpg'],
-        4,
-        false)
-    )
+
   }
 
   getResults(): LodgingSearchResult[] {
     return this.lodgingSearchResults;
   }
 
-  getLodgings(): Lodging[] {
-    return this.lodgings;
+  getLodgings(): Observable<Lodging> {
+    return this.http.get<Lodging>(this.uri);
   }
 
   addLodging(lodging: LodgingInsert): void {

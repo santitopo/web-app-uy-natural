@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { TouristicPointInsert } from 'src/Models/TouristicPointInsert';
 import { TPoint } from 'src/Models/TPoint';
 import { TpointsSearchModule } from '../tpoints-search/tpoints-search.module';
@@ -7,9 +10,11 @@ import { TpointsSearchModule } from '../tpoints-search/tpoints-search.module';
   providedIn: 'root'
 })
 export class TPointsService {
-
+  uri = `${environment.baseUrl}/tpoints`;
   tpoints: TPoint[] = new Array();
-  constructor() {
+
+
+  constructor(private http: HttpClient) {
     this.tpoints.push(
       new TPoint(
         1,
@@ -40,11 +45,10 @@ export class TPointsService {
         ['Colonial', 'Histórico', 'Patrimonio']
       )
     );
-    
   }
-
-  getTPoints(): TPoint[] {
-    return this.tpoints;
+ 
+  getTPoints(): Observable<TPoint> {
+    return this.http.get<TPoint>(this.uri);
   }
 
   getTPointById(id: number): TPoint {
@@ -52,7 +56,7 @@ export class TPointsService {
   }
 
   addTPoint(tpoint: TouristicPointInsert) : void{
-
+    this.http.post<TPoint>(this.uri, tpoint);
   }
 }
 

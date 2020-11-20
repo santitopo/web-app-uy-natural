@@ -13,7 +13,7 @@ import { Lodging } from 'src/Models/Lodging';
 })
 export class LodgingActionsComponent implements OnInit {
   //Add Lodging Variables
-  tpoints:TPoint[];
+  tpoints;
   starRating = 3;
   name:string;
   direction:string;
@@ -24,18 +24,35 @@ export class LodgingActionsComponent implements OnInit {
   images:string[];
 
   //Modify Capacity Variables
-  lodgings: Lodging[];
+  lodgings;
   selectedLodging: Lodging;
   actualCapacity: string;
   selectedCapacity: string;
 
 
   constructor(private tpointsService: TPointsService, private lodgingService: LodgingsService) {
-    this.tpoints = this.tpointsService.getTPoints();
-    this.lodgings = this.lodgingService.getLodgings();
   }
 
   ngOnInit(): void {
+    this.tpointsService.getTPoints().subscribe(
+      res => {
+        this.tpoints = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
+
+      /*
+      this.lodgingService.getLodgings().subscribe(
+        res => {
+          this.lodgings = res;
+        },
+        err => {
+          alert('Ups algo salió mal...');
+          console.log(err);
+        });
+        */
   }
 
   addLodging(): void{

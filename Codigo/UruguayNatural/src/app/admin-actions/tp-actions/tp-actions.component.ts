@@ -14,7 +14,7 @@ import { TouristicPointInsert } from 'src/Models/TouristicPointInsert';
 })
 export class TpActionsComponent implements OnInit {
   regions;
-  categories: Category[];
+  categories;
 
   tpName: string;
   tpDescription: string;
@@ -22,8 +22,8 @@ export class TpActionsComponent implements OnInit {
   selectedRegionId: number;
   selectedCatsId: number[];
 
-  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, private tpointService: TPointsService) { 
-    this.categories = this.categoriesService.getCategories();
+  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, private tpointService: TPointsService) {
+
   }
 
   ngOnInit(): void {
@@ -37,13 +37,21 @@ export class TpActionsComponent implements OnInit {
         console.log(err);
       });
 
+    this.categoriesService.getCategories().subscribe(
+      res => {
+        this.categories = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
   }
 
-  addTPoint(): void{
-    const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.image, 
-    this.selectedRegionId , this.selectedCatsId);
+  addTPoint(): void {
+    const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.image,
+      this.selectedRegionId, this.selectedCatsId);
 
-    this.tpointService.addTPoint(newTPoint);
+      //this.tpointService.addTPoint(newTPoint);
   }
 
 }

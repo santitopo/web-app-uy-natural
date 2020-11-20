@@ -8,12 +8,21 @@ import { TPoint } from 'src/Models/TPoint';
   styleUrls: ['./tpoint-cards.component.css']
 })
 export class TpointCardsComponent implements OnInit {
-  tpoints: TPoint[];
-  Arr = Array;
-  constructor(private tpointsService: TPointsService) { this.tpoints = new Array();}
+  tpoints;
+  constructor(private tpointsService: TPointsService) { 
+    
+  }
 
   ngOnInit(): void {
-    this.tpoints = this.tpointsService.getTPoints();
+
+    this.tpointsService.getTPoints().subscribe(
+      res => {
+        this.tpoints = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
   }
 
 }

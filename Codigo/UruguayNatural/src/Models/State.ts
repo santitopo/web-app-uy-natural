@@ -1,10 +1,10 @@
 export class State {
     Name: string;
-    Description: string;
+    Id: number;
 
-    constructor(Name: string, Description: string) {
+    constructor(Id: number, Name: string) {
+        this.Id = Id;
         this.Name = Name;
-        this.Description = Description;
     }
 
 }

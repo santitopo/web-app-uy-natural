@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationsService } from 'src/app/services/reservations.service';
+import { Reservation } from 'src/Models/Reservation';
+import { State } from 'src/Models/State';
 
 @Component({
   selector: 'app-reservation-actions',
@@ -6,10 +9,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reservation-actions.component.css']
 })
 export class ReservationActionsComponent implements OnInit {
+  selectedReservation:Reservation;
+  actualState:string;
+  selectedState:State;
 
-  constructor() { }
+  reservations;
+  states;
+  
+  constructor(private reservationService: ReservationsService) { }
 
   ngOnInit(): void {
+
+    this.reservationService.getReservations().subscribe(
+      res => {
+        this.reservations = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
+
+      this.reservationService.getStates().subscribe(
+        res => {
+          this.states = res;
+        },
+        err => {
+          alert('Ups algo salió mal...');
+          console.log(err);
+        });
+      
   }
 
 }

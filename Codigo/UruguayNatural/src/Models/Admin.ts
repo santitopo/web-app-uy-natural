@@ -1,5 +1,5 @@
-export class Bill {
-
+export class Admin {
+    id: number;
     name: string; 
     surname: string; 
     mail: string; 
