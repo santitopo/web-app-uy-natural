@@ -20,7 +20,7 @@ insert into dbo.State(Name) values ('Rechazada');
 insert into dbo.State(Name) values ('Expirada');
 
 -- ADMINISTRADORES --
-insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('admin','','admin','admin',2);
+insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('Admin','','admin@g.com','admin',2);
 
 -- USERSESSIONS --
 insert into dbo.UserSessions (ConnectedAt,Token, UserId) values ('2020-10-14','6F9619FF-8B86-D011-B42D-00C04FC964FF',1);

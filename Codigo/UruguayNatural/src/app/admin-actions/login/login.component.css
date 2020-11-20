@@ -10,5 +10,6 @@
     width: 40%;
     -o-object-fit: cover;
     object-fit: cover;
-    margin: 0 auto;
+    margin: 20px auto 0px;
+    padding: 40px 0px 0px;
   }

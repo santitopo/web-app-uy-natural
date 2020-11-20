@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Reservation } from 'src/Models/Reservation';
 import { State } from 'src/Models/State';
+import { StateModel } from 'src/Models/StateModel';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class ReservationsService {
 
   getStates(): Observable<State> {
     return this.http.get<State>(this.uri);
+  }
+
+  getReservation(code: string): Observable<StateModel>{
+    return this.http.get<StateModel>(`${this.uri}/${code}`);
   }
 
 }

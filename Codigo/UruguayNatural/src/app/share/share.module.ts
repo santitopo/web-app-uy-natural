@@ -46,12 +46,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { SuccessComponent } from './success/success.component';
 
 
 
 
 @NgModule({
-  declarations: [FooterComponent, MainpageComponent],
+  declarations: [FooterComponent, MainpageComponent, SuccessComponent],
   imports: [
     CommonModule, AppRoutingModule, A11yModule,
     ClipboardModule,
@@ -98,6 +99,6 @@ import {OverlayModule} from '@angular/cdk/overlay';
     PortalModule,
     ScrollingModule
   ],
-  exports: [FooterComponent, MainpageComponent ],
+  exports: [FooterComponent, MainpageComponent, SuccessComponent],
 })
 export class ShareModule { }

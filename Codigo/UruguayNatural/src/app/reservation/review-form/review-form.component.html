@@ -1,25 +1,28 @@
 <div class="content">
     <h1>Ingrese el Código de Reserva</h1>
-    <app-reservation-searchbar></app-reservation-searchbar>
+    <app-reservation-searchbar id="searchBar" (searchButtonClicked)="handlerFunction($event)"></app-reservation-searchbar>
     <mat-divider class="margin"></mat-divider>
-
+    
+    <mat-card class="client-info" *ngIf="showNotFound">
+        <h2>No se encontró la reserva..!</h2>
+    </mat-card>
+    
+    <div *ngIf="showState">
     <mat-card class="client-info">
-        <h2>Estado de la reserva</h2>
-        <h3>Nombre Cliente</h3>
-        <p>Hospedaje</p>
-        <p>Fecha</p>
+        <h2>{{stateName}}</h2>
+        <h3>{{description}}</h3>
     </mat-card>
 
-    <button mat-raised-button color="primary">Escribir Reseña</button>
+    <button mat-raised-button color="primary" (click)="allowReview()">Escribir Reseña</button>
 
-    <div class="review-area">
+    <div class="review-area" *ngIf="showReviewArea">
         <mat-form-field appearance="outline" class="text-area">
             <mat-label>Ingrese su reseña aqui...</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput [(ngModel)]="reviewDescription"></textarea>
           </mat-form-field>
-        <button mat-raised-button><mat-icon> send</mat-icon></button>
+        <button mat-raised-button (click)="sendReview()"><mat-icon> send</mat-icon></button>
         <br>
-        <ngb-rating [(rate)]="starRating" [max]="5"> </ngb-rating>
+        <ngb-rating [(rate)]="starRating" [max]="5" [(ngModel)]="reviewStars"> </ngb-rating>
     </div>
-
+</div>
 </div>

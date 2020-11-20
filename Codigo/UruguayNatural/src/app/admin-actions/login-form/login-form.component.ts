@@ -29,18 +29,20 @@ export class LoginFormComponent implements OnInit {
     return this.email.hasError('email') ? 'No es un mail valido' : '';
   }
 
-  login():void {
+   login(): void {
     if (this.email.invalid || this.password===undefined){ alert("Campos faltantes");}
-    else{
-      const login = new Login(this.nickname, this.password);
-      let res : string;
-      res = this.sessionService.login(login);
-      if(res==='false'){ alert("Acceso no permitido");}
-      else{
-        localStorage.setItem('token', res);
-        this.router.navigate(['/menu']);
-    }
+    else{const login = new Login(this.nickname, this.password);
+      this.sessionService.login(login).subscribe(
+        (res: string) => {
+          localStorage.setItem('token', res);
+          this.router.navigate(['/menu']);
+        },
+        err => {
+          alert("Error de credenciales");
+          console.log(err);
+        }
+      );
   }
-  }
+}
 
 }

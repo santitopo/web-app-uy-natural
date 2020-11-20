@@ -91,5 +91,23 @@ namespace WebApplicationTest
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
         }
 
+        [TestMethod]
+        public void SessionExists()
+        {
+            var logicMock = new Mock<ISessionLogic>(MockBehavior.Strict);
+            SessionController controller = new SessionController(logicMock.Object);
+            
+            string token = "8b10f257-3b16-4461-984f-6c7407e4008f";
+
+            logicMock.Setup(x => x.IsLogued(token)).Returns(true);
+
+            var result = controller.Exists(token);
+            var okResult = result as OkObjectResult;
+            var value = (bool) okResult.Value;
+
+            Assert.AreEqual(value, true);
+            logicMock.VerifyAll();
+        }
+
     }
 }

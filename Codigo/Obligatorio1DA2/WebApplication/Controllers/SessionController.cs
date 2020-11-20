@@ -48,5 +48,19 @@ namespace WebApplication.Controllers
                 return NotFound(e.Message);
             }
         }
+
+        // GET: /sessions/existing
+        [HttpGet("existing")]
+        public IActionResult Exists([FromHeader] string token)
+        {
+            try
+            {
+                return Ok(logic.IsLogued(token));
+            }
+            catch (Exception)
+            {
+                return NotFound("Error de procesamiento");
+            }
+        }
     }
 }

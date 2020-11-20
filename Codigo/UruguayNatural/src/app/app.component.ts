@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Login } from 'src/Models/Login';
 import { SessionsService } from './services/sessions.service';
 
 @Component({
@@ -9,8 +11,10 @@ import { SessionsService } from './services/sessions.service';
 export class AppComponent implements OnInit{
   title = 'UruguayNatural';
 logged=false;
-  constructor(private sessionServices:SessionsService){}
-ngOnInit(): void {
+  constructor(private sessionServices:SessionsService, private router: Router){}
+
+
+  ngOnInit(): void {
   this.isLogued();
 }
 
@@ -20,7 +24,8 @@ isLogued(): void {
 
   logout(): void {
     this.logged = false;
-    this.sessionServices.logout();
+    this.sessionServices.logout().subscribe();  
+    this.router.navigate(['/menu']);
     }
 
   onActivate(): void{

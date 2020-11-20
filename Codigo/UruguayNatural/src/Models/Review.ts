@@ -1,12 +1,18 @@
+import { Lodging } from './Lodging';
+
 export class Review {
-    Description: string;
-    Score: number;
-    ReservationCode: number;
+    lodging: Lodging;
+    id: number;
+    description: string;
+    score: number;
+    client: string;
 
-    constructor(Description: string, Score: number, ReservationCode: number) {
-        this.Description = Description;
-        this.Score = Score;
-        this.ReservationCode = ReservationCode;
+    constructor(Description: string, Score: number, ReservationCode: string,
+        Id: number, lodging: Lodging) {
+        this.description = Description;
+        this.score = Score;
+        this.client = "";
+        this.id= Id;
+        this.lodging = lodging;
     }
-
 }
