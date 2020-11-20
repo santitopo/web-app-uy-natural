@@ -9,6 +9,7 @@
       <div *ngIf="logged; then thenBlock; else elseBlock"></div>
       <ng-template #thenBlock>
         <a mat-raised-button id="login" routerLink="../admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Administracion</a>
+        <a mat-raised-button (click)="logout()" id="login"> Desconectarse</a>
       </ng-template>
       <ng-template #elseBlock>
         <a mat-raised-button id="login" routerLink="../login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Iniciar Sesion</a>

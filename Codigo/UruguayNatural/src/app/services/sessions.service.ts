@@ -24,4 +24,8 @@ export class SessionsService {
     return token != null && token !== undefined && token !== '';
   }
 
+  logout():void{    
+    localStorage.removeItem('token');
+  }
+
 }

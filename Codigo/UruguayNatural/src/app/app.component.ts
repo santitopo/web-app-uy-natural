@@ -18,6 +18,11 @@ isLogued(): void {
   this.logged = this.sessionServices.isLogued();
   }
 
+  logout(): void {
+    this.logged = false;
+    this.sessionServices.logout();
+    }
+
   onActivate(): void{
     this.isLogued();
   }

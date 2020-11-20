@@ -31,15 +31,15 @@ insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Laura','Fernan
 insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Pepe','Gomez','pepe@hotmail.com', 1);
 
 -- PUNTOS TURISTICOS --
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Punta del Este','Balneario de playa', 3, '/punta.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('La Paloma','Balneario de playa', 3, '/pedrera20.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Colonia','Pueblo Colonial', 1, '/punta.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Termas del Daymán','Fuente termal', 5, '/dayman.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Villa Soriano','Pueblo Colonial', 5, '/vsoriano.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Artigas','Ciudad capital de artigas', 4, '/artigas.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Melo','Ciudad capital de Cerro Largo', 3, '/melo.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Quebrada de los Cuervos',' Paisaje Protegido de Uruguay', 2, '/quebrada.jpg');
-insert into TouristicPoints (Name, Description, RegionId, Image) values ('Montevideo','Capital de Uruguay', 1, '/montevideo.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Punta del Este','Balneario de playa', 3, '\images\pde.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('La Paloma','Balneario de playa', 3, '\images\paloma.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Colonia','Pueblo Colonial', 1, '\images\colonia.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Termas del Daymán','Fuente termal', 5, '\images\termas.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Villa Soriano','Pueblo Colonial', 5, '\images\villa_soriano.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Artigas','Ciudad capital de artigas', 4, '\images\artigas.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Melo','Ciudad capital de Cerro Largo', 3, '\images\melo.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Quebrada de los Cuervos',' Paisaje Protegido de Uruguay', 2, '\images\quebrada.jpg');
+insert into TouristicPoints (Name, Description, RegionId, Image) values ('Montevideo','Capital de Uruguay', 1, '\images\montevideo.jpg');
 
 -- RELACION CATEGORIAS / PUNTOS TURISTICOS--
 insert into TouristicPointsCategory (CategoryId,TouristicPointId) values (4,1);
