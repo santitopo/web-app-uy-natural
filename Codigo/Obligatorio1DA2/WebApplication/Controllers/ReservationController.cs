@@ -41,7 +41,6 @@ namespace WebApplication.Controllers
 
         //localhost:44371/reservations/reports?TPointId=1&FromDate=12102019&ToDate=14102019
         [HttpGet("reports")]
-        //[ServiceFilter(typeof(AuthorizationFilter))]    <---- MISSING
         public IActionResult GetReservationsReportbyTP([FromQuery] ReservationReportRequestModel reportRequest)
         {
             try

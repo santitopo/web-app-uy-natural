@@ -11,7 +11,7 @@ export class SessionsService {
 
   login(login: Login): string {
     if (login.Mail==='admin@g.com' && login.Password==='admin'){
-    return '12345678';
+    return '6F9619FF-8B86-D011-B42D-00C04FC964FF';
   }
   else{
     return 'false';

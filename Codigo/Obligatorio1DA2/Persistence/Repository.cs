@@ -33,15 +33,14 @@ namespace Persistence
 
         public IEnumerable<T> GetAll(string[] includes)
         {
-            string concat = "";
             if (includes.Length > 0)
             {
-                for (int i = 1; i < includes.Length; i++)
-                {
-                    DbSet.Include(includes[i]);
-                }
+                var query = context.Set<T>().AsQueryable();
 
-                return DbSet.ToList();
+                foreach (string include in includes)
+                    query = query.Include(include);
+
+                return query;
             }
             else
             {

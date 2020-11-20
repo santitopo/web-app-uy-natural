@@ -50,8 +50,7 @@ export class TpActionsComponent implements OnInit {
   addTPoint(): void {
     const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.image,
       this.selectedRegionId, this.selectedCatsId);
-
-      //this.tpointService.addTPoint(newTPoint);
+      this.tpointService.addTPoint(newTPoint).subscribe();
   }
 
 }

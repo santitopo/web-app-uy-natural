@@ -116,7 +116,7 @@ namespace Logic
 
         public IEnumerable<Reservation> GetAllReservations()
         {
-            string[] param = { "State" };
+            string[] param = { "State", "Client", "Lodging" };
             return reservationRepository.GetAll(param);
         }
 
