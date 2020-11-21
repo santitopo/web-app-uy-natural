@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationsService } from 'src/app/services/reservations.service';
 import { Reservation } from 'src/Models/Reservation';
+import { ReservationUpdate } from 'src/Models/ReservationUpdate';
 import { State } from 'src/Models/State';
 
 @Component({
@@ -43,7 +44,6 @@ export class ReservationActionsComponent implements OnInit {
   }
 
   select(selectedReservation:Reservation): void{
-    this.actualState = "hola";
     
     this.states.forEach(function (value) {
       if(value.id == selectedReservation.id){
@@ -51,8 +51,12 @@ export class ReservationActionsComponent implements OnInit {
         this.actualState = "chau";
       }
     });
+  }
 
-    
+  modifyReservation():void{
+    const modifiedReservation = new ReservationUpdate(this.selectedReservation.id, this.selectedState.id, "buena");
+    this.reservationService.updateReservation(modifiedReservation).subscribe();
+
   }
 
 }

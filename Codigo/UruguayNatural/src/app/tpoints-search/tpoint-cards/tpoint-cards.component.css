@@ -1,7 +1,6 @@
 .tpointContent{
     border-radius: 16px;
     padding: 0 16px 0 0;
-    border: 1px solid #ccc;
     width: 90%;
     display: flex;
     margin: auto; 
@@ -49,3 +48,9 @@ h2{
     margin-block-start: 5px;
     margin-block-end: 0px;
 }
+
+mat-card :hover {
+    cursor: pointer;
+}
+
+

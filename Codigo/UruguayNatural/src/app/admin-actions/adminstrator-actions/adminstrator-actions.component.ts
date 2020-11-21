@@ -51,6 +51,7 @@ export class AdminstratorActionsComponent implements OnInit {
 
   //Verificar Mail!!
   addAdmin(): void {
+    alert("entro");
     const admin = new Admin(this.adminName, this.adminSurname,
       this.adminEmail, this.adminPassword);
 

@@ -1,12 +1,12 @@
 export class ReservationUpdate {
-    ReservationId: number;
-    StateId: number;
-    StateDescription: string;
+    reservationId: number;
+    stateId: number;
+    stateDescription: string;
 
 constructor(ReservationId: number, StateId: number, StateDescription: string) {
-    this.ReservationId = ReservationId;
-    this.StateId = StateId;
-    this.StateDescription = StateDescription;
+    this.reservationId = ReservationId;
+    this.stateId = StateId;
+    this.stateDescription = StateDescription;
 }
 
 }

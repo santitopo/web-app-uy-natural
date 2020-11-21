@@ -3,7 +3,12 @@
     <h2>Regiones</h2>
     <section class="section-pictures">
     <div class="hover01" *ngFor="let region of regions" (click)="getDetail(region.id)">
-        <figure><a href=""><img class="picture-box__img " [src]='"images/"+region.name +".jpg"' alt="The Park Camper Tour 1"></a></figure>
+        <figure>
+            <a href=""><img class="picture-box__img " [src]='"images/"+region.name +".jpg"' alt="The Park Camper Tour 1"></a>
+
+    </figure>
+    <p class="bottom-centered">{{region.name}}</p>
+
     </div>
     
     </section>

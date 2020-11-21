@@ -383,3 +383,13 @@ h2{
   .content {
     margin-top: 200px;
   }
+
+  .bottom-centered {
+    bottom: 8px;
+    top: 50%;
+    color: white;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 30px;
+  }
+  

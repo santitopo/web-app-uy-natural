@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TPointsService } from 'src/app/services/tpoints.service';
 import { TPoint } from 'src/Models/TPoint';
 
@@ -9,7 +10,7 @@ import { TPoint } from 'src/Models/TPoint';
 })
 export class TpointCardsComponent implements OnInit {
   tpoints;
-  constructor(private tpointsService: TPointsService) { 
+  constructor(private tpointsService: TPointsService, private router: Router) { 
     
   }
 
@@ -23,6 +24,10 @@ export class TpointCardsComponent implements OnInit {
         alert('Ups algo salió mal...');
         console.log(err);
       });
+  }
+
+  getDetail(tpointId:number){
+    this.router.navigate(['/lodgingsearch']);
   }
 
 }
