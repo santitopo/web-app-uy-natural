@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TPointsService } from 'src/app/services/tpoints.service';
+import { ReservationReport } from 'src/Models/ReservationReport';
 import { TPoint } from 'src/Models/TPoint';
+import { DatePipe } from '@angular/common';
+import { HttpParams } from '@angular/common/http';
+import { ReservationsService } from 'src/app/services/reservations.service';
 
 @Component({
   selector: 'app-reports',
@@ -8,12 +12,17 @@ import { TPoint } from 'src/Models/TPoint';
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  from: string;
-  to: string;
+  from: Date;
+  to: Date;
+  fromToString:string;
+  toToString:string;
   tpoints;
-  selectedTPoint:TPoint;
+  selectedTPointId:number;
+  params:HttpParams;
+  reportResult;
 
-  constructor(private tpointsService: TPointsService) {
+  constructor(private tpointsService: TPointsService, private reservationService: ReservationsService,
+    private datePipe: DatePipe) {
   }
 
   ngOnInit(): void {
@@ -28,5 +37,23 @@ export class ReportsComponent implements OnInit {
   }
 
   generateReport(): void{
+    this.fromToString = this.datePipe.transform(this.from,"ddMMyyyy");
+    this.toToString = this.datePipe.transform(this.to,"ddMMyyyy");
+
+    this.params = new HttpParams()
+    .set('TPointId', this.selectedTPointId.toString())
+    .append('FromDate', this.fromToString)
+    .set('ToDate', this.toToString);
+    
+    this.reservationService.getReservationsReportbyTP(this.params).subscribe(
+      res => {
+        this.reportResult = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
+
+
   }
 }

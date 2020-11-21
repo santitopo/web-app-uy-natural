@@ -54,7 +54,7 @@ export class AdminstratorActionsComponent implements OnInit {
     const admin = new Admin(this.adminName, this.adminSurname,
       this.adminEmail, this.adminPassword);
 
-    this.adminsService.addAdmin(admin);
+    this.adminsService.addAdmin(admin).subscribe();
   }
 
   select(selectedAdmin: Admin): void{
@@ -70,11 +70,11 @@ export class AdminstratorActionsComponent implements OnInit {
     this.selectedAdmin.surname = this.selectedAdminSurname;
     this.selectedAdmin.password = this.selectedAdminPassword;
 
-    this.adminsService.modifyAdmin(this.selectedAdmin);
+    this.adminsService.modifyAdmin(this.selectedAdmin).subscribe();
   }
 
   deleteAdmin(): void{
-    this.adminsService.deleteAdmin(this.selectedAdmin.id);
+    this.adminsService.deleteAdmin(this.selectedAdmin.id).subscribe();
   }
 
 

@@ -4,6 +4,7 @@ import { TPoint } from 'src/Models/TPoint';
 import { LodgingInsert } from 'src/Models/LodgingInsert';
 import { LodgingsService } from 'src/app/services/lodgings.service';
 import { Lodging } from 'src/Models/Lodging';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,9 +29,10 @@ export class LodgingActionsComponent implements OnInit {
   selectedLodging: Lodging;
   actualCapacity: string;
   selectedCapacity: string;
+  capacity: boolean;
 
 
-  constructor(private tpointsService: TPointsService, private lodgingService: LodgingsService) {
+  constructor(private tpointsService: TPointsService, private lodgingService: LodgingsService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -59,18 +61,23 @@ export class LodgingActionsComponent implements OnInit {
     const lodging = new LodgingInsert(this.name, this.selectedTPointId, this.description, this.direction,
       this.phone, this.starRating, this.price, this.images);
 
-      this.lodgingService.addLodging(lodging);
+      this.lodgingService.addLodging(lodging).subscribe();
   }
 
   modifyCapacity(): void{
+    alert("entro");
 
     if (this.selectedCapacity = "Disponible") {
-      this.lodgingService.modifyLodgingCapacity(this.selectedLodging.Id, true);
+      this.capacity = true;
     } 
     else {
-      this.lodgingService.modifyLodgingCapacity(this.selectedLodging.Id, false);
+      this.capacity = false;
     }
-    
+
+    let modifiedlodging = new Lodging(this.selectedLodging.Id, null, null, null, null, null,
+      null,null,null,null, this.capacity);
+
+    //this.lodgingService.modifyLodgingCapacity(modifiedlodging).subscribe();
   }
 
   select(lodging:Lodging): void{
@@ -79,6 +86,10 @@ export class LodgingActionsComponent implements OnInit {
     }else{
       this.actualCapacity = "Lleno";
     }
+  }
+
+  importLodging(): void{
+    this.router.navigate(['/tpointimportation']);
   }
 
 }

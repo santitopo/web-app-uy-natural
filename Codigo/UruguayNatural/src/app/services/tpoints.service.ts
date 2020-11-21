@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -55,8 +55,9 @@ export class TPointsService {
     return this.tpoints.filter(x => x.id === id)[0];
   }
 
-  addTPoint(tpoint: TouristicPointInsert) : void{
-    this.http.post<TPoint>(this.uri, tpoint);
+  addTPoint(tpoint: TouristicPointInsert) : Observable<{}> {
+    const headers = new HttpHeaders().set('token', localStorage.token);
+    return this.http.post(this.uri, tpoint, { headers: headers });
   }
 }
 

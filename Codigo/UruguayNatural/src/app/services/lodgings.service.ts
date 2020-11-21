@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -42,11 +42,14 @@ export class LodgingsService {
     return this.http.get<Lodging>(this.uri);
   }
 
-  addLodging(lodging: LodgingInsert): void {
-
+  addLodging(lodging: LodgingInsert): Observable<{}> {
+    const headers = new HttpHeaders().set('token', localStorage.token);
+    return this.http.post(this.uri, lodging, { headers: headers });
   }
 
-  modifyLodgingCapacity(lodgingId: number, capacity: boolean){
-
+  modifyLodgingCapacity(lodging: Lodging): Observable<{}>{
+    alert("entro al controller");
+    const headers = new HttpHeaders().set('token', localStorage.token);
+    return this.http.put(this.uri, lodging, { headers: headers });
   }
 }

@@ -54,6 +54,7 @@ import { LodgingActionsComponent } from './lodging-actions/lodging-actions.compo
 import { AdminstratorActionsComponent } from './adminstrator-actions/adminstrator-actions.component';
 import { ReservationActionsComponent } from './reservation-actions/reservation-actions.component';
 import { ReportsComponent } from './reports/reports.component';
+import {DatePipe} from '@angular/common';
 
 
 
@@ -111,6 +112,7 @@ import { ReportsComponent } from './reports/reports.component';
     ScrollingModule,
     NgbModule
   ],
-  exports: [LoginComponent, LoginFormComponent, AdminPageComponent]
+  exports: [LoginComponent, LoginFormComponent, AdminPageComponent],
+  providers: [DatePipe]
 })
 export class AdminActionsModule { }

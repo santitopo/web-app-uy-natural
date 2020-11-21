@@ -3,8 +3,7 @@
 
       <nav mat-tab-nav-bar class="inline white-color">
         <a mat-tab-link class="black-color" routerLink="tpointsearch" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Regiones </a>
-        <a mat-tab-link class="black-color" routerLink="../reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Consultar Reserva </a>
-        <a mat-tab-link class="black-color" routerLink="../reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Escribir Reseña </a>
+        <a mat-tab-link class="black-color" routerLink="../reviews" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Mis Reservas </a>
       </nav>
       <div *ngIf="logged; then thenBlock; else elseBlock"></div>
       <ng-template #thenBlock>
