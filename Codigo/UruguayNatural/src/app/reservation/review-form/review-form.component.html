@@ -13,8 +13,14 @@
         <h3>{{description}}</h3>
     </mat-card>
 
-    <button mat-raised-button color="primary" (click)="allowReview()">Escribir Reseña</button>
-
+    <div *ngIf="reviewExists; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>        
+        <button mat-raised-button color="primary" disabled>¡Ya recibimos tu reseña!</button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <button mat-raised-button color="primary" (click)="allowReview()">Escribir Reseña</button>
+    </ng-template>
+    
     <div class="review-area" *ngIf="showReviewArea">
         <mat-form-field appearance="outline" class="text-area">
             <mat-label>Ingrese su reseña aqui...</mat-label>

@@ -204,10 +204,10 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LodgingId = table.Column<int>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Score = table.Column<int>(nullable: false),
-                    ClientId = table.Column<int>(nullable: true)
+                    ClientId = table.Column<int>(nullable: true),
+                    ReservationId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -219,9 +219,9 @@ namespace Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Reviews_Lodgings_LodgingId",
-                        column: x => x.LodgingId,
-                        principalTable: "Lodgings",
+                        name: "FK_Reviews_Reservations_ReservationId",
+                        column: x => x.ReservationId,
+                        principalTable: "Reservations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -252,9 +252,9 @@ namespace Persistence.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_LodgingId",
+                name: "IX_Reviews_ReservationId",
                 table: "Reviews",
-                column: "LodgingId");
+                column: "ReservationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TouristicPoints_RegionId",
@@ -275,9 +275,6 @@ namespace Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Reservations");
-
-            migrationBuilder.DropTable(
                 name: "Reviews");
 
             migrationBuilder.DropTable(
@@ -287,16 +284,19 @@ namespace Persistence.Migrations
                 name: "UserSessions");
 
             migrationBuilder.DropTable(
-                name: "State");
-
-            migrationBuilder.DropTable(
-                name: "Lodgings");
+                name: "Reservations");
 
             migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Persons");
+
+            migrationBuilder.DropTable(
+                name: "Lodgings");
+
+            migrationBuilder.DropTable(
+                name: "State");
 
             migrationBuilder.DropTable(
                 name: "TouristicPoints");

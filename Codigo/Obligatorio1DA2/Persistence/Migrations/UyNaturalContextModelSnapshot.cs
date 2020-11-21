@@ -185,7 +185,7 @@ namespace Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("LodgingId")
+                    b.Property<int?>("ReservationId")
                         .HasColumnType("int");
 
                     b.Property<int>("Score")
@@ -195,7 +195,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.HasIndex("LodgingId");
+                    b.HasIndex("ReservationId");
 
                     b.ToTable("Reviews");
                 });
@@ -326,9 +326,9 @@ namespace Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("Domain.Lodging", "Lodging")
+                    b.HasOne("Domain.Reservation", "Reservation")
                         .WithMany()
-                        .HasForeignKey("LodgingId");
+                        .HasForeignKey("ReservationId");
                 });
 
             modelBuilder.Entity("Domain.TouristicPoint", b =>

@@ -18,5 +18,8 @@ namespace LogicInterface
         Reservation GetReservationByGuid(string code);
 
         IEnumerable<ReservationReportResultModel> GetReportByTPoint(ReservationReportRequestModel request);
+
+        bool ReviewExistsbyGuid(string reservationCode);
+
     }
 }

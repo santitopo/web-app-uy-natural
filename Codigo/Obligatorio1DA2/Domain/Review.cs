@@ -7,10 +7,10 @@ namespace Domain
     public class Review
     {
         public int Id { get; set; }
-        public Lodging Lodging { get; set; }
         public string Description { get; set; }
         public int Score { get; set; }
         public Client Client { get; set; }
+        public Reservation Reservation { get; set; }
 
         public Review()
         {
@@ -27,10 +27,11 @@ namespace Domain
             {
                 return false;
             }
-            return Lodging.Equals(((Review)obj).Lodging) &&
+            return 
                 Description.Equals(((Review)obj).Description) &&
                 Client.Equals(((Review)obj).Client) &&
-                Score.Equals(((Review)obj).Score);
+                Score.Equals(((Review)obj).Score)&&
+                Reservation.Equals(((Review)obj).Reservation);
         }
     }
 }

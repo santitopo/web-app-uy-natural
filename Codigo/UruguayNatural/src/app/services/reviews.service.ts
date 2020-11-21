@@ -16,4 +16,8 @@ export class ReviewsService {
     return this.http.post<Review>(this.uri, review);
   }
 
+  checkExistingReview(reservationCode: string): Observable<boolean>{
+    return this.http.get<boolean>(`${this.uri}/${reservationCode}`);
+  }
+
 }

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'menu', component: MainpageComponent },
   { path: 'lodgingsearch', component: SearchFormComponent},
   { path: 'tpointsearch', component: NavRegionsComponent},
-  { path: 'reviews', component: ReviewFormComponent, canActivate: [isLoggedGuard]},
+  { path: 'reviews', component: ReviewFormComponent},
   { path: 'admin', component: AdminPageComponent, canActivate: [isLoggedGuard]},
   { path: 'tpointimportation', component: ImportBodyComponent, canActivate: [isLoggedGuard]},
   { path: 'tpointsearch', component: NavRegionsComponent},

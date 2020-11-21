@@ -16,10 +16,12 @@ namespace WebApplication.Controllers
     public class ReviewController : ControllerBase
     {
         private readonly ILodgingLogic lodgingLogic;
+        private readonly IReservationLogic reservationLogic;
 
-        public ReviewController(ILodgingLogic lodgingLogic)
+        public ReviewController(ILodgingLogic lodgingLogic, IReservationLogic reservationLogic)
         {
             this.lodgingLogic = lodgingLogic;
+            this.reservationLogic = reservationLogic;
         }
 
         // POST: /reviews
@@ -34,6 +36,19 @@ namespace WebApplication.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("{reservationCode}")]
+        public IActionResult GetReviewByReservationCode(string reservationCode)
+        {
+            try
+            {                
+                return Ok(reservationLogic.ReviewExistsbyGuid(reservationCode));
+            }
+            catch (Exception)
+            {
+                return BadRequest("Error procesando la solicitud");
             }
         }
     }

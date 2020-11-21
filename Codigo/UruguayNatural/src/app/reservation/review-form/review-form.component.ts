@@ -26,6 +26,7 @@ export class ReviewFormComponent implements OnInit {
   showState= false;
   showReviewArea = false;
   showNotFound = false;
+  reviewExists = false;
 
   constructor(private reservationService:ReservationsService, private reviewService: ReviewsService
     , private router: Router) { this.reviewStars=0;}
@@ -36,6 +37,7 @@ export class ReviewFormComponent implements OnInit {
   handlerFunction(valueEmitted){
     this.reservationCode = valueEmitted;
     this.loadReservation(valueEmitted);
+    this.checkExistingReview(valueEmitted);
   }
 
   loadReservation(reservationCode:string){
@@ -68,6 +70,17 @@ export class ReviewFormComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  checkExistingReview(reservationCode: string){
+    this.reviewService.checkExistingReview(reservationCode).subscribe(
+      (res: boolean) => {
+        this.reviewExists=res;
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
 

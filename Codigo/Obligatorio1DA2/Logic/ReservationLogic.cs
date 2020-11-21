@@ -18,10 +18,11 @@ namespace Logic
         private IRepository<Client> clientRepository;
         private IRepository<State> stateRepository;
         private ITPointRepository tpointRepository;
+        private IReviewRepository reviewRepository;
 
         public ReservationLogic(IReservationRepository reservationRepository, IAdminRepository adminRepository,
             ILodgingRepository lodgingRepository, IPriceCalculator priceCalculator, IRepository<Client> clientRepository,
-            IRepository<State> stateRepository, ITPointRepository tpointRepository)
+            IRepository<State> stateRepository, ITPointRepository tpointRepository, IReviewRepository reviewRepository)
         {
             this.reservationRepository = reservationRepository;
             this.adminRepository = adminRepository;
@@ -30,6 +31,7 @@ namespace Logic
             this.clientRepository = clientRepository;
             this.stateRepository = stateRepository;
             this.tpointRepository = tpointRepository;
+            this.reviewRepository = reviewRepository;
         }
 
         public BillModel BookLodging(ReservationModel reservationData)
@@ -147,6 +149,12 @@ namespace Logic
             List<ReservationReportResultModel> report = reservationRepository.GetReportByTPoint(request.TPointId, fromDate, toDate);
             if (report == null || report.Count() == 0 ) { throw new InvalidOperationException("No hay ningun hospedaje con reservas en el periodo buscado"); }
             return report;
+        }
+    
+        public bool ReviewExistsbyGuid(string reservationCode)
+        {
+            Guid guidcode = new Guid(reservationCode);
+            return (reviewRepository.ReviewExists(guidcode));
         }
     }
 }

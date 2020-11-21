@@ -6,6 +6,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .logo:focus{
+    outline:none;
+  }
   
   /*
     Azul: #00528c 

@@ -48,9 +48,9 @@ namespace Logic
                 Review newReview = new Review
                 {
                     Client = reservation.Client,
-                    Lodging = reservation.Lodging,
                     Description = description,
-                    Score = score
+                    Score = score,
+                    Reservation = reservation
                 };
                 reviewRepository.Create(newReview);
                 reviewRepository.Save();
@@ -69,12 +69,12 @@ namespace Logic
         {
             int totalReviews = 0;
             int totalScore = 0;
-            string [] param = { "Lodging" , "Client" };
+            string [] param = { "Reservation.Lodging" , "Client" };
 
             List<Review> reviews = reviewRepository.GetAll(param).ToList();
             foreach(Review review in reviews)
             {
-                if (review.Lodging.Equals(lodging))
+                if (review.Reservation.Lodging.Equals(lodging))
                 {
                     totalReviews++;
                     totalScore += review.Score;

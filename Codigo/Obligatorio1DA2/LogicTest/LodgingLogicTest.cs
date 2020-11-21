@@ -87,7 +87,7 @@ namespace LogicTest
             Review newReview = new Review
             {
                 Client = client,
-                Lodging = lodging,
+                Reservation = reservation,
                 Description = "aDescription",
                 Score = 5
             };

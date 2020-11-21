@@ -36,7 +36,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null,null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -119,7 +119,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null,null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -191,7 +191,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null,null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -219,7 +219,7 @@ namespace LogicTest
         public void BookFailLodgingNoCapacity()
         {
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null,null);
 
             ReservationModel reservationModel = new ReservationModel()
             {
@@ -255,7 +255,7 @@ namespace LogicTest
         {
 
             ReservationLogic logic = new ReservationLogic(reservationsMock.Object, adminsMock.Object,
-                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null);
+                lodgingsMock.Object, priceCalculatorMock.Object, clientsMock.Object, null, null,null);
             State defaultState = new State()
             {
                 Name = Constants.DEFAULT_RESERVATION_STATE
@@ -287,7 +287,7 @@ namespace LogicTest
         {
             var mock1 = new Mock<IReservationRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<State>>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock1.Object,null,null,null,null, mock2.Object, null);
+            ReservationLogic logic = new ReservationLogic(mock1.Object,null,null,null,null, mock2.Object, null,null);
 
             string[] param = {"State"};
             mock1.Setup(x => x.GetAll(param)).Returns(It.IsAny<IEnumerable<Reservation>>);
@@ -301,7 +301,7 @@ namespace LogicTest
         {
             var mock1 = new Mock<IReservationRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IRepository<State>>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock1.Object, null, null, null, null, mock2.Object, null);
+            ReservationLogic logic = new ReservationLogic(mock1.Object, null, null, null, null, mock2.Object, null,null);
 
             string[] param = { };
             mock2.Setup(x => x.GetAll(param)).Returns(It.IsAny<IEnumerable<State>>);
@@ -315,7 +315,7 @@ namespace LogicTest
         {
             var mock1 = new Mock<ITPointRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IReservationRepository>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock2.Object, null, null, null, null, null, mock1.Object);
+            ReservationLogic logic = new ReservationLogic(mock2.Object, null, null, null, null, null, mock1.Object,null);
 
             TouristicPoint tpoint = new TouristicPoint()
             {
@@ -345,7 +345,7 @@ namespace LogicTest
         {
             var mock1 = new Mock<ITPointRepository>(MockBehavior.Strict);
             var mock2 = new Mock<IReservationRepository>(MockBehavior.Strict);
-            ReservationLogic logic = new ReservationLogic(mock2.Object, null, null, null, null, null, mock1.Object);
+            ReservationLogic logic = new ReservationLogic(mock2.Object, null, null, null, null, null, mock1.Object,null);
 
             TouristicPoint tpoint = new TouristicPoint()
             {
