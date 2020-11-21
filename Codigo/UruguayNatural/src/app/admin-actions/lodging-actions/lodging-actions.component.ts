@@ -13,8 +13,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./lodging-actions.component.css']
 })
 export class LodgingActionsComponent implements OnInit {
-  //Add Lodging Variables
+ //Both
   tpoints;
+
+   //Add Lodging Variables
   starRating = 3;
   name:string;
   direction:string;
@@ -25,14 +27,19 @@ export class LodgingActionsComponent implements OnInit {
   images:string[];
 
   //Modify Capacity Variables
+  selectedTPointIdSearch:number;
   lodgings;
+  Arr = Array;
+  LodgingName: string;
   selectedLodging: Lodging;
   actualCapacity: string;
   selectedCapacity: string;
   capacity: boolean;
+  searched:boolean;
 
 
   constructor(private tpointsService: TPointsService, private lodgingService: LodgingsService, private router: Router) {
+    this.lodgings = new Array();
   }
 
   ngOnInit(): void {
@@ -65,8 +72,6 @@ export class LodgingActionsComponent implements OnInit {
   }
 
   modifyCapacity(): void{
-    alert("entro");
-
     if (this.selectedCapacity = "Disponible") {
       this.capacity = true;
     } 
@@ -74,14 +79,14 @@ export class LodgingActionsComponent implements OnInit {
       this.capacity = false;
     }
 
-    let modifiedlodging = new Lodging(this.selectedLodging.Id, null, null, null, null, null,
+    let modifiedlodging = new Lodging(this.selectedLodging.id, null, null, null, null, null,
       null,null,null,null, this.capacity);
 
     //this.lodgingService.modifyLodgingCapacity(modifiedlodging).subscribe();
   }
 
   select(lodging:Lodging): void{
-    if(lodging.Capacity){
+    if(lodging.capacity){
       this.actualCapacity = "Disponible";
     }else{
       this.actualCapacity = "Lleno";
@@ -90,6 +95,20 @@ export class LodgingActionsComponent implements OnInit {
 
   importLodging(): void{
     this.router.navigate(['/tpointimportation']);
+  }
+
+  searchLodgings(): void{
+    
+     this.lodgingService.getbyNameandTpoint(this.LodgingName,this.selectedTPointIdSearch).subscribe(
+      res => {
+        this.lodgings = res;
+        this.searched = true;
+      },
+      err => {
+        alert("Ups.. Algo salió mal");
+        console.log(err);
+      }
+    )
   }
 
 }

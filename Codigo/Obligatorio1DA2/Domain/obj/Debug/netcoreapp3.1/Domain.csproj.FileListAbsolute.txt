@@ -24,4 +24,3 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domai
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache
-C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache

@@ -85,5 +85,16 @@ namespace Logic
             lodgingRepository.Update(lodging);
             lodgingRepository.Save();
         }
+
+
+        public IEnumerable<Lodging> SearchBySimilarNameandTpoint(string lodgingName, int tpointId)
+        {
+            IEnumerable<Lodging> lodgingList = lodgingRepository.FindByTPoint(tpointId);
+
+            return lodgingList.Where(x => x.TouristicPoint.Id == tpointId &&
+                           (x.Name.ToLower().Trim().Contains(lodgingName.ToLower().Trim())
+                         || lodgingName.ToLower().Trim().Contains(x.Name.ToLower().Trim()))
+                         );
+        }
     }
 }

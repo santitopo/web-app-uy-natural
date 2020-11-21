@@ -1,31 +1,31 @@
 import { TPoint } from './TPoint';
 
 export class Lodging {
-    Id: number;
-    Name: string;
-    TouristicPoint: TPoint;
-    Description: string;
-    Direction: string;
-    Phone: string;
-    Stars: number;
-    Price: number;
-    Images: string[];
-    Score: number;
-    Capacity: boolean;
+    id: number;
+    name: string;
+    touristicPoint: TPoint;
+    description: string;
+    direction: string;
+    phone: string;
+    stars: number;
+    price: number;
+    images: string[];
+    score: number;
+    capacity: boolean;
 
     constructor(Id: number, Name: string, TouristicPoint: TPoint, Description: string, Direction: string,
                 Phone: string, Stars: number, Price: number, Images: string[], Score: number, Capacity: boolean) {
-      this.Id = Id;
-      this.Name = Name;
-      this.Description = Description;
-      this.Direction = Direction;
-      this.Phone = Phone;
-      this.Images = Images;
-      this.Price = Price;
-      this.Score = Score;
-      this.Stars = Stars;
-      this.TouristicPoint = TouristicPoint;
-      this.Capacity = Capacity;
+      this.id = Id;
+      this.name = Name;
+      this.description = Description;
+      this.direction = Direction;
+      this.phone = Phone;
+      this.images = Images;
+      this.price = Price;
+      this.score = Score;
+      this.stars = Stars;
+      this.touristicPoint = TouristicPoint;
+      this.capacity = Capacity;
 
   }
 

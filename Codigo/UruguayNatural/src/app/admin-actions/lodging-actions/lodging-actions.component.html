@@ -64,14 +64,41 @@
 
 <mat-card>
     <mat-card-title>Modificar Capacidad Hospedaje</mat-card-title>
-    <mat-card-content class="inline">
-        <div>
+    
+    <div class="inline">
+
+        <mat-card class="search-bar">
+              
+            <mat-form-field class="user-input searchElement">
+                <mat-label>Nombre del Hospedaje</mat-label>
+                <input [(ngModel)]="LodgingName" matInput placeholder="Ej. Casa del Sol">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Punto Turistico</mat-label>
+                <mat-select [(ngModel)]="selectedTPointIdSearch" required="true">
+                    <mat-option *ngFor="let tpoint of tpoints" [value]="tpoint.id">{{tpoint.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+      
+          <button mat-mini-fab color="primary" class="margin-left" (click)="searchLodgings()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-card>
+      </div>
+
+
+    <mat-card-content class="inline" >
+        
+        <div *ngIf="searched">
+            
+
             <p>
                 <mat-form-field appearance="standard">
                     <mat-label>Hospedajes</mat-label>
                     <mat-select [(ngModel)]="selectedLodging" (selectionChange)="select(selectedLodging)">
-                        <mat-option *ngFor="let lodging of lodgings" [value]="lodging">{{lodging.Name}}
-                            [{{lodging.TouristicPoint.name}}]</mat-option>
+                        <mat-option *ngFor="let lodging of lodgings" [value]="lodging">{{lodging.name}}
+                            </mat-option>
                     </mat-select>
                 </mat-form-field>
             </p>
@@ -85,6 +112,9 @@
         </div>
 
         <div>
+           
+
+
             <p>
                 <mat-form-field appearance="standard">
                     <mat-label>Capacidad</mat-label>

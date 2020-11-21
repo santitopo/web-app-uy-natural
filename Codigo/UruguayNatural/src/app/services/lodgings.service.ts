@@ -38,9 +38,9 @@ export class LodgingsService {
     return this.lodgingSearchResults;
   }
 
-  getLodgings(): Observable<Lodging> {
-    return this.http.get<Lodging>(this.uri);
-  }
+  getbyNameandTpoint(name:string, tpointId: number): Observable<Lodging> {
+    return this.http.get<Lodging>(this.uri+"?LodgingName="+name+"&TpointId="+tpointId);
+   }
 
   addLodging(lodging: LodgingInsert): Observable<{}> {
     const headers = new HttpHeaders().set('token', localStorage.token);

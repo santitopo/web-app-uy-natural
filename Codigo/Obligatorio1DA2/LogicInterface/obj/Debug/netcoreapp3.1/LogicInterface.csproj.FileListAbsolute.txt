@@ -39,4 +39,3 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\LogicInterface\obj\Debug\netcoreapp3.1\LogicInterface.csproj.CopyComplete
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\LogicInterface\obj\Debug\netcoreapp3.1\LogicInterface.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\LogicInterface\obj\Debug\netcoreapp3.1\LogicInterface.pdb
-C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\LogicInterface\obj\Debug\netcoreapp3.1\LogicInterface.csproj.CoreCompileInputs.cache

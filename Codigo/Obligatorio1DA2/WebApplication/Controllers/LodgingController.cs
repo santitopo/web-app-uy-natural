@@ -33,6 +33,22 @@ namespace WebApplication.Controllers
             return Ok(touristicPoints);
         }
 
+        //https://localhost:44371/lodgings?LodgingName=hola&TpointId=2
+        [HttpGet]
+        public IActionResult GetbySimilarNameandTP([FromQuery] LodgingSelectionModel search)
+        {
+            try
+            {
+                IEnumerable<Lodging> lodgingList = lodgingLogic.SearchBySimilarNameandTpoint(search.LodgingName, search.TpointId);
+                return Ok(lodgingList);
+            }
+            catch (Exception e)
+            {
+                return NotFound("Error de procesamiento");
+            }
+
+        }
+
         // POST: /lodgings
         [HttpPost]
         [ServiceFilter(typeof(AuthorizationFilter))]
