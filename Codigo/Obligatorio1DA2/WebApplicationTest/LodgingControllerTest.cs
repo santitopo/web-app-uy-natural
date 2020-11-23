@@ -111,7 +111,7 @@ namespace WebApplicationTest
             };
             string token = "123";
 
-            var result = controller.Put(token, lodgingModel);
+            var result = controller.Put(lodgingModel);
             var okResult = result as OkObjectResult;
 
             adminMock.VerifyAll();
@@ -133,7 +133,7 @@ namespace WebApplicationTest
             };
             string token = "123";
 
-            var result = controller.Put(token, lodgingModel);
+            var result = controller.Put(lodgingModel);
             adminMock.VerifyAll();
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
         }
@@ -151,6 +151,48 @@ namespace WebApplicationTest
             var result = controller.GetLodgingsByTP(model);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as IEnumerable<LodgingSearchResultModel>;
+
+            lodgingLogicMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void GetbySimilarNameandTP()
+        {
+            var lodgingLogicMock = new Mock<ILodgingLogic>(MockBehavior.Strict);
+            LodgingController controller = new LodgingController(lodgingLogicMock.Object, null);
+
+            lodgingLogicMock.Setup(x => x.SearchBySimilarNameandTpoint(It.IsAny<string>(),It.IsAny<int>())).Returns(It.IsAny<IEnumerable<Lodging>>());
+
+            LodgingSelectionModel model = new LodgingSelectionModel()
+            {
+                LodgingName = "123",
+                TpointId = 1
+            };
+
+            var result = controller.GetbySimilarNameandTP(model);
+            var okResult = result as OkObjectResult;
+            var value = okResult.Value as IEnumerable<Lodging>;
+
+            lodgingLogicMock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void GetbySimilarNameandTPException()
+        {
+            var lodgingLogicMock = new Mock<ILodgingLogic>(MockBehavior.Strict);
+            LodgingController controller = new LodgingController(lodgingLogicMock.Object, null);
+
+            lodgingLogicMock.Setup(x => x.SearchBySimilarNameandTpoint(It.IsAny<string>(), It.IsAny<int>()))
+                .Throws(new InvalidOperationException());
+            LodgingSelectionModel model = new LodgingSelectionModel()
+            {
+                LodgingName = "123",
+                TpointId = 1
+            };
+
+            var result = controller.GetbySimilarNameandTP(model);
+            lodgingLogicMock.VerifyAll();
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
 
             lodgingLogicMock.VerifyAll();
         }

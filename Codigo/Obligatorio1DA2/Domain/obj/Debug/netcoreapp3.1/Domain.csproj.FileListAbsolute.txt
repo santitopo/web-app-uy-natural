@@ -24,3 +24,7 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domai
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
+<<<<<<< HEAD
+=======
+C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache
+>>>>>>> feature/Angular

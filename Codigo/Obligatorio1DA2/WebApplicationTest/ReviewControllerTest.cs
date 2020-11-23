@@ -20,7 +20,7 @@ namespace WebApplicationTest
         {
             var mock = new Mock<ILodgingLogic>(MockBehavior.Strict);
 
-            ReviewController controller = new ReviewController(mock.Object);
+            ReviewController controller = new ReviewController(mock.Object, null);
 
             ReviewModel reviewModel = new ReviewModel()
             {
@@ -46,7 +46,7 @@ namespace WebApplicationTest
         {
             var mock = new Mock<ILodgingLogic>(MockBehavior.Strict);
 
-            ReviewController controller = new ReviewController(mock.Object);
+            ReviewController controller = new ReviewController(mock.Object, null);
 
             ReviewModel reviewModel = new ReviewModel()
             {
@@ -62,6 +62,38 @@ namespace WebApplicationTest
                 Throws(new InvalidOperationException("El codigo de reserva no existe"));
 
             var result = controller.Post(reviewModel);
+            var response = result as ObjectResult;
+            Assert.AreEqual(400, response.StatusCode);
+
+            mock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void GetReviewByReservationCode()
+        {
+            var mock = new Mock<IReservationLogic>(MockBehavior.Strict);
+
+            ReviewController controller = new ReviewController(null, mock.Object);
+
+            mock.Setup(x => x.ReviewExistsbyGuid(It.IsAny<string>())).Returns(It.IsAny<bool>());
+                
+            var result = controller.GetReviewByReservationCode("1234");
+            var response = result as ObjectResult;
+            Assert.AreEqual(200, response.StatusCode);
+
+            mock.VerifyAll();
+        }
+
+        [TestMethod]
+        public void GetReviewByReservationCodeError()
+        {
+            var mock = new Mock<IReservationLogic>(MockBehavior.Strict);
+
+            ReviewController controller = new ReviewController(null, mock.Object);
+
+            mock.Setup(x => x.ReviewExistsbyGuid(It.IsAny<string>())).Throws(new InvalidOperationException());
+
+            var result = controller.GetReviewByReservationCode("1234");
             var response = result as ObjectResult;
             Assert.AreEqual(400, response.StatusCode);
 

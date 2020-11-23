@@ -98,7 +98,7 @@ namespace LogicTest
             mock1.Setup(x => x.FindByCode(It.IsAny<Guid>())).Returns(reservation);
             mock2.Setup(x => x.Create(It.IsAny<Review>()));
             mock2.Setup(x => x.Save());
-            string[] param = { "Lodging", "Client" };
+            string[] param = { "Reservation.Lodging", "Client" };
             mock2.Setup(x => x.GetAll(param)).Returns(reviews);
             mock3.Setup(x => x.Update(It.IsAny<Lodging>()));
             mock3.Setup(x => x.Save());
@@ -130,6 +130,78 @@ namespace LogicTest
             
             Review review = logic.AddReview(new Guid(), "aDescription", 5);
 
+            mock1.VerifyAll();
+        }
+
+        [TestMethod]
+        public void SearchBysubStringNameandTpoint()
+        {
+            var mock1 = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            LodgingLogic logic = new LodgingLogic(mock1.Object, null, null, null);
+
+            Reservation nullReservation = null;
+
+            Lodging lod1 = new Lodging()
+            {
+                Name = "Casa del Sol",
+                TouristicPoint = new TouristicPoint() { Id = 2 }
+            };
+            List<Lodging> lst = new List<Lodging>();
+            lst.Add(lod1);
+
+            mock1.Setup(x => x.FindByTPoint(It.IsAny<int>())).Returns(lst);
+
+            IEnumerable<Lodging> ret = logic.SearchBySimilarNameandTpoint("Cas", 2);
+
+            Assert.IsTrue(ret.Contains(lod1));
+            mock1.VerifyAll();
+        }
+
+        [TestMethod]
+        public void SearchByExtraNameandTpoint()
+        {
+            var mock1 = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            LodgingLogic logic = new LodgingLogic(mock1.Object, null, null, null);
+
+            Reservation nullReservation = null;
+
+            Lodging lod1 = new Lodging()
+            {
+                Name = "Casa del Sol",
+                TouristicPoint = new TouristicPoint() { Id = 2 }
+            };
+            List<Lodging> lst = new List<Lodging>();
+            lst.Add(lod1);
+
+            mock1.Setup(x => x.FindByTPoint(It.IsAny<int>())).Returns(lst);
+
+            IEnumerable<Lodging> ret = logic.SearchBySimilarNameandTpoint("Casa del Solares", 2);
+
+            Assert.IsTrue(ret.Contains(lod1));
+            mock1.VerifyAll();
+        }
+
+        [TestMethod]
+        public void FailSearchByNameandTpoint()
+        {
+            var mock1 = new Mock<ILodgingRepository>(MockBehavior.Strict);
+            LodgingLogic logic = new LodgingLogic(mock1.Object, null, null, null);
+
+            Reservation nullReservation = null;
+
+            Lodging lod1 = new Lodging()
+            {
+                Name = "Casa del Sol",
+                TouristicPoint = new TouristicPoint() { Id = 2 }
+            };
+            List<Lodging> lst = new List<Lodging>();
+            lst.Add(lod1);
+            
+            mock1.Setup(x => x.FindByTPoint(It.IsAny<int>())).Returns(lst);
+
+            IEnumerable<Lodging> ret = logic.SearchBySimilarNameandTpoint("Hola", 2);
+
+            Assert.IsFalse(ret.Contains(lod1));
             mock1.VerifyAll();
         }
 
