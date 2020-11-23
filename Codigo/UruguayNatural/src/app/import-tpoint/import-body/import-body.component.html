@@ -5,31 +5,40 @@
         <!-- Dropdown with importation methods available -->
         <mat-form-field appearance="fill" >
             <mat-label>Importador</mat-label>
-            <mat-select>
-              <mat-option value="JSON">JSON</mat-option>
-              <mat-option value="XML">XML</mat-option>
-              <mat-option value="Base de Datos">Data Base</mat-option>
+            <mat-select [(ngModel)]="selectedImporter" (selectionChange)="select(selectedImporter)" required="true" >
+                <mat-option *ngFor="let importer of availableImporters" [value]="importer">
+                    {{importer.importerName}}
+                </mat-option>
             </mat-select>
           </mat-form-field>
         <p><strong>Importar</strong></p>
+        <p>Nota: Utilice los caracteres <strong>' / '</strong> o <strong>' \\ '</strong> como separadores</p>
         <!-- Campos Variables  -->
-         <mat-form-field appearance="fill">
-                <mat-label>Archivo XML</mat-label>
-                <ngx-mat-file-input formControlName="fill" placeholder="Seleccione el archivo XML" [accept]="'.xml'"></ngx-mat-file-input>
-                <mat-icon matSuffix>folder</mat-icon>
-              </mat-form-field>
-          <div>
-                <button mat-raised-button color="primary" class="button-margin">Importar</button>
+         
+        <div *ngIf="selectedImporter!=undefined">
+            <mat-form-field *ngFor="let param of selectedImporter.parameters" appearance="fill">
+                <mat-label>{{param.name}}</mat-label>
+                <input  matInput [(ngModel)]="param.value" placeholder="{{param.name}}" required="true">
+            </mat-form-field>
+        
         </div>
+            <!-- ---------               -->
+        <div *ngIf="(availableImporters.length>0 && selectedImporter!=undefined); else elseBlock">
+            <button mat-raised-button color="primary" class="button-margin" (click)="import()">Importar</button>
+        </div>
+        <ng-template #elseBlock>
+            <button mat-raised-button color="primary" class="button-margin" disabled>Importar</button>
+        </ng-template>
+
     </div>
-    <div class="right">
+    <div class="right" *ngIf="importationExecuted">
         <mat-card>
             <mat-card-title> Importados</mat-card-title>
             <mat-card-content>
-                <mat-list>
-                    <mat-list-item class="font-small"> Bella Vista </mat-list-item>
-                    <mat-list-item class="font-small"> Maldonado </mat-list-item>
-                    <mat-list-item class="font-small"> Tacuarembó </mat-list-item>
+                <mat-list >
+                    <mat-list-item *ngFor="let importedLodging of importationResult.imported" 
+                                   class="font-small">{{importedLodging.name}} </mat-list-item>
+                    
                 </mat-list>
             </mat-card-content>
         </mat-card>
@@ -38,9 +47,8 @@
             <mat-card-title>No Importados</mat-card-title>
             <mat-card-content>
                 <mat-list>
-                    <mat-list-item class="font-small"> Puerto Vallarta - Error de procesamiento </mat-list-item>
-                    <mat-list-item class="font-small"> Colonia - Region Central inexistente </mat-list-item>
-                    <mat-list-item class="font-small"> Rivera - Categoria ciudad inexistente </mat-list-item>
+                    <mat-list-item *ngFor="let tuple of importationResult.notImported" 
+                    class="font-small"> {{tuple.lodging.name}} - {{tuple.reason}} </mat-list-item>
                 </mat-list>
             </mat-card-content>
         </mat-card>

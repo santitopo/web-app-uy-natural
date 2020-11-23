@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Domain;
+using Filters;
 using LogicInterface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,7 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult GetAvailableLodgingImporters()
         {
             try
@@ -61,6 +63,7 @@ namespace WebApplication.Controllers
                     }
                     catch (Exception) { }
                 }
+
                 return Ok(availableImporters);
             }
             catch (Exception e)
@@ -71,6 +74,7 @@ namespace WebApplication.Controllers
 
 
         [HttpPost]
+        [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Import([FromBody] LodgingImporterModel importerModel)
         {
             try
