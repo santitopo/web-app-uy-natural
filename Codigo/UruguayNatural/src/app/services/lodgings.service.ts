@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Lodging } from 'src/Models/Lodging';
 import { LodgingInsert } from 'src/Models/LodgingInsert';
+import { LodgingModel } from 'src/Models/LodgingModel';
 import { LodgingSearchResult } from 'src/Models/LodgingSearchResult';
 
 @Injectable({
@@ -47,9 +48,8 @@ export class LodgingsService {
     return this.http.post(this.uri, lodging, { headers: headers });
   }
 
-  modifyLodgingCapacity(lodging: Lodging): Observable<{}>{
-    alert("entro al controller");
-    const headers = new HttpHeaders().set('token', localStorage.token);
+  modifyLodgingCapacity(lodging: LodgingModel): Observable<{}>{
+    const headers = new HttpHeaders({'token': localStorage.token});
     return this.http.put(this.uri, lodging, { headers: headers });
   }
 }

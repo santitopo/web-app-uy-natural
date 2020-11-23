@@ -85,7 +85,7 @@ namespace WebApplication.Controllers
         // PUT: /lodgings
         [HttpPut]
         [ServiceFilter(typeof(AuthorizationFilter))]
-        public IActionResult Put([FromHeader] string token, [FromBody] LodgingModel lodgingModel)
+        public IActionResult Put([FromBody] LodgingModel lodgingModel)
         {
             try
             {

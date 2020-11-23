@@ -289,7 +289,7 @@ namespace LogicTest
             var mock2 = new Mock<IRepository<State>>(MockBehavior.Strict);
             ReservationLogic logic = new ReservationLogic(mock1.Object,null,null,null,null, mock2.Object, null,null);
 
-            string[] param = {"State"};
+            string[] param = { "State", "Client", "Lodging" };
             mock1.Setup(x => x.GetAll(param)).Returns(It.IsAny<IEnumerable<Reservation>>);
 
             IEnumerable<Reservation> ret = logic.GetAllReservations();
@@ -366,6 +366,19 @@ namespace LogicTest
             IEnumerable<ReservationReportResultModel> ret = logic.GetReportByTPoint(request);
             mock1.VerifyAll();
 
+        }
+
+        [TestMethod]
+        public void ReviewExistsbyGuid()
+        {
+            var mock1 = new Mock<IReviewRepository>(MockBehavior.Strict);
+            ReservationLogic logic = new ReservationLogic(null, null, null, null, null, null, null, mock1.Object);
+
+
+            mock1.Setup(x => x.ReviewExists(It.IsAny<Guid>())).Returns(It.IsAny<bool>());
+           bool ret = logic.ReviewExistsbyGuid("1A56ACBB-2A98-4AA0-A489-1FA4F63206B6");
+
+            mock1.VerifyAll();
         }
     }
 }

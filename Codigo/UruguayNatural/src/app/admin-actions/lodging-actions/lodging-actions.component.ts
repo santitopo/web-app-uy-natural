@@ -5,6 +5,7 @@ import { LodgingInsert } from 'src/Models/LodgingInsert';
 import { LodgingsService } from 'src/app/services/lodgings.service';
 import { Lodging } from 'src/Models/Lodging';
 import { Router } from '@angular/router';
+import { LodgingModel } from 'src/Models/LodgingModel';
 
 
 @Component({
@@ -51,17 +52,6 @@ export class LodgingActionsComponent implements OnInit {
         alert('Ups algo salió mal...');
         console.log(err);
       });
-
-      /*
-      this.lodgingService.getLodgings().subscribe(
-        res => {
-          this.lodgings = res;
-        },
-        err => {
-          alert('Ups algo salió mal...');
-          console.log(err);
-        });
-        */
   }
 
   addLodging(): void{
@@ -72,17 +62,29 @@ export class LodgingActionsComponent implements OnInit {
   }
 
   modifyCapacity(): void{
-    if (this.selectedCapacity = "Disponible") {
+    if (this.selectedCapacity == "available") {
       this.capacity = true;
     } 
-    else {
+    else if (this.selectedCapacity == "full"){
+      this.capacity = false;
+    }
+    else{
       this.capacity = false;
     }
 
-    let modifiedlodging = new Lodging(this.selectedLodging.id, null, null, null, null, null,
-      null,null,null,null, this.capacity);
+    let modifiedlodging = new LodgingModel(this.selectedLodging.id, undefined, undefined, undefined, undefined, undefined,
+      undefined,undefined,undefined, !this.capacity);
+    this.lodgingService.modifyLodgingCapacity(modifiedlodging).subscribe(
+      res => {
+        this.router.navigate(['/success']);
+      },
+      err => {
+        alert("Ups.. Algo salió mal");
+        console.log(err);
+      }
 
-    //this.lodgingService.modifyLodgingCapacity(modifiedlodging).subscribe();
+
+    );
   }
 
   select(lodging:Lodging): void{
@@ -99,6 +101,7 @@ export class LodgingActionsComponent implements OnInit {
 
   searchLodgings(): void{
     
+    this.selectedLodging = undefined;
      this.lodgingService.getbyNameandTpoint(this.LodgingName,this.selectedTPointIdSearch).subscribe(
       res => {
         this.lodgings = res;
