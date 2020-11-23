@@ -15,6 +15,7 @@ importationExecuted: boolean;
 Arr = Array;
 selectedImporter: LodgingImporter;
 importationResult;
+displayedColumns: string[] = ['name', 'error'];
 
 constructor(private importService:ImportsService) {
   this.availableImporters = new Array();
