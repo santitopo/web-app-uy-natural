@@ -49,16 +49,21 @@ export class AdminstratorActionsComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  //Verificar Mail!!
   addAdmin(): void {
     if(this.checkParameters()){
       const admin = new Admin(this.adminName, this.adminSurname,
         this.adminEmail, this.adminPassword);
   
-      this.adminsService.addAdmin(admin).subscribe();
+      this.adminsService.addAdmin(admin).subscribe(
+        ret => { },
+        error => {
+          console.log(error);
+          alert(error.error);
+        }
+      );
       
     }else{
-      alert("Error: Ya existe un administrador con ese mail!");
+      alert("Debe completar todos los campos obligatorios (*).");
     }
     
   }
@@ -76,7 +81,13 @@ export class AdminstratorActionsComponent implements OnInit {
     this.selectedAdmin.surname = this.selectedAdminSurname;
     this.selectedAdmin.password = this.selectedAdminPassword;
 
-    this.adminsService.modifyAdmin(this.selectedAdmin).subscribe();
+    this.adminsService.modifyAdmin(this.selectedAdmin).subscribe(
+      ret => { },
+      error => {
+        console.log(error);
+        alert(error.error);
+      }
+    );
   }
 
   deleteAdmin(): void{
@@ -85,12 +96,12 @@ export class AdminstratorActionsComponent implements OnInit {
 
   checkParameters(): boolean{
     let ret = true;
-    this.admins.forEach(object => {
-      if(object.mail == this.adminEmail){
-        alert("repetido");
-        ret = false;
-      }
-    });
+
+    if (this.adminName === undefined || this.adminSurname === undefined || this.adminPassword === undefined
+      || this.adminEmail === undefined || this.adminName === "" || this.adminSurname === "" || this.adminPassword === ""
+      || this.adminEmail === "") {
+      ret = false;
+    }
     return ret;
   }
 

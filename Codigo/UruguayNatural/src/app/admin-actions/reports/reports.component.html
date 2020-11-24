@@ -4,7 +4,7 @@
         <p>
             <mat-form-field appearance="standard" class="user-input">
                 <mat-label>Punto Turistico</mat-label>
-                <mat-select [(ngModel)]="selectedTPointId">
+                <mat-select [(ngModel)]="selectedTPointId" required>
                     <mat-option *ngFor="let tpoint of tpoints" [value]="tpoint.id">{{tpoint.name}}</mat-option>
                 </mat-select>
             </mat-form-field>

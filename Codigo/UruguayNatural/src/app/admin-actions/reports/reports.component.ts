@@ -14,11 +14,11 @@ import { ReservationsService } from 'src/app/services/reservations.service';
 export class ReportsComponent implements OnInit {
   from: Date;
   to: Date;
-  fromToString:string;
-  toToString:string;
+  fromToString: string;
+  toToString: string;
   tpoints;
-  selectedTPointId:number;
-  params:HttpParams;
+  selectedTPointId: number;
+  params: HttpParams;
   reportResult;
 
   constructor(private tpointsService: TPointsService, private reservationService: ReservationsService,
@@ -31,28 +31,27 @@ export class ReportsComponent implements OnInit {
         this.tpoints = res;
       },
       err => {
-        alert('Ups algo salió mal...');
         console.log(err);
+        alert(err.error);
       });
   }
 
-  generateReport(): void{
-    this.fromToString = this.datePipe.transform(this.from,"ddMMyyyy");
-    this.toToString = this.datePipe.transform(this.to,"ddMMyyyy");
+  generateReport(): void {
+    this.fromToString = this.datePipe.transform(this.from, "ddMMyyyy");
+    this.toToString = this.datePipe.transform(this.to, "ddMMyyyy");
 
     this.params = new HttpParams()
-    .set('TPointId', this.selectedTPointId.toString())
-    .append('FromDate', this.fromToString)
-    .set('ToDate', this.toToString);
-    
+      .set('TPointId', this.selectedTPointId.toString())
+      .append('FromDate', this.fromToString)
+      .set('ToDate', this.toToString);
+
     this.reservationService.getReservationsReportbyTP(this.params).subscribe(
       res => {
         this.reportResult = res;
       },
       error => {
-        alert('No hay reportes para el rango de fechas elegido');
+        console.log(error);
+        alert(error.error);
       });
-
-
   }
 }
