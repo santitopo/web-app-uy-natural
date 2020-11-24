@@ -24,7 +24,7 @@ namespace WebApplication.Controllers
         public ImportController(IAdminLogic adminLogic)
         {
             this.adminLogic = adminLogic;
-            importPath = "@..//..//..//ImporterDLLs";
+            importPath = "@..//..//ImporterDLLs";
         }
 
         [HttpGet]

@@ -238,6 +238,10 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\WebApplicati
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.pdb
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.genruntimeconfig.cache
+C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.csprojAssemblyReference.cache
+C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.AssemblyInfoInputs.cache
+C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.AssemblyInfo.cs
+C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.csproj.CoreCompileInputs.cache
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -477,7 +481,3 @@ C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2Topol
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.dll
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.pdb
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.genruntimeconfig.cache
-C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.csprojAssemblyReference.cache
-C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.AssemblyInfoInputs.cache
-C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.AssemblyInfo.cs
-C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.csproj.CoreCompileInputs.cache

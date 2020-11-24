@@ -35,7 +35,7 @@
     <div class="categories">
         <h2>Puntos Turísticos</h2>
 
-        <mat-card class="tpointContent" *ngFor="let tpoint of tpoints" (click)="goToLodgings(tpoint.id)">
+        <mat-card class="tpointContent" *ngFor="let tpoint of tpoints" (click)="goToLodgings(tpoint)">
             <div class="tpointImage">
                 <img class="picture-box__img " [src]='tpoint.image'>
             </div>

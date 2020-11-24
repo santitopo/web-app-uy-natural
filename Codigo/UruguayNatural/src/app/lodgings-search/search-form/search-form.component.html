@@ -1,4 +1,4 @@
-<h2>Punta del Este</h2>
+<h2>Buscar Hospedajes en: {{inputTpoint.name}}</h2>
 <div class="inline">
 
   <mat-card class="search-bar">
@@ -43,25 +43,34 @@
 
 <mat-divider></mat-divider>
 
-<div *ngIf="showingLodgings">
-  <mat-list class="hotel-list" *ngFor="let lodgingResult of lodgingSearchResults">
-    <mat-card>
-      <mat-card-title>{{lodgingResult.name}}</mat-card-title>
-      <mat-card-content class="list-item"> 
-        <div class="hotelInfo">
-          <h3>{{lodgingResult.price}}</h3>
-          <p>{{lodgingResult.lodging.Description}}</p>
-          <p>{{lodgingResult.lodging.Phone}}</p>
+<div *ngIf="showingLodgings && lodgingSearchResults.length>0">
+    <mat-card class="tpointContent" *ngFor="let lodgingResult of lodgingSearchResults">
+      
+        <div class="tpointImage">
+            <img class="picture-box__img " [src]='lodgingResult.lodging.images'>
         </div>
-        <div class="hotelImg">
-          <figure><a href=""><img class="picture-box__square" src="assets/images/discover (3).jpg" alt="Mate"></a></figure>
-          <ngb-rating [(rate)]="starRating" [max]="5" [(ngModel)]="reviewStars"> </ngb-rating>
+        <div class="clasification">
+          <ul>
+              <li><mat-card-title>{{lodgingResult.lodging.name}}</mat-card-title></li>      
+              <ngb-rating  [readonly]="true" [(rate)]="lodgingResult.lodging.stars" [max]="5" > </ngb-rating>       
+          </ul>
+      </div>
+        <div class="tpointText">
+            <ul>
+                <li>Descripcion: {{lodgingResult.lodging.description}} </li>
+                <li>Dirección: {{lodgingResult.lodging.direction}} </li>                
+            </ul>
         </div>
-      </mat-card-content>
-
+        <div class="tpointCategories">
+          <mat-card-title>Total: {{lodgingResult.lodging.price}}USD</mat-card-title>
+        </div>
+        <div class="reservation">
+          <button mat-raised-button color="primary" >Reserva Ya!</button>
+        </div>
     </mat-card>
+</div>
 
-    <mat-list-item> Salt </mat-list-item>
-    <mat-list-item> Paprika </mat-list-item>
-  </mat-list>
+<div *ngIf="showingLodgings && lodgingSearchResults.length==0">
+  <h1>No se encontraron resultados...</h1>
+
 </div>

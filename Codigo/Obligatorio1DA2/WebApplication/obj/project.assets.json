@@ -8965,23 +8965,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\felip\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\stopo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\WebApplication\\WebApplication.csproj",
+      "projectUniqueName": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\WebApplication\\WebApplication.csproj",
       "projectName": "WebApplication",
-      "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\WebApplication\\WebApplication.csproj",
-      "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\WebApplication\\obj\\",
+      "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\WebApplication\\WebApplication.csproj",
+      "packagesPath": "C:\\Users\\stopo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\WebApplication\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stopo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8994,23 +8990,23 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
+            "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj": {
-              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj"
+            "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj": {
+              "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\LogicInterface\\LogicInterface.csproj"
             },
-            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj": {
-              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj"
+            "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj": {
+              "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Logic\\Logic.csproj"
             },
-            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
+            "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Models\\Models.csproj"
             },
-            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
-              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj"
+            "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj": {
+              "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\PersistenceInterface\\PersistenceInterface.csproj"
             },
-            "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\felip\\Documents\\GitHub\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Persistence\\Persistence.csproj"
+            "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\stopo\\Documents\\ORT\\Sem6\\Diseño de Aplicaciones 2\\Obligatorio\\DA2TopolanskyNajson\\Codigo\\Obligatorio1DA2\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -9075,7 +9071,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -1,3 +1,35 @@
+.picture-box__img {
+	display: block;
+    width: 100%;
+    height: 110%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .tpointImage{
+    float:left;
+    width:18%;
+    padding: 5px;
+    }
+
+    .tpointText{
+        float:left;
+        width:70%;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+     }
+     .tpointCategories{
+            float:left;
+            width:20%;
+            padding: 5px 0px;
+            
+            
+     }
+    
+    mat-card :hover {
+        cursor: pointer;
+    }
+
 .inline {
     justify-content: center;
     display: flex;
@@ -60,3 +92,178 @@ ngb-rating {
     float: left;
     margin-left: 85px;
 }
+
+.section-pictures {
+    display: flex;    
+    z-index: 1000;
+  }
+  
+  .picture-box__img {
+	display: block;
+    width: 100%;
+    height: 110%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .categories{
+	  margin-top: 10px;
+  }
+
+figure {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	overflow: hidden;
+}
+figure:hover+span {
+	bottom: -36px;
+	opacity: 1;
+}
+
+
+
+/* Slide */
+.hover05 figure img {
+	margin-left: 30px;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover05 figure:hover img {
+	margin-left: 0;
+}
+
+h2{
+    text-align: center;
+}
+h1{
+	padding-top: 20px;
+    text-align: center;
+}
+
+
+.card{
+    width: 24em;
+    height: 8em;
+    margin: 1em;
+    background-color: rgba(0,0,0, 0.8);
+    color: white;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  .star{
+    margin: 2px;
+  }
+  
+  .star:hover{
+    opacity: 0.4;
+  }
+  
+  .title {
+    font-family: bold;
+    margin: 0.3em;
+  }
+  
+  .card:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+    color: black;
+    cursor: pointer;
+  }
+  
+  .content {
+    margin-top: 200px;
+  }
+
+  .bottom-centered {
+	margin: 0 0;
+    bottom: 8px;
+	color: white;
+	font-size: large;
+    transform: translate(5%, -50%);
+    padding-bottom: 45px;
+  }
+  
+  .width50{
+	  margin: 0 auto;
+	  width: 50%;
+  }
+
+  button{
+	  margin: 20px;
+  }
+
+  .tpointContent{
+    border-radius: 16px;
+    padding: 0 16px 0 0;
+    width: 90%;
+    display: flex;
+    margin: auto; 
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.picture-box__img {
+	display: block;
+    width: 100%;
+  }
+
+.tpointImage{
+float:left;
+width:18%;
+padding: 5px;
+}
+ngb-rating {
+    color: #FFC107;
+    font-size: 28px;
+    float: left;
+    margin-left: 85px;
+}
+
+ngb-rating:focus{
+    outline:none;
+  }
+
+.clasification{
+    float:left;
+    width:20%;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+ }
+
+.tpointText{
+    float:left;
+    width:30%;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+ }
+ .tpointCategories{
+        float:left;
+        width:20%;
+        padding: 5px 0px;
+        
+        
+ }
+
+ .reservation{
+    float:left;
+    width:10%;
+    padding: 5px 0px;
+    
+    
+}
+
+ul{
+    list-style-type: none;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;    
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+
+

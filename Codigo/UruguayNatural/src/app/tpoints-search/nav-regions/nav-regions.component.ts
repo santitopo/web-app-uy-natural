@@ -2,10 +2,12 @@ import { HttpParams } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { DataService } from 'src/app/services/data.service';
 import { RegionsService } from 'src/app/services/regions.service';
 import { TPointsService } from 'src/app/services/tpoints.service';
 import { Category } from 'src/Models/Category';
 import { Region } from 'src/Models/Region';
+import { TPoint } from 'src/Models/TPoint';
 
 @Component({
   selector: 'app-nav-regions',
@@ -20,7 +22,8 @@ export class NavRegionsComponent implements OnInit {
   selectedRegion: Region;
   selectedCatsId: number[];
 
-  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, private tpointsService: TPointsService,  private router: Router) {
+  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, 
+    private tpointsService: TPointsService, private dataService: DataService,  private router: Router) {
   }
 
   ngOnInit(): void {
@@ -66,7 +69,8 @@ export class NavRegionsComponent implements OnInit {
     this.selectedRegion = region;
   }
 
-  goToLodgings(tpointId:number){
+  goToLodgings(tpoint:TPoint){
+    this.dataService.changeMessage(tpoint);
     this.router.navigate(['/lodgingsearch']);
   }
 }

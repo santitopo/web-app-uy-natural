@@ -32,7 +32,7 @@ namespace WebApplicationTest
 
             LodgingImporterModel model = new LodgingImporterModel()
             {
-                DLLName = "..//..//..//..//ImporterDLLs//DummyDLL//Dummy",
+                DLLName = "..//..//..//..//..//WebApplication//ImporterDLLs//DummyDLL//Dummy",
                 ImporterName = "DummyImporter",
                 Parameters = parameters,
             };
