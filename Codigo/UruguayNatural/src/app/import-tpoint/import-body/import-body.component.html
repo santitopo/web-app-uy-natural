@@ -32,31 +32,61 @@
 
     </div>
     <div class="right" *ngIf="importationExecuted">
-        <mat-card>
-            <mat-card-title> Importados</mat-card-title>
-            <mat-card-content>
-                <mat-list >
-                    <mat-list-item *ngFor="let importedLodging of importationResult.imported" 
-                                   class="font-small">{{importedLodging.name}} </mat-list-item>
-                    
-                </mat-list>
-            </mat-card-content>
-        </mat-card>
+        
+        
+        <h1>Importados</h1>
+        <table mat-table [dataSource]="importationResult.imported" class="mat-elevation-z1">
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name" >
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <!-- Tpoint Column -->
+            <ng-container matColumnDef="tpoint" class="mat-column-error">
+              <th mat-header-cell *matHeaderCellDef> Punto Turístico </th>
+              <td mat-cell *matCellDef="let element"> {{element.touristicPoint.name}} </td>
+            </ng-container>
 
-        <mat-card>
-            <mat-card-title>No Importados</mat-card-title>
-            <mat-card-content>
-                <mat-list>
-                    <mat-list-item *ngFor="let tuple of importationResult.notImported" 
-                    class="font-small"> {{tuple.lodging.name}} - {{tuple.reason}} </mat-list-item>
-                </mat-list>
-            </mat-card-content>
-        </mat-card>
+            <!-- Description Column -->
+            <ng-container matColumnDef="description" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+              </ng-container>
 
+              <!-- Adress Column -->
+            <ng-container matColumnDef="direction" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                <td mat-cell *matCellDef="let element"> {{element.direction}} </td>
+              </ng-container>
+
+              <!-- phone Column -->
+            <ng-container matColumnDef="phone" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="stars" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Estrellas </th>
+                <td mat-cell *matCellDef="let element"> {{element.stars}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="price" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Precio/Noche </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsImported"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsImported;"></tr>
+        </table>
+
+
+        <h1>No Importados</h1>
         <table mat-table [dataSource]="importationResult.notImported" class="mat-elevation-z1">
           
             <!-- Name Column -->
-            <ng-container matColumnDef="name">
+            <ng-container matColumnDef="notImportedname">
               <th mat-header-cell *matHeaderCellDef> Nombre </th>
               <td mat-cell *matCellDef="let element"> {{element.lodging.name}} </td>
             </ng-container>

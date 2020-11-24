@@ -52,7 +52,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { ImportTpointModule } from './import-tpoint/import-tpoint.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { isLoggedGuard } from './guards/isLogged.guard';
 import { isNotLoggedGuard } from './guards/isNotLogged.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -62,6 +62,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     ShareModule,
