@@ -47,10 +47,11 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
 
 
 @NgModule({
-  declarations: [SearchFormComponent],
+  declarations: [SearchFormComponent, ConfirmationPageComponent],
   imports: [
     AppRoutingModule,
     CommonModule,

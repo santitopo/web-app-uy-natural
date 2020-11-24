@@ -47,33 +47,41 @@ export class TpActionsComponent implements OnInit {
         console.log(err);
       });
 
-      this.tpointsService.getTPoints().subscribe(
-        res => {
-          this.tpoints = res;
-        },
-        err => {
-          alert('Ups algo salió mal...');
-          console.log(err);
-        });
+    this.tpointsService.getTPoints().subscribe(
+      res => {
+        this.tpoints = res;
+      },
+      err => {
+        alert('Ups algo salió mal...');
+        console.log(err);
+      });
   }
 
   addTPoint(): void {
-    if(this.checkName()){
+    if (this.checkParameters()) {
       const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.tpImage,
         this.selectedRegionId, this.selectedCatsId);
-        this.tpointsService.addTPoint(newTPoint).subscribe();
+      this.tpointsService.addTPoint(newTPoint).subscribe(
+        ret => { },
+        error => {
+          console.log(error);
+          alert(error.error);
+        }
+      );
+    } else {
+      alert("Debe completar todos los campos obligatorios (*).");
     }
+
 
   }
 
-  checkName(): boolean{
+  checkParameters(): boolean {
     let ret = true;
-    this.tpoints.forEach(object => {
-      if(object.name == this.tpName){
-        alert("repetido");
-        ret = false;
-      }
-    });
+
+    if (this.tpName === undefined || this.selectedRegionId === undefined || this.tpName === "") {
+      ret = false;
+    }
+
     return ret;
   }
 

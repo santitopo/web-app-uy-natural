@@ -14,22 +14,23 @@ import { LodgingModel } from 'src/Models/LodgingModel';
   styleUrls: ['./lodging-actions.component.css']
 })
 export class LodgingActionsComponent implements OnInit {
- //Both
+  //Both
   tpoints;
 
-   //Add Lodging Variables
+  //Add Lodging Variables
   starRating = 3;
-  name:string;
-  direction:string;
-  phone:string;
-  price:number;
-  selectedTPointId:number;
-  description:string;
-  images:string[];
+  name: string;
+  direction: string;
+  phone: string;
+  price: number;
+  selectedTPointId: number;
+  description: string;
+  image: string;
   selectedImage: string;
+  checkUnique;
 
   //Modify Capacity Variables
-  selectedTPointIdSearch:number;
+  selectedTPointIdSearch: number;
   lodgings;
   Arr = Array;
   LodgingName: string;
@@ -37,7 +38,8 @@ export class LodgingActionsComponent implements OnInit {
   actualCapacity: string;
   selectedCapacity: string;
   capacity: boolean;
-  searched:boolean;
+  searched: boolean;
+
 
 
   constructor(private tpointsService: TPointsService, private lodgingService: LodgingsService, private router: Router) {
@@ -55,30 +57,48 @@ export class LodgingActionsComponent implements OnInit {
       });
   }
 
-  addLodging(): void{
-    alert("entro");
-    //this.images.push("hola"); ARREGLAR
-    
-    const lodging = new LodgingInsert(this.name, this.selectedTPointId, this.description, this.direction,
-      this.phone, this.starRating, this.price, this.images);
+  addLodging(): void {
+    if (this.checkParameters()) {
+      const lodging = new LodgingInsert(this.name, this.selectedTPointId, this.description, this.direction,
+        this.phone, this.starRating, this.price, this.image);
 
-    alert("paso");
-    this.lodgingService.addLodging(lodging).subscribe();
+      this.lodgingService.addLodging(lodging).subscribe(
+        ret => { },
+        error => {
+          console.log(error);
+          alert(error.error);
+        }
+      );
+    } else {
+      alert("Debe completar todos los campos obligatorios (*).");
+    }
+
   }
 
-  modifyCapacity(): void{
+  checkParameters(): boolean {
+    let ret = true;
+
+    if (this.name === undefined || this.direction === undefined || this.phone === undefined
+      || this.price === undefined || this.selectedTPointId === undefined || this.name === "" || this.direction === "" || this.phone === "") {
+      ret = false;
+    }
+    return ret;
+  }
+
+
+  modifyCapacity(): void {
     if (this.selectedCapacity == "available") {
       this.capacity = true;
-    } 
-    else if (this.selectedCapacity == "full"){
+    }
+    else if (this.selectedCapacity == "full") {
       this.capacity = false;
     }
-    else{
+    else {
       this.capacity = false;
     }
 
     let modifiedlodging = new LodgingModel(this.selectedLodging.id, undefined, undefined, undefined, undefined, undefined,
-      undefined,undefined,undefined, !this.capacity);
+      undefined, undefined, undefined, !this.capacity);
     this.lodgingService.modifyLodgingCapacity(modifiedlodging).subscribe(
       res => {
         this.router.navigate(['/success']);
@@ -90,22 +110,22 @@ export class LodgingActionsComponent implements OnInit {
     );
   }
 
-  select(lodging:Lodging): void{
-    if(lodging.capacity){
+  select(lodging: Lodging): void {
+    if (lodging.capacity) {
       this.actualCapacity = "Disponible";
-    }else{
+    } else {
       this.actualCapacity = "Lleno";
     }
   }
 
-  importLodging(): void{
+  importLodging(): void {
     this.router.navigate(['/tpointimportation']);
   }
 
-  searchLodgings(): void{
-    
+  searchLodgings(): void {
+
     this.selectedLodging = undefined;
-     this.lodgingService.getbyNameandTpoint(this.LodgingName,this.selectedTPointIdSearch).subscribe(
+    this.lodgingService.getbyNameandTpoint(this.LodgingName, this.selectedTPointIdSearch).subscribe(
       res => {
         this.lodgings = res;
         this.searched = true;

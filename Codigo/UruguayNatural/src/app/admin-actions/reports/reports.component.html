@@ -4,7 +4,7 @@
         <p>
             <mat-form-field appearance="standard" class="user-input">
                 <mat-label>Punto Turistico</mat-label>
-                <mat-select [(ngModel)]="selectedTPointId">
+                <mat-select [(ngModel)]="selectedTPointId" required>
                     <mat-option *ngFor="let tpoint of tpoints" [value]="tpoint.id">{{tpoint.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -28,6 +28,8 @@
     <mat-divider></mat-divider>
 
         <mat-list>
-            <mat-list-item *ngFor="let report of reportResult" [value]="report"> {{report}} </mat-list-item>
+            <mat-list-item *ngFor="let report of reportResult" [value]="report"> 
+                <h4>Hospedaje: {{report.lodging.name}} / Cantidad de Reservas: {{report.reservations}}</h4>  
+            </mat-list-item>
         </mat-list>
 </mat-card>

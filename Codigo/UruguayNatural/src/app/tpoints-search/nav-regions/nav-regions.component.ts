@@ -44,6 +44,8 @@ export class NavRegionsComponent implements OnInit {
         alert('Ups algo salió mal...');
         console.log(err);
       });
+
+      this.selectedRegion = new Region(null,null);
   }
 
   searchTPoints(): void{
@@ -67,6 +69,7 @@ export class NavRegionsComponent implements OnInit {
 
   selectRegion(region : Region){
     this.selectedRegion = region;
+    console.log(this.selectedRegion);
   }
 
   goToLodgings(tpoint:TPoint){

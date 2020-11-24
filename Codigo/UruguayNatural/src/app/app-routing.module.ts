@@ -5,6 +5,7 @@ import { LoginComponent } from './admin-actions/login/login.component';
 import { isLoggedGuard } from './guards/isLogged.guard';
 import { isNotLoggedGuard } from './guards/isNotLogged.guard';
 import { ImportBodyComponent } from './import-tpoint/import-body/import-body.component';
+import { ConfirmationPageComponent } from './lodgings-search/confirmation-page/confirmation-page.component';
 import { SearchFormComponent } from './lodgings-search/search-form/search-form.component';
 import { ReviewFormComponent } from './reservation/review-form/review-form.component';
 import { MainpageComponent } from './share/mainpage/mainpage.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'tpointimportation', component: ImportBodyComponent, canActivate: [isLoggedGuard]},
   { path: 'tpointsearch', component: NavRegionsComponent},
   { path: 'success', component: SuccessComponent},
+  { path: 'lodgingsearch/confirmation', component: ConfirmationPageComponent},
 ];
 
 @NgModule({

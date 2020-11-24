@@ -1,0 +1,19 @@
+
+.inline {
+    text-align: center;
+    width: 50%;
+    margin: 10% auto;
+  }
+  mat-card{
+      background-color: rgb(252, 252, 252);
+  }
+
+  mat-divider{
+     width: 100% !important;
+     margin: 30px auto; 
+  }
+
+  .margin {
+    margin-top: 50px !important;
+    margin-bottom: 20px;
+  }
