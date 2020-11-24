@@ -1,3 +1,4 @@
+import { Client } from './Client';
 import { Lodging } from './Lodging';
 
 export class Review {
@@ -5,14 +6,14 @@ export class Review {
     id: number;
     description: string;
     score: number;
-    client: string;
+    client: Client;
 
     constructor(Description: string, Score: number, ReservationCode: string,
-        Id: number, lodging: Lodging) {
+        Id: number, Lodging: Lodging,  Client: Client) {
         this.description = Description;
         this.score = Score;
-        this.client = "";
+        this.client = Client;
         this.id= Id;
-        this.lodging = lodging;
+        this.lodging = Lodging;
     }
 }

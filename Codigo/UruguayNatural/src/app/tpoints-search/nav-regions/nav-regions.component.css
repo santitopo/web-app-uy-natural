@@ -48,6 +48,12 @@ h1{
     text-align: center;
 }
 
+#selectedReg{
+	text-align: center;
+	margin-bottom: 20px;
+	display: block;
+}
+
 
 /* Zoom In #1 */
 .hover01 figure img {

@@ -21,5 +21,7 @@ namespace LogicInterface
 
         bool ReviewExistsbyGuid(string reservationCode);
 
+        IEnumerable<Review> ReviewsByLodging(int lodgingId);
+
     }
 }

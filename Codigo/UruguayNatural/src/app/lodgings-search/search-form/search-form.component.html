@@ -3,8 +3,8 @@
 
   <mat-card class="search-bar">
     <mat-form-field appearance="standard">
-      <mat-label>Enter a date range</mat-label>
-      <mat-date-range-input [rangePicker]="picker">
+      <mat-label>Ingrese un rango de fechas:</mat-label>
+      <mat-date-range-input [rangePicker]="picker" required>
         <input [(ngModel)]="from" matStartDate placeholder="Start date">
         <input [(ngModel)]="to" matEndDate placeholder="End date">
       </mat-date-range-input>
@@ -43,31 +43,61 @@
 
 <mat-divider></mat-divider>
 
+
 <div *ngIf="showingLodgings && lodgingSearchResults.length>0">
+
+  <div *ngIf="showReviews; then thenBlock else elseBlock"></div>
+
+  <ng-template #thenBlock>
+    <div class="width80">
+      <mat-card-title>Comentarios</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card *ngFor="let review of reviewsByLodging">
+        <mat-card-content>
+          <textarea matInput class="review" readonly>{{review.description}}</textarea>
+  
+          <div class="display-flex">
+            <mat-label>{{review.client.name}} {{review.client.surname}}</mat-label>
+            <ngb-rating [(rate)]="review.score" [max]="5" readonly> </ngb-rating>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <button mat-raised-button color="primary" (click)='showLodgings()'>Volver</button>
+
+    </div>
+  </ng-template>
+
+  <ng-template #elseBlock>
     <mat-card class="tpointContent" *ngFor="let lodgingResult of lodgingSearchResults">
-      
-        <div class="tpointImage">
-            <img class="picture-box__img " [src]='lodgingResult.lodging.images'>
-        </div>
-        <div class="clasification">
-          <ul>
-              <li><mat-card-title>{{lodgingResult.lodging.name}}</mat-card-title></li>      
-              <ngb-rating  [readonly]="true" [(rate)]="lodgingResult.lodging.stars" [max]="5" > </ngb-rating>       
-          </ul>
+
+      <div class="tpointImage">
+        <img class="picture-box__img " [src]='lodgingResult.lodging.images'>
       </div>
-        <div class="tpointText">
-            <ul>
-                <li>Descripcion: {{lodgingResult.lodging.description}} </li>
-                <li>Dirección: {{lodgingResult.lodging.direction}} </li>                
-            </ul>
-        </div>
-        <div class="tpointCategories">
-          <mat-card-title>Total: {{lodgingResult.lodging.price}}USD</mat-card-title>
-        </div>
-        <div class="reservation">
-          <button mat-raised-button color="primary" >Reserva Ya!</button>
-        </div>
+      <div class="clasification">
+        <ul>
+          <li>
+            <mat-card-title>{{lodgingResult.lodging.name}}</mat-card-title>
+          </li>
+          <ngb-rating [readonly]="true" [(rate)]="lodgingResult.lodging.stars" [max]="5"> </ngb-rating>
+        </ul>
+      </div>
+      <div class="tpointText">
+        <ul>
+          <li>Descripcion: {{lodgingResult.lodging.description}} </li>
+          <li>Dirección: {{lodgingResult.lodging.direction}} </li>
+        </ul>
+      </div>
+      <div class="tpointCategories">
+        <mat-card-title>Total: {{lodgingResult.lodging.price}}USD</mat-card-title>
+      </div>
+      <div class="reservation">
+        <button mat-raised-button color="primary">Reserva Ya!</button>
+        <button mat-raised-button (click)='getReviews(lodgingResult)'>Ver comentarios</button>
+      </div>
     </mat-card>
+  </ng-template>
+
 </div>
 
 <div *ngIf="showingLodgings && lodgingSearchResults.length==0">

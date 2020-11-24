@@ -26,8 +26,9 @@
             
      }
     
-    mat-card :hover {
-        cursor: pointer;
+    mat-card {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
 .inline {
@@ -35,6 +36,10 @@
     display: flex;
     width: 90%;
     margin: 20px auto;
+}
+
+mat-divider{
+  margin: 20px auto;
 }
 
 .search-bar{
@@ -221,7 +226,7 @@ ngb-rating {
     color: #FFC107;
     font-size: 28px;
     float: left;
-    margin-left: 85px;
+    margin-left: 20px;
 }
 
 ngb-rating:focus{
@@ -237,13 +242,13 @@ ngb-rating:focus{
 
 .tpointText{
     float:left;
-    width:30%;
+    width:25%;
     margin-block-start: 0px;
     margin-block-end: 0px;
  }
  .tpointCategories{
         float:left;
-        width:20%;
+        width:16%;
         padding: 5px 0px;
         
         
@@ -251,10 +256,8 @@ ngb-rating:focus{
 
  .reservation{
     float:left;
-    width:10%;
+    width:17%;
     padding: 5px 0px;
-    
-    
 }
 
 ul{
@@ -265,5 +268,18 @@ ul{
     margin-block-end: 0px;
 }
 
+.width80{
+  margin: 10px auto;
+  width: 80%;
+}
 
+.display-flex{
+  display: flex;
+  margin: 10px auto;
+}
 
+.review{
+  background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 20px;
+}

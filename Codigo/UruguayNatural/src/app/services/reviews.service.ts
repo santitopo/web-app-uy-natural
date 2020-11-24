@@ -20,4 +20,9 @@ export class ReviewsService {
     return this.http.get<boolean>(`${this.uri}/${reservationCode}`);
   }
 
+  getReviewsByLodging(lodgingId: number): Observable<Review>{
+    alert(`${this.uri}/lodging/${lodgingId}`);
+    return this.http.get<Review>(`${this.uri}/lodging/${lodgingId}`);
+  }
+
 }

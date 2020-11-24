@@ -503,33 +503,10 @@ namespace LogicTest
                 Password = "anAdmin"
             };
 
-            userRepositoryMock.Setup(x => x.GetAdminByMail(It.IsAny<string>())).Returns(newAdmin);
             userRepositoryMock.Setup(x => x.Update(It.IsAny<Administrator>()));
             userRepositoryMock.Setup(x => x.Save());
 
             logic.ModifyAdmin(newAdmin);
-            userRepositoryMock.VerifyAll();
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException), "El administrador no existe")]
-        public void ModifyAdminInvalid()
-        {
-            var userRepositoryMock = new Mock<IAdminRepository>(MockBehavior.Strict);
-            AdminLogic logic = new AdminLogic(null, null, null, null, null, userRepositoryMock.Object, null, null);
-
-            Administrator admin = new Administrator()
-            {
-                Name = "anAdmin",
-                Mail = "anAdmin",
-                Password = "anAdmin"
-            };
-
-            Administrator nullAdmin = null;
-
-            userRepositoryMock.Setup(x => x.GetAdminByMail(It.IsAny<string>())).Returns(nullAdmin);
-
-            logic.ModifyAdmin(admin);
             userRepositoryMock.VerifyAll();
         }
 

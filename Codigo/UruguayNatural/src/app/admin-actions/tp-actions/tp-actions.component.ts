@@ -1,5 +1,6 @@
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { RegionsService } from 'src/app/services/regions.service';
 import { TPointsService } from 'src/app/services/tpoints.service';
@@ -23,7 +24,8 @@ export class TpActionsComponent implements OnInit {
   selectedRegionId: number;
   selectedCatsId: number[];
 
-  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, private tpointsService: TPointsService) {
+  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, 
+    private tpointsService: TPointsService, private router: Router) {
 
   }
 
@@ -71,8 +73,6 @@ export class TpActionsComponent implements OnInit {
     } else {
       alert("Debe completar todos los campos obligatorios (*).");
     }
-
-
   }
 
   checkParameters(): boolean {

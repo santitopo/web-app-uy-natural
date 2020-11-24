@@ -380,5 +380,27 @@ namespace LogicTest
 
             mock1.VerifyAll();
         }
+
+        [TestMethod]
+        public void ReviewsExistsByLodging()
+        {
+            var mock1 = new Mock<IReviewRepository>(MockBehavior.Strict);
+            ReservationLogic logic = new ReservationLogic(null, null, null, null, null, null, null, mock1.Object);
+
+            Review aReview = new Review()
+            {
+                Id = 1,
+                Reservation = new Reservation(),
+            };
+
+            List<Review> reviews = new List<Review>();
+            reviews.Add(aReview);
+            string[] param = { "Client", "Reservation", "Reservation.Lodging" };
+            mock1.Setup(x => x.GetAll(param)).Returns(reviews);
+
+            IEnumerable<Review> ret = logic.ReviewsByLodging(5);
+
+            mock1.VerifyAll();
+        }
     }
 }
