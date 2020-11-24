@@ -14,6 +14,7 @@ export class ReservationActionsComponent implements OnInit {
   reservationState:string;
   actualState:string;
   selectedState:State;
+  description:string;
 
   reservations;
   states;
@@ -44,17 +45,17 @@ export class ReservationActionsComponent implements OnInit {
   }
 
   select(selectedReservation:Reservation): void{
-    
-    this.states.forEach(function (value) {
+
+    this.states.forEach(value => {
       if(value.id == selectedReservation.id){
-        alert(value.name);
-        this.actualState = "chau";
+        this.actualState = value.name;
       }
     });
+
   }
 
   modifyReservation():void{
-    const modifiedReservation = new ReservationUpdate(this.selectedReservation.id, this.selectedState.id, "buena");
+    const modifiedReservation = new ReservationUpdate(this.selectedReservation.id, this.selectedState.id, this.description);
     this.reservationService.updateReservation(modifiedReservation).subscribe();
 
   }

@@ -46,17 +46,19 @@
 <div *ngIf="showingLodgings">
   <mat-list class="hotel-list" *ngFor="let lodgingResult of lodgingSearchResults">
     <mat-card>
-      <mat-list-item class="list-item">
+      <mat-card-title>{{lodgingResult.name}}</mat-card-title>
+      <mat-card-content class="list-item"> 
         <div class="hotelInfo">
           <h3>{{lodgingResult.price}}</h3>
           <p>{{lodgingResult.lodging.Description}}</p>
           <p>{{lodgingResult.lodging.Phone}}</p>
         </div>
         <div class="hotelImg">
-          <figure><a href=""><img class="picture-box__square" src="assets/images/discover (3).jpg" alt="Mate"></a>
-          </figure>
+          <figure><a href=""><img class="picture-box__square" src="assets/images/discover (3).jpg" alt="Mate"></a></figure>
+          <ngb-rating [(rate)]="starRating" [max]="5" [(ngModel)]="reviewStars"> </ngb-rating>
         </div>
-      </mat-list-item>
+      </mat-card-content>
+
     </mat-card>
 
     <mat-list-item> Salt </mat-list-item>

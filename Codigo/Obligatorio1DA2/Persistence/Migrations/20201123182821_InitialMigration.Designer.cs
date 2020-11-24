@@ -10,8 +10,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(UyNaturalContext))]
-    [Migration("20201121004837_initial")]
-    partial class initial
+    [Migration("20201123182821_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

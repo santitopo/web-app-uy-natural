@@ -49,6 +49,14 @@
     width: 90%;
     margin: 20px auto;
   }
+
   h2{
     text-align: center;
+}
+
+ngb-rating {
+    color: #FFC107;
+    font-size: 20px;
+    float: left;
+    margin-left: 85px;
 }

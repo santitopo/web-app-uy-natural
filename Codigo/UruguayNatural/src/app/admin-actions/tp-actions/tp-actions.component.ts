@@ -15,14 +15,15 @@ import { TouristicPointInsert } from 'src/Models/TouristicPointInsert';
 export class TpActionsComponent implements OnInit {
   regions;
   categories;
+  tpoints;
 
   tpName: string;
   tpDescription: string;
-  image = "/tpoint.png";
+  tpImage: string;
   selectedRegionId: number;
   selectedCatsId: number[];
 
-  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, private tpointService: TPointsService) {
+  constructor(private regionsService: RegionsService, private categoriesService: CategoriesService, private tpointsService: TPointsService) {
 
   }
 
@@ -45,12 +46,35 @@ export class TpActionsComponent implements OnInit {
         alert('Ups algo salió mal...');
         console.log(err);
       });
+
+      this.tpointsService.getTPoints().subscribe(
+        res => {
+          this.tpoints = res;
+        },
+        err => {
+          alert('Ups algo salió mal...');
+          console.log(err);
+        });
   }
 
   addTPoint(): void {
-    const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.image,
-      this.selectedRegionId, this.selectedCatsId);
-      this.tpointService.addTPoint(newTPoint).subscribe();
+    if(this.checkName()){
+      const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.tpImage,
+        this.selectedRegionId, this.selectedCatsId);
+        this.tpointsService.addTPoint(newTPoint).subscribe();
+    }
+
+  }
+
+  checkName(): boolean{
+    let ret = true;
+    this.tpoints.forEach(object => {
+      if(object.name == this.tpName){
+        alert("repetido");
+        ret = false;
+      }
+    });
+    return ret;
   }
 
 }

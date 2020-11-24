@@ -29,6 +29,13 @@
                     </mat-form-field>
                 </p>
 
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea [(ngModel)]="description" matInput></textarea>
+                    </mat-form-field>
+                </p>
+
                 <button mat-raised-button color="primary" (click)="modifyReservation()">Confirmar</button>
             </div>
     </mat-card-content>

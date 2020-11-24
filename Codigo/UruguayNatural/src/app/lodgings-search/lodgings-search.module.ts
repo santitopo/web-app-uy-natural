@@ -46,6 +46,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -97,7 +98,8 @@ import { FormsModule } from '@angular/forms';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   exports: [SearchFormComponent],
 })
