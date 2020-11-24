@@ -26,6 +26,7 @@ export class LodgingActionsComponent implements OnInit {
   selectedTPointId:number;
   description:string;
   images:string[];
+  selectedImage: string;
 
   //Modify Capacity Variables
   selectedTPointIdSearch:number;
@@ -55,10 +56,14 @@ export class LodgingActionsComponent implements OnInit {
   }
 
   addLodging(): void{
+    alert("entro");
+    //this.images.push("hola"); ARREGLAR
+    
     const lodging = new LodgingInsert(this.name, this.selectedTPointId, this.description, this.direction,
       this.phone, this.starRating, this.price, this.images);
 
-      this.lodgingService.addLodging(lodging).subscribe();
+    alert("paso");
+    this.lodgingService.addLodging(lodging).subscribe();
   }
 
   modifyCapacity(): void{
@@ -82,8 +87,6 @@ export class LodgingActionsComponent implements OnInit {
         alert("Ups.. Algo salió mal");
         console.log(err);
       }
-
-
     );
   }
 

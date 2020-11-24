@@ -32,3 +32,7 @@ p {
 .font-small{
     font-size: small;
 }
+
+button{
+    margin-top: 15px;
+}

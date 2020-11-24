@@ -1,10 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Lodging } from 'src/Models/Lodging';
 import { LodgingInsert } from 'src/Models/LodgingInsert';
 import { LodgingModel } from 'src/Models/LodgingModel';
+import { LodgingSearch } from 'src/Models/LodgingSearch';
 import { LodgingSearchResult } from 'src/Models/LodgingSearchResult';
 
 @Injectable({
@@ -14,6 +15,8 @@ export class LodgingsService {
   lodgingSearchResults: LodgingSearchResult[] = new Array();
 
   uri = `${environment.baseUrl}/lodgings`;
+  uri2 = `${environment.baseUrl}/lodgings/filter`;
+
   constructor(private http: HttpClient) {
     this.lodgingSearchResults.push(
       new LodgingSearchResult(
@@ -35,9 +38,7 @@ export class LodgingsService {
 
   }
 
-  getResults(): LodgingSearchResult[] {
-    return this.lodgingSearchResults;
-  }
+
 
   getbyNameandTpoint(name:string, tpointId: number): Observable<Lodging> {
     return this.http.get<Lodging>(this.uri+"?LodgingName="+name+"&TpointId="+tpointId);
@@ -52,4 +53,10 @@ export class LodgingsService {
     const headers = new HttpHeaders({'token': localStorage.token});
     return this.http.put(this.uri, lodging, { headers: headers });
   }
+
+  getLodgingsByTP(parameters: HttpParams){
+    const options = { params: parameters };
+    return this.http.get(this.uri2, options);
+  }
+
 }

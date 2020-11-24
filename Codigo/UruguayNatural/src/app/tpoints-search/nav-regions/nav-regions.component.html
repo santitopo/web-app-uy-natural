@@ -1,34 +1,59 @@
 <div>
     <div>
-    <h2>Regiones</h2>
-    <section class="section-pictures">
-    <div class="hover01" *ngFor="let region of regions" (click)="getDetail(region.id)">
-        <figure><a href=""><img class="picture-box__img " [src]='"images/"+region.name +".jpg"' alt="The Park Camper Tour 1"></a></figure>
+        <h1>Regiones</h1>
+        <section class="section-pictures">
+            <div class="hover01" *ngFor="let region of regions">
+                <figure>
+                    <a><img class="picture-box__img " [src]='"images/"+region.name +".jpg"'
+                            alt="The Park Camper Tour 1" (click)="selectRegion(region)"></a>
+                </figure>
+                <p class="bottom-centered">{{region.name}}</p>
+            </div>
+        </section>
     </div>
-    
-    </section>
-    </div>
-    <div class ="categories">
-    <h2>Categorías</h2>
-    <div class="flex-parent jc-center">    
-        
-      <button class="button4" *ngFor="let category of categories" (click)="getDetail(category.id)">
-          {{category.name}}
-      </button>
-    
-    </div>
-    <div class="center">
-        <div>
-            <button class="searchButton">Buscar</button>
-            
+
+    <mat-divider></mat-divider>
+    <div class="categories">
+        <h2>Categorías</h2>
+
+        <div class="width50">
+            <mat-selection-list #cats [(ngModel)]="selectedCatsId">
+              <mat-list-option *ngFor="let category of categories" class="font-small" [value]= "category.id">
+                  {{category.name}}
+              </mat-list-option>
+            </mat-selection-list>
+            <p>
+              Categorias seleccionadas: {{cats.selectedOptions.selected.length}}
+            </p>
+        </div>
+
+        <div class="center">
+                <button mat-raised-button color="primary" (click)="searchTPoints()">Buscar</button>
         </div>
     </div>
-    
-    </div>
-    
+    <mat-divider></mat-divider>
     <div class="categories">
-      <h2>Puntos Turísticos</h2>
-        <tpoint-cards> </tpoint-cards>
+        <h2>Puntos Turísticos</h2>
+
+        <mat-card class="tpointContent" *ngFor="let tpoint of tpoints" (click)="goToLodgings(tpoint.id)">
+            <div class="tpointImage">
+                <img class="picture-box__img " [src]='tpoint.image'>
+            </div>
+            <div class="tpointText">
+                <ul>
+                    <li><mat-card-title>{{tpoint.name}}</mat-card-title></li>
+                    <li>Descripcion: {{tpoint.description}} </li>
+                    <li>Region: {{tpoint.region.name}} </li>
+                </ul>
+            </div>
+            <div class="tpointCategories">
+                <p>Categorias:</p>
+                <mat-chip-list aria-label="Fish selection" class="mat-chip-list mat-chip-list-stacked"> 
+                    <mat-chip *ngFor="let cat of tpoint.categories">{{cat.category.name}}</mat-chip>
+                  </mat-chip-list>
+            </div>
+        </mat-card>
+        
     </div>
 
 </div>

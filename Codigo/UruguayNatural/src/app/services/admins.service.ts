@@ -16,11 +16,13 @@ export class AdminsService {
   }
 
   addAdmin(admin: Admin): Observable<{}> {
-    return this.http.post<Admin>(this.uri, admin);
+    const headers = new HttpHeaders().set('token', localStorage.token);
+    return this.http.post(this.uri, admin,{ headers: headers });
   }
 
   modifyAdmin(admin: Admin): Observable<{}> {
-    return this.http.put<Admin>(this.uri, admin);
+    const headers = new HttpHeaders().set('token', localStorage.token);
+    return this.http.put(this.uri, admin,{ headers: headers });
   }
 
   deleteAdmin(id: number): Observable<{}> {

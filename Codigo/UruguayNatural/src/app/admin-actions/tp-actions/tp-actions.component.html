@@ -32,12 +32,18 @@
                     </mat-list-option>
                   </mat-selection-list>
                   <p>
-                    Categories selected: {{cats.selectedOptions.selected.length}}
+                    Categorias seleccionadas: {{cats.selectedOptions.selected.length}}
                   </p>
             </div>
 
             <div>
-                <p>Imagenes...</p>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Imagen</mat-label>
+                        <input matInput [(ngModel)]="tpImage" placeholder="../imagen.png"/>
+                        <mat-hint>Debe ser una imagen con URL pública o una disponible en el servidor</mat-hint>
+                    </mat-form-field>
+                </p>
                 <br>
                 <button mat-raised-button color="primary" (click)="addTPoint()" >Agregar Punto Turistico</button>
             </div>

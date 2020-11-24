@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Reservation } from 'src/Models/Reservation';
 import { ReservationReport } from 'src/Models/ReservationReport';
 import { ReservationReportResult } from 'src/Models/ReservationReportResult';
+import { ReservationUpdate } from 'src/Models/ReservationUpdate';
 import { State } from 'src/Models/State';
 import { StateModel } from 'src/Models/StateModel';
 
@@ -14,6 +15,7 @@ import { StateModel } from 'src/Models/StateModel';
 export class ReservationsService {
   uri = `${environment.baseUrl}/reservations`;
   uri2 = `${environment.baseUrl}/reservations/states`;
+  uri3 = `${environment.baseUrl}/reservations/reports`
 
   constructor(private http: HttpClient) { }
 
@@ -29,13 +31,19 @@ export class ReservationsService {
     return this.http.get<State>(this.uri2, { headers: headers });
   }
 
-  getReservationsReportbyTP(params: HttpParams):Observable<ReservationReportResult>{
-    alert(params);
-    return this.http.get<ReservationReportResult>(this.uri,{params});
+  getReservationsReportbyTP(parameters: HttpParams):Observable<ReservationReportResult>{
+    const options = { params: parameters };
+
+    return this.http.get<ReservationReportResult>(this.uri3,options);
   }
 
   getReservation(code: string): Observable<StateModel>{
     return this.http.get<StateModel>(`${this.uri}/${code}`);
+  }
+
+  updateReservation(modifiedReservation: ReservationUpdate): Observable<{}> {
+    const headers = new HttpHeaders().set('token', localStorage.token);
+    return this.http.put(this.uri,modifiedReservation, { headers: headers });
   }
 
 }

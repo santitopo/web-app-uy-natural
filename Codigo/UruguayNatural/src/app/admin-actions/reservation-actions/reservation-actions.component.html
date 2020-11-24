@@ -14,7 +14,7 @@
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label >Estado Actual</mat-label>
-                        <input matInput [(ngModel)]="actualState" placeholder="Placeholder" readonly>
+                        <input matInput [(ngModel)]="actualState" readonly>
                     </mat-form-field>
                 </p>
             </div>
@@ -29,7 +29,14 @@
                     </mat-form-field>
                 </p>
 
-                <button mat-raised-button color="primary">Confirmar</button>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea [(ngModel)]="description" matInput></textarea>
+                    </mat-form-field>
+                </p>
+
+                <button mat-raised-button color="primary" (click)="modifyReservation()">Confirmar</button>
             </div>
     </mat-card-content>
 </mat-card>
