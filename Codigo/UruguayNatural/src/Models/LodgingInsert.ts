@@ -7,12 +7,12 @@ export class LodgingInsert {
     Phone: string;
     Stars: number;
     Price: number;
-    Images: string[];
+    Images: string;
     Score: number;
     Capacity: boolean;
 
     constructor(Name: string, TPointId: number, Description: string, Direction: string,
-                Phone: string, Stars: number, Price: number, Images: string[]) {
+                Phone: string, Stars: number, Price: number, Images: string) {
       this.Name = Name;
       this.Description = Description;
       this.Direction = Direction;
@@ -21,7 +21,7 @@ export class LodgingInsert {
       this.Price = Price;
       this.Stars = Stars;
       this.TPointId = TPointId;
-      this.Capacity = true;
+      this.Capacity = false;
       this.Score = 0;
   }
 

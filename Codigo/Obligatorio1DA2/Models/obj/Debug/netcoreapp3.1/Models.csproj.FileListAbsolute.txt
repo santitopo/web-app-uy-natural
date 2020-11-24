@@ -27,7 +27,6 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Model
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Models\bin\Debug\netcoreapp3.1\Models.pdb
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Models\bin\Debug\netcoreapp3.1\Domain.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Models\bin\Debug\netcoreapp3.1\Domain.pdb
-C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Models\obj\Debug\netcoreapp3.1\Models.csprojAssemblyReference.cache
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfoInputs.cache
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfo.cs
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Models\obj\Debug\netcoreapp3.1\Models.csproj.CoreCompileInputs.cache

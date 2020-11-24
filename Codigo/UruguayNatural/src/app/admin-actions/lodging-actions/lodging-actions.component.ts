@@ -25,8 +25,9 @@ export class LodgingActionsComponent implements OnInit {
   price:number;
   selectedTPointId:number;
   description:string;
-  images:string[];
+  image:string;
   selectedImage: string;
+  checkUnique;
 
   //Modify Capacity Variables
   selectedTPointIdSearch:number;
@@ -38,6 +39,7 @@ export class LodgingActionsComponent implements OnInit {
   selectedCapacity: string;
   capacity: boolean;
   searched:boolean;
+  
 
 
   constructor(private tpointsService: TPointsService, private lodgingService: LodgingsService, private router: Router) {
@@ -56,15 +58,36 @@ export class LodgingActionsComponent implements OnInit {
   }
 
   addLodging(): void{
-    alert("entro");
-    //this.images.push("hola"); ARREGLAR
-    
-    const lodging = new LodgingInsert(this.name, this.selectedTPointId, this.description, this.direction,
-      this.phone, this.starRating, this.price, this.images);
-
-    alert("paso");
-    this.lodgingService.addLodging(lodging).subscribe();
+    if(this.checkParameters()){
+      const lodging = new LodgingInsert(this.name, this.selectedTPointId, this.description, this.direction,
+        this.phone, this.starRating, this.price, this.image);
+  
+      this.lodgingService.addLodging(lodging).subscribe();
+    }else{
+      alert("Error: Ya existe un hospedaje con nombre "+ this.name + " en el punto turistico seleccionado.");
+    }
+   
   }
+
+  checkParameters(): boolean{
+    let ret = false;
+
+    this.lodgingService.getbyNameandTpoint(this.name,this.selectedTPointId).subscribe(
+      res => {
+          this.checkUnique = res;
+      },
+      err => {
+        alert("Ups.. Algo salió mal");
+        console.log(err);
+      }
+    )
+
+    if(this.checkUnique === undefined){
+      ret = true;
+    }
+    return ret;
+  }
+
 
   modifyCapacity(): void{
     if (this.selectedCapacity == "available") {

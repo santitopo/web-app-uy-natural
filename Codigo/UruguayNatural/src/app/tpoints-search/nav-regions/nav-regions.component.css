@@ -55,10 +55,12 @@ h1{
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
+	cursor: pointer;
 }
 .hover01 figure:hover img {
 	-webkit-transform: scale(1.3);
 	transform: scale(1.3);
+	cursor: pointer;
 }
 
 /* Zoom In #2 */
@@ -455,4 +457,6 @@ mat-card :hover {
     cursor: pointer;
 }
 
-
+.regions :hover{
+	cursor: pointer;
+}

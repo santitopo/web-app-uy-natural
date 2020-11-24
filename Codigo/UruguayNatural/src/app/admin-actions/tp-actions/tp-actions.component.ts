@@ -58,19 +58,20 @@ export class TpActionsComponent implements OnInit {
   }
 
   addTPoint(): void {
-    if(this.checkName()){
+    if(this.checkParameters()){
       const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.tpImage,
         this.selectedRegionId, this.selectedCatsId);
         this.tpointsService.addTPoint(newTPoint).subscribe();
+    }else{
+      alert("Error: Ya existe un punto turistico con ese nombre!");
     }
 
   }
 
-  checkName(): boolean{
+  checkParameters(): boolean{
     let ret = true;
     this.tpoints.forEach(object => {
       if(object.name == this.tpName){
-        alert("repetido");
         ret = false;
       }
     });

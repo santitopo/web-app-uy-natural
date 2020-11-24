@@ -49,9 +49,8 @@ export class ReportsComponent implements OnInit {
       res => {
         this.reportResult = res;
       },
-      err => {
-        alert('Ups algo salió mal...');
-        console.log(err);
+      error => {
+        alert('No hay reportes para el rango de fechas elegido');
       });
 
 

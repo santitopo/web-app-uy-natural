@@ -51,11 +51,16 @@ export class AdminstratorActionsComponent implements OnInit {
 
   //Verificar Mail!!
   addAdmin(): void {
-    alert("entro");
-    const admin = new Admin(this.adminName, this.adminSurname,
-      this.adminEmail, this.adminPassword);
-
-    this.adminsService.addAdmin(admin).subscribe();
+    if(this.checkParameters()){
+      const admin = new Admin(this.adminName, this.adminSurname,
+        this.adminEmail, this.adminPassword);
+  
+      this.adminsService.addAdmin(admin).subscribe();
+      
+    }else{
+      alert("Error: Ya existe un administrador con ese mail!");
+    }
+    
   }
 
   select(selectedAdmin: Admin): void{
@@ -78,5 +83,15 @@ export class AdminstratorActionsComponent implements OnInit {
     this.adminsService.deleteAdmin(this.selectedAdmin.id).subscribe();
   }
 
+  checkParameters(): boolean{
+    let ret = true;
+    this.admins.forEach(object => {
+      if(object.mail == this.adminEmail){
+        alert("repetido");
+        ret = false;
+      }
+    });
+    return ret;
+  }
 
 }
