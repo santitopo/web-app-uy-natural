@@ -24,7 +24,6 @@ namespace WebApplication.Controllers
             this.reservationLogic = reservationLogic;
         }
 
-        // POST: /reviews
         [HttpPost]
         public IActionResult Post([FromBody] ReviewModel reviewModel)
         {
@@ -52,7 +51,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        // GET: /reviews/lodging
         [HttpGet("lodging/{lodgingId}")]
         public IActionResult GetReviewsByLodging(int lodgingId)
         {

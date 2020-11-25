@@ -11,7 +11,6 @@ namespace JsonImporter
     {
         public string GetImporterName()
         {
-            //Has to match the class name
             return "JsonImporter";
         }
 

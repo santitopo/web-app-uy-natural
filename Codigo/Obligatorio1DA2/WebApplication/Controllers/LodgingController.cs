@@ -24,7 +24,6 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        //localhost:44371/lodgings/filter?TPointId=1&Checkin=12102019&Checkout=14102019&AdultsNum=2&ChildsNum=2&BabiesNum=4
         //localhost:44371/lodgings/filter?TPointId=1&Checkin=12102019&Checkout=14102019&RetiredNum=2&AdultsNum=2&ChildsNum=2&BabiesNum=4
         [HttpGet("filter")]
         public IActionResult GetLodgingsByTP([FromQuery] LodgingSearchModel search)
@@ -49,7 +48,6 @@ namespace WebApplication.Controllers
 
         }
 
-        // POST: /lodgings
         [HttpPost]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Post([FromHeader] string token, [FromBody] LodgingModel lodgingModel)
@@ -65,7 +63,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        // POST: /lodgings/1
         [HttpDelete("{lodgingId}")]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Delete([FromHeader] string token, int lodgingId)
@@ -82,7 +79,6 @@ namespace WebApplication.Controllers
 
         }
 
-        // PUT: /lodgings
         [HttpPut]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Put([FromBody] LodgingModel lodgingModel)

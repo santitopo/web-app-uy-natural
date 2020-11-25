@@ -16,7 +16,6 @@ namespace Domain
         public double Price { get; set; }
         public string Images { get; set; }
         public bool IsDeleted { get; set; }
-        //Capacity in true means that it accepts guests
         public bool Capacity { get; set; }
         public DateTime CreatedDate { get; set; }
         public double Score { get; set; }

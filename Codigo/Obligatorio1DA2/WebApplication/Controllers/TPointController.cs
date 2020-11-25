@@ -24,7 +24,6 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
         
-        // GET: /tpoints
         [HttpGet]
         public IActionResult GetAllTPoints()
         {
@@ -43,7 +42,6 @@ namespace WebApplication.Controllers
         }
 
         ///tpoints/filter?regionId=3&categories=2&categories=3 --> filter by reg & cats
-        ///tpoints/filter?regionId=3 --> filter by reg
         [HttpGet("filter")]
         public IActionResult GetTPointsByRegionCat([FromQuery] int regionId, [FromQuery] int[] categories)
         {
@@ -74,7 +72,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        // POST: /tpoints
         [HttpPost]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Post([FromHeader] string token, [FromBody] TouristicPointInsertModel tpModel)

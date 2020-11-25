@@ -21,7 +21,6 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        // GET: /admins
         [HttpGet]
         public IActionResult Get()
         {
@@ -35,7 +34,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        // POST: /admins
         [HttpPost]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Post([FromHeader] string token, [FromBody] Administrator admin)
@@ -51,7 +49,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        //PUT: /admins
         [HttpPut]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Put([FromHeader] string token, [FromBody] Administrator admin)
@@ -67,7 +64,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        //DELETE: /admins/1
         [HttpDelete("{adminId}")]
         [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Delete([FromHeader] string token, int adminId)

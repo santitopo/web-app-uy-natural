@@ -34,7 +34,6 @@ namespace Persistence
             return lodging != null;
         }
 
-        //Override methods for logical deletion
         public new void  Delete(Lodging entity)
         {
             entity.IsDeleted = true;

@@ -54,7 +54,6 @@ namespace Persistence
 
         public List<ReservationReportResultModel> GetReportByTPoint(int tpointId, DateTime fromDate, DateTime toDate)
         {
-            //Get all Lodgings of selected TPoint
             IEnumerable<Lodging> lodgings = DbSet
                 .Include(x => x.TouristicPoint)
                 .Where(x => x.TouristicPoint.Id == tpointId && !x.IsDeleted);
@@ -83,7 +82,6 @@ namespace Persistence
             }
             //Orders by number of reservations and as a second criteria by earlier addedDates.
            // reportResult.OrderByDescending(x => x.Reservations).ThenBy(x => x.lodging.CreatedDate);
-
             reportResult.Sort((x, y) =>
             {
                 int result = y.Reservations.CompareTo(x.Reservations);

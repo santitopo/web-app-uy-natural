@@ -199,7 +199,6 @@ namespace Logic
                         tpc.Category = cat;
                         tpc.CategoryId = cat.Id;
                     }
-                    //end of validations
 
                     //add new TouristicPoint
                     tpoint = new TouristicPoint()
@@ -212,8 +211,8 @@ namespace Logic
                     tpRepository.Create(tpoint);
                     tpRepository.Save();
                     int addedTpointId = tpRepository.GetByName(tpoint.Name).Id;
-                    //Update the new tpoint with its categories
 
+                    //Update the new tpoint with its categories
                     foreach (TouristicPointsCategory tpc in virtualCategories)
                     {
                         tpc.TouristicPointId = addedTpointId;

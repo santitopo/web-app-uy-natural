@@ -20,7 +20,6 @@ namespace WebApplication.Controllers
             this.searchLogic = searchLogic;
         }
 
-        // GET: /regions
         [HttpGet]
         public IActionResult Get()
         {

@@ -320,7 +320,6 @@ namespace LogicTest
             {
                 TouristicPoint = tpoint
             };
-            //Returns empty regions list
             List<Region> regions = new List<Region>();
             
             List<Category> categories = new List<Category>();
@@ -376,7 +375,6 @@ namespace LogicTest
             {
                 TouristicPoint = tpoint
             };
-            //Returns empty regions list
             List<Region> regions = new List<Region>();
             regions.Add(reg);
 
@@ -432,7 +430,6 @@ namespace LogicTest
             {
                 TouristicPoint = tpoint
             };
-            //Returns empty regions list
             List<Region> regions = new List<Region>();
             regions.Add(reg);
 

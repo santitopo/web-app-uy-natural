@@ -28,7 +28,6 @@ namespace Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Properties
             modelBuilder.Entity<Reservation>().Property(a => a.Price).IsRequired();
             modelBuilder.Entity<Reservation>().Property(a => a.Code).IsRequired();
             modelBuilder.Entity<Reservation>().Property(a => a.CheckIn).IsRequired();
@@ -48,13 +47,11 @@ namespace Persistence
 
             modelBuilder.Entity<TouristicPoint>().Property(a => a.Name).IsRequired();
 
-            //Inheritance
             modelBuilder.Entity<Person>()
                 .HasDiscriminator<int>("PersonType")
                 .HasValue<Client>(1)
                 .HasValue<Administrator>(2);
 
-            //Many to many TouristicPoints-Category
             modelBuilder.Entity<TouristicPointsCategory>()
                 .HasKey(x => new { x.TouristicPointId, x.CategoryId });
 

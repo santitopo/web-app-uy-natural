@@ -20,7 +20,6 @@ namespace WebApplication.Controllers
             this.logic = logic;
         }
 
-        // POST: /sessions/login
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginModel loginModel)
         {
@@ -34,7 +33,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        // DELETE: /sessions/logout
         [HttpDelete("logout")]
         public IActionResult Logout([FromHeader] string token)
         {
@@ -49,7 +47,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        // GET: /sessions/existing
         [HttpGet("existing")]
         public IActionResult Exists([FromHeader] string token)
         {

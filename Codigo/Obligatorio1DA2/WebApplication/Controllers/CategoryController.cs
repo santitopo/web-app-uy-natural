@@ -18,8 +18,6 @@ namespace WebApplication.Controllers
             this.searchLogic = searchLogic;
         }
 
-
-        // GET: /categories
         [HttpGet]
         public IActionResult Get()
         {

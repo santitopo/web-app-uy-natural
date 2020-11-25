@@ -37,7 +37,6 @@ namespace Logic
         public BillModel BookLodging(ReservationModel reservationData)
         {
             // Verify exists and available
-
             Lodging wantedLodging = lodgingRepository.Get(reservationData.LodgingId);
             if (wantedLodging == null) { throw new InvalidOperationException("El hospedaje no existe"); }
             if (!wantedLodging.Capacity) { throw new InvalidOperationException("El hospedaje no tiene capacidad disponible"); }
@@ -130,7 +129,6 @@ namespace Logic
 
         public IEnumerable<ReservationReportResultModel> GetReportByTPoint(ReservationReportRequestModel request)
         {
-            //Validations
             if (tpointRepository.Get(request.TPointId) == null) { throw new InvalidOperationException("El punto turistico consultado no existe"); }
             DateTime fromDate;
             DateTime toDate;
