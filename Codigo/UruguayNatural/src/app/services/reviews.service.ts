@@ -21,7 +21,6 @@ export class ReviewsService {
   }
 
   getReviewsByLodging(lodgingId: number): Observable<Review>{
-    alert(`${this.uri}/lodging/${lodgingId}`);
     return this.http.get<Review>(`${this.uri}/lodging/${lodgingId}`);
   }
 
