@@ -25,7 +25,6 @@ export class LodgingActionsComponent implements OnInit {
   price: number;
   selectedTPointId: number;
   description: string;
-  image: string;
   selectedImage: string;
   checkUnique;
 
@@ -60,10 +59,19 @@ export class LodgingActionsComponent implements OnInit {
   addLodging(): void {
     if (this.checkParameters()) {
       const lodging = new LodgingInsert(this.name, this.selectedTPointId, this.description, this.direction,
-        this.phone, this.starRating, this.price, this.image);
+        this.phone, this.starRating, this.price, this.selectedImage);
 
       this.lodgingService.addLodging(lodging).subscribe(
-        ret => { },
+        ret => {
+          this.name = "";
+          this.selectedTPointId=undefined;
+          this.description="";
+          this.direction="";
+          this.phone="";
+          this.starRating=3;
+          this.price=0;
+          this.selectedImage="";
+         },
         error => {
           console.log(error);
           alert(error.error);
@@ -101,7 +109,7 @@ export class LodgingActionsComponent implements OnInit {
       undefined, undefined, undefined, !this.capacity);
     this.lodgingService.modifyLodgingCapacity(modifiedlodging).subscribe(
       res => {
-        this.router.navigate(['/success']);
+        
       },
       err => {
         alert("Ups.. Algo salió mal");

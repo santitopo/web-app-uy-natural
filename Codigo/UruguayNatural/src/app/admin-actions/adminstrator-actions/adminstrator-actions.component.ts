@@ -38,7 +38,7 @@ export class AdminstratorActionsComponent implements OnInit {
         alert('Ups algo salió mal...');
         console.log(err);
       });
-      
+
   }
 
   getErrorMessage() {
@@ -50,37 +50,44 @@ export class AdminstratorActionsComponent implements OnInit {
   }
 
   addAdmin(): void {
-    if(this.checkParameters()){
+    if (this.checkParameters()) {
       const admin = new Admin(this.adminName, this.adminSurname,
         this.adminEmail, this.adminPassword);
-  
+
       this.adminsService.addAdmin(admin).subscribe(
-        ret => { },
+        ret => {
+          this.adminName = "";
+          this.adminSurname = "";
+          this.adminEmail = "";
+          this.adminPassword = "";
+        },
         error => {
           console.log(error);
           alert(error.error);
         }
       );
-      
-    }else{
+
+    } else {
       alert("Debe completar todos los campos obligatorios (*).");
     }
-    
+
   }
 
-  select(selectedAdmin: Admin): void{
+  select(selectedAdmin: Admin): void {
     this.selectedAdminName = selectedAdmin.name;
     this.selectedAdminSurname = selectedAdmin.surname;
     this.selectedAdminPassword = selectedAdmin.password;
   }
-  
-  modifyAdmin(): void{
+
+  modifyAdmin(): void {
     this.selectedAdmin.name = this.selectedAdminName;
     this.selectedAdmin.surname = this.selectedAdminSurname;
     this.selectedAdmin.password = this.selectedAdminPassword;
 
     this.adminsService.modifyAdmin(this.selectedAdmin).subscribe(
-      ret => { },
+      ret => {
+        this.selectedAdmin = undefined;
+      },
       error => {
         console.log(error);
         alert(error.error);
@@ -88,11 +95,11 @@ export class AdminstratorActionsComponent implements OnInit {
     );
   }
 
-  deleteAdmin(): void{
+  deleteAdmin(): void {
     this.adminsService.deleteAdmin(this.selectedAdmin.id).subscribe();
   }
 
-  checkParameters(): boolean{
+  checkParameters(): boolean {
     let ret = true;
 
     if (this.adminName === undefined || this.adminSurname === undefined || this.adminPassword === undefined

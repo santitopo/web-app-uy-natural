@@ -64,7 +64,13 @@ export class TpActionsComponent implements OnInit {
       const newTPoint = new TouristicPointInsert(this.tpName, this.tpDescription, this.tpImage,
         this.selectedRegionId, this.selectedCatsId);
       this.tpointsService.addTPoint(newTPoint).subscribe(
-        ret => { },
+        ret => {
+          this.tpName="";
+          this.tpDescription="";
+          this.tpImage="";
+          this.selectedRegionId=undefined;
+          this.selectedCatsId=undefined;
+         },
         error => {
           console.log(error);
           alert(error.error);
