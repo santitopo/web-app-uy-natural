@@ -36,6 +36,7 @@ export class SearchFormComponent implements OnInit {
   selectedLodgingId: number;
   reviewsByLodging;
   showReviews: boolean;
+  
 
   constructor(private lodgingsService: LodgingsService, private datePipe: DatePipe,
         private dataService: DataService, private reservationDataService: ReservationComunicationService,
