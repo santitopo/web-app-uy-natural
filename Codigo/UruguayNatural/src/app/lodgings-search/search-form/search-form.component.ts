@@ -1,10 +1,12 @@
 import { DatePipe } from '@angular/common';
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { LodgingsService } from 'src/app/services/lodgings.service';
+import { ReservationComunicationService } from 'src/app/services/reservation-comunication.service';
 import { Lodging } from 'src/Models/Lodging';
+import { LodgingSearch } from 'src/Models/LodgingSearch';
 import { LodgingSearchResult } from 'src/Models/LodgingSearchResult';
 import { TPoint } from 'src/Models/TPoint';
 
@@ -18,6 +20,7 @@ export class SearchFormComponent implements OnInit {
   to: Date;
   fromToString:string;
   toToString:string;
+  searchModel:LodgingSearch;
 
   babyNum: number;
   childNum: number;
@@ -32,8 +35,8 @@ export class SearchFormComponent implements OnInit {
   starRating = 3;
 
   constructor(private lodgingsService: LodgingsService, private datePipe: DatePipe,
-        private dataService: DataService) {
-          // private currentRoute: ActivatedRoute
+        private dataService: DataService, private reservationDataService: ReservationComunicationService,
+        private router: Router) {
     this.showingLodgings = false;
     this.lodgingSearchResults = new Array();
    }
@@ -55,6 +58,15 @@ export class SearchFormComponent implements OnInit {
     .append('ChildsNum', this.childNum.toString())
     .append('BabiesNum', this.babyNum.toString());
 
+    //Load the request for later comunication with confirmation page
+    this.searchModel = new LodgingSearch(this.inputTpoint.id,
+      this.fromToString,
+      this.toToString,
+      this.retiredNum,
+      this.adultNum,
+      this.childNum,
+      this.babyNum);
+
     this.lodgingsService.getLodgingsByTP(this.params).subscribe(
       res => {
         this.lodgingSearchResults = res;
@@ -64,14 +76,11 @@ export class SearchFormComponent implements OnInit {
         alert('Ups algo salió mal...');
         console.log(err);
       });
+      }
 
-    //   let a = new LodgingSearchResult(120, new Lodging(undefined,"HotelRuta",undefined,"Bonito lugar","Casa de la esquina","59898788778",2,199,["\images\cabanas_quebradas.jpg"],3,true)) 
-    //   let b = new LodgingSearchResult(120, new Lodging(undefined,"Hotel España",undefined,"Bonito lugar","Casa de la esquina","59898788778",2,199,["\images\cabanas_quebradas.jpg"],3,true)) 
-      
-    //   this.lodgingSearchResults.push(a);
-    //   this.lodgingSearchResults.push(b);
-      
-    // this.showingLodgings = true;
+    toReservationConfirmation(lodgingResult: LodgingSearchResult):void{
+    this.reservationDataService.changeMessage(this.searchModel,lodgingResult);
+    this.router.navigate(['/reservation']);
   }
 
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfirmationPageComponent } from './confirmation-page.component';
+import { InformationRequestComponent } from './information-request.component';
 
-describe('ConfirmationPageComponent', () => {
-  let component: ConfirmationPageComponent;
-  let fixture: ComponentFixture<ConfirmationPageComponent>;
+describe('InformationRequestComponent', () => {
+  let component: InformationRequestComponent;
+  let fixture: ComponentFixture<InformationRequestComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfirmationPageComponent ]
+      declarations: [ InformationRequestComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmationPageComponent);
+    fixture = TestBed.createComponent(InformationRequestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

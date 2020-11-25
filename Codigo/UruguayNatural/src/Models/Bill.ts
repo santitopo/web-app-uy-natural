@@ -1,14 +1,14 @@
 export class Bill {
-    ReservationCode: number;
-    Phone: string;
-    Description: string;
-    PricePaid: number;
+    reservationCode: number;
+    phone: string;
+    description: string;
+    pricePaid: number;
 
     constructor(ReservationCode: number, Phone: string, Description: string, Price: number) {
-      this.ReservationCode = ReservationCode;
-      this.Phone = Phone;
-      this.Description = Description;
-      this.PricePaid = Price;
+      this.reservationCode = ReservationCode;
+      this.phone = Phone;
+      this.description = Description;
+      this.pricePaid = Price;
   }
 
 }

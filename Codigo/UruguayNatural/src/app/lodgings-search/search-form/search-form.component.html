@@ -62,10 +62,10 @@
             </ul>
         </div>
         <div class="tpointCategories">
-          <mat-card-title>Total: {{lodgingResult.lodging.price}}USD</mat-card-title>
+          <mat-card-title>Total: {{lodgingResult.totalPrice}}USD</mat-card-title>
         </div>
         <div class="reservation">
-          <button mat-raised-button color="primary" >Reserva Ya!</button>
+          <button mat-raised-button color="primary" (click)="toReservationConfirmation(lodgingResult)">Reserva Ya!</button>
         </div>
     </mat-card>
 </div>
