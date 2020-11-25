@@ -71,12 +71,10 @@ export class AdminstratorActionsComponent implements OnInit {
   select(selectedAdmin: Admin): void{
     this.selectedAdminName = selectedAdmin.name;
     this.selectedAdminSurname = selectedAdmin.surname;
-    this.selectedAdminEmail = selectedAdmin.mail;
     this.selectedAdminPassword = selectedAdmin.password;
   }
   
   modifyAdmin(): void{
-    this.selectedAdmin.mail = this.selectedAdminEmail;
     this.selectedAdmin.name = this.selectedAdminName;
     this.selectedAdmin.surname = this.selectedAdminSurname;
     this.selectedAdmin.password = this.selectedAdminPassword;

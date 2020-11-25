@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\PersistenceTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\PersistenceTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\PersistenceTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -287,8 +288,8 @@ C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2Topol
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\obj\Debug\netcoreapp3.1\PersistenceTest.dll
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\obj\Debug\netcoreapp3.1\PersistenceTest.pdb
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\obj\Debug\netcoreapp3.1\PersistenceTest.genruntimeconfig.cache
-<<<<<<< HEAD
 =======
+>>>>>>> 5f49d5df630240cde8acc3e9ded3ba4beb504273
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -429,4 +430,3 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persi
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\obj\Debug\netcoreapp3.1\PersistenceTest.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\obj\Debug\netcoreapp3.1\PersistenceTest.pdb
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\PersistenceTest\obj\Debug\netcoreapp3.1\PersistenceTest.genruntimeconfig.cache
->>>>>>> origin/feature/DynamicLoadingAdmins

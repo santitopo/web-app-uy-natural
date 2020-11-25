@@ -60,22 +60,13 @@
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Nombre</mat-label>
-                        <input matInput [(ngModel)]="selectedAdminName" placeholder="Placeholder" readonly>
+                        <input matInput [(ngModel)]="selectedAdminName" placeholder="Placeholder">
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Apellido</mat-label>
                         <input matInput [(ngModel)]="selectedAdminSurname" placeholder="Placeholder">
-                    </mat-form-field>
-                </p>
-
-                <p>
-                    <mat-form-field appearance="standard">
-                        <mat-label>Email</mat-label>
-                        <input matInput [(ngModel)]="selectedAdminEmail" placeholder="pat@ejemplo.com" [formControl]="email" required>
-                        <mat-icon matSuffix>sentiment_very_satified</mat-icon>
-                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
                 </p>
 

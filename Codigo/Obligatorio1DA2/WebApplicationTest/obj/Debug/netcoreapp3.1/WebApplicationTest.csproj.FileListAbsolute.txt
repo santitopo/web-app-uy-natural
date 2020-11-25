@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -481,15 +482,15 @@ C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2Topol
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.dll
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.pdb
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.genruntimeconfig.cache
-<<<<<<< HEAD
 =======
+>>>>>>> 5f49d5df630240cde8acc3e9ded3ba4beb504273
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\WebApplication.exe
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\WebApplication.exe
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\WebApplicationTest.deps.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\WebApplicationTest.runtimeconfig.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\bin\Debug\netcoreapp3.1\WebApplicationTest.runtimeconfig.dev.json
@@ -719,4 +720,3 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebAp
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.pdb
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplicationTest\obj\Debug\netcoreapp3.1\WebApplicationTest.genruntimeconfig.cache
->>>>>>> origin/feature/DynamicLoadingAdmins

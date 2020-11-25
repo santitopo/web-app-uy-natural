@@ -43,8 +43,22 @@ namespace WebApplication.Controllers
         public IActionResult GetReviewByReservationCode(string reservationCode)
         {
             try
-            {                
+            {
                 return Ok(reservationLogic.ReviewExistsbyGuid(reservationCode));
+            }
+            catch (Exception)
+            {
+                return BadRequest("Error procesando la solicitud");
+            }
+        }
+
+        // GET: /reviews/lodging
+        [HttpGet("lodging/{lodgingId}")]
+        public IActionResult GetReviewsByLodging(int lodgingId)
+        {
+            try
+            {
+                return Ok(reservationLogic.ReviewsByLodging(lodgingId));
             }
             catch (Exception)
             {

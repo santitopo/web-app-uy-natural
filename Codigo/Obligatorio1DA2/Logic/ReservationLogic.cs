@@ -156,5 +156,12 @@ namespace Logic
             Guid guidcode = new Guid(reservationCode);
             return (reviewRepository.ReviewExists(guidcode));
         }
+
+        public IEnumerable<Review> ReviewsByLodging(int lodgingId)
+        {
+            string[] param = { "Client", "Reservation", "Reservation.Lodging" };
+            return reviewRepository.GetAll(param).Where(x => x.Reservation.Lodging.Id == lodgingId);
+        }
+
     }
 }

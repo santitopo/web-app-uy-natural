@@ -100,6 +100,21 @@ namespace WebApplicationTest
             mock.VerifyAll();
         }
 
+        [TestMethod]
+        public void GetReviewsByLodging()
+        {
+            var mock = new Mock<IReservationLogic>(MockBehavior.Strict);
+
+            ReviewController controller = new ReviewController(null, mock.Object);
+
+            mock.Setup(x => x.ReviewsByLodging(It.IsAny<int>())).Returns(It.IsAny<IEnumerable<Review>>());
+
+            var result = controller.GetReviewsByLodging(5);
+            var response = result as ObjectResult;
+            Assert.AreEqual(200, response.StatusCode);
+
+            mock.VerifyAll();
+        }
 
     }
 }

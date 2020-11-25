@@ -143,15 +143,8 @@ namespace Logic
 
         public void ModifyAdmin(Administrator admin)
         {
-            if (userRepository.GetAdminByMail(admin.Mail) != null)
-            {
-                userRepository.Update(admin);
-                userRepository.Save();
-            }
-            else
-            {
-                throw new InvalidOperationException("El administrador no existe");
-            }
+            userRepository.Update(admin);
+            userRepository.Save();
         }
 
         public void RemoveAdmin(int adminId)
