@@ -56,6 +56,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { isLoggedGuard } from './guards/isLogged.guard';
 import { isNotLoggedGuard } from './guards/isNotLogged.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReservationConfirmationModule } from './reservation-confirmation/reservation-confirmation.module';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AdminActionsModule,
     LodgingsSearchModule,
     ReservationModule,
+    ReservationConfirmationModule,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,

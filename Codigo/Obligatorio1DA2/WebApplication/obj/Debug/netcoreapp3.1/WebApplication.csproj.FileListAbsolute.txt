@@ -305,6 +305,8 @@ C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2Topol
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.dll
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.pdb
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.genruntimeconfig.cache
+<<<<<<< HEAD
+=======
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csproj.CoreCompileInputs.cache
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\bin\Debug\netcoreapp3.1\appsettings.json
@@ -460,3 +462,4 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebAp
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.pdb
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.genruntimeconfig.cache
+>>>>>>> 5f49d5df630240cde8acc3e9ded3ba4beb504273

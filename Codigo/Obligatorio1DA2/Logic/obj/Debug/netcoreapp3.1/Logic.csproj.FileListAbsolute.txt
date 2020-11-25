@@ -33,6 +33,8 @@ C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2Topol
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\obj\Debug\netcoreapp3.1\Logic.csproj.CopyComplete
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\obj\Debug\netcoreapp3.1\Logic.dll
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\obj\Debug\netcoreapp3.1\Logic.pdb
+<<<<<<< HEAD
+=======
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\obj\Debug\netcoreapp3.1\Logic.csproj.CoreCompileInputs.cache
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\bin\Debug\netcoreapp3.1\Logic.deps.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\bin\Debug\netcoreapp3.1\Logic.dll
@@ -52,3 +54,4 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\obj\Debug\netcoreapp3.1\Logic.csproj.CopyComplete
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\obj\Debug\netcoreapp3.1\Logic.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Logic\obj\Debug\netcoreapp3.1\Logic.pdb
+>>>>>>> 5f49d5df630240cde8acc3e9ded3ba4beb504273

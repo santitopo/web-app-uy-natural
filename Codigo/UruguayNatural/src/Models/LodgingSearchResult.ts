@@ -1,11 +1,11 @@
 import { Lodging } from './Lodging';
 
 export class LodgingSearchResult {
-    price: number;
+    totalPrice: number;
     lodging: Lodging;
 
     constructor(price: number, lodging: Lodging) {
-      this.price = price;
+      this.totalPrice = price;
       this.lodging = lodging;
   }
 

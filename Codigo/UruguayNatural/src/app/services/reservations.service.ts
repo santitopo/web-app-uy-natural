@@ -2,7 +2,9 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Bill } from 'src/Models/Bill';
 import { Reservation } from 'src/Models/Reservation';
+import { ReservationInsert } from 'src/Models/ReservationInsert';
 import { ReservationReport } from 'src/Models/ReservationReport';
 import { ReservationReportResult } from 'src/Models/ReservationReportResult';
 import { ReservationUpdate } from 'src/Models/ReservationUpdate';
@@ -44,6 +46,10 @@ export class ReservationsService {
   updateReservation(modifiedReservation: ReservationUpdate): Observable<{}> {
     const headers = new HttpHeaders().set('token', localStorage.token);
     return this.http.put(this.uri,modifiedReservation, { headers: headers });
+  }
+
+  postReservation(reservation: ReservationInsert):Observable<Bill>{
+    return this.http.post<Bill>(this.uri, reservation);
   }
 
 }

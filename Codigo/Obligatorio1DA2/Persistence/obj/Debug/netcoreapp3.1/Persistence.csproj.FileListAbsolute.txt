@@ -33,6 +33,8 @@ C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2Topol
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\obj\Debug\netcoreapp3.1\Persistence.dll
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\obj\Debug\netcoreapp3.1\Persistence.pdb
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\obj\Debug\netcoreapp3.1\Persistence.genruntimeconfig.cache
+<<<<<<< HEAD
+=======
 C:\Users\stopo\Documents\ORT\Sem6\Diseño de Aplicaciones 2\Obligatorio\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.CoreCompileInputs.cache
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\bin\Debug\netcoreapp3.1\Persistence.deps.json
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\bin\Debug\netcoreapp3.1\Persistence.runtimeconfig.json
@@ -53,3 +55,4 @@ C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persi
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\obj\Debug\netcoreapp3.1\Persistence.dll
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\obj\Debug\netcoreapp3.1\Persistence.pdb
 C:\Users\felip\Documents\GitHub\DA2TopolanskyNajson\Codigo\Obligatorio1DA2\Persistence\obj\Debug\netcoreapp3.1\Persistence.genruntimeconfig.cache
+>>>>>>> 5f49d5df630240cde8acc3e9ded3ba4beb504273

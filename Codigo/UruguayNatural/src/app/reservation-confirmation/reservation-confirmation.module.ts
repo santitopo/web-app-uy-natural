@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InformationRequestComponent } from './information-request/information-request.component';
 import { AppRoutingModule } from '../app-routing.module';
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -44,16 +45,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
-import { SearchFormComponent } from './search-form/search-form.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
-  declarations: [SearchFormComponent],
+  declarations: [InformationRequestComponent],
   imports: [
-    AppRoutingModule,
     CommonModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,
@@ -98,9 +100,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    FormsModule,
     NgbModule
   ],
-  exports: [SearchFormComponent],
+  exports: [
+    InformationRequestComponent
+  ]
 })
-export class LodgingsSearchModule { }
+export class ReservationConfirmationModule { }

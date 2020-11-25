@@ -1,27 +1,27 @@
 export class ReservationInsert {
-    LodgingId: number;
-    Checkin: string;
-    Checkout: string;
-    RetiredNum: number;
-    AdultsNum: number;
-    ChildsNum: number;
-    BabiesNum: number;
-    Name: string;
-    Surname: string;
-    Mail: string;
+    lodgingId: number;
+    checkin: string;
+    checkout: string;
+    retiredNum: number;
+    adultsNum: number;
+    childsNum: number;
+    babiesNum: number;
+    name: string;
+    surname: string;
+    mail: string;
 
     constructor(LodgingId: number, Checkin: string, Checkout: string, RetiredNum: number,
                 AdultsNum: number, ChildsNum: number, BabiesNum: number, Name: string, Surname: string, Mail: string) {
-        this.LodgingId = LodgingId;
-        this.Checkin = Checkin;
-        this.Checkout = Checkout;
-        this.RetiredNum = RetiredNum;
-        this.AdultsNum = AdultsNum;
-        this.ChildsNum = ChildsNum;
-        this.BabiesNum = BabiesNum;
-        this.Name = Name;
-        this.Surname = Surname;
-        this.Mail = Mail;
+        this.lodgingId = LodgingId;
+        this.checkin = Checkin;
+        this.checkout = Checkout;
+        this.retiredNum = RetiredNum;
+        this.adultsNum = AdultsNum;
+        this.childsNum = ChildsNum;
+        this.babiesNum = BabiesNum;
+        this.name = Name;
+        this.surname = Surname;
+        this.mail = Mail;
     }
 
 }

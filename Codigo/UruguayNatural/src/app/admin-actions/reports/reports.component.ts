@@ -20,9 +20,13 @@ export class ReportsComponent implements OnInit {
   selectedTPointId: number;
   params: HttpParams;
   reportResult;
+  displayedColumns: string[] = ['name', 'reservations'];
+  searched:boolean;
+
 
   constructor(private tpointsService: TPointsService, private reservationService: ReservationsService,
     private datePipe: DatePipe) {
+      this.searched=false;
   }
 
   ngOnInit(): void {
@@ -48,6 +52,7 @@ export class ReportsComponent implements OnInit {
     this.reservationService.getReservationsReportbyTP(this.params).subscribe(
       res => {
         this.reportResult = res;
+        this.searched=true;
       },
       error => {
         console.log(error);

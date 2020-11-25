@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { Lodging } from 'src/Models/Lodging';
 import { LodgingInsert } from 'src/Models/LodgingInsert';
 import { LodgingModel } from 'src/Models/LodgingModel';
-import { LodgingSearch } from 'src/Models/LodgingSearch';
 import { LodgingSearchResult } from 'src/Models/LodgingSearchResult';
 
 @Injectable({

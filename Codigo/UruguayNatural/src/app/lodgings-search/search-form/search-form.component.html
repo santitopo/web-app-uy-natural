@@ -79,7 +79,9 @@
           <li>
             <mat-card-title>{{lodgingResult.lodging.name}}</mat-card-title>
           </li>
-          <ngb-rating [readonly]="true" [(rate)]="lodgingResult.lodging.stars" [max]="5"> </ngb-rating>
+          <div *ngIf="lodgingResult.lodging.score!=0">
+          <ngb-rating [readonly]="true" [(rate)]="lodgingResult.lodging.score" [max]="5"> </ngb-rating>
+        </div>
         </ul>
       </div>
       <div class="tpointText">
@@ -89,10 +91,10 @@
         </ul>
       </div>
       <div class="tpointCategories">
-        <mat-card-title>Total: {{lodgingResult.lodging.price}}USD</mat-card-title>
+        <mat-card-title>Total: {{lodgingResult.totalPrice}}USD</mat-card-title>
       </div>
       <div class="reservation">
-        <button mat-raised-button color="primary">Reserva Ya!</button>
+        <button mat-raised-button color="primary" (click)="toReservationConfirmation(lodgingResult)">Reserva Ya!</button>
         <button mat-raised-button (click)='getReviews(lodgingResult)'>Ver comentarios</button>
       </div>
     </mat-card>
