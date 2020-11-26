@@ -22,6 +22,7 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult Get()
         {
             try

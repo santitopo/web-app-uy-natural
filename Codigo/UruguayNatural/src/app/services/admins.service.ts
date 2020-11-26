@@ -12,7 +12,8 @@ export class AdminsService {
   constructor(private http: HttpClient) {}
 
   getAdmins(): Observable<Admin> {
-    return this.http.get<Admin>(this.uri);
+    const headers = new HttpHeaders().set('token', localStorage.token);
+    return this.http.get<Admin>(this.uri,{ headers: headers });
   }
 
   addAdmin(admin: Admin): Observable<{}> {

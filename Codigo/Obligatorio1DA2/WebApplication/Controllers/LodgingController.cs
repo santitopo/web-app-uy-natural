@@ -24,17 +24,14 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        //[HttpGet("filter")]
+        //localhost:44371/lodgings?LodgingName=hola&TpointId=2
         private IActionResult GetLodgingsByTP([FromQuery] LodgingSearchModel search)
         {
             IEnumerable<LodgingSearchResultModel> touristicPoints = lodgingLogic.SearchLodgings(search);
             return Ok(touristicPoints);
         }
 
-        //localhost:44371/lodgings?LodgingName=hola&TpointId=2
         //localhost:44371/lodgings?TPointId=1&Checkin=12102019&Checkout=14102019&RetiredNum=2&AdultsNum=2&ChildsNum=2&BabiesNum=4
-
-        [HttpGet]
         private IActionResult GetbySimilarNameandTP([FromQuery] LodgingSelectionModel search)
         {
 

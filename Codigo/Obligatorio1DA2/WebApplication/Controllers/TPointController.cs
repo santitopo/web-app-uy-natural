@@ -24,7 +24,6 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
         
-        [HttpGet]
         private IActionResult GetAllTPoints()
         {
             try
