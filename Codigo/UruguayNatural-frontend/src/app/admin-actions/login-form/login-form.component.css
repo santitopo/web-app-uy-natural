@@ -1,0 +1,15 @@
+
+
+.loginform mat-form-field{
+    margin: 5px auto;
+    width: 200px;
+}
+
+.form{
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+}
+
+mat-form-field{
+    size: 200px;
+}

@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-title>Agregar Punto Turistico</mat-card-title>
+    <mat-card-content class="inline">
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput [(ngModel)]="tpName" required="true" />
+                    </mat-form-field>
+                </p>
+                
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Region</mat-label>
+                        <mat-select [(ngModel)]="selectedRegionId" required="true">
+                            <mat-option *ngFor="let region of regions" [value]="region.id">{{region.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea matInput [(ngModel)]="tpDescription" type="text"></textarea>
+                    </mat-form-field>
+                </p>
+            </div>
+
+            <div>
+                  <mat-selection-list #cats [(ngModel)]="selectedCatsId">
+                    <mat-list-option *ngFor="let category of categories" class="font-small" [value]= "category.id">
+                        {{category.name}}
+                    </mat-list-option>
+                  </mat-selection-list>
+                  <p>
+                    Categorias seleccionadas: {{cats.selectedOptions.selected.length}}
+                  </p>
+            </div>
+
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Imagen</mat-label>
+                        <input matInput [(ngModel)]="tpImage" placeholder="../imagen.png"/>
+                        <mat-hint>Debe ser una imagen con URL pública o una disponible en el servidor</mat-hint>
+                    </mat-form-field>
+                </p>
+                <br>
+                <button mat-raised-button color="primary" (click)="addTPoint()" >Agregar Punto Turistico</button>
+            </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,91 @@
+<mat-card>
+    <mat-card-title> Agregar Administrador</mat-card-title>
+    <mat-card-content class="inline">
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput [(ngModel)]="adminName" placeholder="Placeholder" required>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput [(ngModel)]="adminSurname" placeholder="Placeholder" required>
+                    </mat-form-field>
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Email</mat-label>
+                        <input matInput [(ngModel)]="adminEmail" placeholder="pat@ejemplo.com" [formControl]="email" required>
+                        <mat-icon matSuffix>sentiment_very_satified</mat-icon>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [(ngModel)]="adminPassword" [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+
+                <button mat-raised-button color="primary" (click)="addAdmin()">Agregar Administrador</button>
+            </div>
+    </mat-card-content>
+</mat-card>
+
+
+<mat-card>
+    <mat-card-title> Eliminar/Modificar Administrador</mat-card-title>
+    <mat-card-content class="inline">
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Administradores</mat-label>
+                        <mat-select [(ngModel)]="selectedAdmin" (selectionChange)="select(selectedAdmin)">
+                            <mat-option *ngFor="let admin of admins" [value]="admin">{{admin.mail}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput [(ngModel)]="selectedAdminName" placeholder="Placeholder">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput [(ngModel)]="selectedAdminSurname" placeholder="Placeholder">
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [(ngModel)]="selectedAdminPassword" [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+            </div>
+
+            <div id="delete-modify-admin">
+                <button mat-raised-button color="primary" (click)="modifyAdmin()">Modificar Administrador</button>
+                <br>
+                <button mat-raised-button color="primary" (click)="deleteAdmin()">Eliminar Administrador</button>
+            </div>
+    </mat-card-content>
+</mat-card>
