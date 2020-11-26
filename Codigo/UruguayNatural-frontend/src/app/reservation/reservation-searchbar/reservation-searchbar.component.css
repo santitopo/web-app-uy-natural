@@ -1,0 +1,32 @@
+mat-toolbar{
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 50px;
+}
+
+
+.example-form {
+    width: 900px;
+  }
+  
+.example-full-width {
+    width: 650px;
+}
+
+.margin-left{
+    margin-left: 60px;
+}
+
+.search-bar{
+    margin: 0 auto;
+    border-radius: 50px;
+    height: 85px;
+    width: 1000px;
+    text-align: center;
+    background-color: rgb(250, 250, 250);
+}
+
+.user-input{
+    margin-left: 20px;
+    width: 500px;
+}

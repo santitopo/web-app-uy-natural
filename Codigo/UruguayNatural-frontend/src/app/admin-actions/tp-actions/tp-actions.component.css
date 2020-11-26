@@ -1,0 +1,38 @@
+mat-card{
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+ngb-rating {
+    color: #FFC107;
+    font-size: 28px;
+    float: left;
+}
+
+p {
+    margin: 0px;
+}
+
+.inline {
+    justify-content: center;
+    display: flex;
+    width: 90%;
+  }
+
+.inline div{
+    margin: 20px;
+}
+
+#delete-modify-admin button{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.font-small{
+    font-size: small;
+}
+
+button{
+    margin-top: 15px;
+}

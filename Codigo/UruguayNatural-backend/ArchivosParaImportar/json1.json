@@ -1,0 +1,86 @@
+[
+	{
+	"Name" : "El Artista",
+    "Description" : "Excelente lugar para vacacionar",
+    "Direction" : "Calle principal del diablo 22",
+    "Phone": "091657062",
+    "Images" : "img1.png",
+    "Price" : 20.0,
+   	"Stars" : 4,
+    "Score" : 3.0,
+    "Capacity" : true,
+    "TouristicPoint" : {"Name" : "Punta del Diablo",
+    					"Description" : "Playa Bonita",
+    				    "Image": "img1.png",
+    				    "Region": {	"Name": "Región Este"},
+    				    "Categories": [
+    				    	           {"Category":  {"Name":"Playas"} }
+    				    			   
+    				    			  ]
+    				  }
+    },
+
+    {
+    "Name" : "El Artista2",
+    "Description" : "Excelente lugar para vacacionar",
+    "Direction" : "Calle principal del diablo 22",
+    "Phone": "091657062",
+    "Images" : "img1.png",
+    "Price" : 20.0,
+    "Stars" : 4,
+    "Score" : 3.0,
+    "Capacity" : true,
+    "TouristicPoint" : {"Name" : "Punta del Diablo",
+                        "Description" : "Playa Bonita",
+                        "Image": "img1.png",
+                        "Region": { "Name": "Región Este"},
+                        "Categories": [
+                                       {"Category":  {"Name":"Playas"} }
+                                       
+                                      ]
+                      }
+    },
+
+
+    {
+    "Name" : "El Artista3",
+    "Description" : "Excelente lugar para vacacionar",
+    "Direction" : "Calle principal del diablo 22",
+    "Phone": "091657062",
+    "Images" : "img1.png",
+    "Price" : 20.0,
+    "Stars" : 4,
+    "Score" : 3.0,
+    "Capacity" : true,
+    "TouristicPoint" : {"Name" : "Punta del Diablo",
+                        "Description" : "Playa Bonita",
+                        "Image": "img1.png",
+                        "Region": { "Name": "Región Este"},
+                        "Categories": [
+                                       {"Category":  {"Name":"Playas"} }
+                                       
+                                      ]
+                      }
+    },
+
+    {
+    "Name" : "El Artista4",
+    "Description" : "Excelente lugar para vacacionar",
+    "Direction" : "Calle principal del diablo 22",
+    "Phone": "091657062",
+    "Images" : "img1.png",
+    "Price" : 20.0,
+    "Stars" : 4,
+    "Score" : 3.0,
+    "Capacity" : true,
+    "TouristicPoint" : {"Name" : "Punta del Diablo",
+                        "Description" : "Playa Bonita",
+                        "Image": "img1.png",
+                        "Region": { "Name": "Región Este"},
+                        "Categories": [
+                                       {"Category":  {"Name":"Playas"} }
+                                       
+                                      ]
+                      }
+    }
+]

@@ -1,0 +1,35 @@
+<div class="content">
+    <h1>Ingrese el Código de Reserva</h1>
+    <app-reservation-searchbar id="searchBar" (searchButtonClicked)="handlerFunction($event)"></app-reservation-searchbar>
+    <mat-divider class="margin"></mat-divider>
+    
+    <mat-card class="client-info" *ngIf="showNotFound">
+        <h2>No se encontró la reserva..!</h2>
+    </mat-card>
+    
+    <div *ngIf="showState">
+    <mat-card class="client-info">
+        <h2>{{stateName}}</h2>
+        <h3>{{description}}</h3>
+    </mat-card>
+
+    <div *ngIf="reviewExists; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>        
+        <button mat-raised-button color="primary" disabled>¡Ya recibimos tu reseña!</button>
+    </ng-template>
+    
+    <ng-template #elseBlock>
+        <button mat-raised-button color="primary" (click)="allowReview()">Escribir Reseña</button>
+    </ng-template>
+    
+    <div class="review-area" *ngIf="showReviewArea">
+        <mat-form-field appearance="outline" class="text-area">
+            <mat-label>Ingrese su reseña aqui...</mat-label>
+            <textarea matInput [(ngModel)]="reviewDescription"></textarea>
+          </mat-form-field>
+        <button mat-raised-button (click)="sendReview()"><mat-icon> send</mat-icon></button>
+        <br>
+        <ngb-rating [(rate)]="starRating" [max]="5" [(ngModel)]="reviewStars"> </ngb-rating>
+    </div>
+</div>
+</div>

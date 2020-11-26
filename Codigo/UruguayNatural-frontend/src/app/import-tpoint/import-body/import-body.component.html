@@ -1,0 +1,108 @@
+<h1>Importar Puntos Turísticos</h1>
+<mat-card class="tpointContent">
+    <div class="left">
+        <p><strong>Elegir Método de importación de Puntos Turísticos:</strong></p>
+        <!-- Dropdown with importation methods available -->
+        <mat-form-field appearance="fill" >
+            <mat-label>Importador</mat-label>
+            <mat-select [(ngModel)]="selectedImporter" (selectionChange)="select(selectedImporter)" required="true" >
+                <mat-option *ngFor="let importer of availableImporters" [value]="importer">
+                    {{importer.importerName}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+        <p><strong>Importar</strong></p>
+        <p>Nota: Utilice los caracteres <strong>' / '</strong> o <strong>' \\ '</strong> como separadores</p>
+        <!-- Campos Variables  -->
+         
+        <div *ngIf="selectedImporter!=undefined">
+            <mat-form-field *ngFor="let param of selectedImporter.parameters" appearance="fill">
+                <mat-label>{{param.name}}</mat-label>
+                <input  matInput [(ngModel)]="param.value" placeholder="{{param.name}}" required="true">
+            </mat-form-field>
+        
+        </div>
+            <!-- ---------               -->
+        <div *ngIf="(availableImporters.length>0 && selectedImporter!=undefined); else elseBlock">
+            <button mat-raised-button color="primary" class="button-margin" (click)="import()">Importar</button>
+        </div>
+        <ng-template #elseBlock>
+            <button mat-raised-button color="primary" class="button-margin" disabled>Importar</button>
+        </ng-template>
+
+    </div>
+    <div class="right" *ngIf="importationExecuted">
+        
+        
+        <h1>Importados</h1>
+        <table mat-table [dataSource]="importationResult.imported" class="mat-elevation-z1">
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name" >
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <!-- Tpoint Column -->
+            <ng-container matColumnDef="tpoint" class="mat-column-error">
+              <th mat-header-cell *matHeaderCellDef> Punto Turístico </th>
+              <td mat-cell *matCellDef="let element"> {{element.touristicPoint.name}} </td>
+            </ng-container>
+
+            <!-- Description Column -->
+            <ng-container matColumnDef="description" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+              </ng-container>
+
+              <!-- Adress Column -->
+            <ng-container matColumnDef="direction" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                <td mat-cell *matCellDef="let element"> {{element.direction}} </td>
+              </ng-container>
+
+              <!-- phone Column -->
+            <ng-container matColumnDef="phone" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="stars" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Estrellas </th>
+                <td mat-cell *matCellDef="let element"> {{element.stars}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="price" class="mat-column-error">
+                <th mat-header-cell *matHeaderCellDef> Precio/Noche </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsImported"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsImported;"></tr>
+        </table>
+
+
+        <h1>No Importados</h1>
+        <table mat-table [dataSource]="importationResult.notImported" class="mat-elevation-z1">
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="notImportedname">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.lodging.name}} </td>
+            </ng-container>
+          
+            <!-- Error Column -->
+            <ng-container matColumnDef="error" class="mat-column-error">
+              <th mat-header-cell *matHeaderCellDef> Error </th>
+              <td mat-cell *matCellDef="let element"> {{element.reason}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+          
+          
+
+   </div>
+    
+</mat-card>

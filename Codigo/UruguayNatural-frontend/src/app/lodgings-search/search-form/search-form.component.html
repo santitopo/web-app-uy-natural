@@ -1,0 +1,108 @@
+<h2>Buscar Hospedajes en: {{inputTpoint.name}}</h2>
+<div class="inline">
+
+  <mat-card class="search-bar">
+    <mat-form-field appearance="standard">
+      <mat-label>Ingrese un rango de fechas:</mat-label>
+      <mat-date-range-input [rangePicker]="picker" required>
+        <input [(ngModel)]="from" matStartDate placeholder="Start date">
+        <input [(ngModel)]="to" matEndDate placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field class="user-input">
+      <mat-label>Bebes</mat-label>
+      <input [(ngModel)]="babyNum" matInput type="number"
+        aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
+    </mat-form-field>
+
+    <mat-form-field class="user-input">
+      <mat-label>Niños</mat-label>
+      <input [(ngModel)]="childNum" matInput type="number"
+        aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
+    </mat-form-field>
+
+    <mat-form-field class="user-input">
+      <mat-label>Adultos</mat-label>
+      <input [(ngModel)]="adultNum" matInput type="number" aria-label="">
+    </mat-form-field>
+
+    <mat-form-field class="user-input">
+      <mat-label>Jubilados</mat-label>
+      <input [(ngModel)]="retiredNum" matInput type="number"
+        aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
+    </mat-form-field>
+
+    <button mat-mini-fab color="primary" class="margin-left" (click)='searchLodgings()'>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-card>
+</div>
+
+<mat-divider></mat-divider>
+
+
+<div *ngIf="showingLodgings && lodgingSearchResults.length>0">
+
+  <div *ngIf="showReviews; then thenBlock else elseBlock"></div>
+
+  <ng-template #thenBlock>
+    <div class="width80">
+      <mat-card-title>Comentarios</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card *ngFor="let review of reviewsByLodging">
+        <mat-card-content>
+          <textarea matInput class="review" readonly>{{review.description}}</textarea>
+  
+          <div class="display-flex">
+            <mat-label>{{review.client.name}} {{review.client.surname}}</mat-label>
+            <ngb-rating [(rate)]="review.score" [max]="5" readonly> </ngb-rating>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <button mat-raised-button color="primary" (click)='showLodgings()'>Volver</button>
+
+    </div>
+  </ng-template>
+
+  <ng-template #elseBlock>
+    <mat-card class="tpointContent" *ngFor="let lodgingResult of lodgingSearchResults">
+
+      <div class="tpointImage">
+        <img class="picture-box__img " [src]='lodgingResult.lodging.images'>
+      </div>
+      <div class="clasification">
+        <ul>
+          <li>
+            <mat-card-title>{{lodgingResult.lodging.name}}</mat-card-title>
+          </li>
+          <div *ngIf="lodgingResult.lodging.score!=0">
+          <ngb-rating [readonly]="true" [(rate)]="lodgingResult.lodging.score" [max]="5"> </ngb-rating>
+        </div>
+        </ul>
+      </div>
+      <div class="tpointText">
+        <ul>
+          <li>Descripcion: {{lodgingResult.lodging.description}} </li>
+          <li>Dirección: {{lodgingResult.lodging.direction}} </li>
+        </ul>
+      </div>
+      <div class="tpointCategories">
+        <mat-card-title>Total: {{lodgingResult.totalPrice}}USD</mat-card-title>
+      </div>
+      <div class="reservation">
+        <button mat-raised-button color="primary" (click)="toReservationConfirmation(lodgingResult)">Reserva Ya!</button>
+        <button mat-raised-button (click)='getReviews(lodgingResult)'>Ver comentarios</button>
+      </div>
+    </mat-card>
+  </ng-template>
+
+</div>
+
+<div *ngIf="showingLodgings && lodgingSearchResults.length==0">
+  <h1>No se encontraron resultados...</h1>
+
+</div>

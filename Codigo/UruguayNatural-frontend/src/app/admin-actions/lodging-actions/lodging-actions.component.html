@@ -1,0 +1,140 @@
+<mat-card>
+    <mat-card-title>Agregar Hospedaje</mat-card-title>
+    <mat-card-content class="inline">
+        <div>
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput [(ngModel)]="name" placeholder="Placeholder" required="true">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput [(ngModel)]="direction" placeholder="Placeholder" required="true">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput [(ngModel)]="phone" placeholder="Placeholder" required="true">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Punto Turistico</mat-label>
+                    <mat-select [(ngModel)]="selectedTPointId" required="true">
+                        <mat-option *ngFor="let tpoint of tpoints" [value]="tpoint.id">{{tpoint.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Precio</mat-label>
+                    <input matInput [(ngModel)]="price" type="number" class="example-right-align" required="true">
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix>.00</span>
+                </mat-form-field>
+            </p>
+
+            <mat-label>Estrellas</mat-label>
+            <br>
+            <ngb-rating [(rate)]="starRating" [max]="5"> </ngb-rating>
+            <br>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Descripcion</mat-label>
+                    <textarea [(ngModel)]="description" matInput></textarea>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Imagen</mat-label>
+                    <input matInput [(ngModel)]="selectedImage" placeholder="../imagen.png"/>
+                    <mat-hint>Debe ser una imagen con URL pública o una disponible en el servidor</mat-hint>
+                </mat-form-field>
+            </p>
+            <br>
+            <button mat-raised-button color="primary" (click)="addLodging()">Agregar Hospedaje</button>
+        </div>
+
+        <div>
+            <button mat-raised-button color="primary" (click)="importLodging()">Importar Hospedaje</button>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Modificar Capacidad Hospedaje</mat-card-title>
+    <div>
+        <h2>Buscar hosepdajes</h2>
+    </div>
+    <div class="inline">
+
+        <mat-card class="search-bar">
+              
+            <mat-form-field class="user-input searchElement">
+                <mat-label>Nombre del Hospedaje</mat-label>
+                <input [(ngModel)]="LodgingName" matInput placeholder="Ej. Casa del Sol">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Punto Turistico</mat-label>
+                <mat-select [(ngModel)]="selectedTPointIdSearch" required="true">
+                    <mat-option *ngFor="let tpoint of tpoints" [value]="tpoint.id">{{tpoint.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+      
+          <button mat-mini-fab color="primary" class="margin-left" (click)="searchLodgings()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-card>
+      </div>
+
+
+    <mat-card-content class="inline" >
+        
+        <div *ngIf="searched">
+            
+            <mat-label>Resultados de Búsqueda</mat-label>
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Hospedajes</mat-label>
+                    <mat-select [(ngModel)]="selectedLodging" (selectionChange)="select(selectedLodging)">
+                        <mat-option *ngFor="let lodging of lodgings" [value]="lodging">{{lodging.name}}
+                            </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Capacidad Actual</mat-label>
+                    <input matInput [(ngModel)]="actualCapacity" placeholder="Placeholder" readonly>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>Modificar Capacidad</mat-label>
+                    <mat-select [(ngModel)]="selectedCapacity">
+                        <mat-option value="available">Disponible</mat-option>
+                        <mat-option value="full">Lleno</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+
+            <div *ngIf="(selectedCapacity!=undefined && selectedLodging!=undefined); else elseBlock">
+                <button mat-raised-button color="primary" (click)="modifyCapacity()">Confirmar</button>
+            </div>
+            <ng-template #elseBlock><button mat-raised-button color="primary" disabled>Confirmar</button>
+            </ng-template>
+
+        </div>
+    </mat-card-content>
+</mat-card>

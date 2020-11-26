@@ -21,6 +21,7 @@ insert into dbo.State(Name) values ('Expirada');
 
 -- ADMINISTRADORES --
 insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('Admin','','admin@g.com','admin',2);
+insert into dbo.Persons (Name,Surname, Mail, Password, PersonType) values ('Admin2','','admin2@g.com','admin2',2);
 
 -- USERSESSIONS --
 insert into dbo.UserSessions (ConnectedAt,Token, UserId) values ('2020-10-14','6F9619FF-8B86-D011-B42D-00C04FC964FF',1);
@@ -29,6 +30,7 @@ insert into dbo.UserSessions (ConnectedAt,Token, UserId) values ('2020-10-14','6
 insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Jose','Hernandez','jh@hotmail.com', 1);
 insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Laura','Fernandez','lau.f@gmail.com', 1);
 insert into dbo.Persons (Name,Surname, Mail, PersonType) values ('Pepe','Gomez','pepe@hotmail.com', 1);
+
 
 -- PUNTOS TURISTICOS --
 insert into TouristicPoints (Name, Description, RegionId, Image) values ('Punta del Este','Balneario de playa', 3, '\images\pde.jpg');
@@ -70,8 +72,11 @@ insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone
 insert into Lodgings (Capacity,Description,Direction,Images,IsDeleted,Name,Phone,Price,Stars,TouristicPointId, Score, CreatedDate) values (1,'Rancho El Aguila','en el camino de la quebrada','\images\elAguila.jpg',0,'Rancho El Aguila','09655440',30,2,8,0, GETDATE());
 
 -- RESERVAS --
-insert into dbo.Reservations(Code,LodgingId, ClientId, StateId, StateDescription, CheckIn, CheckOut, Price) values (newid(),'5','2', '2', 'En proceso', '2020-11-20', '2020-11-22', 30);
 insert into dbo.Reservations(Code,LodgingId, ClientId, StateId, StateDescription, CheckIn, CheckOut, Price) values (newid(),'2','3', '3', 'Aceptada', '2020-10-10', '2020-10-12', 90);
 insert into dbo.Reservations(Code,LodgingId, ClientId, StateId, StateDescription, CheckIn, CheckOut, Price) values (newid(),'8','4', '4', 'Rechazada por falta de fondos en tarjeta', '2020-12-20', '2020-12-31', 45);
-INSERT [dbo].[Reservations] ( [Code], [LodgingId], [ClientId], [CheckIn], [CheckOut], [StateId], [StateDescription], [Price]) VALUES ( N'ca69eda7-626d-4136-9359-e83be6a8c07d', 2, 2, CAST(N'2020-10-30T00:00:00.0000000' AS DateTime2), CAST(N'2020-11-02T00:00:00.0000000' AS DateTime2), 2, N'En proceso', 45)
-INSERT [dbo].[Reservations] ( [Code], [LodgingId], [ClientId], [CheckIn], [CheckOut], [StateId], [StateDescription], [Price]) VALUES ( N'ca69eda7-626d-4136-9359-e83be6a8c07d', 3, 3, CAST(N'2020-10-28T00:00:00.0000000' AS DateTime2), CAST(N'2020-11-02T00:00:00.0000000' AS DateTime2), 2, N'En proceso', 45)
+insert into dbo.Reservations(Code,LodgingId, ClientId, StateId, StateDescription, CheckIn, CheckOut, Price) values (newid(),'2','5', '3', 'Aceptada', '2020-11-25', '2020-11-28', 30);
+
+
+--REVIEWS--
+insert into Reviews (Description, Score, ClientId, ReservationId) values ('Espectacular para una escapada de fin de semana! Recomendado.', 4,3,1);
+insert into Reviews (Description, Score, ClientId, ReservationId) values ('Excelente atencion!!', 4,3,2);
