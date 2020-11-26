@@ -14,7 +14,6 @@ export class LodgingsService {
   lodgingSearchResults: LodgingSearchResult[] = new Array();
 
   uri = `${environment.baseUrl}/lodgings`;
-  uri2 = `${environment.baseUrl}/lodgings/filter`;
 
   constructor(private http: HttpClient) {
     this.lodgingSearchResults.push(
@@ -55,7 +54,7 @@ export class LodgingsService {
 
   getLodgingsByTP(parameters: HttpParams){
     const options = { params: parameters };
-    return this.http.get(this.uri2, options);
+    return this.http.get(this.uri, options);
   }
 
 }

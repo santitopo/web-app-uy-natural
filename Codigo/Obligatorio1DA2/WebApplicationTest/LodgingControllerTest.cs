@@ -94,7 +94,7 @@ namespace WebApplicationTest
             adminMock.VerifyAll();
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
         }
-    
+
 
         [TestMethod]
         public void PutOK()
@@ -146,9 +146,14 @@ namespace WebApplicationTest
 
             lodgingLogicMock.Setup(x => x.SearchLodgings(It.IsAny<LodgingSearchModel>())).Returns(It.IsAny<IEnumerable<LodgingSearchResultModel>>());
 
-            LodgingSearchModel model = new LodgingSearchModel();
+            LodgingSearchModel model = new LodgingSearchModel()
+            {
+                Checkin = "",
+                Checkout = "",
 
-            var result = controller.GetLodgingsByTP(model);
+            };
+
+            var result = controller.Get(null, model);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as IEnumerable<LodgingSearchResultModel>;
 
@@ -161,7 +166,7 @@ namespace WebApplicationTest
             var lodgingLogicMock = new Mock<ILodgingLogic>(MockBehavior.Strict);
             LodgingController controller = new LodgingController(lodgingLogicMock.Object, null);
 
-            lodgingLogicMock.Setup(x => x.SearchBySimilarNameandTpoint(It.IsAny<string>(),It.IsAny<int>())).Returns(It.IsAny<IEnumerable<Lodging>>());
+            lodgingLogicMock.Setup(x => x.SearchBySimilarNameandTpoint(It.IsAny<string>(), It.IsAny<int>())).Returns(It.IsAny<IEnumerable<Lodging>>());
 
             LodgingSelectionModel model = new LodgingSelectionModel()
             {
@@ -169,7 +174,7 @@ namespace WebApplicationTest
                 TpointId = 1
             };
 
-            var result = controller.GetbySimilarNameandTP(model);
+            var result = controller.Get(model, null);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as IEnumerable<Lodging>;
 
@@ -190,7 +195,7 @@ namespace WebApplicationTest
                 TpointId = 1
             };
 
-            var result = controller.GetbySimilarNameandTP(model);
+            var result = controller.Get(model, null);
             lodgingLogicMock.VerifyAll();
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
 

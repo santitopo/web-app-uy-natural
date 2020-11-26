@@ -28,7 +28,7 @@ namespace WebApplicationTest
 
             logicMock.Setup(x => x.GetAllTPoints()).Returns(ret);
 
-            var result = controller.GetAllTPoints();
+            var result = controller.Get(0, null);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as IEnumerable<TouristicPoint>;
 
@@ -48,7 +48,7 @@ namespace WebApplicationTest
 
             logicMock.Setup(x => x.GetTPointsByRegion(1)).Returns(ret);
 
-            var result = controller.GetTPointsByRegionCat(1, null);
+            var result = controller.Get(1, null);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as IEnumerable<TouristicPoint>;
 
@@ -69,7 +69,7 @@ namespace WebApplicationTest
             int[] numbers = { 1, 3 };
             logicMock.Setup(x => x.FindByRegionCat(1, numbers)).Returns(ret);
 
-            var result = controller.GetTPointsByRegionCat(1, numbers);
+            var result = controller.Get(1, numbers);
             var okResult = result as OkObjectResult;
             var value = okResult.Value as IEnumerable<TouristicPoint>;
 
@@ -84,7 +84,7 @@ namespace WebApplicationTest
 
             logicMock.Setup(x => x.GetTPointsByRegion(1)).Throws(new InvalidOperationException("La region no existe"));
 
-            var result = controller.GetTPointsByRegionCat(1, null);
+            var result = controller.Get(1, null);
 
             logicMock.VerifyAll();
             Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
@@ -99,7 +99,7 @@ namespace WebApplicationTest
             List<TouristicPoint> ret = null;
             logicMock.Setup(x => x.GetTPointsByRegion(1)).Returns(ret);
 
-            var result = controller.GetTPointsByRegionCat(1, null);
+            var result = controller.Get(1, null);
 
             logicMock.VerifyAll();
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));

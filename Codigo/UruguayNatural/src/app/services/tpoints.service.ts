@@ -12,7 +12,6 @@ import { TpointsSearchModule } from '../tpoints-search/tpoints-search.module';
 })
 export class TPointsService {
   uri = `${environment.baseUrl}/tpoints`;
-  uri2 = `${environment.baseUrl}/tpoints/filter`;
   tpoints: TPoint[] = new Array();
 
 
@@ -60,7 +59,7 @@ export class TPointsService {
   getTPointsByRegionCat(parameters: HttpParams): Observable<TPoint>{
     const options = { params: parameters };
 
-    return this.http.get<TPoint>(this.uri2,options);
+    return this.http.get<TPoint>(this.uri,options);
   }
 
   addTPoint(tpoint: TouristicPointInsert) : Observable<{}> {

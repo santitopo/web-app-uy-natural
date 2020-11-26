@@ -25,7 +25,7 @@ namespace WebApplication.Controllers
         }
         
         [HttpGet]
-        public IActionResult GetAllTPoints()
+        private IActionResult GetAllTPoints()
         {
             try
             {
@@ -41,9 +41,8 @@ namespace WebApplication.Controllers
             }
         }
 
-        ///tpoints/filter?regionId=3&categories=2&categories=3 --> filter by reg & cats
-        [HttpGet("filter")]
-        public IActionResult GetTPointsByRegionCat([FromQuery] int regionId, [FromQuery] int[] categories)
+        ///tpoints?regionId=3&categories=2&categories=3 --> filter by reg OR by reg & cats
+        private IActionResult GetTPointsByRegionCat([FromQuery] int regionId, [FromQuery] int[] categories)
         {
             try
             {
@@ -69,6 +68,26 @@ namespace WebApplication.Controllers
             catch(Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Get([FromQuery] int regionId, [FromQuery] int[] categories)
+        {
+            try
+            {
+                if (regionId != 0)
+                {
+                    return GetTPointsByRegionCat(regionId, categories);
+                }
+                else
+                {
+                    return GetAllTPoints();
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest("Error Desconocido");
             }
         }
 

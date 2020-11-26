@@ -24,28 +24,46 @@ namespace WebApplication.Controllers
             this.adminLogic = adminLogic;
         }
 
-        //localhost:44371/lodgings/filter?TPointId=1&Checkin=12102019&Checkout=14102019&RetiredNum=2&AdultsNum=2&ChildsNum=2&BabiesNum=4
-        [HttpGet("filter")]
-        public IActionResult GetLodgingsByTP([FromQuery] LodgingSearchModel search)
+        //[HttpGet("filter")]
+        private IActionResult GetLodgingsByTP([FromQuery] LodgingSearchModel search)
         {
             IEnumerable<LodgingSearchResultModel> touristicPoints = lodgingLogic.SearchLodgings(search);
             return Ok(touristicPoints);
         }
 
-        //https://localhost:44371/lodgings?LodgingName=hola&TpointId=2
+        //localhost:44371/lodgings?LodgingName=hola&TpointId=2
+        //localhost:44371/lodgings?TPointId=1&Checkin=12102019&Checkout=14102019&RetiredNum=2&AdultsNum=2&ChildsNum=2&BabiesNum=4
+
         [HttpGet]
-        public IActionResult GetbySimilarNameandTP([FromQuery] LodgingSelectionModel search)
+        private IActionResult GetbySimilarNameandTP([FromQuery] LodgingSelectionModel search)
+        {
+
+            IEnumerable<Lodging> lodgingList = lodgingLogic.SearchBySimilarNameandTpoint(search.LodgingName, search.TpointId);
+            return Ok(lodgingList);
+
+        }
+
+        [HttpGet]
+        public IActionResult Get([FromQuery] LodgingSelectionModel searchSimilar, [FromQuery] LodgingSearchModel searchbyTP)
         {
             try
             {
-                IEnumerable<Lodging> lodgingList = lodgingLogic.SearchBySimilarNameandTpoint(search.LodgingName, search.TpointId);
-                return Ok(lodgingList);
+                if (searchSimilar!= null && searchSimilar.LodgingName != null)
+                {
+
+                    return GetbySimilarNameandTP(searchSimilar);
+                }
+                else if (searchbyTP != null && searchbyTP.Checkin != null && searchbyTP.Checkout != null)
+                {
+                    return GetLodgingsByTP(searchbyTP);
+                }
+
+                return Ok();
             }
             catch (Exception e)
             {
                 return NotFound("Error de procesamiento");
             }
-
         }
 
         [HttpPost]
